@@ -1,0 +1,64 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: [nome];
+    src: url([caminho]);
+ }
+
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.esquerda {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.esquerda img {
+    margin: auto;
+    display: block;
+
+}
+
+.direita {
+    width: 40%;
+    background-color: #85C4F9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login {
+    border: 1px #000 solid;
+    height: 650px;
+    width: 80%;
+}
+
+.login h1 {
+    font-size: 80px;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+}
+
+.login h2 {
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    font-size: 35px;
+    margin-left: 25px;
+}
+
+.form .inputs {
+    width: 70%;
+    margin-left: 25px;
+    padding: 10px;
+    border: 2px solid #fff;
+    background-color: #85C4F9;
+}
