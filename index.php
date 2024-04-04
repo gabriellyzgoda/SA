@@ -1,14 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home</title>
+    <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="estilo.css" media="screen"/>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+    </style>
 </head>
 <body>
-<
-
-<a href="login.php">ir para o Login</a>
-    
+        <div class="principal">
+            <div class="social">
+                    <a class="icons" href=""><i class="fa-brands fa-square-facebook fa-xl"></i></a>
+                    <a class="icons" href=""><i class="fa-brands fa-instagram fa-xl"></i></a>
+                    <a class="icons" href=""><i class="fa-brands fa-youtube fa-xl"></i></i></a>  
+            </div>
+            <div class="logo">
+                <img src="imagens/logo-senai.png" alt="Minha Figura" width="600" height="auto">
+            </div>
+            <div class="iniciar">  
+                <a href="login.php"><button>Iniciar</button></a>
+            </div>
+        </div>
 </body>
 </html>
