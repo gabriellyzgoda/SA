@@ -3,18 +3,6 @@ session_start();
 ob_start();
 include_once 'conexao.php';
 ?>
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-ico">
-    <title>Celke - Atualizar Senha</title>
-</head>
-
-<body>
-    <h1>Atualizar senha</h1>
-
     <?php
     $chave = filter_input(INPUT_GET, 'chave', FILTER_DEFAULT);
 

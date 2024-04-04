@@ -1,6 +1,4 @@
-<html>	
-    <body>
-		<?php
+<?php
 			$hostname = "127.0.0.1";
 			$user = "root";
 			$password = "";
@@ -17,16 +15,14 @@
 				$email = $conexao -> real_escape_string($_POST['email']);
 				$senha = $conexao -> real_escape_string($_POST['senha']);
 
-				$sql = "INSERT INTO `sa`.`cadastro`
-							(`nome`, `email`, `senha``)
+				$sql = "INSERT INTO cadastro
+							(`nome`, `email`, `senha`)
 						VALUES
 							('".$nomeUsuario."', '".$email."', '".$senha."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 				
 				$conexao -> close();
-				header('Location: index.php', true, 301);
+				header('Location: login.php', true, 301);
 			}
-		?>
-	</body>
-</html>
+		

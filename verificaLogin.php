@@ -7,8 +7,8 @@
 			
 			$hostname = "127.0.0.1";
 			$user = "root";
-			$password = "usbw";
-			$database = "cadastro";
+			$password = "";
+			$database = "sa";
 		
 			$conexao = new mysqli($hostname,$user,$password,$database);
 
@@ -20,7 +20,7 @@
 				$senha = $conexao -> real_escape_string($_POST['senha']);
 
 				$sql="SELECT `id`, `email` FROM `cadastro`
-					WHERE `email` = '".$nomeUsuario."'
+					WHERE `email` = '".$email."'
 					AND `senha` = '".$senha."'
 					AND ativo = 's';";
 
@@ -33,12 +33,12 @@
 					$_SESSION['email'] = $row[1];
 					$conexao -> close();
 					
-					header('Location: login.php', true, 301);
+					header('Location: index.php', true, 301);
 					exit();
 				} else {
 					
 					$conexao -> close();
-					header('Location: login.php', true, 301);
+					header('Location: index.php', true, 301);
 				}
 			}
 		?>
