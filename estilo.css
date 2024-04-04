@@ -1,0 +1,51 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-color: #85C4F9;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.principal {
+    background-color: #fff;
+    width: 65%;
+    height: 100%;
+}
+
+.social {
+    margin: 55px 150px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.icons i{
+    font-size: 45px;
+    color: #005daa; 
+    margin: 0px 7px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    margin: 140px 0px 70px 0px;
+}
+
+.iniciar {
+    display: flex;
+    justify-content: center;
+}
+
+.iniciar button {
+    background-color: #85C4F9;
+    border: none;
+    border-radius: 35px;
+    padding: 22px 40px;
+    font-size: 55px;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    font-weight: bold;
+}
