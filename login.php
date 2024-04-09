@@ -44,9 +44,11 @@
                         <center>
                             <input class="botao-login" type="submit" value="Entrar" />
                         </center>
-                    </form>
-
-               
+                    </form>   
+                    <div class="ehProfessor">
+                        <label for="professor">É professor? </label>
+                        <input type="checkbox" id="professor" name="professor" />
+                    </div>
                 </div>
             </div>
             

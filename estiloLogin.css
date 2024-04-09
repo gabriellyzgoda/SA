@@ -69,6 +69,32 @@ body, html{
     font-size: 21px;
 }
 
+.ehProfessor {
+    display: flex;
+    width: 92%;
+    justify-content: center;
+    height: auto;
+    margin-top: 40px;
+    align-items: center;
+}
+
+.ehProfessor label {
+    font-size: 25px;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    margin-right: 5px;
+}
+
+.ehProfessor input {
+    width: 25px;
+    height: 25px;
+}
+
+.ehProfessor input[type=checkbox]:checked {
+    background: #BADA55;
+ }
+
+
 .login {
     
     height: 650px;
@@ -122,7 +148,7 @@ body, html{
     padding: 15px;
     color: #85C4F9;
     font-weight: bold;
-    margin: 70px 50px 0px 0px;
+    margin: 70px 50px 40px 0px;
     font-family: "League Spartan", sans-serif;
 }
 
@@ -144,3 +170,4 @@ body, html{
     font-size: 20px;
 
 }
+

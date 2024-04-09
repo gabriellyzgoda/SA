@@ -7,7 +7,7 @@ body, html{
 p {
   margin: 0;
 }
-header {
+.header-topo {
   background-color: #85C4F9;
   width: 100%;
   height: auto;
@@ -78,57 +78,90 @@ footer p {
   margin: 0px 2px;
 }
 
-.conteudo {
-  width: 100%;
-  height: auto;
+
+/*menu css*/ 
+
+.sidebar {
+  position: fixed;
+  width: 240px;
+  left: -240px;
+  height: 81%;
+  background-color: #6a90c4;
+  transition: all .5s ease;
+  border-radius: 20px;
 }
 
-.titulo {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 40px 0px 0px 0px;
-}
-
-.titulo h1 {
-  font-size: 50px;
-  color:#85C4F9;
+.sidebar header {
+  font-size: 35px;
   font-weight: bold;
+  color: #fff;
+  line-height: 70px;
+  text-align: center;
+  background: #6a90c4;
+  user-select: none;
   font-family: "League Spartan", sans-serif;
 }
 
-.principal {
+.sidebar a {
+  display: block;
+  height: 65px;
   width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.box {
-  
-}
-
-.box-linha {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 80px;
-}
-
-.bloco {
-  background-color: #85C4F9;
-  margin: 0px 20px;
-  padding: 30px 20px;
-  border-radius: 25px;
-}
-
-.box-linha button {
-  padding: 20px 0px;
-  font-size: 30px;
-  font-weight: bold;
+  color: #fff;
+  line-height: 65px;
+  padding-left: 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  border-top: 1px solid rgba(255,255,255,.1);
+  border-left: 5px solid transparent;
   font-family: "League Spartan", sans-serif;
-  border-radius: 30px;
-  width: 150px;
-  color:#85C4F9;
-  background-color: #fff;
-  border: none;
+  transition: all .5s ease;
+}
+
+.sidebar a:active, .sidebar a:hover {
+  border-left: 5px solid #593632;
+  color: #b93632;
+}
+
+.sidebar a i {
+  font-size: 23px;
+  margin-right: 16px;
+}
+
+.sidebar a span {
+  letter-spacing: 1px;
+  text-transform:  uppercase;
+}
+
+#check {
+  display: none;
+}
+
+label #btn, label #cancel {
+  position: absolute;
+  cursor: pointer;
+  color: #fff;
+  border-radius: 5px;
+  margin: 15px 30px;
+  font-size: 28px;
+  background: #6a90c4;
+  height: 45px;
+  width: 45px;
+  text-align: center;
+  line-height: 45px;
+  transition: all .5s ease;
+}
+
+label #cancel {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#check:checked ~ .sidebar {
+  left: 0;
+}
+
+#check:checked ~ label #btn {
+  margin-left: 245px;
+  opacity: 1;
+  visibility: visible;
 }

@@ -11,9 +11,9 @@
     </style>
 </head>
 <body>
-    <header>
+    <header class="header-topo">
         <div class="logo">
-                <img src="imagens/senai.png" alt="Minha Figura" width="250" height="auto">
+                <img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto">
         </div>
         <div class="menu-header">
             <a href="perfil.php">Perfil</a>
@@ -22,28 +22,27 @@
             
         </div>
     </header>
-        <div class="linha"></div>
-    <div class="conteudo">
-        <div class="titulo"><h1> O que vamos aprender hoje?</h1></div>
-        <div class="principal">
-            <div class="box">
-                <div class="box-linha">
-                    <div class="bloco"><a><button>Cadastros</button></a></div>
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                </div>
-                <div class="box-linha">
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                    <div class="bloco"><a href="home.php"><button>Picking</button></a></div>
-                </div>
-            </div>
-        </div>
-        
+    <input type="checkbox" id="check">
+    <label for="check">
+        <i class="fas fa-bars" id="btn"></i>
+        <i class="fa-solid fa-square-xmark" id="cancel"></i>
+    </label>
+    <div class="sidebar">
+        <header>Menu</header>
+        <a href="#" class="active">
+            <i class="fas fa-bars"></i>
+            <span>Painel</span>  
+        </a>
+        <a href="#" class="active">
+            <i class="fas fa-bars"></i>
+            <span>Painel</span>  
+        </a>
+        <a href="#" class="active">
+            <i class="fas fa-bars"></i>
+            <span>Painel</span>  
+        </a>
+    </div>      
+    <div class="conteudo">      
     </div>
     <footer>
         <div class="linha-footer"><div>
