@@ -33,12 +33,12 @@
 					$_SESSION['email'] = $row[1];
 					$conexao -> close();
 					
-					header('Location: index.php', true, 301);
+					header('Location: login.php', true, 301);
 					exit();
 				} else {
 					
 					$conexao -> close();
-					header('Location: index.php', true, 301);
+					header('Location: home.php', true, 301);
 				}
 			}
 		?>
