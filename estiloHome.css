@@ -78,6 +78,10 @@ footer p {
   margin: 0px 2px;
 }
 
+.menu-header a:hover, .menu-header i:hover {
+  color: #2b497d;
+  transition: all .5s ease;
+}
 
 /*menu css*/ 
 
@@ -88,7 +92,6 @@ footer p {
   height: 81%;
   background-color: #6a90c4;
   transition: all .5s ease;
-  border-radius: 20px;
 }
 
 .sidebar header {
@@ -110,16 +113,14 @@ footer p {
   line-height: 65px;
   padding-left: 30px;
   box-sizing: border-box;
-  border-bottom: 1px solid rgba(255,255,255,.1);
-  border-top: 1px solid rgba(255,255,255,.1);
   border-left: 5px solid transparent;
   font-family: "League Spartan", sans-serif;
   transition: all .5s ease;
 }
 
 .sidebar a:active, .sidebar a:hover {
-  border-left: 5px solid #593632;
-  color: #b93632;
+  border-left: 5px solid #2b497d;
+  color: #2b497d;
 }
 
 .sidebar a i {
@@ -151,6 +152,10 @@ label #btn, label #cancel {
   transition: all .5s ease;
 }
 
+label #btn:hover {
+  background-color: #2b497d;
+}
+
 label #cancel {
   opacity: 0;
   visibility: hidden;
@@ -164,4 +169,48 @@ label #cancel {
   margin-left: 245px;
   opacity: 1;
   visibility: visible;
+}
+.menu-item {
+  display: block;
+}
+
+.sidebar ul {
+  margin: 0px;
+  padding: 0px;
+}
+
+.sub-menu {
+  display: block;
+}
+
+.sub-menu a {
+  display: block;
+    height: 40px;
+    width: 100%;
+    color: #fff;
+    line-height: 40px;
+    padding-left: 90px;
+    box-sizing: border-box;
+    border-left: 5px solid transparent;
+    font-family: "League Spartan", sans-serif;
+    transition: all .5s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.menu-item-title {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, .1);
+  border-top: 1px solid rgba(255, 255, 255, .1);
+}
+
+.menu-item-title a {
+  
+  text-decoration: none;
+}
+
+.menu-item-title i {
+  color: #fff;
+  margin-right: 20px;
 }
