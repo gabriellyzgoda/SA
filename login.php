@@ -49,6 +49,9 @@
                         <label for="professor">É professor? </label>
                         <input type="checkbox" id="professor" name="professor" />
                     </div>
+                    <div>
+                        <?php echo $erro ?? ''?>
+                    </div>
                 </div>
             </div>
             
