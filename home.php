@@ -26,6 +26,16 @@ session_start();
             
         </div>
     </header>
+    <script>
+        let arrow = document.querySelectorAll(".arrow");
+        for (var i = 0; i < arrow.length; i++) {
+            arrow[i].addEventListener("click", (e)=>{
+        let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+        arrowParent.classList.toggle("showMenu");
+        });
+        }
+    </script>
+   
     <input type="checkbox" id="check">
     <label for="check">
         <i class="fas fa-bars" id="btn"></i>
@@ -33,18 +43,43 @@ session_start();
     </label>
     <div class="sidebar">
         <header>Menu</header>
-        <a href="#" class="active">
-            <i class="fas fa-bars"></i>
-            <span>Painel</span>  
-        </a>
-        <a href="#" class="active">
-            <i class="fas fa-bars"></i>
-            <span>Painel</span>  
-        </a>
-        <a href="#" class="active">
-            <i class="fas fa-bars"></i>
-            <span>Painel</span>  
-        </a>
+        <ul>
+            <li class="menu-item">
+                <div class="menu-item-title">
+                    <a href="#" class="active">
+                        <i class="fa-solid fa-truck-front"></i>
+                        <span>Recebimento</span>  
+                    </a>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>  
+                <ul class="sub-menu">
+                    <li class="sub-menu-item">
+                        <a href="#">
+                            <span class="sub-menu-title">Grid</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu-item">
+                    <a href="#">
+                            <span class="sub-menu-title">Grid</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+            <li class="menu-item">
+                <a href="#" class="active">
+                    <i class="fas fa-bars"></i>
+                    <span>Painel</span>  
+                </a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="active">
+                    <i class="fas fa-bars"></i>
+                    <span>Painel</span>  
+                </a>
+            </li>  
+        </ul>    
     </div>      
     <div class="conteudo">      
     </div>
