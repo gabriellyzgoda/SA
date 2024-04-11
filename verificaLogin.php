@@ -21,8 +21,7 @@
 
 				$sql="SELECT `id`, `email` FROM `cadastro`
 					WHERE `email` = '".$email."'
-					AND `senha` = '".$senha."'
-					AND ativo = 's';";
+					AND `senha` = '".$senha."';";
 
 				$resultado = $conexao->query($sql);
 				
@@ -33,13 +32,15 @@
 					$_SESSION['email'] = $row[1];
 					$conexao -> close();
 					
-					header('Location: login.php', true, 301);
+					header('Location: home.php', true, 301);
 					exit();
 				} else {
 					
 					$conexao -> close();
-					header('Location: home.php', true, 301);
+					header('Location: login.php', true, 301);
 				}
+    
+
 			}
 		?>
 	</body>

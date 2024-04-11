@@ -38,7 +38,7 @@
                             <input class="inputs" type="password" name="senha" id="senha" size="20">
                         </div>
                         <div class= "recuperar-senha">
-                            <a href="recuperar_senha.php" >Esqueceu a senha?</a>
+                            <a href="esqueceuasenha.php" >Esqueceu a senha?</a>
                         </div>
 
                         <center>
@@ -48,6 +48,9 @@
                     <div class="ehProfessor">
                         <label for="professor">É professor? </label>
                         <input type="checkbox" id="professor" name="professor" />
+                    </div>
+                    <div>
+                        <?php echo $erro ?? ''?>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+ include("protecao.php")
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -159,6 +163,7 @@
          <h1>Bem vindo aluno(a)...</h1>
         </div>
     </div>
+
     <footer>
         <div class="linha-footer"><div>
         <center>
