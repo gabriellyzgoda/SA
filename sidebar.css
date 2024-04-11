@@ -1,127 +1,13 @@
-body, html{
-  height: 100%;
-  width: 100%;
-  margin: 0px;
-}
 
-p {
-  margin: 0;
-}
-.header-topo {
-  background-color: #85C4F9;
-  width: 100%;
-  height: auto;
-  padding: 10px 0px;
-  border-bottom: 4px solid #fff;
-  display: flex;
-  justify-content: space-between;
-}
-
-.logo {
-    margin: 10px 5px 5px 200px;
-}
-
-.linha {
-  background-color: #85C4F9;
-  width: 100%;
-  height: 4px;
-}
-
-footer {
-  background-color: #85C4F9;
-  width: 100%;
-  height: 60px;
-  display: block;
-  position: fixed;
-  bottom: 0;
-  border-top: 4px solid #85C4F9;
-}
-
-.linha-footer {
-  background-color: #fff;
-  width: 100%;
-  height: 4px;
-}
-
-footer p {
-  color: #fff;
-  font-size: 13px;
-  font-family: "League Spartan", sans-serif;
-  padding-top: 15px;
-}
-
-/* header //////////////////////////*/
-.menu-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  margin-right: 200px;
-}
-
-
-.menu-header a {
-  margin-left: 20px;
-}
-
-.menu-header i {
-  font-size: 35px;
-  color: #fff;
-  margin: 0px 2px;
-}
-
-.menu-header a:hover, .menu-header i:hover {
-  color: #718fc3;
-
-}
-.circulo {
-  width: 60px;
-  height: 60px;
-  background-color: #fff;
-  border-radius: 40px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.circulo:hover {
-  background-color: #718fc3;
-  
-}
-.circulo i:hover {
-  color:#fff;
-}
-
-
-.circulo i {
-  color:#85C4F9;
-  font-size: 35px;
-}
-
-
-
-/*conteudo*/ 
-.titulo-conteudo {
-  width: 100%;
-  height: auto;
-  display: flex;
-  justify-content: center;
-}
-
-.titulo-conteudo h1 {
-  font-size: 60px;
-  font-weight: bold;
-  font-family: "League Spartan", sans-serif;
-  color: #85C4F9;
-  margin-top: 80px;
-}
-
-/*Menu Sidebarfffffffffffffffffffffffffffffffffff*/
+/*Menu Sidebar*/
 .sidebar{
   position: fixed;
+  top: 0;
   left: 0;
   height: 100%;
   width: 260px;
-  background: #6A90C4;
+  background: #11101d;
+  z-index: 100;
   transition: all 0.5s ease;
 }
 .sidebar.close{
@@ -132,10 +18,9 @@ footer p {
   width: 100%;
   display: flex;
   align-items: center;
-  margin-top: 10px;
 }
 .sidebar .logo-details i{
-  font-size: 50px;
+  font-size: 30px;
   color: #fff;
   height: 50px;
   min-width: 78px;
@@ -143,13 +28,11 @@ footer p {
   line-height: 50px;
 }
 .sidebar .logo-details .logo_name{
-  font-size: 40px;
+  font-size: 22px;
   color: #fff;
-  font-weight: bold;
-  font-family: "League Spartan", sans-serif;
+  font-weight: 600;
   transition: 0.3s ease;
   transition-delay: 0.1s;
-  margin-top:5px;
 }
 .sidebar.close .logo-details .logo_name{
   transition-delay: 0s;
@@ -173,7 +56,7 @@ footer p {
   transition: all 0.4s ease;
 }
 .sidebar .nav-links li:hover{
-  background: #516c9b;
+  background: #1d1b31;
 }
 .sidebar .nav-links li .iocn-link{
   display: flex;
@@ -184,12 +67,12 @@ footer p {
   display: block
 }
 .sidebar .nav-links li i{
-  height: 65px;
-  min-width: 67px;
+  height: 50px;
+  min-width: 78px;
   text-align: center;
-  line-height: 66px;
+  line-height: 50px;
   color: #fff;
-  font-size: 23px;
+  font-size: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -205,10 +88,9 @@ footer p {
   text-decoration: none;
 }
 .sidebar .nav-links li a .link_name{
-  font-size: 22px;
-  font-weight: 100;
+  font-size: 18px;
+  font-weight: 400;
   color: #fff;
-  font-family: "League Spartan", sans-serif;
   transition: all 0.4s ease;
 }
 .sidebar.close .nav-links li a .link_name{
@@ -218,7 +100,7 @@ footer p {
 .sidebar .nav-links li .sub-menu{
   padding: 6px 6px 14px 80px;
   margin-top: -10px;
-  background: #516c9b;
+  background: #1d1b31;
   display: none;
 }
 .sidebar .nav-links li.showMenu .sub-menu{
@@ -226,16 +108,14 @@ footer p {
 }
 .sidebar .nav-links li .sub-menu a{
   color: #fff;
-  font-size: 19px;
+  font-size: 15px;
   padding: 5px 0;
-  font-family: "League Spartan", sans-serif;
   white-space: nowrap;
+  opacity: 0.6;
   transition: all 0.3s ease;
 }
 .sidebar .nav-links li .sub-menu a:hover{
-
-  background-color: #516c9b;
-  text-decoration: underline;
+  opacity: 1;
 }
 .sidebar.close .nav-links li .sub-menu{
   position: absolute;

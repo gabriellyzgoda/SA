@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+ <head>
+	
+	<meta charset="utf-8">
+    
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+    <![endif]-->       
+
+	<link rel="stylesheet" type="text/css" href="sidebar.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    
+
+
+	<title>Menu Drop Down Sidebar Html e Css</title>
+
+ </head>
+
+<body>  
+    <!--Inicio Sidebar-->
+    <div class="sidebar close">
+      
+      <div class="logo-details">
+        
+        <i class="bx bx-menu"></i>
+        <span class="logo_name">Menu</span>
+     
+      </div>
+      
+      <ul class="nav-links">
+        
+        <li>
+          
+          <div class="iocn-link">
+            
+            <a href="#">
+              <i class='bx bx-collection' ></i>
+              <span class="link_name">Categoria</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
+          
+          </div>
+          
+          <ul class="sub-menu">
+            
+            <li><a class="link_name" href="#">Categoria</a></li>
+            <li><a href="#">HTML</a></li>
+            <li><a href="#">Css</a></li>
+            <li><a href="#">JavaScript</a></li>
+            <li><a href="#">Wordpress</a></li>
+          
+          </ul>
+          
+        </li>
+
+      </ul><!--Fecha ul-->
+
+    </div>
+    <!--Fecha Sidebar-->
+
+
+
+<script>
+  
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e)=>{
+     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+     arrowParent.classList.toggle("showMenu");
+      });
+    }
+    
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("close");
+    });
+
+</script>
+
+</body>
+</html>
