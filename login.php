@@ -40,18 +40,22 @@
                         <div class= "recuperar-senha">
                             <a href="esqueceuasenha.php" >Esqueceu a senha?</a>
                         </div>
-
                         <center>
                             <input class="botao-login" type="submit" value="Entrar" />
                         </center>
-                    </form>   
                     <div class="ehProfessor">
                         <label for="professor">É professor? </label>
                         <input type="checkbox" id="professor" name="professor" />
                     </div>
+                    <?php
+                    if (isset($_GET['erro=true'])){
+                        $erro = "Você não tem permissão para acessar";
+                    }
+                    ?>
                     <div>
                         <?php echo $erro ?? ''?>
                     </div>
+                    </form>                                   
                 </div>
             </div>
             

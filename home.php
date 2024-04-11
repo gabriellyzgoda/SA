@@ -2,8 +2,12 @@
 <html lang="en">
 <?php
 session_start();
- include("protecao.php")
-?>
+
+// Verifica se o usuário está logado
+if(!isset($_SESSION['email'])) {
+    header("Location: login.php?erro=true");
+    exit;
+}?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,7 +26,7 @@ session_start();
         <div class="menu-header">
             <a href="perfil.php">Perfil</a>
             <p>|</p>
-            <a href="index.php">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="logout.php">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
             
         </div>
     </header>
