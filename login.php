@@ -48,8 +48,8 @@
                         <input type="checkbox" id="professor" name="professor" />
                     </div>
                     <?php
-                    if (isset($_GET['erro=true'])){
-                        $erro = "Você não tem permissão para acessar";
+                    if (isset($_GET['erro'])){
+                        echo "Você não tem permissão para acessar";
                     }
                     ?>
                     <div>
