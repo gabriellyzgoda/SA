@@ -1,8 +1,6 @@
 <html>
     <body>
-		
-		<?php
-		
+	<?php
 			session_start();
 			
 			$hostname = "127.0.0.1";
@@ -39,8 +37,6 @@
 					$conexao -> close();
 					header('Location: login.php', true, 301);
 				}
-    
-
 			}
 		?>
 	</body>

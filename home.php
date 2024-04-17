@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
+session_start();
+
+// Verifica se o usuário está logado
+if(!isset($_SESSION['email'])) {
+    header("Location: login.php?erro=true");
+    exit;
+}?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,16 +22,18 @@
 <body>
     <header class="header-topo">
         <div class="logo">
-                <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+                <img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto">
         </div>
         <div class="menu-header">
-            <a href="perfil.php" title="Perfil">
-                <div class="circulo" >
+            <a href="perfil.php">Perfil</a>
+            <p>|</p>
+            <a href="logout.php">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
+            <a href="perfil.php">
+                <div class="circulo">
                         <i class="fa-solid fa-user"></i>
                 </div>
             </a>
-            <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>
-            
+            <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar close">
