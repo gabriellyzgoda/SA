@@ -44,8 +44,10 @@
                             <input class="botao-login" type="submit" value="Entrar" />
                         </center>
                     <div class="ehProfessor">
-                        <label for="professor">É professor? </label>
-                        <input type="checkbox" id="professor" name="professor" />
+                        <form method="post" action="homeP.php" id="formlogin" name="formlogin">
+                            <label for="professor">É professor? </label>
+                            <input type="checkbox" id="professor" name="professor" />
+                        </form>
                     </div>
                     <?php
                     if (isset($_GET['erro'])){
