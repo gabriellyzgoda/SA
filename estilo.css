@@ -49,3 +49,14 @@ body {
     font-family: "League Spartan", sans-serif;
     font-weight: bold;
 }
+
+.iniciar button:hover {
+    background-color: #718fc3;  
+    transition: all 0.4s ease;
+}
+
+.icons i:hover {
+    color: #063f6f;
+    transition: all 0.3s ease;
+
+}

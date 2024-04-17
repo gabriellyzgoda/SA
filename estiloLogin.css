@@ -63,6 +63,12 @@ body, html{
 
 }
 
+.container-cadastre-se button:hover {
+    background-color: #6da0cb;
+    transition: all 0.4s ease;
+    color: #fff;
+}
+
 .container-cadastre-se p {
     color: #fff;
     font-family: "League Spartan", sans-serif;
@@ -150,6 +156,12 @@ body, html{
     font-weight: bold;
     margin: 70px 50px 40px 0px;
     font-family: "League Spartan", sans-serif;
+}
+
+.botao-login:hover {
+   background-color: #6da0cb;
+    transition: all 0.4s ease;
+    color: #fff;
 }
 
 

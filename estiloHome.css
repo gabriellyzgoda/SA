@@ -71,6 +71,7 @@ footer p {
 
 .menu-header a:hover, .menu-header i:hover {
   color: #718fc3;
+  transition: all 0.4s ease;
 
 }
 .circulo {
@@ -85,6 +86,7 @@ footer p {
 
 .circulo:hover {
   background-color: #718fc3;
+  transition: all 0.4s ease;
   
 }
 .circulo i:hover {

@@ -1,7 +1,7 @@
 <?php
 			$hostname = "127.0.0.1";
 			$user = "root";
-			$password = "";
+			$password = "usbw";
 			$database = "sa";
 		
 			$conexao = new mysqli($hostname,$user,$password,$database);
@@ -11,14 +11,14 @@
 				exit();
 			} else {
 				// Evita caracteres epsciais (SQL Inject)
-				$nomeUsuario = $conexao -> real_escape_string($_POST['nome']);
+				$nome = $conexao -> real_escape_string($_POST['nome']);
 				$email = $conexao -> real_escape_string($_POST['email']);
 				$senha = $conexao -> real_escape_string($_POST['senha']);
 
 				$sql = "INSERT INTO cadastro
 							(`nome`, `email`, `senha`)
 						VALUES
-							('".$nomeUsuario."', '".$email."', '".$senha."');";
+							('".$nome."', '".$email."', '".$senha."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 				

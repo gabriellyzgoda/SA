@@ -1,9 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
-session_start();
- include("protecao.php")
-?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +14,11 @@ session_start();
 <body>
     <header class="header-topo">
         <div class="logo">
-                <img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto">
+                <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
-            <a href="perfil.php">
-                <div class="circulo">
+            <a href="perfil.php" title="Perfil">
+                <div class="circulo" >
                         <i class="fa-solid fa-user"></i>
                 </div>
             </a>
