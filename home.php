@@ -25,9 +25,6 @@ if(!isset($_SESSION['email'])) {
                 <img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto">
         </div>
         <div class="menu-header">
-            <a href="perfil.php">Perfil</a>
-            <p>|</p>
-            <a href="logout.php">Sair <i class="fa-solid fa-right-from-bracket"></i></a>
             <a href="perfil.php">
                 <div class="circulo">
                         <i class="fa-solid fa-user"></i>
