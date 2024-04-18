@@ -50,7 +50,7 @@ if(!isset($_SESSION['email'])) {
             
             <a href="#">
                 <i class="fa-solid  fa-truck-front"></i>
-              <span class="link_name">Recebimento</span>
+              <span class="link_name">Pedidos</span>
             </a>
             
             <i class='bx bxs-chevron-down arrow' ></i>
@@ -59,9 +59,9 @@ if(!isset($_SESSION['email'])) {
           
           <ul class="sub-menu">
             
-            <li><a class="link_name" href="#">Recebimento</a></li>
-            <li><a href="#">Container</a></li>
-            <li><a href="#">Carga</a></li>
+            <li><a class="link_name" href="#">Pedidos</a></li>
+            <li><a href="#">Meus pedidos</a></li>
+            <li><a href="#">Criar pedido</a></li>
           
           </ul>
           
@@ -73,7 +73,7 @@ if(!isset($_SESSION['email'])) {
             
             <a href="#">
             <i class="fa-solid fa-truck-ramp-box"></i>
-              <span class="link_name">Movimentação</span>
+              <span class="link_name">Nota fiscal</span>
             </a>
             
             <i class='bx bxs-chevron-down arrow' ></i>
@@ -82,9 +82,9 @@ if(!isset($_SESSION['email'])) {
           
           <ul class="sub-menu">
           
-            <li><a class="link_name" href="#">Movimentação</a></li>
-            <li><a href="#">Exemplo</a></li>
-            <li><a href="#">Exemplo</a></li>
+            <li><a class="link_name" href="#">Nota fiscal</a></li>
+            <li><a href="#">Criar Danfe</a></li>
+            <li><a href="#">Minhas Danfe's</a></li>
           
           </ul>
 
@@ -94,11 +94,11 @@ if(!isset($_SESSION['email'])) {
           
           <a href="#">
             <i class="fa-solid fa-warehouse"></i>
-            <span class="link_name">Estoque</span>
+            <span class="link_name">Controle</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Estoque</a></li>
+            <li><a class="link_name" href="#">Controle</a></li>
           </ul>
 
         </li>
@@ -107,11 +107,11 @@ if(!isset($_SESSION['email'])) {
           
           <a href="#">
           <i class="fa-solid fa-box"></i>
-            <span class="link_name">Picking</span>
+            <span class="link_name">Alunos</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Picking</a></li>
+            <li><a class="link_name" href="#">Alunos</a></li>
           </ul>
 
         </li>
@@ -122,7 +122,7 @@ if(!isset($_SESSION['email'])) {
           
             <a href="#">
             <i class="fa-solid fa-truck-fast"></i>
-              <span class="link_name">Expedição</span>
+              <span class="link_name">Relatórios</span>
             </a>
             
             <i class='bx bxs-chevron-down arrow' ></i>
@@ -130,7 +130,7 @@ if(!isset($_SESSION['email'])) {
           </div>
           
           <ul class="sub-menu">
-            <li><a class="link_name" href="#">Expedição</a></li>
+            <li><a class="link_name" href="#">Relatórios</a></li>
             <li><a href="#">Exemplo</a></li>
             <li><a href="#">Exemplo</a></li>
             <li><a href="#">Exemplo</a></li>
@@ -142,28 +142,28 @@ if(!isset($_SESSION['email'])) {
         
           <a href="#">
           <i class="fa-solid fa-server"></i>
-            <span class="link_name">Controle</span>
+            <span class="link_name">Exemplo</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Controle</a></li>
+            <li><a class="link_name" href="#">Exemplo</a></li>
           </ul>
         </li>
         <li>
           <a href="#">
           <i class="fa-regular fa-file"></i>
-            <span class="link_name">Relatório</span>
+            <span class="link_name">Exemplo</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Relatório</a></li>
+            <li><a class="link_name" href="#">Exemplo</a></li>
           </ul>
         </li>      
       </ul><!--Fecha ul-->
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Bem vindo aluno(a)...</h1>
+         <h1>Bem vindo professor(a)...</h1>
         </div>
     </div>
 
