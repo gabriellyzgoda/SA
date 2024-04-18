@@ -163,7 +163,7 @@ if(!isset($_SESSION['email'])) {
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Bem vindo aluno(a)...</h1>
+         <h1>Bem vindo professor(a)...</h1>
         </div>
     </div>
 

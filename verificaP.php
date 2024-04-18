@@ -16,12 +16,10 @@
 			} else {
 				$email = $conexao -> real_escape_string($_POST['email']);
 				$senha = $conexao -> real_escape_string($_POST['senha']);
-				$professor = $conexao -> real_escape_string($_POST['professor']);
 
 				$sql="SELECT `id`, `email` FROM `cadastro`
 					WHERE `email` = '".$email."'
-					AND `senha` = '".$senha."'
-					AND professor = '".$professor."'";
+					AND `senha` = '".$senha."';";
 
 				$resultado = $conexao->query($sql);
 				
@@ -31,15 +29,12 @@
 					$_SESSION['id'] = $row[0];
 					$_SESSION['email'] = $row[1];
 					$conexao -> close();
-
-					if($professor = true){
-						header('Location: homeP.php', true, 301);
-						exit();
-					}else{
-						header('Location: home.php', true, 301);
-						exit();
-					}
+                    
+					
+					header('Location: home.php', true, 301);
+					exit();
 				} else {
+					
 					$conexao -> close();
 					header('Location: login.php', true, 301);
 				}
