@@ -49,7 +49,7 @@ if(!isset($_SESSION['email'])) {
           <div class="iocn-link">
             
             <a href="#">
-                <i class="fa-solid  fa-truck-front"></i>
+            <i class="fa-solid fa-box"></i>
               <span class="link_name">Pedidos</span>
             </a>
             
@@ -72,7 +72,7 @@ if(!isset($_SESSION['email'])) {
           <div class="iocn-link">
             
             <a href="#">
-            <i class="fa-solid fa-truck-ramp-box"></i>
+            <i class="fa-solid fa-receipt"></i>
               <span class="link_name">Nota fiscal</span>
             </a>
             
@@ -106,7 +106,7 @@ if(!isset($_SESSION['email'])) {
         <li>
           
           <a href="#">
-          <i class="fa-solid fa-box"></i>
+          <i class="fa-solid fa-users"></i>
             <span class="link_name">Alunos</span>
           </a>
 
@@ -121,7 +121,7 @@ if(!isset($_SESSION['email'])) {
           <div class="iocn-link">
           
             <a href="#">
-            <i class="fa-solid fa-truck-fast"></i>
+            <i class="fa-solid fa-file-lines"></i>
               <span class="link_name">Relatórios</span>
             </a>
             
