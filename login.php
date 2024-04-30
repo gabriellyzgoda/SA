@@ -31,36 +31,25 @@
                         <i class="fa-solid fa-envelope"></i>
                             <input  class="inputs" type="text" name="email" id="email" size="20">
                         </div>
-                        
                         <label><h2>Senha: </h2></label>
                         <div class="div-input">
                             <i class="fa-solid fa-lock"></i>
                             <input class="inputs" type="password" name="senha" id="senha" size="20">
                         </div>
-                        <div class= "recuperar-senha">
-                            <a href="esqueceuasenha.php" >Esqueceu a senha?</a>
-                        </div>
-                        <form method="post" action="verificaP.php">
                             <center>
                                 <input class="botao-login" id="entrar" type="submit" value="Entrar"/>
                             </center>
-                            <div class="ehProfessor">
-                                <label for="professor">É professor? </label>
-                                <input type="checkbox" id="professor" name="professor" />
-                        </form>
-                    </div>
-                    <?php
-                    if (isset($_GET['erro'])){
-                        echo "Você não tem permissão para acessar";
-                    }
-                    ?>
-                    <div>
-                        <?php echo $erro ?? ''?>
-                    </div>
+                        <?php
+                        if (isset($_GET['erro'])){
+                            echo "Você não tem permissão para acessar";
+                        }
+                        ?>
+                        <div>
+                            <?php echo $erro ?? ''?>
+                        </div>
                     </form>                                   
                 </div>
             </div>
-            
         </div>
     </div>  
 </body>

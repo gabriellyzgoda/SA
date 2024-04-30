@@ -41,10 +41,8 @@
                             <input class="inputs" type="password" name="senha" id="senha" size="20">
                         </div>
                         <div class="ehProfessor">
-                            <form method="post" action="homeP.php" id="formlogin" name="formlogin">
                                 <label for="professor">É professor? </label>
                                 <input type="checkbox" id="professor" name="professor" />
-                            </form>
                         </div>
 
                         <center>

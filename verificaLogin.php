@@ -1,11 +1,9 @@
-<html>
-    <body>
-	<?php
+<?php
 			session_start();
 			
 			$hostname = "127.0.0.1";
 			$user = "root";
-			$password = "usbw";
+			$password = "";
 			$database = "sa";
 		
 			$conexao = new mysqli($hostname,$user,$password,$database);
@@ -20,19 +18,24 @@
 
 				$sql="SELECT `id`, `email` FROM `cadastro`
 					WHERE `email` = '".$email."'
-					AND `senha` = '".$senha."'
-					AND professor = '".$professor."'";
+					AND `senha` = '".$senha."'";
 
 				$resultado = $conexao->query($sql);
 				
 				if($resultado->num_rows != 0)
 				{
+					$sql="SELECT `id`, `email`,`professor` FROM `cadastro`
+					WHERE `email` = '".$email."'
+					AND `senha` = '".$senha."'";
+					$resultado = $conexao->query($sql);
+
 					$row = $resultado -> fetch_array();
 					$_SESSION['id'] = $row[0];
 					$_SESSION['email'] = $row[1];
+					$_SESSION['professor'] = $row[2];
 					$conexao -> close();
-
-					if($professor = true){
+					
+					if($row[2] == "1"){
 						header('Location: homeP.php', true, 301);
 						exit();
 					}else{
@@ -44,6 +47,3 @@
 					header('Location: login.php', true, 301);
 				}
 			}
-		?>
-	</body>
-</html>

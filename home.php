@@ -5,7 +5,7 @@ session_start();
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
-    header("Location: login.php?erro=true");
+    header("Location: login.php?erro=false");
     exit;
 }?>
 <head>
@@ -82,7 +82,7 @@ if(!isset($_SESSION['email'])) {
           
           <ul class="sub-menu">
           
-            <li><a class="link_name" href="#">Movimentação</a></li>
+            <li><a class="link_name" href="movimentacao.php">Movimentação</a></li>
             <li><a href="#">Exemplo</a></li>
             <li><a href="#">Exemplo</a></li>
           

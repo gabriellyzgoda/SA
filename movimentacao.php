@@ -11,7 +11,7 @@ if(!isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Professor</title>
+    <title>Home Aluno</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -50,7 +50,7 @@ if(!isset($_SESSION['email'])) {
             
             <a href="#">
                 <i class="fa-solid  fa-truck-front"></i>
-              <span class="link_name">Pedidos</span>
+              <span class="link_name">Recebimento</span>
             </a>
             
             <i class='bx bxs-chevron-down arrow' ></i>
@@ -59,9 +59,9 @@ if(!isset($_SESSION['email'])) {
           
           <ul class="sub-menu">
             
-            <li><a class="link_name" href="#">Pedidos</a></li>
-            <li><a href="#">Meus pedidos</a></li>
-            <li><a href="#">Criar pedido</a></li>
+            <li><a class="link_name" href="#">Recebimento</a></li>
+            <li><a href="#">Container</a></li>
+            <li><a href="#">Carga</a></li>
           
           </ul>
           
@@ -73,7 +73,7 @@ if(!isset($_SESSION['email'])) {
             
             <a href="#">
             <i class="fa-solid fa-truck-ramp-box"></i>
-              <span class="link_name">Nota fiscal</span>
+              <span class="link_name">Movimentação</span>
             </a>
             
             <i class='bx bxs-chevron-down arrow' ></i>
@@ -82,9 +82,9 @@ if(!isset($_SESSION['email'])) {
           
           <ul class="sub-menu">
           
-            <li><a class="link_name" href="#">Nota fiscal</a></li>
-            <li><a href="#">Criar Danfe</a></li>
-            <li><a href="#">Minhas Danfe's</a></li>
+            <li><a class="link_name" href="movimentacao.php">Movimentação</a></li>
+            <li><a href="#">Exemplo</a></li>
+            <li><a href="#">Exemplo</a></li>
           
           </ul>
 
@@ -94,11 +94,11 @@ if(!isset($_SESSION['email'])) {
           
           <a href="#">
             <i class="fa-solid fa-warehouse"></i>
-            <span class="link_name">Controle</span>
+            <span class="link_name">Estoque</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Controle</a></li>
+            <li><a class="link_name" href="#">Estoque</a></li>
           </ul>
 
         </li>
@@ -107,11 +107,11 @@ if(!isset($_SESSION['email'])) {
           
           <a href="#">
           <i class="fa-solid fa-box"></i>
-            <span class="link_name">Alunos</span>
+            <span class="link_name">Picking</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Alunos</a></li>
+            <li><a class="link_name" href="#">Picking</a></li>
           </ul>
 
         </li>
@@ -122,7 +122,7 @@ if(!isset($_SESSION['email'])) {
           
             <a href="#">
             <i class="fa-solid fa-truck-fast"></i>
-              <span class="link_name">Relatórios</span>
+              <span class="link_name">Expedição</span>
             </a>
             
             <i class='bx bxs-chevron-down arrow' ></i>
@@ -130,7 +130,7 @@ if(!isset($_SESSION['email'])) {
           </div>
           
           <ul class="sub-menu">
-            <li><a class="link_name" href="#">Relatórios</a></li>
+            <li><a class="link_name" href="#">Expedição</a></li>
             <li><a href="#">Exemplo</a></li>
             <li><a href="#">Exemplo</a></li>
             <li><a href="#">Exemplo</a></li>
@@ -142,31 +142,50 @@ if(!isset($_SESSION['email'])) {
         
           <a href="#">
           <i class="fa-solid fa-server"></i>
-            <span class="link_name">Exemplo</span>
+            <span class="link_name">Controle</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Exemplo</a></li>
+            <li><a class="link_name" href="#">Controle</a></li>
           </ul>
         </li>
         <li>
           <a href="#">
           <i class="fa-regular fa-file"></i>
-            <span class="link_name">Exemplo</span>
+            <span class="link_name">Relatório</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Exemplo</a></li>
+            <li><a class="link_name" href="#">Relatório</a></li>
           </ul>
         </li>      
       </ul><!--Fecha ul-->
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Bem vindo professor(a)...</h1>
+         <h1>MOVIMENTAÇÃO</h1>
         </div>
     </div>
-
+<center>
+    <form class="form" method="post" action="verificaLogin.php" id="formlogin" name="formlogin" >
+        <div>
+            <p>Operações em Aberto<p>
+                <br>
+            <p>UN<p>
+                <br>
+            <p>QTD<p>
+                <br>
+            <p>Posição<p>
+        </div>
+        <div>
+            <input type="text" name="operacao" placeholder="">
+            <input type="text" name="un" placeholder="">
+            <input type="text" name="qtd" placeholder="">
+            <input type="text" name="posicao" placeholder="">
+            <input type="submit" name="Pegar" placeholder="Pegar">            
+        </div>
+    </form>
+</center>
     <footer>
         <div class="linha-footer"><div>
         <center>
