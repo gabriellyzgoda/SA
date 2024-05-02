@@ -2,12 +2,19 @@
 <html lang="en">
 <?php
 session_start();
+include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
-}?>
+}
+$sql = "SELECT * FROM cadastro
+        WHERE professor = 0";
+// puxa conexão
+$resultado = $conexao->query($sql);
+
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -166,7 +173,35 @@ if(!isset($_SESSION['email'])) {
          <h1>Bem vindo professor(a)...</h1>
         </div>
     </div>
-
+    <center>
+    <div>
+        <table>
+            <thead> 
+            <tr>
+                <th>Alunos</th>
+                <th>Senha</th>
+                <th>Cargo</th>
+            </tr>
+            </thead>
+            <tbody>
+            <form class="form" method="post" action="metodoAlunos.php" id="formlogin" name="formlogin" >
+                <?php
+                    while($user_data = mysqli_fetch_assoc($resultado))
+                    {
+                        echo "<tr>";
+                        echo "<td>".$user_data['nome']."</td>";
+                        echo "<td>".$user_data['senha']."</td>";
+                        echo "<td>".$user_data['cargo']."</td>";
+                        echo "<td> 
+                        <button onclick(gerarSenha)/>
+                        </td>";
+                        echo "</tr>";
+                    }
+                ?>
+            </tbody>
+        </table>
+    </div>
+    </center>
     <footer>
         <div class="linha-footer"><div>
         <center>

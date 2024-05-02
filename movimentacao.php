@@ -167,7 +167,7 @@ if(!isset($_SESSION['email'])) {
         </div>
     </div>
 <center>
-    <form class="form" method="post" action="verificaLogin.php" id="formlogin" name="formlogin" >
+    <form class="form" method="post" action="metodoOperacao.php" id="formlogin" name="formlogin" >
         <div>
             <p>Operações em Aberto<p>
                 <br>
@@ -176,13 +176,34 @@ if(!isset($_SESSION['email'])) {
             <p>QTD<p>
                 <br>
             <p>Posição<p>
+                <br>
         </div>
         <div>
             <input type="text" name="operacao" placeholder="">
             <input type="text" name="un" placeholder="">
             <input type="text" name="qtd" placeholder="">
             <input type="text" name="posicao" placeholder="">
-            <input type="submit" name="Pegar" placeholder="Pegar">            
+            <input class="" id="pegar" type="submit" value="Pegar"/>         
+            <br><br>                          
+            <input type="text" name="operacao" placeholder="">
+            <input type="text" name="un" placeholder="">
+            <input type="text" name="qtd" placeholder="">
+            <input type="text" name="posicao" placeholder="">
+            <input class="" id="pegar" type="submit" value="Pegar"/>    
+            <br><br>                          
+            <input type="text" name="operacao" placeholder="">
+            <input type="text" name="un" placeholder="">
+            <input type="text" name="qtd" placeholder="">
+            <input type="text" name="posicao" placeholder="">
+            <input class="" id="pegar" type="submit" value="Pegar"/>      
+            <br><br>                          
+            <input type="text" name="operacao" placeholder="">
+            <input type="text" name="un" placeholder="">
+            <input type="text" name="qtd" placeholder="">
+            <input type="text" name="posicao" placeholder="">
+            <input class="" id="pegar" type="submit" value="Pegar"/> 
+            <br><br>
+            <input class="" id="pegar" type="submit" value="Operação"/> 
         </div>
     </form>
 </center>
