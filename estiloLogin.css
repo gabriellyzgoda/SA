@@ -170,16 +170,20 @@ body, html{
     border: 1px solid #000;
 }
 
-.recuperar-senha {
-    width: 83%;
-    display: flex;
-    justify-content: flex-end;
-}
 
-.recuperar-senha a {
+
+.mensagem-erro p {
     color: #fff;
     font-family: "League Spartan", sans-serif;
     font-size: 20px;
-
 }
 
+.mensagem-erro {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #fff;
+    width: 350px;
+    height: auto;
+    margin: 0% 15%;
+    box-shadow: 1px 9px 21px #0a09094f;
+}

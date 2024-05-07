@@ -340,6 +340,11 @@ footer p {
     display: none;
   }
 }
+
+.imagem-home {
+  display: flex;
+  justify-content: center;
+}
 /*Menu Sidebar*/
 
 

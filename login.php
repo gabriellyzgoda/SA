@@ -39,11 +39,14 @@
                             <center>
                                 <input class="botao-login" id="entrar" type="submit" value="Entrar"/>
                             </center>
-                        <?php
-                        if (isset($_GET['erro'])){
-                            echo "Você não tem permissão para acessar";
-                        }
-                        ?>
+                        <?php if (isset($_GET['erro'])){ ?>
+                            <div class="mensagem-erro">
+                                <p>
+                                <?php echo "Você não tem permissão para acessar";?>
+                                </p>
+                            </div>    
+                        <?php } ?>
+                        
                         <div>
                             <?php echo $erro ?? ''?>
                         </div>
