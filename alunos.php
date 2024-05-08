@@ -29,7 +29,7 @@ $resultado = $conexao->query($sql);
 <body>
     <header class="header-topo">
         <div class="logo">
-                <img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto">
+            <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
             <a href="perfil.php">
@@ -40,7 +40,7 @@ $resultado = $conexao->query($sql);
             <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
-    <div class="sidebar close">
+    <div class="sidebar">
       
       <div class="logo-details">
         
@@ -132,40 +132,12 @@ $resultado = $conexao->query($sql);
               <span class="link_name">Relatórios</span>
             </a>
             
-            <i class='bx bxs-chevron-down arrow' ></i>
-            
           </div>
           
           <ul class="sub-menu">
             <li><a class="link_name" href="#">Relatórios</a></li>
-            <li><a href="#">Exemplo</a></li>
-            <li><a href="#">Exemplo</a></li>
-            <li><a href="#">Exemplo</a></li>
           </ul>
-
-        </li>
-        
-        <li>
-        
-          <a href="#">
-          <i class="fa-solid fa-server"></i>
-            <span class="link_name">Exemplo</span>
-          </a>
-          
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Exemplo</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#">
-          <i class="fa-regular fa-file"></i>
-            <span class="link_name">Exemplo</span>
-          </a>
-          
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Exemplo</a></li>
-          </ul>
-        </li>      
+        </li>   
       </ul><!--Fecha ul-->
     </div>      
     <div class="conteudo"> 

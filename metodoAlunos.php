@@ -18,5 +18,5 @@
                     // retorna a senha embaralhada com "str_shuffle" com o tamanho definido pela variável $tamanho
                     return substr(str_shuffle($senha),0,$tamanho);
                 }
-                if()
+                
                 ?>

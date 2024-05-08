@@ -22,7 +22,7 @@ if(!isset($_SESSION['email'])) {
 <body>
     <header class="header-topo">
         <div class="logo">
-                <img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto">
+                <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
             <a href="perfil.php">
@@ -71,20 +71,16 @@ if(!isset($_SESSION['email'])) {
           
           <div class="iocn-link">
             
-            <a href="#">
+            <a href="movimentacao.php">
             <i class="fa-solid fa-truck-ramp-box"></i>
               <span class="link_name">Movimentação</span>
             </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
           
           </div>
           
           <ul class="sub-menu">
           
             <li><a class="link_name" href="movimentacao.php">Movimentação</a></li>
-            <li><a href="#">Exemplo</a></li>
-            <li><a href="#">Exemplo</a></li>
           
           </ul>
 
@@ -125,15 +121,11 @@ if(!isset($_SESSION['email'])) {
               <span class="link_name">Expedição</span>
             </a>
             
-            <i class='bx bxs-chevron-down arrow' ></i>
             
           </div>
           
           <ul class="sub-menu">
             <li><a class="link_name" href="#">Expedição</a></li>
-            <li><a href="#">Exemplo</a></li>
-            <li><a href="#">Exemplo</a></li>
-            <li><a href="#">Exemplo</a></li>
           </ul>
 
         </li>
