@@ -20,7 +20,7 @@ $resultado = $conexao->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Professor</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloAlunos.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -141,39 +141,38 @@ $resultado = $conexao->query($sql);
       </ul><!--Fecha ul-->
     </div>      
     <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1>Bem vindo professor(a)...</h1>
+      <div class="titulo-conteudo">    
+         <h1>Sua lista de alunos :)</h1>
         </div>
+      <div class="quadro-alunos">
+          <table>
+              <thead> 
+                <tr>
+                    <th>Alunos</th>
+                    <th>Senhas</th>
+                    <th>Cargos</th>
+                </tr>
+              </thead>
+              <tbody>
+              <form class="form" method="post" action="metodoAlunos.php" id="formlogin" name="formlogin" >
+                  <?php
+                      while($user_data = mysqli_fetch_assoc($resultado))
+                      {
+                          echo "<tr>";
+                          echo "<td>".$user_data['nome']."</td>";
+                          echo "<td>".$user_data['senha']."</td>";
+                          echo "<td>".$user_data['cargo']."</td>";
+                          echo "<td> 
+                          <button onclick(gerarSenha)/>
+                          </td>";
+                          echo "</tr>";
+                      }
+                  ?>
+              </tbody>
+          </table>
+      </div>
     </div>
-    <center>
-    <div>
-        <table>
-            <thead> 
-            <tr>
-                <th>Alunos</th>
-                <th>Senha</th>
-                <th>Cargo</th>
-            </tr>
-            </thead>
-            <tbody>
-            <form class="form" method="post" action="metodoAlunos.php" id="formlogin" name="formlogin" >
-                <?php
-                    while($user_data = mysqli_fetch_assoc($resultado))
-                    {
-                        echo "<tr>";
-                        echo "<td>".$user_data['nome']."</td>";
-                        echo "<td>".$user_data['senha']."</td>";
-                        echo "<td>".$user_data['cargo']."</td>";
-                        echo "<td> 
-                        <button onclick(gerarSenha)/>
-                        </td>";
-                        echo "</tr>";
-                    }
-                ?>
-            </tbody>
-        </table>
-    </div>
-    </center>
+    
     <footer>
         <div class="linha-footer"><div>
         <center>
