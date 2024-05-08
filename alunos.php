@@ -163,16 +163,41 @@ $resultado = $conexao->query($sql);
                         echo "<td>".$user_data['senha']."</td>";
                         echo "<td>".$user_data['cargo']."</td>";
                         echo "<td> 
-                        <a class='' href='resetar.php?id=$user_data[id]'> <a/>
+                        <a class='' href='resetar.php?id=$user_data[id]'> </a>
                         </td>";
-                        echo "<td> 
-                        <a class='' href='delete.php?id=$user_data[id]'> 
-                        <svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-trash-fill' viewBox='0 0 16 16'>
-                          <path d='M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0'/>
-                        </svg>
-                        <a/>
-                        </td>";
-                        echo "</tr>";
+                        ?>
+                        <td>
+                        <div class="popup" onclick="myFunction()">
+                          <i class="fa-solid fa-pen-to-square"></i>
+                            <span class="popuptext" id="myPopup">
+                              <h2>Editar</h2>
+                              <p>Aluno:</p>
+                              <input type="text" placeholder="aluno" id="aluno">
+                              <p>Senha:</p>
+                              <input type="password" placeholder="senha" id="senha">
+                              <p>cargo:</p>
+                              <input type="text" placeholder="cargo" id="cargo">
+                              <button onclick="">Salvar</button>
+                              <button onclick="">Cancelar</button>
+                            </span>
+                        </div>
+                        <div class="popup" onclick="deletar()">
+                          <i class="fa-solid fa-trash"></i>
+                          <span class="popuptext" id="deletarPop">
+                            <?php
+                                echo " <a class='' href='delete.php?id=$user_data[id]'>";
+                              ?>
+                              <button onclick="">Confirmar</button>
+                            </a>
+                            <button onclick="">Cancelar</button>
+                            
+                          </span>
+                        </div>  
+                          
+                        </button>
+                        </td>
+                        </tr>
+                        <?php
                     }
                 ?>
             </tbody>
@@ -187,6 +212,16 @@ $resultado = $conexao->query($sql);
     </footer>
 
     <script>
+
+    function myFunction() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");
+    }
+    function deletar() {
+    var popup = document.getElementById("deletarPop");
+    popup.classList.toggle("show");
+    }
+
   
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
@@ -202,6 +237,8 @@ $resultado = $conexao->query($sql);
     sidebarBtn.addEventListener("click", ()=>{
       sidebar.classList.toggle("close");
     });
+
+    
 
 </script>
 </body>
