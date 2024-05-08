@@ -169,27 +169,27 @@ $resultado = $conexao->query($sql);
                         <td>
                         <div class="popup" onclick="myFunction()">
                           <i class="fa-solid fa-pen-to-square"></i>
-                            <span class="popuptext" id="myPopup">
+                            <span class="popuptext" id="myPopup" onclick="stopPropagation(event)">
                               <h2>Editar</h2>
                               <p>Aluno:</p>
-                              <input type="text" placeholder="aluno" id="aluno">
+                              <input type="text" placeholder="aluno" id="aluno" onclick="stopPropagation(event)">
                               <p>Senha:</p>
-                              <input type="password" placeholder="senha" id="senha">
+                              <input type="password" placeholder="senha" id="senha" onclick="stopPropagation(event)">
                               <p>cargo:</p>
-                              <input type="text" placeholder="cargo" id="cargo">
+                              <input type="text" placeholder="cargo" id="cargo" onclick="stopPropagation(event)">
                               <button onclick="">Salvar</button>
-                              <button onclick="">Cancelar</button>
+                              <button onclick="fecharPopUp()" id="cancelar">Cancelar</button>
                             </span>
                         </div>
                         <div class="popup" onclick="deletar()">
                           <i class="fa-solid fa-trash"></i>
-                          <span class="popuptext" id="deletarPop">
+                          <span class="popuptext" id="deletarPop" onclick="stopPropagation(event)">
                             <?php
                                 echo " <a class='' href='delete.php?id=$user_data[id]'>";
                               ?>
-                              <button onclick="">Confirmar</button>
+                              <button>Confirmar</button>
                             </a>
-                            <button onclick="">Cancelar</button>
+                            <button onclick="fecharPopUpDeletar()" id="cancelar">Cancelar</button>
                             
                           </span>
                         </div>  
@@ -206,7 +206,7 @@ $resultado = $conexao->query($sql);
     <footer>
         <div class="linha-footer"><div>
         <center>
-            <p>Gabrielly, Chris, Julia e Amanda</br>
+            <p>Gabrielly, Chris, Julia e Amanda asasa</br>
             3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
         </center>
     </footer>
@@ -220,6 +220,20 @@ $resultado = $conexao->query($sql);
     function deletar() {
     var popup = document.getElementById("deletarPop");
     popup.classList.toggle("show");
+    }
+
+    function fecharPopUp() {
+    var popup = document.getElementById("myPopup");
+    popup.classList.remove("show");
+    }
+
+    function fecharPopUpDeletar() {
+    var popup = document.getElementById("deletarPop");
+    popup.classList.remove("show");
+    }
+
+    function stopPropagation(event) {
+      event.stopPropagation();
     }
 
   
