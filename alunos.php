@@ -170,17 +170,16 @@ $resultado = $conexao->query($sql);
                         <div class="popup" onclick="myFunction()">
                           <i class="fa-solid fa-pen-to-square"></i>
                             <span class="popuptext" id="myPopup" onclick="stopPropagation(event)">
-                              <form class="" action="salvar.php">
+                              <form class="" action="salvar.php" method="POST">
                               <h2>Editar</h2>
                               <p>Aluno:</p>
+                              <input type="hidden" name="id" value="<?php echo $user_data['id']; ?>">
                               <input type="text" placeholder="aluno" id="nome" onclick="stopPropagation(event)">
-
                               <p>Senha:</p>
                               <input type="password" placeholder="senha" id="senha" onclick="stopPropagation(event)">
                               <p>cargo:</p>
                               <input type="text" placeholder="cargo" id="cargo" onclick="stopPropagation(event)">
                               <button onclick="">Salvar</button>
-
                               <button onclick="fecharPopUp()" id="cancelar">Cancelar</button>
                               </form>
                             </span>
