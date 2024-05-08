@@ -21,7 +21,7 @@
 					AND `senha` = '".$senha."'";
 
 				$resultado = $conexao->query($sql);
-				
+
 				if($resultado->num_rows != 0)
 				{
 					$sql="SELECT `id`, `email`,`professor` FROM `cadastro`
