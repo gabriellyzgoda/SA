@@ -61,7 +61,7 @@ if(!isset($_SESSION['email'])) {
             
             <li><a class="link_name" href="#">Pedidos</a></li>
             <li><a href="#">Meus pedidos</a></li>
-            <li><a href="#">Criar pedido</a></li>
+            <li><a href="criarpedido.php">Criar pedido</a></li>
           
           </ul>
           
