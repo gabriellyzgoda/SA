@@ -158,33 +158,61 @@ $resultado = $conexao->query($sql);
                 <th>CFOP</th>
                 <th>Total</th>
             </tr>
+          </table>
             <form class="form" method="post" action="metodoPedidos.php" id="formlogin" name="formlogin" >
-
-            <input type="text" name="id">
-            <input type="text" name="produto">
-            <input type="number" name="unidades">
-            <input type="number" name="quantidades">
-            <input type="text" name="valor">
-            <input type="text" name="ncm">
-            <input type="text" name="cst">
-            <input type="text" name="ncm">
-            <input type="text" name="ncm">
-            {
-                        echo "<tr>";
-                        echo "<td>".$user_data['id']."</td>";
-                        echo "<td>".$user_data['produto']."</td>";
-                        echo "<td>".$user_data['unidades']."</td>";
-                        echo "<td>".$user_data['quantidades']."</td>";
-                        echo "<td>".$user_data['valor']."</td>";
-                        echo "<td>".$user_data['ncm']."</td>";
-                        echo "<td>".$user_data['cst']."</td>";
-                        echo "<td>".$user_data['cfop']."</td>";
-                        echo "<td> Total </td>";
-                        echo "</tr>";
-                    }
-                ?>
-              </form>
-        </table>
+              <br>
+              <input type="text" name="id">
+              <input type="text" name="produto">
+              <input type="number" name="unidades">
+              <input type="number" name="quantidades">
+              <input type="text" name="valor" size="1">
+              <input type="text" name="ncm">
+              <input type="text" name="cst">
+              <input type="text" name="cfop">
+              <input type="text" name="total">
+              <br><br>
+              <input type="text" name="id">
+              <input type="text" name="produto">
+              <input type="number" name="unidades">
+              <input type="number" name="quantidades">
+              <input type="text" name="valor" size="1">
+              <input type="text" name="ncm">
+              <input type="text" name="cst">
+              <input type="text" name="cfop">
+              <input type="text" name="total">
+              <br><br>
+              <input type="text" name="id">
+              <input type="text" name="produto">
+              <input type="number" name="unidades">
+              <input type="number" name="quantidades">
+              <input type="text" name="valor" size="1">
+              <input type="text" name="ncm">
+              <input type="text" name="cst">
+              <input type="text" name="cfop">
+              <input type="text" name="total">
+              <br><br>
+            </form>
+    </div>
+    <div>
+      <p>Dados do cliente:</p>
+      <br>
+      <label>Nome:</label>
+      <input type="text" name="nome">
+      <label>Telefone:</label>
+      <input type="text" name="telefone">
+      <br><br>
+      <label>Endereço:</label>
+      <input type="text" name="endereco">
+      <label>Email:</label>
+      <input type="text" name="email">
+      <br><br>
+      <label>Data:</label>
+      <input type="text" name="data" size="1">
+      <br><br>
+      <label>CNPJ:</label>
+      <input type="text" name="cnpj" size="1">
+      <label>Total da compra:</label>
+      <input type="text" name="total">
     </div>
     </center>
     <footer>

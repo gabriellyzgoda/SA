@@ -159,17 +159,17 @@ if(!isset($_SESSION['email'])) {
         </div>
     </div>
 <center>
-    <form class="form" method="post" action="metodoOperacao.php" id="formlogin" name="formlogin" >
         <div>
-            <p>Operações em Aberto<p>
-                <br>
-            <p>UN<p>
-                <br>
-            <p>QTD<p>
-                <br>
-            <p>Posição<p>
-                <br>
+          <table>
+            <tr>
+                <th>Operações em Aberto</th>
+                <th>UN</th>
+                <th>QTD</th>
+                <th>Posição</th>
+            </tr>
+          </table>
         </div>
+    <form class="form" method="post" action="metodoOperacao.php" id="formlogin" name="formlogin" >
         <div>
             <input type="text" name="operacao" placeholder="">
             <input type="text" name="un" placeholder="">

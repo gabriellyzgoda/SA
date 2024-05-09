@@ -135,10 +135,32 @@ if(!isset($_SESSION['email'])) {
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Bem vindo professor(a)...</h1>
+         <h1>Seus pedidos!</h1>
         </div>
     </div>
-
+    <center>
+    <div class="quadro-alunos">
+        <table>
+            <tr>
+                <th>CARIMBO DATA/HORA</th>
+                <th>Nº DO PEDIDO</th>
+                <th>PRODUTO</th>
+                <th>DOCAS</th>
+                <th>POSIÇÃO</th>
+                </table>
+            </tr>
+            <tbody>
+                <?php
+                        echo "<tr>";
+                        echo "<td>".$user_data['data']."</td>";
+                        echo "<td>".$user_data['id']."</td>";
+                        echo "<td >".$user_data['nome']."</td>";
+                        echo "<td >".$user_data['docas']."</td>";
+                        echo "<td >".$user_data['posicao']."</td>";
+                    ?>
+            </tbody>
+        </div>
+    </center>
     <footer>
         <div class="linha-footer"><div>
         <center>
