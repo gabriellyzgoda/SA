@@ -180,21 +180,21 @@ $resultado = $conexao->query($sql);
         </table>
         </div>
         <div id="formPopup" class="form-popup">
-            <form id="editForm" class="form-container" method="POST" action="editar.php">
+            <form id="editForm" class="form-container" method="POST" action="salvar.php">
                 <div class="config-form">
                   <label for="nome">Nome:</label>
-                  <input type="text" id="nome" name="nome" required>
+                  <input type="text" id="nome" name="nome" required value="?php echo $row_usuario['nome'];?>">
                   <label for="senha">Senha:</label>
-                  <input type="password" id="senha" name="senha" required>
+                  <input type="password" id="senha" name="senha" required value="?php echo $row_usuario['nome'];?>">
                   <label for="cargo">Cargo:</label>
-                  <input type="text" id="cargo" name="cargo" required>
+                  <input type="text" id="cargo" name="cargo" required value="?php echo $row_usuario['nome'];?>">
                   <input type="hidden" id="userId" name="userId">
                   <div class="botoes-form">
                     <button type="submit" class="btn">Salvar</button>
+                    </form>
                     <button type="button" class="btn cancel" onclick="closeForm()">Fechar</button>
                   </div>
                 </div>
-            </form>
         </div>
         <div class="overlay" id="overlay" style="display: none;"></div>
     </div>
