@@ -162,47 +162,41 @@ $resultado = $conexao->query($sql);
                         echo "<td>".$user_data['nome']."</td>";
                         echo "<td>".$user_data['senha']."</td>";
                         echo "<td >".$user_data['cargo']."</td>";
-                        echo "<td>Cargo</td>";
+                        
                         ?>
-                        <td>
-                        <div class="popup" onclick="myFunction()">
-                          <i class="fa-solid fa-pen-to-square"></i>
-                            <span class="popuptext" id="myPopup" onclick="stopPropagation(event)">
-                              <form class="" action="salvar.php" method="POST">
-                              <h2>Editar</h2>
-                              <p>Aluno:</p>
-                              <input type="hidden" name="id" value="<?php echo $user_data['id']; ?>">
-                              <input type="text" placeholder="aluno" id="nome" onclick="stopPropagation(event)">
-                              <p>Senha:</p>
-                              <input type="password" placeholder="senha" id="senha" onclick="stopPropagation(event)">
-                              <p>cargo:</p>
-                              <input type="text" placeholder="cargo" id="cargo" onclick="stopPropagation(event)">
-                              <button onclick="">Salvar</button>
-                              <button onclick="fecharPopUp()" id="cancelar">Cancelar</button>
-                              </form>
-                            </span>
-                        </div>
-                        <div class="popup" onclick="deletar()">
-                          <i class="fa-solid fa-trash"></i>
-                          <span class="popuptext" id="deletarPop" onclick="stopPropagation(event)">
-                            <?php
-                                echo " <a class='' href='delete.php?id=$user_data[id]'>";
-                              ?>
-                              <button>Confirmar</button>
-                            </a>
-                            <button onclick="fecharPopUpDeletar()" id="cancelar">Cancelar</button>
-                            
-                          </span>
-                        </div>  
-                          </button>  
-                        </td>
+                          <td>
+                          <div class="botaoEditar" onclick="editarAluno(<?php echo $user_data['id']; ?>, '<?php echo $user_data['nome']; ?>', '<?php echo $user_data['senha']; ?>', '<?php echo $user_data['cargo']; ?>')">
+                              <i class="fa-solid fa-pen-to-square"></i> 
+                          </div>
+                            <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
+                                  <i class="fa-solid fa-trash"></i>
+                            </div>
+                          </td>
                         </tr>
-                        <?php
+                      <?php
                     }
                 ?>
             </tbody>
         </table>
         </div>
+        <div id="formPopup" class="form-popup">
+            <form id="editForm" class="form-container" method="POST" action="editar.php">
+                <div class="config-form">
+                  <label for="nome">Nome:</label>
+                  <input type="text" id="nome" name="nome" required>
+                  <label for="senha">Senha:</label>
+                  <input type="password" id="senha" name="senha" required>
+                  <label for="cargo">Cargo:</label>
+                  <input type="text" id="cargo" name="cargo" required>
+                  <input type="hidden" id="userId" name="userId">
+                  <div class="botoes-form">
+                    <button type="submit" class="btn">Salvar</button>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Fechar</button>
+                  </div>
+                </div>
+            </form>
+        </div>
+        <div class="overlay" id="overlay" style="display: none;"></div>
     </div>
     <footer>
         <div class="linha-footer"><div>
@@ -214,28 +208,28 @@ $resultado = $conexao->query($sql);
 
     <script>
 
-    function myFunction() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.toggle("show");
-    }
-    function deletar() {
-    var popup = document.getElementById("deletarPop");
-    popup.classList.toggle("show");
-    }
-
-    function fecharPopUp() {
-    var popup = document.getElementById("myPopup");
-    popup.classList.remove("show");
-    }
-
-    function fecharPopUpDeletar() {
-    var popup = document.getElementById("deletarPop");
-    popup.classList.remove("show");
+        function confirmarExclusao(id) {
+            if (confirm("Tem certeza que deseja excluir este aluno?")) {
+                window.location.href = "delete.php?id=" + id;
+            }
+        }
+      
+    function editarAluno(id, nome, senha, cargo) {
+        document.getElementById("userId").value = id;
+        document.getElementById("nome").value = nome;
+        document.getElementById("senha").value = senha;
+        document.getElementById("cargo").value = cargo;
+        document.getElementById("formPopup").style.display = "block";
+        document.getElementById("editForm").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
     }
 
-    function stopPropagation(event) {
-      event.stopPropagation();
+    function closeForm() {
+        document.getElementById("formPopup").style.display = "none";
+        document.getElementById("editForm").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
     }
+   
 
   
     let arrow = document.querySelectorAll(".arrow");
