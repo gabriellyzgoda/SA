@@ -161,7 +161,7 @@ $resultado = $conexao->query($sql);
                         echo "<tr>";
                         echo "<td>".$user_data['nome']."</td>";
                         echo "<td>".$user_data['senha']."</td>";
-                        ///echo "<td >".$user_data['cargo']."</td>";
+                        echo "<td >".$user_data['cargo']."</td>";
                         echo "<td>Cargo</td>";
                         ?>
                         <td>
