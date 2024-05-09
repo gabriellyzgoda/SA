@@ -130,10 +130,33 @@ body, html{
     background-color: #5f88c1;
     font-size: 30px;
     font-family: "League Spartan", sans-serif;
-    padding: 20px 70px;
+    padding: 20px 70px; 
+    border-right: 3px solid #fff;
+  }
+  .quadro-alunos table thead {
+    display: block;
   }
 
+  .quadro-alunos table tbody {
+    background-color: #ddf3ff;
+    display: block;
+    overflow-y: scroll;
+    height: 300px;
+  }
 
+  .quadro-alunos table tbody td {
+    border-right: 3px solid #fff;
+    padding: 8px 0px 5px 30px;
+    font-family: "League Spartan", sans-serif;
+    font-size: 22px;
+  }
+
+  td:nth-child(1) {
+    width: 231.75px;
+  }
+
+  table {
+    border-spacing: 0px;  }
 
 
   

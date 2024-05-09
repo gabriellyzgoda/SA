@@ -143,15 +143,15 @@ $resultado = $conexao->query($sql);
     <div class="conteudo"> 
       <div class="titulo-conteudo">    
          <h1>Sua lista de alunos :)</h1>
-        </div>
-      <div class="quadro-alunos">
-    <div>
+      </div>
+    <div class="quadro-alunos">
         <table>
             <thead> 
             <tr>
                 <th>Alunos</th>
                 <th>Senha</th>
                 <th>Cargo</th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -161,10 +161,8 @@ $resultado = $conexao->query($sql);
                         echo "<tr>";
                         echo "<td>".$user_data['nome']."</td>";
                         echo "<td>".$user_data['senha']."</td>";
-                        echo "<td>".$user_data['cargo']."</td>";
-                        echo "<td> 
-                        <a class='' href='resetar.php?id=$user_data[id]'> </a>
-                        </td>";
+                        ///echo "<td >".$user_data['cargo']."</td>";
+                        echo "<td>Cargo</td>";
                         ?>
                         <td>
                         <div class="popup" onclick="myFunction()">
@@ -196,8 +194,7 @@ $resultado = $conexao->query($sql);
                             
                           </span>
                         </div>  
-                          
-                        </button>
+                          </button>  
                         </td>
                         </tr>
                         <?php
@@ -205,11 +202,12 @@ $resultado = $conexao->query($sql);
                 ?>
             </tbody>
         </table>
+        </div>
     </div>
     <footer>
         <div class="linha-footer"><div>
         <center>
-            <p>Gabrielly, Chris, Julia e Amanda asasa</br>
+            <p>Gabrielly, Chris, Julia e Amanda</br>
             3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
         </center>
     </footer>
