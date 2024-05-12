@@ -190,11 +190,11 @@ $resultado = $conexao->query($sql);
                   <input type="text" id="cargo" name="cargo" required value="?php echo $row_usuario['nome'];?>">
                   <input type="hidden" id="userId" name="userId">
                   <div class="botoes-form">
-                    <button type="submit" class="btn">Salvar</button>
-                    </form>
                     <button type="button" class="btn cancel" onclick="closeForm()">Fechar</button>
-                  </div>
-                </div>
+                    <button type="submit" class="btn">Salvar</button>
+                    </div>
+                    </div>
+                  </form>  
         </div>
         <div class="overlay" id="overlay" style="display: none;"></div>
     </div>
