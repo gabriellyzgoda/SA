@@ -25,12 +25,28 @@ if(!isset($_SESSION['email'])) {
           <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
-            <a href="perfil.php">
+          <div class="dropdown-perfil">
+            <a href="perfil.php" >
                 <div class="circulo">
                         <i class="fa-solid fa-user"></i>
                 </div>
             </a>
-            <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+            <div class="dropdown-content">
+              <div class="dropdown-section">
+                <h4>Nome:</h4>
+                <p>Aluno 01</p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Email:</h4>
+                <p>aluno01@gmail.com</p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Cargo:</h4>
+                <p>Assistente de Logística</p>
+              </div>
+            </div>
+          </div>
+          <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar close">

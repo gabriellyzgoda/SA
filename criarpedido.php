@@ -20,7 +20,7 @@ $resultado = $conexao->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Professor</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloCriarPedido.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -68,7 +68,7 @@ $resultado = $conexao->query($sql);
             
             <li><a class="link_name" href="#">Pedidos</a></li>
             <li><a href="#">Meus pedidos</a></li>
-            <li><a href="#">Criar pedido</a></li>
+            <li><a href="criarPedido.php">Criar pedido</a></li>
           
           </ul>
           
@@ -144,77 +144,77 @@ $resultado = $conexao->query($sql);
         <div class="titulo-conteudo">    
          <h1>Criação de Pedidos</h1>
         </div>
+        <div class="bloco-criacao-pedido">
+            <table>
+                <tr>
+                    <th>Produtos:</th>
+                    <th>UN</th>
+                    <th>QTD</th>
+                    <th>RS$/Un</th>
+                    <th>NCM</th>
+                    <th>CST</th>
+                    <th>CFOP</th>
+                    <th>Total</th>
+                </tr>
+              </table>
+                <form class="form" method="post" action="metodoPedidos.php" id="formlogin" name="formlogin" >
+                  <br>
+                  <input type="text" name="id">
+                  <input type="text" name="produto">
+                  <input type="number" name="unidades">
+                  <input type="number" name="quantidades">
+                  <input type="text" name="valor" size="1">
+                  <input type="text" name="ncm">
+                  <input type="text" name="cst">
+                  <input type="text" name="cfop">
+                  <input type="text" name="total">
+                  <br><br>
+                  <input type="text" name="id">
+                  <input type="text" name="produto">
+                  <input type="number" name="unidades">
+                  <input type="number" name="quantidades">
+                  <input type="text" name="valor" size="1">
+                  <input type="text" name="ncm">
+                  <input type="text" name="cst">
+                  <input type="text" name="cfop">
+                  <input type="text" name="total">
+                  <br><br>
+                  <input type="text" name="id">
+                  <input type="text" name="produto">
+                  <input type="number" name="unidades">
+                  <input type="number" name="quantidades">
+                  <input type="text" name="valor" size="1">
+                  <input type="text" name="ncm">
+                  <input type="text" name="cst">
+                  <input type="text" name="cfop">
+                  <input type="text" name="total">
+                  <br><br>
+                </form>
+        </div>
+        <div>
+          <p>Dados do cliente:</p>
+          <br>
+          <label>Nome:</label>
+          <input type="text" name="nome">
+          <label>Telefone:</label>
+          <input type="text" name="telefone">
+          <br><br>
+          <label>Endereço:</label>
+          <input type="text" name="endereco">
+          <label>Email:</label>
+          <input type="text" name="email">
+          <br><br>
+          <label>Data:</label>
+          <input type="text" name="data" size="1">
+          <br><br>
+          <label>CNPJ:</label>
+          <input type="text" name="cnpj" size="1">
+          <label>Total da compra:</label>
+          <input type="text" name="total">
+        </div>
+        </center>
     </div>
-    <center>
-    <div>
-        <table>
-            <tr>
-                <th>Produtos:</th>
-                <th>UN</th>
-                <th>QTD</th>
-                <th>RS$/Un</th>
-                <th>NCM</th>
-                <th>CST</th>
-                <th>CFOP</th>
-                <th>Total</th>
-            </tr>
-          </table>
-            <form class="form" method="post" action="metodoPedidos.php" id="formlogin" name="formlogin" >
-              <br>
-              <input type="text" name="id">
-              <input type="text" name="produto">
-              <input type="number" name="unidades">
-              <input type="number" name="quantidades">
-              <input type="text" name="valor" size="1">
-              <input type="text" name="ncm">
-              <input type="text" name="cst">
-              <input type="text" name="cfop">
-              <input type="text" name="total">
-              <br><br>
-              <input type="text" name="id">
-              <input type="text" name="produto">
-              <input type="number" name="unidades">
-              <input type="number" name="quantidades">
-              <input type="text" name="valor" size="1">
-              <input type="text" name="ncm">
-              <input type="text" name="cst">
-              <input type="text" name="cfop">
-              <input type="text" name="total">
-              <br><br>
-              <input type="text" name="id">
-              <input type="text" name="produto">
-              <input type="number" name="unidades">
-              <input type="number" name="quantidades">
-              <input type="text" name="valor" size="1">
-              <input type="text" name="ncm">
-              <input type="text" name="cst">
-              <input type="text" name="cfop">
-              <input type="text" name="total">
-              <br><br>
-            </form>
-    </div>
-    <div>
-      <p>Dados do cliente:</p>
-      <br>
-      <label>Nome:</label>
-      <input type="text" name="nome">
-      <label>Telefone:</label>
-      <input type="text" name="telefone">
-      <br><br>
-      <label>Endereço:</label>
-      <input type="text" name="endereco">
-      <label>Email:</label>
-      <input type="text" name="email">
-      <br><br>
-      <label>Data:</label>
-      <input type="text" name="data" size="1">
-      <br><br>
-      <label>CNPJ:</label>
-      <input type="text" name="cnpj" size="1">
-      <label>Total da compra:</label>
-      <input type="text" name="total">
-    </div>
-    </center>
+    
     <footer>
         <div class="linha-footer"><div>
         <center>
