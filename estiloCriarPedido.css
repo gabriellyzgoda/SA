@@ -61,6 +61,9 @@ body, html{
   
   .menu-header a {
     margin-left: 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
   }
   
   .menu-header i {
@@ -346,6 +349,54 @@ body, html{
     justify-content: center;
   }
   /*Menu Sidebar*/
+
+  /* Dropdown Button */
+
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #6a90c4;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 10px;
+  margin-top: 5px;
+}
+
+.dropdown-content p {
+  color: #fff;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  margin: 0px;
+  font-size: 20px;
+  font-family: "League Spartan", sans-serif;
+}
+
+.dropdown-content h4 {
+  margin: 0px;
+  font-size: 25px;
+  font-family: "League Spartan", sans-serif;
+  color: #fff;
+  font-weight: 600;
+}
+
+.dropdown-section {
+  padding: 23px 25px 10px 25px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content .dropdown-section:hover {background-color: #516c9b; border-radius: 10px;}
+
+/* Show the dropdown menu on hover */
+.dropdown-perfil:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown-perfil:hover .circulo {background-color: #718fc3;}
+.dropdown-perfil:hover .circulo i {color: #FFF;}
+
   
   
   
