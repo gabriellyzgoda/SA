@@ -1,21 +1,23 @@
 <?php
+include_once('config.php');
+
 if (isset($_POST['submit'])) {
 
-    include_once('config.php');
+    if ($conexao->connect_error) {
+        die("Falha na conexão: " . $conexao->connect_error);
+    }
     
-        $id = $_POST['id'];
-        $nome = $_POST['nome'];
-        $senha = $_POST['senha'];
-        $cargo = $_POST['cargo'];
+        $id = $_GET['id'];
+
+        $sqlSelect = "SELECT * FROM cadastro WHERE id=$id";
+        $result = $conexao->query($sqlSelect);
     
-        $sqlUpdate = "UPDATE cadastro SET nome='$nome', senha='$senha', cargo='$cargo' WHERE id='$id'";
-        $result = $conexao->query($sqlUpdate);
-    
-        if ($result) {
-            echo "<script>alert('Dados atualizados com sucesso!');</script>";
-            header("Location: alunos.php");
-        } else {
-            echo "Erro ao atualizar os dados!";
+        if ($result->num_rows >0) {
+            $sqlUpdate = "UPDATE cadastro SET nome='$nome', senha='$senha', cargo='$cargo' 
+            WHERE id='$id'";
+            if($result = $conexao->query($sqlUpdate) == true)
+            echo "dados atualizados com sucesso!";
         }
+        header("Location: alunos.php");
     }
 ?>
