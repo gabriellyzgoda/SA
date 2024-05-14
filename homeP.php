@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <?php
 session_start();
+include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
-}?>
+}
+$sql = "SELECT * FROM cadastro
+WHERE professor != 0";
+// puxa conexão
+$resultado = $conexao->query($sql);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,7 +32,7 @@ if(!isset($_SESSION['email'])) {
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
-            <a href="perfil.php" >
+            <a href="#" >
                 <div class="circulo">
                         <i class="fa-solid fa-user"></i>
                 </div>
@@ -34,15 +40,15 @@ if(!isset($_SESSION['email'])) {
             <div class="dropdown-content">
               <div class="dropdown-section">
                 <h4>Nome:</h4>
-                <p>Aluno 01</p>
+                <p><?php echo $row["nome"];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Email:</h4>
-                <p>aluno01@gmail.com</p>
+                <p><?php echo $_SESSION["email"];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
-                <p>Assistente de Logística</p>
+                <p><?php echo $row["cargo"];?></p>
               </div>
             </div>
           </div>

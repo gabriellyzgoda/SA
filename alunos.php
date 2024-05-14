@@ -9,10 +9,9 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM cadastro
+$sqlProfessor = "SELECT * FROM cadastro
         WHERE professor = 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
+$resultado = $conexao->query($sqlProfessor);
 
 ?>
 <head>
@@ -163,7 +162,7 @@ $resultado = $conexao->query($sql);
                         echo "<td>".$user_data['senha']."</td>";
                         echo "<td >".$user_data['cargo']."</td>";
                         
-                        ?>
+                  ?>
                           <td>
                           <div class="botaoEditar" onclick="editarAluno(<?php echo $user_data['id']; ?>, '<?php echo $user_data['nome']; ?>', '<?php echo $user_data['senha']; ?>', '<?php echo $user_data['cargo']; ?>')">
                               <i class="fa-solid fa-pen-to-square"></i> 
@@ -183,18 +182,18 @@ $resultado = $conexao->query($sql);
             <form id="editForm" class="form-container" method="POST" action="salvar.php">
                 <div class="config-form">
                   <label for="nome">Nome:</label>
-                  <input type="text" id="nome" name="nome" required value="?php echo $row_usuario['nome'];?>">
+                  <input type="text" id="nome" name="novonome" required>
                   <label for="senha">Senha:</label>
-                  <input type="password" id="senha" name="senha" required value="?php echo $row_usuario['nome'];?>">
+                  <input type="password" id="senha" name="novosenha" required>
                   <label for="cargo">Cargo:</label>
-                  <input type="text" id="cargo" name="cargo" required value="?php echo $row_usuario['nome'];?>">
+                  <input type="text" id="cargo" name="novocargo" required>
                   <input type="hidden" id="userId" name="userId">
                   <div class="botoes-form">
+                    <button type="submit" class="btn" value="Salvar">Salvar</button>
+                    </form>  
                     <button type="button" class="btn cancel" onclick="closeForm()">Fechar</button>
-                    <button type="submit" class="btn">Salvar</button>
                     </div>
                     </div>
-                  </form>  
         </div>
         <div class="overlay" id="overlay" style="display: none;"></div>
     </div>

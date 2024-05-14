@@ -1,23 +1,23 @@
 <?php
 include_once('config.php');
+if ($conexao -> connect_errno) {
+				echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+				exit();
+			} else {
+                if (isset($_POST['userId'])){
+				// Evita caracteres especiais (SQL Inject)
+				$nome = $conexao -> real_escape_string($_POST['novonome']);
+				$cargo = $conexao -> real_escape_string($_POST['novocargo']);
+				$senha = $conexao -> real_escape_string($_POST['novosenha']);
+                $id = $_POST['userId'];
 
-if (isset($_POST['submit'])) {
-
-    if ($conexao->connect_error) {
-        die("Falha na conexão: " . $conexao->connect_error);
-    }
-    
-        $id = $_GET['id'];
-
-        $sqlSelect = "SELECT * FROM cadastro WHERE id=$id";
-        $result = $conexao->query($sqlSelect);
-    
-        if ($result->num_rows >0) {
-            $sqlUpdate = "UPDATE cadastro SET nome='$nome', senha='$senha', cargo='$cargo' 
-            WHERE id='$id'";
-            if($result = $conexao->query($sqlUpdate) == true)
-            echo "dados atualizados com sucesso!";
+				$sql = "UPDATE cadastro SET nome='$nome', senha='$senha', cargo='$cargo' 
+                WHERE id = '$id';";
+                
+				$resultado = $conexao->query($sql);
+				
+				$conexao -> close();
+				header('Location: alunos.php', true, 301);
+			}
         }
-        header("Location: alunos.php");
-    }
-?>
+?>		
