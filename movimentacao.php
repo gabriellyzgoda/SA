@@ -155,7 +155,7 @@ if(!isset($_SESSION['email'])) {
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>MOVIMENTAÇÃO</h1>
+         <h1>Movimentação</h1>
         </div>
     </div>
 <center>

@@ -186,7 +186,8 @@ $resultado = $conexao->query($sqlProfessor);
                   <label for="senha">Senha:</label>
                   <input type="password" id="senha" name="novosenha" required>
                   <label for="cargo">Cargo:</label>
-                  <input type="text" id="cargo" name="novocargo" required>
+                  <input type="text" id="cargo" nam
+                  e="novocargo" required>
                   <input type="hidden" id="userId" name="userId">
                   <div class="botoes-form">
                     <button type="submit" class="btn" value="Salvar">Salvar</button>
