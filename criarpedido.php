@@ -144,75 +144,105 @@ $resultado = $conexao->query($sql);
         <div class="titulo-conteudo">    
          <h1>Criação de Pedidos</h1>
         </div>
-        <div class="bloco-criacao-pedido">
-            <table>
-                <tr>
-                    <th>Produtos:</th>
-                    <th>UN</th>
-                    <th>QTD</th>
-                    <th>RS$/Un</th>
-                    <th>NCM</th>
-                    <th>CST</th>
-                    <th>CFOP</th>
-                    <th>Total</th>
-                </tr>
-              </table>
-                <form class="form" method="post" action="metodoPedidos.php" id="formlogin" name="formlogin" >
+        <div class="criacao-pedido">
+          <div class="bloco-criacao-pedido">
+              <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="formPedido">
+                    <div class="form-numero">
+                      <label>Pedido nº:</label>
+                      <input type="number" name="id">
+                    </div>
+                <table>
+                  <thead>
+                    <tr>
+                        <th><p></p></th>
+                        <th><p>Produtos:</p></th>
+                        <th><p>UN</p></th>
+                        <th><p>QTD</p></th>
+                        <th><p>R$/Un</p></th>
+                        <th><p>NCM</p></th>
+                        <th><p>CST</p></th>
+                        <th><p>CFOP</p></th>
+                        <th><p>Total</p></th>
+                        <th><p></p></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                      <tr>
+                          <td><div class="quadrado-numero-produto" >1</div></td>
+                          <td><input type="text" name="produto"></td>
+                          <td><input type="number" name="unidades"></td>
+                          <td><input type="number" name="quantidades"></td>
+                          <td><input type="text" name="valor"></td>
+                          <td><input type="text" name="ncm"></td>
+                          <td><input type="text" name="cst"></td>
+                          <td><input type="text" name="cfop"></td>
+                          <td><input type="text" name="total"></td>
+                          <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+                      </tr>
+                      <tr>
+                          <td><div class="quadrado-numero-produto"></div></td>
+                          <td><input type="text" name="produto"></td>
+                          <td><input type="number" name="unidades"></td>
+                          <td><input type="number" name="quantidades"></td>
+                          <td><input type="text" name="valor"></td>
+                          <td><input type="text" name="ncm"></td>
+                          <td><input type="text" name="cst"></td>
+                          <td><input type="text" name="cfop"></td>
+                          <td><input type="text" name="total"></td>
+                          <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+                      </tr>
+                      <tr>
+                          <td><div class="quadrado-numero-produto" ></div></td>
+                          <td><input type="text" name="produto"></td>
+                          <td><input type="number" name="unidades"></td>
+                          <td><input type="number" name="quantidades"></td>
+                          <td><input type="text" name="valor"></td>
+                          <td><input type="text" name="ncm"></td>
+                          <td><input type="text" name="cst"></td>
+                          <td><input type="text" name="cfop"></td>
+                          <td><input type="text" name="total"></td>
+                          <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+                      </tr>
+                      <tr>
+                          <td><div class="quadrado-numero-produto" ></div></td>
+                          <td><input type="text" name="produto"></td>
+                          <td><input type="number" name="unidades"></td>
+                          <td><input type="number" name="quantidades"></td>
+                          <td><input type="text" name="valor"></td>
+                          <td><input type="text" name="ncm"></td>
+                          <td><input type="text" name="cst"></td>
+                          <td><input type="text" name="cfop"></td>
+                          <td><input type="text" name="total"></td>
+                          <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+                      </tr>
+                      
+                    
+                    </tbody>
+                  </table>
+                  <button id="adicionarProduto">Adicionar Produto</button>
                   <br>
-                  <input type="text" name="id">
-                  <input type="text" name="produto">
-                  <input type="number" name="unidades">
-                  <input type="number" name="quantidades">
-                  <input type="text" name="valor" size="1">
-                  <input type="text" name="ncm">
-                  <input type="text" name="cst">
-                  <input type="text" name="cfop">
-                  <input type="text" name="total">
+                  <p>Dados do cliente:</p>
+                  <br>
+                  <label>Nome:</label>
+                  <input type="text" name="nome">
+                  <label>Telefone:</label>
+                  <input type="text" name="telefone">
                   <br><br>
-                  <input type="text" name="id">
-                  <input type="text" name="produto">
-                  <input type="number" name="unidades">
-                  <input type="number" name="quantidades">
-                  <input type="text" name="valor" size="1">
-                  <input type="text" name="ncm">
-                  <input type="text" name="cst">
-                  <input type="text" name="cfop">
-                  <input type="text" name="total">
+                  <label>Endereço:</label>
+                  <input type="text" name="endereco">
+                  <label>Email:</label>
+                  <input type="text" name="email">
                   <br><br>
-                  <input type="text" name="id">
-                  <input type="text" name="produto">
-                  <input type="number" name="unidades">
-                  <input type="number" name="quantidades">
-                  <input type="text" name="valor" size="1">
-                  <input type="text" name="ncm">
-                  <input type="text" name="cst">
-                  <input type="text" name="cfop">
-                  <input type="text" name="total">
+                  <label>Data:</label>
+                  <input type="text" name="data">
                   <br><br>
-                </form>
+                  <label>CNPJ:</label>
+                  <input type="text" name="cnpj">
+                  <br><br>
+                  <input type="submit" value="Criar Pedido">
+              </form>
+          </div>
         </div>
-        <div>
-          <p>Dados do cliente:</p>
-          <br>
-          <label>Nome:</label>
-          <input type="text" name="nome">
-          <label>Telefone:</label>
-          <input type="text" name="telefone">
-          <br><br>
-          <label>Endereço:</label>
-          <input type="text" name="endereco">
-          <label>Email:</label>
-          <input type="text" name="email">
-          <br><br>
-          <label>Data:</label>
-          <input type="text" name="data" size="1">
-          <br><br>
-          <label>CNPJ:</label>
-          <input type="text" name="cnpj" size="1">
-          <label>Total da compra:</label>
-          <input type="text" name="total">
-        </div>
-        </center>
     </div>
     
     <footer>
@@ -224,6 +254,38 @@ $resultado = $conexao->query($sql);
     </footer>
 
     <script>
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Função para preencher automaticamente os números nas divs quadrado-numero-produto
+    function preencherNumeros() {
+        let linhas = document.querySelectorAll("tbody tr");
+        linhas.forEach(function(linha, index) {
+            let quadradoNumeroProduto = linha.querySelector(".quadrado-numero-produto");
+            quadradoNumeroProduto.textContent = index + 1;
+        });
+    }
+
+    // Chamando a função para preencher os números assim que a página carregar
+    preencherNumeros();
+
+    // Excluir Produto
+    document.querySelectorAll(".excluirProduto").forEach(function(button) {
+        button.addEventListener("click", function() {
+            excluirProduto(this);
+            // Atualizar os números após excluir um produto
+            preencherNumeros();
+        });
+    });
+});
+
+
+
+
+function excluirProduto(button) {
+    let row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+}
   
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {

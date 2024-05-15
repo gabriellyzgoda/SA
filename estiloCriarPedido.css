@@ -397,7 +397,219 @@ body, html{
 .dropdown-perfil:hover .circulo {background-color: #718fc3;}
 .dropdown-perfil:hover .circulo i {color: #FFF;}
 
+ 
+
+.criacao-pedido {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+}
   
+.bloco-criacao-pedido {
+  background-color: #dbedfe;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  border-radius: 30px;
+  padding: 25px 30px;
+}  
   
+.bloco-criacao-pedido form {
+  width: auto;
+}
+
+.form table thead {
+  display: block;
+}
+
+.form table tbody {
+  display: block;
+  overflow-y: scroll;
+  max-height: 150px;
+}
+
+.form .form-numero {
+  width: 100%;
+  display: flex;
+  text-align: start;
+  margin-left: 20px;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.form .form-numero label {
+  font-size: 21px;
+  font-family: "League Spartan", sans-serif;
+  color: #2a60a9;
+  font-weight: 600;
+  margin-right: 15px;
+}
+
+.form .form-numero input {
+  border: none;
+  width: 160px;
+  height: 23px;
+  font-size: 16px;
+}
+
+
+
+.form table th {
+  font-size: 20px;
+  font-family: "League Spartan", sans-serif;
+  color: #2a60a9;
+  font-weight: 600;
+}
+
+.form table td input {
+  border: none;
+  height: 23px;
+}
+
+
+
+
+.form table tbody tr:hover {
+  background-color: #8fc3f7;
   
-  
+}
+
+/*      td         */
+
+.form td:nth-child(1) {
+  margin-bottom: 30px;
+}
+
+.quadrado-numero-produto {
+  background-color: #85c4f9;
+  border-radius: 5px;
+  padding: 4px 10px;
+  font-size: 23px;
+  font-family: "League Spartan", sans-serif;
+  color: #fff;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form td:nth-child(2) input {
+  width: 160px;
+  margin-left: 5px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+
+}
+
+.form td:nth-child(3) input {
+  width: 50px;
+  margin-left: 25px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+}
+
+.form td:nth-child(4) input {
+  width: 50px;
+  margin-left: 2px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+
+}
+
+.form td:nth-child(5) input {
+  width: 50px;
+  margin-left: 2px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+
+}
+
+.form td:nth-child(6) input {
+  width: 130px;
+  margin-left: 25px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+}
+
+.form td:nth-child(7) input {
+  width: 100px;
+  margin-left: 20px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+}
+
+.form td:nth-child(8) input {
+  width: 100px;
+  margin-left: 20px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+}
+
+.form td:nth-child(9) input {
+  width: 50px;
+  margin-left: 40px;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+/*      th         */
+
+
+
+.form th:nth-child(1) p {
+  padding: 0px 18px;
+}
+
+.form th:nth-child(2) p {
+  padding: 0px 42px ;
+}
+
+
+.form th:nth-child(3) p {
+  margin-left: 25px;
+  font-size: 18px;
+  padding: 0px 15px;
+}
+
+.form th:nth-child(4) p {
+  font-size: 18px;
+  padding: 0px 12px;
+}
+
+.form th:nth-child(5) p {
+  font-size: 18px;
+  padding: 0px 2px;
+}
+
+.form th:nth-child(6) p {
+  margin-left: 25px;
+  padding: 0px 46px;
+}
+
+.form th:nth-child(7) p {
+  margin-left: 20px;
+  padding: 0px 35px;
+}
+
+.form th:nth-child(8) p {
+  margin-left: 20px;
+  padding: 0px 28.5px;
+}
+
+.form th:nth-child(9) p {
+  margin-left: 40px;
+  padding: 0px 5px;
+}
+
+
+
+.excluirProduto {
+  background-color: transparent;
+  border: none;
+  padding: 3px 5px;
+}
+
+.excluirProduto i {
+  font-size: 20px;
+  color: #2a60a9;
+}
