@@ -23,22 +23,22 @@
             <div class="container-cadastrar">
                 <div class="cadastrar">
                     <h1>Cadastro</h1>
-                    <form class="form" method="post" action="cadastroUsuario.php" id="formcadastro" name="formcadastro" >
+                    <form class="form" method="POST" action="cadastroUsuario.php" id="formcadastro" name="formcadastro" >
                         <label><h2>Nome: </h2></label>
                             <div class="div-input">
                             <i class="fa-solid fa-user"></i>
-                            <input  class="inputs" type="text" name="nome" id="nome" size="20">
+                            <input  class="inputs" type="text" name="nome" id="nome" size="20" required>
                         </div>
                         <label><h2>Email: </h2></label>
                             <div class="div-input">
                             <i class="fa-solid fa-envelope"></i>
-                            <input  class="inputs" type="text" name="email" id="email" size="20">
+                            <input  class="inputs" type="text" name="email" id="email" size="20" required>
                         </div>
                         
                         <label><h2>Senha: </h2></label>
                         <div class="div-input">
                             <i class="fa-solid fa-lock"></i>
-                            <input class="inputs" type="password" name="senha" id="senha" size="20">
+                            <input class="inputs" type="password" name="senha" id="senha" size="20" required>
                         </div>
                         <div class="ehProfessor">
                                 <label for="professor">É professor? </label>

@@ -2,12 +2,19 @@
 <html lang="en">
 <?php
 session_start();
+include_once('config.php');
+include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
-}?>
+}
+$sql = "SELECT * FROM cadastro
+WHERE professor = 0";
+// puxa conexão
+$resultado = $conexao->query($sql);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,17 +27,63 @@ if(!isset($_SESSION['email'])) {
     </style>
 </head>
 <body>
-    <header class="header-topo">
+<header class="header-topo">
         <div class="logo">
-                <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
-            <a href="perfil.php">
+          <div class="dropdown-perfil">
+            <a href="#" >
                 <div class="circulo">
                         <i class="fa-solid fa-user"></i>
                 </div>
             </a>
-            <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+            <div class="dropdown-content">
+              <div class="dropdown-section">
+              <?php
+            error_reporting(E_ALL);
+            ini_set('display_errors', 1);
+            
+            $hostname = "127.0.0.1";
+            $user = "root";
+            $password = "";
+            $database = "sa";
+        
+            $conexao = new mysqli($hostname, $user, $password, $database);
+    
+            if ($conexao -> connect_errno) {
+                echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+                exit();
+              } else {
+                // Evita caracteres epsciais (SQL Inject)
+    
+                $sql="SELECT * FROM `cadastro`
+                        WHERE `id`='".$id."'";     // Ou qualquer valor padrão que você deseja usar
+    
+                $resultado = $conexao->query($sql);
+                
+                if($resultado->num_rows != 0)
+                {
+                    $row = $resultado -> fetch_array();
+                    echo 'ID: ' . $row['id'];
+                    echo '<br>';
+                    echo 'Nome: ' . $row['nome'];
+                    echo '<br>';
+                    echo 'Email: ' . $row['email'];
+                    echo '<br>';
+                    echo 'Cargo ' . $row['cargo'];
+                    $conexao -> close();
+                    exit();
+                } else {
+                    $conexao -> close();
+                    echo 'Nenhum registro encontrado.';
+                }
+            }
+        ?>
+              </div>
+            </div>
+          </div>
+          <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar close">

@@ -13,11 +13,6 @@ $sql = "SELECT * FROM cadastro
 WHERE professor != 0";
 // puxa conexão
 $resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
-$_SESSION["cargo"]= $row[2];
-$conexao -> close();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -45,15 +40,15 @@ $conexao -> close();
             <div class="dropdown-content">
               <div class="dropdown-section">
                 <h4>Nome:</h4>
-                <p><?php echo $row["nome"];?></p>
+                <p><?php echo $_SESSION["nome"];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Email:</h4>
-                <p><?php echo $row["email"];?></p>
+                <p><?php echo $_SESSION["email"];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
-                <p><?php echo $row["cargo"];?></p>
+                <p><?php echo $_SESSION["cargo"];?></p>
               </div>
             </div>
           </div>
@@ -110,7 +105,7 @@ $conexao -> close();
           <ul class="sub-menu">
           
             <li><a class="link_name" href="#">Nota fiscal</a></li>
-            <li><a href="criardanfe.php">Criar Danfe</a></li>
+            <li><a href="#">Criar Danfe</a></li>
             <li><a href="#">Minhas Danfe's</a></li>
           
           </ul>
@@ -162,10 +157,53 @@ $conexao -> close();
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Bem vindo professor(a)...</h1>
+         <h1>Criação de Nota Fiscal</h1>
         </div>
     </div>
-
+    <center>
+        <div>
+            <p>Chave de Acesso:</p>
+            <input class="" type="text" name="acesso" id="acesso" size="20">
+        </div>
+        <div>
+            <p><-IMAGEM EM CIMA DO INPUT</p>
+            <input type="number" name="acesso" id="acesso" value="">
+            <label>Nome/Razão Social: SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI</label>
+            <br><br>
+            <label>CNPJ: 33564543 0001 90</label>
+            <label>CEP: Rua Henrique Vigarani, 163 - Barra do Rio, Itajaí, SC</label>
+            <br><br>
+            <label>Inscrição Estadual: 03.851.105/0001-42</label>
+            <label>Tel: (47) 98437-1137</label>
+            <br><br>
+        </div>
+        <div>
+            <label>Nº</label>
+            <input type="number" name="numero">
+            <label>Operação:</label>
+            <label>Data de Emissão:</label>
+            <input type="date" name="data">
+            <label>Hora da Emissão:</label>
+            <input type="time" name="hora">
+            <br><br>
+            <label>Série:</label>
+            <input type="checkbox" id="saida" name="saida" />
+            <label>Saída</label>
+            <input type="checkbox" id="entrada" name="entrada" />
+            <label>Entrada</label>
+        </div>
+        <h2>DESTINATÁRIO</h2>
+        <label>Nome/Razão social:</label>
+        <input type="text" name="nome">
+        <br><br>
+        <label>CNPJ:</label>
+        <input type="text" name="cnpj">
+        <label>Inscrição Estadual:</label>
+        <input type="text" name="inscricao">
+        <label>Valor total da nota:</label>
+        <input type="text" name="total">
+        <input type="submit" value="Criar" name="criar">
+    </center>
     <footer>
         <div class="linha-footer"><div>
         <center>
