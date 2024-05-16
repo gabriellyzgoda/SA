@@ -257,9 +257,13 @@ $resultado = $conexao->query($sql);
                     </div>
                   </div>
                   <div class="blocoFinal">
-                    <input type="submit" value="Criar Pedido">
-                    <p>Total da compra:</p>
-                    <input id="totalcompra" type="text" name="cnpj">
+                    <div class="blocoBotaoCriarPedido">
+                      <input type="submit" value="Enviar">
+                    </div>
+                    <div class="totalCompra">
+                      <label>Total da compra:</label>
+                      <input id="totalcompra" type="text" name="cnpj">
+                    </div>
                   </div>
                   
               </form>
