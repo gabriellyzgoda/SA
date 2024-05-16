@@ -45,15 +45,15 @@ $conexao -> close();
             <div class="dropdown-content">
               <div class="dropdown-section">
                 <h4>Nome:</h4>
-                <p><?php echo $row["nome"];?></p>
+                <p><?php echo $row['nome'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Email:</h4>
-                <p><?php echo $row["email"];?></p>
+                <p><?php echo $row['email'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
-                <p><?php echo $row["cargo"];?></p>
+                <p><?php echo $row['cargo'];?></p>
               </div>
             </div>
           </div>

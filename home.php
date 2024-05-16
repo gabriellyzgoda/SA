@@ -14,7 +14,11 @@ $sql = "SELECT * FROM cadastro
 WHERE professor = 0";
 // puxa conexão
 $resultado = $conexao->query($sql);
-?>
+$row = $resultado -> fetch_array();
+$_SESSION["nome"]= $row[0];
+$_SESSION["email"]= $row[1];
+$_SESSION["cargo"]= $row[2];
+$conexao -> close();?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -40,46 +44,16 @@ $resultado = $conexao->query($sql);
             </a>
             <div class="dropdown-content">
               <div class="dropdown-section">
-              <?php
-            error_reporting(E_ALL);
-            ini_set('display_errors', 1);
-            
-            $hostname = "127.0.0.1";
-            $user = "root";
-            $password = "";
-            $database = "sa";
-        
-            $conexao = new mysqli($hostname, $user, $password, $database);
-    
-            if ($conexao -> connect_errno) {
-                echo "Failed to connect to MySQL: " . $conexao -> connect_error;
-                exit();
-              } else {
-                // Evita caracteres epsciais (SQL Inject)
-    
-                $sql="SELECT * FROM `cadastro`
-                        WHERE `id`='".$id."'";     // Ou qualquer valor padrão que você deseja usar
-    
-                $resultado = $conexao->query($sql);
-                
-                if($resultado->num_rows != 0)
-                {
-                    $row = $resultado -> fetch_array();
-                    echo 'ID: ' . $row['id'];
-                    echo '<br>';
-                    echo 'Nome: ' . $row['nome'];
-                    echo '<br>';
-                    echo 'Email: ' . $row['email'];
-                    echo '<br>';
-                    echo 'Cargo ' . $row['cargo'];
-                    $conexao -> close();
-                    exit();
-                } else {
-                    $conexao -> close();
-                    echo 'Nenhum registro encontrado.';
-                }
-            }
-        ?>
+                <h4>Nome:</h4>
+                <p><?php echo $row['nome'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Email:</h4>
+                <p><?php echo $row['email'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Cargo:</h4>
+                <p><?php echo $row['cargo'];?></p>
               </div>
             </div>
           </div>
