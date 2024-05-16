@@ -33,7 +33,7 @@ if(!isset($_SESSION['email'])) {
             <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
-    <div class="sidebar">
+    <div class="sidebar close">
       
       <div class="logo-details">
         
@@ -88,26 +88,26 @@ if(!isset($_SESSION['email'])) {
 
         <li>
           
-          <a href="#">
+          <a href="estoque.php">
             <i class="fa-solid fa-warehouse"></i>
             <span class="link_name">Estoque</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Estoque</a></li>
+            <li><a class="link_name" href="estoque.php">Estoque</a></li>
           </ul>
 
         </li>
         
         <li>
           
-          <a href="#">
+          <a href="picking.php">
           <i class="fa-solid fa-box"></i>
             <span class="link_name">Picking</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Picking</a></li>
+            <li><a class="link_name" href="picking.php">Picking</a></li>
           </ul>
 
         </li>
@@ -116,7 +116,7 @@ if(!isset($_SESSION['email'])) {
           
           <div class="iocn-link">
           
-            <a href="#">
+            <a href="expedicao.php">
             <i class="fa-solid fa-truck-fast"></i>
               <span class="link_name">Expedição</span>
             </a>
@@ -125,34 +125,34 @@ if(!isset($_SESSION['email'])) {
           </div>
           
           <ul class="sub-menu">
-            <li><a class="link_name" href="#">Expedição</a></li>
+            <li><a class="link_name" href="expedicao.php">Expedição</a></li>
           </ul>
 
         </li>
         
         <li>
         
-          <a href="#">
+          <a href="controle.php">
           <i class="fa-solid fa-server"></i>
             <span class="link_name">Controle</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Controle</a></li>
+            <li><a class="link_name" href="controle.php">Controle</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">
+          <a href="relatorios.php">
           <i class="fa-regular fa-file"></i>
             <span class="link_name">Relatório</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Relatório</a></li>
+            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
           </ul>
         </li>      
       </ul><!--Fecha ul-->
-    </div>      
+    </div>       
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
          <h1>Movimentação</h1>
@@ -169,7 +169,7 @@ if(!isset($_SESSION['email'])) {
             </tr>
           </table>
         </div>
-    <form class="form" method="post" action="metodoOperacao.php" id="formlogin" name="formlogin" >
+    <form class="form" method="post" action="" id="formlogin" name="formlogin" >
         <div>
             <input type="text" name="operacao" placeholder="">
             <input type="text" name="un" placeholder="">
