@@ -159,15 +159,7 @@ $conexao -> close();
           </ul>
         </li>   
       </ul><!--Fecha ul-->
-    </div>      
-    <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1>Bem vindo professor(a)...</h1>
-        </div>
-        <div class="imagem-home">
-        <img src="imagens/img-home.jpg" alt="Minha Figura" width="650" height="auto">
-        </div>
-    </div>    
+    </div>         
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
          <h1>Relatórios</h1>

@@ -60,8 +60,8 @@ if(!isset($_SESSION['email'])) {
           <ul class="sub-menu">
             
             <li><a class="link_name" href="#">Recebimento</a></li>
-            <li><a href="#">Container</a></li>
-            <li><a href="#">Carga</a></li>
+            <li><a href="container.php">Container</a></li>
+            <li><a href="carga.php">Carga</a></li>
           
           </ul>
           
@@ -131,16 +131,27 @@ if(!isset($_SESSION['email'])) {
         </li>
         
         <li>
-        
-          <a href="controle.php">
-          <i class="fa-solid fa-server"></i>
-            <span class="link_name">Controle</span>
-          </a>
           
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="controle.php">Controle</a></li>
+          <div class="iocn-link">
+            
+            <a href="#">
+                <i class="fa-solid  fa-truck-front"></i>
+              <span class="link_name">Controle</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
+          
+          </div>
+          
+          <ul class="sub-menu">
+            
+            <li><a class="link_name" href="#">Controle</a></li>
+            <li><a href="pedidodoca.php">Doca Recebimento</a></li>
+          
           </ul>
+          
         </li>
+        
         <li>
           <a href="relatorios.php">
           <i class="fa-regular fa-file"></i>
