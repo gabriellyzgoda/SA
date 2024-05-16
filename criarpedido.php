@@ -256,36 +256,67 @@ $resultado = $conexao->query($sql);
     <script>
 
 
-document.addEventListener("DOMContentLoaded", function() {
-    // Função para preencher automaticamente os números nas divs quadrado-numero-produto
-    function preencherNumeros() {
-        let linhas = document.querySelectorAll("tbody tr");
-        linhas.forEach(function(linha, index) {
-            let quadradoNumeroProduto = linha.querySelector(".quadrado-numero-produto");
-            quadradoNumeroProduto.textContent = index + 1;
+      document.addEventListener("DOMContentLoaded", function() {
+        // Função para preencher automaticamente os números nas divs quadrado-numero-produto
+        function preencherNumeros() {
+            let linhas = document.querySelectorAll("tbody tr");
+            linhas.forEach(function(linha, index) {
+                let quadradoNumeroProduto = linha.querySelector(".quadrado-numero-produto");
+                quadradoNumeroProduto.textContent = index + 1;
+            });
+        }
+
+        // Chamando a função para preencher os números assim que a página carregar
+        preencherNumeros();
+
+        // Excluir Produto
+        document.querySelectorAll(".excluirProduto").forEach(function(button) {
+            button.addEventListener("click", function() {
+                excluirProduto(this);
+                // Atualizar os números após excluir um produto
+                preencherNumeros();
+            });
         });
-    }
 
-    // Chamando a função para preencher os números assim que a página carregar
-    preencherNumeros();
-
-    // Excluir Produto
-    document.querySelectorAll(".excluirProduto").forEach(function(button) {
-        button.addEventListener("click", function() {
-            excluirProduto(this);
-            // Atualizar os números após excluir um produto
+        // Adicionar Produto
+        document.getElementById("adicionarProduto").addEventListener("click", function(e) {
+            e.preventDefault();
+            adicionarProduto();
+            // Atualizar os números após adicionar um produto
             preencherNumeros();
         });
+
+        function adicionarProduto() {
+            let tabela = document.querySelector("table tbody");
+            let novaLinha = document.createElement("tr");
+            novaLinha.innerHTML = `
+                <td><div class="quadrado-numero-produto"></div></td>
+                <td><input type="text" name="produto"></td>
+                <td><input type="number" name="unidades"></td>
+                <td><input type="number" name="quantidades"></td>
+                <td><input type="text" name="valor"></td>
+                <td><input type="text" name="ncm"></td>
+                <td><input type="text" name="cst"></td>
+                <td><input type="text" name="cfop"></td>
+                <td><input type="text" name="total"></td>
+                <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+            `;
+            tabela.appendChild(novaLinha);
+
+            // Adicionar evento de exclusão ao novo botão de excluir produto
+            novaLinha.querySelector(".excluirProduto").addEventListener("click", function() {
+                excluirProduto(this);
+                // Atualizar os números após excluir um produto
+                preencherNumeros();
+            });
+        }
+
+        function excluirProduto(button) {
+            let row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+        }
+
     });
-});
-
-
-
-
-function excluirProduto(button) {
-    let row = button.parentNode.parentNode;
-    row.parentNode.removeChild(row);
-}
   
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
