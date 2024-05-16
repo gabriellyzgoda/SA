@@ -1,13 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <?php
 session_start();
+include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
-}?>
+}
+$sql = "SELECT * FROM cadastro
+WHERE professor != 0";
+// puxa conexão
+$resultado = $conexao->query($sql);
+$row = $resultado -> fetch_array();
+$_SESSION["nome"]= $row[0];
+$_SESSION["email"]= $row[1];
+$_SESSION["cargo"]= $row[2];
+$conexao -> close();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,12 +36,28 @@ if(!isset($_SESSION['email'])) {
           <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
-            <a href="perfil.php">
+          <div class="dropdown-perfil">
+            <a href="#" >
                 <div class="circulo">
                         <i class="fa-solid fa-user"></i>
                 </div>
             </a>
-            <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+            <div class="dropdown-content">
+              <div class="dropdown-section">
+                <h4>Nome:</h4>
+                <p><?php echo $row['nome'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Email:</h4>
+                <p><?php echo $row['email'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Cargo:</h4>
+                <p><?php echo $row['cargo'];?></p>
+              </div>
+            </div>
+          </div>
+          <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar close">
@@ -132,35 +159,13 @@ if(!isset($_SESSION['email'])) {
           </ul>
         </li>   
       </ul><!--Fecha ul-->
-    </div>   
+    </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Seus pedidos!</h1>
+         <h1>Controle</h1>
         </div>
     </div>
-    <center>
-    <div class="quadro-alunos">
-        <table>
-            <tr>
-                <th>CARIMBO DATA/HORA</th>
-                <th>Nº DO PEDIDO</th>
-                <th>PRODUTO</th>
-                <th>DOCAS</th>
-                <th>POSIÇÃO</th>
-                </table>
-            </tr>
-            <tbody>
-                <?php
-                        echo "<tr>";
-                        echo "<td>".$user_data['data']."</td>";
-                        echo "<td>".$user_data['id']."</td>";
-                        echo "<td >".$user_data['nome']."</td>";
-                        echo "<td >".$user_data['docas']."</td>";
-                        echo "<td >".$user_data['posicao']."</td>";
-                    ?>
-            </tbody>
-        </div>
-    </center>
+
     <footer>
         <div class="linha-footer"><div>
         <center>

@@ -105,8 +105,8 @@ $resultado = $conexao->query($sql);
           <ul class="sub-menu">
           
             <li><a class="link_name" href="#">Nota fiscal</a></li>
-            <li><a href="#">Criar Danfe</a></li>
-            <li><a href="#">Minhas Danfe's</a></li>
+            <li><a href="criardanfe.php">Criar Danfe</a></li>
+            <li><a href="minhadanfe.php">Minhas Danfe's</a></li>
           
           </ul>
 
@@ -114,13 +114,13 @@ $resultado = $conexao->query($sql);
 
         <li>
           
-          <a href="#">
+          <a href="controleP.php">
             <i class="fa-solid fa-warehouse"></i>
             <span class="link_name">Controle</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Controle</a></li>
+            <li><a class="link_name" href="controleP.php">Controle</a></li>
           </ul>
 
         </li>
@@ -142,7 +142,7 @@ $resultado = $conexao->query($sql);
           
           <div class="iocn-link">
           
-            <a href="#">
+            <a href="relatoriosP.php">
             <i class="fa-solid fa-file-lines"></i>
               <span class="link_name">Relatórios</span>
             </a>
@@ -150,11 +150,11 @@ $resultado = $conexao->query($sql);
           </div>
           
           <ul class="sub-menu">
-            <li><a class="link_name" href="#">Relatórios</a></li>
+            <li><a class="link_name" href="relatoriosP.php">Relatórios</a></li>
           </ul>
         </li>   
       </ul><!--Fecha ul-->
-    </div>      
+    </div>   
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
          <h1>Criação de Nota Fiscal</h1>

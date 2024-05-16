@@ -33,7 +33,7 @@ $conexao -> close();?>
 <body>
 <header class="header-topo">
         <div class="logo">
-          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+          <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
@@ -87,8 +87,8 @@ $conexao -> close();?>
           <ul class="sub-menu">
             
             <li><a class="link_name" href="#">Recebimento</a></li>
-            <li><a href="#">Container</a></li>
-            <li><a href="#">Carga</a></li>
+            <li><a href="container.php">Container</a></li>
+            <li><a href="carga.php">Carga</a></li>
           
           </ul>
           
@@ -115,26 +115,26 @@ $conexao -> close();?>
 
         <li>
           
-          <a href="#">
+          <a href="estoque.php">
             <i class="fa-solid fa-warehouse"></i>
             <span class="link_name">Estoque</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Estoque</a></li>
+            <li><a class="link_name" href="estoque.php">Estoque</a></li>
           </ul>
 
         </li>
         
         <li>
           
-          <a href="#">
+          <a href="picking.php">
           <i class="fa-solid fa-box"></i>
             <span class="link_name">Picking</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Picking</a></li>
+            <li><a class="link_name" href="picking.php">Picking</a></li>
           </ul>
 
         </li>
@@ -143,7 +143,7 @@ $conexao -> close();?>
           
           <div class="iocn-link">
           
-            <a href="#">
+            <a href="expedicao.php">
             <i class="fa-solid fa-truck-fast"></i>
               <span class="link_name">Expedição</span>
             </a>
@@ -152,30 +152,30 @@ $conexao -> close();?>
           </div>
           
           <ul class="sub-menu">
-            <li><a class="link_name" href="#">Expedição</a></li>
+            <li><a class="link_name" href="expedicao.php">Expedição</a></li>
           </ul>
 
         </li>
         
         <li>
         
-          <a href="#">
+          <a href="controle.php">
           <i class="fa-solid fa-server"></i>
             <span class="link_name">Controle</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Controle</a></li>
+            <li><a class="link_name" href="controle.php">Controle</a></li>
           </ul>
         </li>
         <li>
-          <a href="#">
+          <a href="relatorios.php">
           <i class="fa-regular fa-file"></i>
             <span class="link_name">Relatório</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Relatório</a></li>
+            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
           </ul>
         </li>      
       </ul><!--Fecha ul-->

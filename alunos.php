@@ -39,7 +39,7 @@ $resultado = $conexao->query($sqlProfessor);
             <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
-    <div class="sidebar">
+    <div class="sidebar close">
       
       <div class="logo-details">
         
@@ -66,8 +66,8 @@ $resultado = $conexao->query($sqlProfessor);
           <ul class="sub-menu">
             
             <li><a class="link_name" href="#">Pedidos</a></li>
-            <li><a href="#">Meus pedidos</a></li>
-            <li><a href="criarPedido.php">Criar pedido</a></li>
+            <li><a href="meuspedidos.php">Meus pedidos</a></li>
+            <li><a href="criarpedido.php">Criar pedido</a></li>
           
           </ul>
           
@@ -89,8 +89,8 @@ $resultado = $conexao->query($sqlProfessor);
           <ul class="sub-menu">
           
             <li><a class="link_name" href="#">Nota fiscal</a></li>
-            <li><a href="#">Criar Danfe</a></li>
-            <li><a href="#">Minhas Danfe's</a></li>
+            <li><a href="criardanfe.php">Criar Danfe</a></li>
+            <li><a href="minhadanfe.php">Minhas Danfe's</a></li>
           
           </ul>
 
@@ -98,13 +98,13 @@ $resultado = $conexao->query($sqlProfessor);
 
         <li>
           
-          <a href="#">
+          <a href="controleP.php">
             <i class="fa-solid fa-warehouse"></i>
             <span class="link_name">Controle</span>
           </a>
 
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="#">Controle</a></li>
+            <li><a class="link_name" href="controleP.php">Controle</a></li>
           </ul>
 
         </li>
@@ -126,7 +126,7 @@ $resultado = $conexao->query($sqlProfessor);
           
           <div class="iocn-link">
           
-            <a href="#">
+            <a href="relatoriosP.php">
             <i class="fa-solid fa-file-lines"></i>
               <span class="link_name">Relatórios</span>
             </a>
@@ -134,11 +134,11 @@ $resultado = $conexao->query($sqlProfessor);
           </div>
           
           <ul class="sub-menu">
-            <li><a class="link_name" href="#">Relatórios</a></li>
+            <li><a class="link_name" href="relatoriosP.php">Relatórios</a></li>
           </ul>
         </li>   
       </ul><!--Fecha ul-->
-    </div>      
+    </div>  
     <div class="conteudo"> 
       <div class="titulo-conteudo">    
          <h1>Sua lista de alunos :)</h1>
