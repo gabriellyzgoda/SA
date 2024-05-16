@@ -629,7 +629,7 @@ body, html{
 }
 
 .botaoAdicionarProduto {
-  border: 2px solid #fff;
+  border: none;
   background-color: #8fc3f7;
   border-radius: 10px;
   display: flex;
@@ -717,6 +717,49 @@ body, html{
 
 .blocoFinal {
   display: flex;
-  justify-content: center;
+  justify-content: end;
+  align-items: center;
+  padding-right: 50px;
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
 
+
+.totalCompra {
+  display: flex;
+  flex-direction: column;
+  margin-left: 220px
+}
+
+.totalCompra label {
+  font-size: 20px;
+  font-family: "League Spartan", sans-serif;
+  color: #2a60a9;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.totalCompra input {
+  border: none;
+  font-family: "League Spartan", sans-serif;
+  font-size: 19px;
+  height: 23px;
+  width: 125px;
+  padding: 10px 10px;
+}
+
+.blocoBotaoCriarPedido input {
+  border: none;
+  background-color: #8fc3f7;
+  border-radius: 25px;
+  padding: 13px 45px;
+  font-family: "League Spartan", sans-serif;
+  color: #fff;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.blocoBotaoCriarPedido input:hover {
+  background-color: #718fc3;
+  transition: all 0.3s ease;
+}
