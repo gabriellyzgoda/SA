@@ -118,6 +118,7 @@ body, html{
     font-family: "League Spartan", sans-serif;
     color: #85C4F9;
     margin-top: 80px;
+    margin-bottom: 25px;
   }
   
   /*Menu Sidebarfffffffffffffffffffffffffffffffffff*/
@@ -393,7 +394,7 @@ body, html{
 /* Show the dropdown menu on hover */
 .dropdown-perfil:hover .dropdown-content {display: block;}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
+/* Change the background color of the dropdown button when the dropdown content is shown  */
 .dropdown-perfil:hover .circulo {background-color: #718fc3;}
 .dropdown-perfil:hover .circulo i {color: #FFF;}
 
@@ -407,12 +408,13 @@ body, html{
 }
   
 .bloco-criacao-pedido {
-  background-color: #dbedfe;
+  background-color: #c1e1fc;
   display: flex;
   justify-content: center;
   width: auto;
   border-radius: 30px;
   padding: 25px 30px;
+  border: 15px solid #dbedfe;
 }  
   
 .bloco-criacao-pedido form {
@@ -629,33 +631,20 @@ body, html{
 }
 
 .botaoAdicionarProduto {
+  background-color: transparent;
+  border-radius: 30px;
+  background-color: #fff;
   border: none;
-  background-color: #8fc3f7;
-  border-radius: 10px;
-  display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  padding: 5px 6px;
-  align-items: center;
-}
-
-.botaoAdicionarProduto:hover {
-  background-color: #718fc3;
-  transition: all 0.3s ease;
+  padding: 5px 7px;
 }
 
 
 .botaoAdicionarProduto i {
-  font-size: 20px;
-  color: #fff;
+  font-size: 23px;
+  color: #2a60a9;
 }
 
-.botaoAdicionarProduto p {
-  font-family: "League Spartan", sans-serif;
-  color: #fff;
-  font-size: 20px;
-  margin-left: 5px;
-}
+
 
 /*////////////////////////Dados Clientes////////////////////////*/
 

@@ -222,8 +222,7 @@ $resultado = $conexao->query($sql);
                   <div class="adicionarProduto">
                     <p>Dados do cliente:</p>
                     <button class="botaoAdicionarProduto" id="adicionarProduto">
-                      <i class="fa-solid fa-circle-plus"></i>
-                      <p>Adicionar</p>
+                      <i class="fa-solid fa-plus"></i>
                     </button>
                   </div>
                   <div class="dadosClienteBloco">
