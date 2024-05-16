@@ -219,27 +219,49 @@ $resultado = $conexao->query($sql);
                     
                     </tbody>
                   </table>
-                  <button id="adicionarProduto">Adicionar Produto</button>
-                  <br>
-                  <p>Dados do cliente:</p>
-                  <br>
-                  <label>Nome:</label>
-                  <input type="text" name="nome">
-                  <label>Telefone:</label>
-                  <input type="text" name="telefone">
-                  <br><br>
-                  <label>Endereço:</label>
-                  <input type="text" name="endereco">
-                  <label>Email:</label>
-                  <input type="text" name="email">
-                  <br><br>
-                  <label>Data:</label>
-                  <input type="text" name="data">
-                  <br><br>
-                  <label>CNPJ:</label>
-                  <input type="text" name="cnpj">
-                  <br><br>
-                  <input type="submit" value="Criar Pedido">
+                  <div class="adicionarProduto">
+                    <p>Dados do cliente:</p>
+                    <button class="botaoAdicionarProduto" id="adicionarProduto">
+                      <i class="fa-solid fa-circle-plus"></i>
+                      <p>Adicionar</p>
+                    </button>
+                  </div>
+                  <div class="dadosClienteBloco">
+                    <div class="clienteBloco1">
+                      <div  class="clienteBlocoLinha">
+                        <label>Nome:</label>
+                        <input  type="text" name="nome">
+                      </div>
+                      <div class="clienteBlocoLinha">
+                        <label>Endereço:</label>
+                        <input  type="text" name="endereco">
+                      </div>
+                      <div  class="clienteBlocoLinha">
+                        <label>Data:</label>
+                        <input id="data" type="date" name="data">
+                      </div>
+                    </div>
+                    <div class="clienteBloco2">
+                      <div class="clienteBlocoLinha">
+                        <label>Telefone:</label>
+                        <input  type="number"    name="telefone">
+                      </div>
+                      <div  class="clienteBlocoLinha">
+                        <label>Email:</label>
+                        <input  type="text" name="email">
+                      </div>
+                      <div class="clienteBlocoLinha">
+                        <label>CNPJ:</label>
+                        <input  type="text" name="cnpj">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="blocoFinal">
+                    <input type="submit" value="Criar Pedido">
+                    <p>Total da compra:</p>
+                    <input id="totalcompra" type="text" name="cnpj">
+                  </div>
+                  
               </form>
           </div>
         </div>

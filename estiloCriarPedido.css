@@ -92,7 +92,7 @@ body, html{
     transition: all 0.4s ease;
     
   }
-  .circulo i:hover {
+  .circulo:hover i {
     color:#fff;
   }
   
@@ -564,7 +564,6 @@ body, html{
   padding: 0px 42px ;
 }
 
-
 .form th:nth-child(3) p {
   margin-left: 25px;
   font-size: 18px;
@@ -613,3 +612,111 @@ body, html{
   font-size: 20px;
   color: #2a60a9;
 }
+
+.adicionarProduto {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  align-items: center;
+}
+
+.adicionarProduto p {
+  font-size: 21px;
+  font-family: "League Spartan", sans-serif;
+  color: #2a60a9;
+  font-weight: 600;
+}
+
+.botaoAdicionarProduto {
+  border: 2px solid #fff;
+  background-color: #8fc3f7;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  padding: 5px 6px;
+  align-items: center;
+}
+
+.botaoAdicionarProduto:hover {
+  background-color: #718fc3;
+  transition: all 0.3s ease;
+}
+
+
+.botaoAdicionarProduto i {
+  font-size: 20px;
+  color: #fff;
+}
+
+.botaoAdicionarProduto p {
+  font-family: "League Spartan", sans-serif;
+  color: #fff;
+  font-size: 20px;
+  margin-left: 5px;
+}
+
+/*////////////////////////Dados Clientes////////////////////////*/
+
+.dadosClienteBloco {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.clienteBloco1, .clienteBloco2 {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.clienteBloco1 {
+  width: 400px;
+}
+
+.clienteBloco2 {
+  width: 350px;
+}
+
+.clienteBlocoLinha  {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.clienteBlocoLinha input {
+  border: none;
+  font-family: "League Spartan", sans-serif;
+  font-size: 16px;
+  height: 23px;
+  flex: 1;
+}
+
+.clienteBlocoLinha label {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    color: #2a60a9;
+    font-weight: 600;
+    width: 82px; /* Largura fixa para os rótulos */
+    margin-right: 10px; 
+}
+
+
+#data {
+  width: 120px !important;
+  flex:none;
+  padding: 1px 0px 0px 5px;
+}
+
+
+
+/*////////////////////////Bloco Final////////////////////////*/
+
+.blocoFinal {
+  display: flex;
+  justify-content: center;
+}
+

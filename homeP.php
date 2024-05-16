@@ -164,6 +164,9 @@ $conexao -> close();
         <div class="titulo-conteudo">    
          <h1>Bem vindo professor(a)...</h1>
         </div>
+        <div class="imagem-home">
+        <img src="imagens/img-home.jpg" alt="Minha Figura" width="650" height="auto">
+        </div>
     </div>
 
     <footer>
