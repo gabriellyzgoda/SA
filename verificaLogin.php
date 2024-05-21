@@ -16,7 +16,7 @@
 				$senha = $conexao -> real_escape_string($_POST['senha']);
 				$professor = $conexao -> real_escape_string($_POST['professor']);
 
-				$sql="SELECT `id`, `email` FROM `cadastro`
+				$sql="SELECT `id`, `email`, `professor`, `nome`, `cargo` FROM `cadastro`
 					WHERE `email` = '".$email."'
 					AND `senha` = '".$senha."'";
 
@@ -24,15 +24,17 @@
 
 				if($resultado->num_rows != 0)
 				{
-					$sql="SELECT `id`, `email`,`professor` FROM `cadastro`
+					/*$sql="SELECT `id`, `email`,`professor` FROM `cadastro`
 					WHERE `email` = '".$email."'
 					AND `senha` = '".$senha."'";
 					$resultado = $conexao->query($sql);
-
+*/
 					$row = $resultado -> fetch_array();
 					$_SESSION['id'] = $row[0];
 					$_SESSION['email'] = $row[1];
 					$_SESSION['professor'] = $row[2];
+					$_SESSION['nome'] = $row[3];
+					$_SESSION['cargo'] = $row[4];
 					$conexao -> close();
 					
 					if($row[2] == "1"){
