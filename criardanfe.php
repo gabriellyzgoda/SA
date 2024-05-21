@@ -20,6 +20,7 @@ $resultado = $conexao->query($sql);
     <title>Home Professor</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloCriarDanfe.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -55,7 +56,7 @@ $resultado = $conexao->query($sql);
           <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
-    <div class="sidebar close">
+    <div class="sidebar ">
       
       <div class="logo-details">
         
@@ -159,51 +160,81 @@ $resultado = $conexao->query($sql);
         <div class="titulo-conteudo">    
          <h1>Criação de Nota Fiscal</h1>
         </div>
-    </div>
-    <center>
-        <div>
-            <p>Chave de Acesso:</p>
-            <input class="" type="text" name="acesso" id="acesso" size="20">
+        <div class="quadro-conteudo">
+          <div class="bloco-conteudo">
+            <div class="chave">
+                <p>Chave de Acesso:</p>
+                <input class="" type="text" name="acesso" id="acesso" size="20">
+            </div>
+            <div class="informacoes">
+              <div class="informacoesBloco1">
+                <img src="imagens/codigo-barras.png" alt="Minha Figura" width="200" height="auto">
+                <input type="number" name="acesso" id="acesso" value="1234567899032" >
+              </div>
+              <div class="informacoesBloco2">
+                <p>Nome/Razão Social: SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI</p>
+                <p>CNPJ: 33564543 0001 90</p>
+                <p>CEP: Rua Henrique Vigarani, 163 - Barra do Rio, Itajaí, SC</p>
+                <p>Inscrição Estadual: 03.851.105/0001-42</p>
+                <p>Tel: (47) 98437-1137</p>
+              </div>
+            </div>
+            <div class="dados">
+              <div class="dadosBloco1">
+                <div class="Bloco1-1">
+                  <div class="bloco1-linha1">
+                    <label>Nº</label>
+                    <input type="number" name="numero">
+                  </div>
+                  <div class="bloco1-linha2">
+                    <label>Série:</label>
+                    <input type="number" name="serie">
+                  </div>
+                </div>
+                <div class="Bloco1-2">
+                  <div class="bloco12-linha1"><label>Operação:</label></div>
+                  <div class="bloco12-linha2">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Saída</label>
+                    <input type="checkbox" id="entrada" name="entrada" />
+                    <label>Entrada</label>
+                  </div>
+                </div>
+              </div>
+              <div class="dadosBloco2">
+                <label>Data de Emissão:</label>
+                <input type="date" name="data">
+              </div>
+              <div class="dadosBloco3">
+                <label>Hora da Emissão:</label>
+                <input type="time" name="hora">
+              </div>
+            </div>
+            <div class="titulo-destinatario"><h2>DESTINATÁRIO</h2></div>
+            <div class="nome-destinatario">
+              <label>Nome/Razão social:</label>
+              <input type="text" name="nome">
+            </div>
+            <div class="informacoes-destinatario">
+              <div class="destinatarioBloco1">
+                <label>CNPJ:</label>
+                <input type="text" name="cnpj">
+              </div>
+              <div class="destinatarioBloco2">
+                <label>Inscrição Estadual:</label>
+                <input type="text" name="inscricao">
+              </div>
+              <div class="destinatarioBloco3">
+                <label>Valor total da nota:</label>
+                <input type="text" value="R$" name="total">
+              </div>
+              <div class="destinatarioBloco4">
+                <input type="submit" value="Criar" name="criar">
+              </div>
+            </div>
+          </div>
         </div>
-        <div>
-            <p><-IMAGEM EM CIMA DO INPUT</p>
-            <input type="number" name="acesso" id="acesso" value="">
-            <label>Nome/Razão Social: SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI</label>
-            <br><br>
-            <label>CNPJ: 33564543 0001 90</label>
-            <label>CEP: Rua Henrique Vigarani, 163 - Barra do Rio, Itajaí, SC</label>
-            <br><br>
-            <label>Inscrição Estadual: 03.851.105/0001-42</label>
-            <label>Tel: (47) 98437-1137</label>
-            <br><br>
-        </div>
-        <div>
-            <label>Nº</label>
-            <input type="number" name="numero">
-            <label>Operação:</label>
-            <label>Data de Emissão:</label>
-            <input type="date" name="data">
-            <label>Hora da Emissão:</label>
-            <input type="time" name="hora">
-            <br><br>
-            <label>Série:</label>
-            <input type="checkbox" id="saida" name="saida" />
-            <label>Saída</label>
-            <input type="checkbox" id="entrada" name="entrada" />
-            <label>Entrada</label>
-        </div>
-        <h2>DESTINATÁRIO</h2>
-        <label>Nome/Razão social:</label>
-        <input type="text" name="nome">
-        <br><br>
-        <label>CNPJ:</label>
-        <input type="text" name="cnpj">
-        <label>Inscrição Estadual:</label>
-        <input type="text" name="inscricao">
-        <label>Valor total da nota:</label>
-        <input type="text" name="total">
-        <input type="submit" value="Criar" name="criar">
-    </center>
+    </div>     
     <footer>
         <div class="linha-footer"><div>
         <center>
