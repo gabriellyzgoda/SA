@@ -55,22 +55,21 @@
 echo $sql;
 				$resultado = $conexao->query($sql);
 
-				$sql = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
+				$sql2 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
                 VALUES ('".$pedido."', '".$produto2."', '".$unidades2."', '".$quantidades2."', '".$valor2."', '".$total2."', '".$ncm2."', '".$cst2."', '".$cfop2."', '".$cnpj."');";
 echo $sql;
-				$resultado = $conexao->query($sql);
+				$resultado = $conexao->query($sql2);
                 
-                $sql = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
+                $sql3 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
                 VALUES ('".$pedido."', '".$produto3."', '".$unidades3."', '".$quantidades3."', '".$valor3."', '".$total3."', '".$ncm3."', '".$cst3."', '".$cfop3."', '".$cnpj."');";
 echo $sql;
-				$resultado = $conexao->query($sql);
+				$resultado = $conexao->query($sql3);
 
-                $sql = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
+                $sql4 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
                 VALUES ('".$pedido."', '".$produto4."', '".$unidades4."', '".$quantidades4."', '".$valor4."', '".$total4."', '".$ncm4."', '".$cst4."', '".$cfop4."', '".$cnpj."');";
 echo $sql;
-				$resultado = $conexao->query($sql);
-				
-                $cnpj = $conexao -> real_escape_string($_POST['cnpj']);
+				$resultado = $conexao->query($sql4);
+			
 				$nome = $conexao -> real_escape_string($_POST['nome']);
 				$endereco = $conexao -> real_escape_string($_POST['endereco']);
 				$telefone = $conexao -> real_escape_string($_POST['telefone']);
@@ -78,9 +77,10 @@ echo $sql;
 				$data = $conexao -> real_escape_string($_POST['data']);
 				$totalcompra = $conexao -> real_escape_string($_POST['totalcompra']);
 
-                $sql = "INSERT INTO dadoscliente (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`)
-                VALUES ('".$cnpj."', '".$nome."', '".$endereco."', '".$telefone."', '".$email."', '".$data."');";
+                $sql = "INSERT INTO dadoscliente (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`, `totalcompra`)
+                VALUES ('".$cnpj."', '".$nome."', '".$endereco."', '".$telefone."', '".$email."', '".$data."','".$totalcompra."');";
 echo $sql;
+				$resultado = $conexao->query($sql);
 
 				$conexao -> close();
 				header('Location: meuspedidos.php', true, 301);

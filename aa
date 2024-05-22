@@ -65,3 +65,42 @@ if ($conexao->connect_error) {
     }
     header('Refresh:0');
 }
+
+
+
+<td>
+                          <div class="botaoEditar" onclick="mostrarProdutos(<?php echo $user_data['produto'];?>)">
+                              <i class="fa-solid fa-pen-to-square"></i> 
+                          </div>
+                            <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
+                                  <i class="fa-solid fa-trash"></i>
+                            </div>
+                          </td>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     
+
+
+
+
+
+
+
+
+
+
+
+
+                

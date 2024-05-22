@@ -149,7 +149,7 @@ $resultado = $conexao->query($sql);
               <form class="form" method="post" action="cadastroPedido.php" id="formPedido">
                     <div class="form-numero">
                       <label>Pedido nº:</label>
-                      <input type="number" name="id" id="pedido">
+                      <input type="number" name="pedido">
                     </div>
                 <table>
                   <thead>
@@ -169,54 +169,52 @@ $resultado = $conexao->query($sql);
                   <tbody>
                       <tr>
                         <td><div class="quadrado-numero-produto">1</div></td>
-                          <td><input type="text" name="produto" id="produto"></td>
-                          <td><input type="text" name="unidades" id="unidades"></td>
-                          <td><input type="number" name="quantidades" id="quantidades"></td>
-                          <td><input type="text" name="valor" id="valor"></td>
-                          <td><input type="number" name="ncm" id="ncm"></td>
-                          <td><input type="number" name="cst" id="cst"></td>
-                          <td><input type="number" name="cfop" id="cfop"></td>
-                          <td><input type="text" name="total" id="total"></td>
+                          <td><input type="text" name="produto"></td>
+                          <td><input type="text" name="unidades"></td>
+                          <td><input type="number" name="quantidades"></td>
+                          <td><input type="text" name="valor"></td>
+                          <td><input type="number" name="ncm"></td>
+                          <td><input type="number" name="cst"></td>
+                          <td><input type="number" name="cfop"></td>
+                          <td><input type="text" name="total"></td>
                           <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
-                      </tr>
+                      </tr> 
                       <tr>
                           <td><div class="quadrado-numero-produto">2</div></td>
-                          <td><input type="text" name="produto" id="produto2"></td>
-                          <td><input type="text" name="unidades" id="unidades2"></td>
-                          <td><input type="number" name="quantidades" id="quantidades2"></td>
-                          <td><input type="text" name="valor" id="valor2"></td>
-                          <td><input type="number" name="ncm" id="ncm2"></td>
-                          <td><input type="number" name="cst" id="cst2"></td>
-                          <td><input type="number" name="cfop" id="cfop2"></td>
-                          <td><input type="text" name="total" id="total2"></td>
+                          <td><input type="text" name="produto2"></td>
+                          <td><input type="text" name="unidades2"></td>
+                          <td><input type="number" name="quantidades2"></td>
+                          <td><input type="text" name="valor2"></td>
+                          <td><input type="number" name="ncm2"></td>
+                          <td><input type="number" name="cst2"></td>
+                          <td><input type="number" name="cfop2"></td>
+                          <td><input type="text" name="total2"></td>
                           <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >3</div></td>
-                          <td><input type="text" name="produto" id="produto3"></td>
-                          <td><input type="text" name="unidades" id="unidades3"></td>
-                          <td><input type="number" name="quantidades" id="quantidades3"></td>
-                          <td><input type="text" name="valor" id="valor3"></td>
-                          <td><input type="number" name="ncm" id="ncm3"></td>
-                          <td><input type="number" name="cst" id="cst3"></td>
-                          <td><input type="number" name="cfop" id="cfop3"></td>
-                          <td><input type="text" name="total" id="total3"></td>
+                          <td><input type="text" name="produto3"></td>
+                          <td><input type="text" name="unidades3"></td>
+                          <td><input type="number" name="quantidades3"></td>
+                          <td><input type="text" name="valor3"></td>
+                          <td><input type="number" name="ncm3"></td>
+                          <td><input type="number" name="cst3"></td>
+                          <td><input type="number" name="cfop3"></td>
+                          <td><input type="text" name="total3"></td>
                           <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >4</div></td>
-                          <td><input type="text" name="produto" id="produto4"></td>
-                          <td><input type="text" name="unidades" id="unidades4"></td>
-                          <td><input type="number" name="quantidades" id="quantidades4"></td>
-                          <td><input type="text" name="valor" id="valor4"></td>
-                          <td><input type="number" name="ncm" id="ncm4"></td>
-                          <td><input type="number" name="cst" id="cst4"></td>
-                          <td><input type="number" name="cfop" id="cfop4"></td>
-                          <td><input type="text" name="total" id="total4"></td>
+                          <td><input type="text" name="produto4"></td>
+                          <td><input type="text" name="unidades4"></td>
+                          <td><input type="number" name="quantidades4"></td>
+                          <td><input type="text" name="valor4"></td>
+                          <td><input type="number" name="ncm4"></td>
+                          <td><input type="number" name="cst4"></td>
+                          <td><input type="number" name="cfop4"></td>
+                          <td><input type="text" name="total4"></td>
                           <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
                       </tr>
-                      
-                    
                     </tbody>
                   </table>
                   <div class="adicionarProduto">

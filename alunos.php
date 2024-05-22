@@ -171,7 +171,6 @@ $resultado = $conexao->query($sqlProfessor);
                                   <i class="fa-solid fa-trash"></i>
                             </div>
                           </td>
-                        </tr>
                       <?php
                     }
                 ?>

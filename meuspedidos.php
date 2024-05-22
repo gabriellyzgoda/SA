@@ -2,12 +2,18 @@
 <html lang="en">
 <?php
 session_start();
+include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
-}?>
+}
+$sqlPedidos = "SELECT * FROM pedidos
+                WHERE 1";
+
+$resultado = $conexao->query($sqlPedidos);
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -135,30 +141,31 @@ if(!isset($_SESSION['email'])) {
     </div>   
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Seus pedidos!</h1>
+         <h1>Meus pedidos!</h1>
         </div>
     </div>
     <center>
     <div class="quadro-alunos">
         <table>
+          <thead>
             <tr>
                 <th>CARIMBO DATA/HORA</th>
                 <th>Nº DO PEDIDO</th>
-                <th>PRODUTO</th>
-                <th>DOCAS</th>
-                <th>POSIÇÃO</th>
-                </table>
+                <th>TOTAL</th>
+                <th>VISUALIZAR</th>
             </tr>
+            </thead>
             <tbody>
                 <?php
+                while($user_data = mysqli_fetch_assoc($resultado)){
                         echo "<tr>";
                         echo "<td>".$user_data['data']."</td>";
                         echo "<td>".$user_data['id']."</td>";
-                        echo "<td >".$user_data['nome']."</td>";
-                        echo "<td >".$user_data['docas']."</td>";
-                        echo "<td >".$user_data['posicao']."</td>";
-                    ?>
+                        echo "<td >".$user_data['total']."</td>";
+                }
+                    ?>         
             </tbody>
+            </table>          
         </div>
     </center>
     <footer>
@@ -170,7 +177,11 @@ if(!isset($_SESSION['email'])) {
     </footer>
 
     <script>
-  
+      function confirmarExclusao(id) {
+            if (confirm("Tem certeza que deseja excluir este pedido?")) {
+                window.location.href = "deleteProduto.php?id=" + id;
+            }
+        }
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{
