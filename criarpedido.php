@@ -277,9 +277,23 @@ $resultado = $conexao->query($sql);
     </footer>
 
     <script>
+    let arrow = document.querySelectorAll(".arrow");
+    for (var i = 0; i < arrow.length; i++) {
+      arrow[i].addEventListener("click", (e)=>{
+     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+     arrowParent.classList.toggle("showMenu");
+      });
+    }
+    
+    let sidebar = document.querySelector(".sidebar");
+    let sidebarBtn = document.querySelector(".bx-menu");
+    console.log(sidebarBtn);
+    sidebarBtn.addEventListener("click", ()=>{
+      sidebar.classList.toggle("close");
+    });
 
 
-      document.addEventListener("DOMContentLoaded", function() {
+     /* document.addEventListener("DOMContentLoaded", function() {
         // Função para preencher automaticamente os números nas divs quadrado-numero-produto
         function preencherNumeros() {
             let linhas = document.querySelectorAll("tbody tr");
@@ -288,9 +302,10 @@ $resultado = $conexao->query($sql);
                 quadradoNumeroProduto.textContent = index + 1;
             });
         }
+      }
 
         // Chamando a função para preencher os números assim que a página carregar
-        preencherNumeros();
+        //preencherNumeros();
 
         // Excluir Produto
        /* document.querySelectorAll(".excluirProduto").forEach(function(button) {
@@ -341,20 +356,7 @@ $resultado = $conexao->query($sql);
 
     });*/
   
-    let arrow = document.querySelectorAll(".arrow");
-    for (var i = 0; i < arrow.length; i++) {
-      arrow[i].addEventListener("click", (e)=>{
-     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-     arrowParent.classList.toggle("showMenu");
-      });
-    }
     
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".bx-menu");
-    console.log(sidebarBtn);
-    sidebarBtn.addEventListener("click", ()=>{
-      sidebar.classList.toggle("close");
-    });
 
 </script>
 </body>

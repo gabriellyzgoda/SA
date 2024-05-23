@@ -9,13 +9,10 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sqlPedidos = "SELECT * FROM pedidos";
+$sqlPedidos = "SELECT * FROM pedidos
+                WHERE 1";
 
 $resultado = $conexao->query($sqlPedidos);
-
-$sqlClientes = "SELECT * FROM dadoscliente";
-
-$resultado2 = $conexao->query($sqlClientes);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -23,7 +20,7 @@ $resultado2 = $conexao->query($sqlClientes);
     <title>Home Professor</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="estiloMeusPedidos.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloPedido.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -145,55 +142,11 @@ $resultado2 = $conexao->query($sqlClientes);
     </div>   
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Meus pedidos!</h1>
+         <h1>Pedido nº 1234567</h1>
         </div>
     </div>
     <div class="quadro-pedidos">
-        <table>
-<<<<<<< Updated upstream
-          <thead>
-            <tr>
-                <th>CARIMBO DATA</th>
-=======
-            <thead> 
-              <tr>
-                <th>CARIMBO<br>DATA/HORA</th>
->>>>>>> Stashed changes
-                <th>Nº DO PEDIDO</th>
-                <th>TOTAL</th>
-                <th>VISUALIZAR</th>
-              </tr>
-            </thead>
-            <tbody>
-<<<<<<< Updated upstream
-                <?php
-                while($user_data = mysqli_fetch_assoc($resultado2)){
-                  echo "<tr>";
-                  echo "<td>".$user_data['data']."</td>";
-                }
-                    ?>
-                <?php
-                while($user_data = mysqli_fetch_assoc($resultado)){
-                  echo "<tr>";
-                  echo "<td>".$user_data['pedido']."</td>";
-                  echo "<td >".$user_data['total']."</td>";
-                }
-                ?>         
-=======
-                  <tr>
-                    <td>23/09/2024</td>
-                    <td>1234567</td>
-                    <td>R$ 200,00</td>
-                    <td>
-                    <a href="pedido.php"><button type="submit" class="btn" value="abrirPedido">Abrir</button></a>
-                      <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
-                            <i class="fa-solid fa-trash"></i>
-                      </div>
-                    </td>
-                  </tr>
->>>>>>> Stashed changes
-            </tbody>
-        </table>
+        
     </div>
     <footer>
         <div class="linha-footer"><div>
