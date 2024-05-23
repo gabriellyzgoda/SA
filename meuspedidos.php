@@ -149,6 +149,7 @@ $resultado2 = $conexao->query($sqlClientes);
         </div>
     </div>
     <div class="quadro-pedidos">
+      <table>
             <thead> 
               <tr>
                 <th>CARIMBO DATA</th>
@@ -166,7 +167,6 @@ $resultado2 = $conexao->query($sqlClientes);
                 ?>
                 <?php
                   while($user_data = mysqli_fetch_assoc($resultado)){
-                  echo "<tr>";
                   echo "<td>".$user_data['pedido']."</td>";
                   echo "<td >".$user_data['total']."</td>";
                   }
@@ -178,7 +178,6 @@ $resultado2 = $conexao->query($sqlClientes);
                       </div>
                     </td>
                   </tr>
-
             </tbody>
         </table>
     </div>
