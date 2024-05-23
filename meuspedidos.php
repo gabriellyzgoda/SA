@@ -9,10 +9,13 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sqlPedidos = "SELECT * FROM pedidos
-                WHERE 1";
+$sqlPedidos = "SELECT * FROM pedidos";
 
 $resultado = $conexao->query($sqlPedidos);
+
+$sqlClientes = "SELECT * FROM dadoscliente";
+
+$resultado2 = $conexao->query($sqlClientes);
 ?>
 <head>
     <meta charset="UTF-8">
@@ -149,7 +152,7 @@ $resultado = $conexao->query($sqlPedidos);
         <table>
           <thead>
             <tr>
-                <th>CARIMBO DATA/HORA</th>
+                <th>CARIMBO DATA</th>
                 <th>Nº DO PEDIDO</th>
                 <th>TOTAL</th>
                 <th>VISUALIZAR</th>
@@ -157,13 +160,18 @@ $resultado = $conexao->query($sqlPedidos);
             </thead>
             <tbody>
                 <?php
-                while($user_data = mysqli_fetch_assoc($resultado)){
-                        echo "<tr>";
-                        echo "<td>".$user_data['data']."</td>";
-                        echo "<td>".$user_data['id']."</td>";
-                        echo "<td >".$user_data['total']."</td>";
+                while($user_data = mysqli_fetch_assoc($resultado2)){
+                  echo "<tr>";
+                  echo "<td>".$user_data['data']."</td>";
                 }
-                    ?>         
+                    ?>
+                <?php
+                while($user_data = mysqli_fetch_assoc($resultado)){
+                  echo "<tr>";
+                  echo "<td>".$user_data['pedido']."</td>";
+                  echo "<td >".$user_data['total']."</td>";
+                }
+                ?>         
             </tbody>
             </table>          
         </div>

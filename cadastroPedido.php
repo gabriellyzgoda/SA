@@ -12,6 +12,7 @@
 			} else {
 				// Evita caracteres epsciais (SQL Inject)
 				$pedido = $conexao -> real_escape_string($_POST['pedido']);
+
 				$produto = $conexao -> real_escape_string($_POST['produto']);
 				$unidades = $conexao -> real_escape_string($_POST['unidades']);
 				$quantidades = $conexao -> real_escape_string($_POST['quantidades']);
@@ -57,17 +58,17 @@ echo $sql;
 
 				$sql2 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
                 VALUES ('".$pedido."', '".$produto2."', '".$unidades2."', '".$quantidades2."', '".$valor2."', '".$total2."', '".$ncm2."', '".$cst2."', '".$cfop2."', '".$cnpj."');";
-echo $sql;
+echo $sql2;
 				$resultado = $conexao->query($sql2);
                 
                 $sql3 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
                 VALUES ('".$pedido."', '".$produto3."', '".$unidades3."', '".$quantidades3."', '".$valor3."', '".$total3."', '".$ncm3."', '".$cst3."', '".$cfop3."', '".$cnpj."');";
-echo $sql;
+echo $sql3;
 				$resultado = $conexao->query($sql3);
 
                 $sql4 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`) 
                 VALUES ('".$pedido."', '".$produto4."', '".$unidades4."', '".$quantidades4."', '".$valor4."', '".$total4."', '".$ncm4."', '".$cst4."', '".$cfop4."', '".$cnpj."');";
-echo $sql;
+echo $sql4;
 				$resultado = $conexao->query($sql4);
 			
 				$nome = $conexao -> real_escape_string($_POST['nome']);
@@ -77,10 +78,10 @@ echo $sql;
 				$data = $conexao -> real_escape_string($_POST['data']);
 				$totalcompra = $conexao -> real_escape_string($_POST['totalcompra']);
 
-                $sql = "INSERT INTO dadoscliente (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`, `totalcompra`)
+                $sqlClientes = "INSERT INTO dadoscliente (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`, `totalcompra`)
                 VALUES ('".$cnpj."', '".$nome."', '".$endereco."', '".$telefone."', '".$email."', '".$data."','".$totalcompra."');";
-echo $sql;
-				$resultado = $conexao->query($sql);
+echo $sqlClientes;
+				$resultado = $conexao->query($sqlClientes);
 
 				$conexao -> close();
 				header('Location: meuspedidos.php', true, 301);
