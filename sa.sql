@@ -124,7 +124,7 @@ DROP TABLE IF EXISTS `pedidos`;
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL,
   `produto` varchar(200) NOT NULL,
-  `unidades` int(11) NOT NULL,
+  `unidades` varchar(200) NOT NULL,
   `quantidades` int(11) NOT NULL,
   `valor` float NOT NULL,
   `total` float NOT NULL,
