@@ -149,49 +149,36 @@ $resultado2 = $conexao->query($sqlClientes);
         </div>
     </div>
     <div class="quadro-pedidos">
-        <table>
-<<<<<<< Updated upstream
-          <thead>
-            <tr>
-                <th>CARIMBO DATA</th>
-=======
             <thead> 
               <tr>
-                <th>CARIMBO<br>DATA/HORA</th>
->>>>>>> Stashed changes
+                <th>CARIMBO DATA</th>
                 <th>Nº DO PEDIDO</th>
                 <th>TOTAL</th>
                 <th>VISUALIZAR</th>
               </tr>
             </thead>
             <tbody>
-<<<<<<< Updated upstream
-                <?php
+              <?php
                 while($user_data = mysqli_fetch_assoc($resultado2)){
                   echo "<tr>";
                   echo "<td>".$user_data['data']."</td>";
                 }
-                    ?>
+                ?>
                 <?php
-                while($user_data = mysqli_fetch_assoc($resultado)){
+                  while($user_data = mysqli_fetch_assoc($resultado)){
                   echo "<tr>";
                   echo "<td>".$user_data['pedido']."</td>";
                   echo "<td >".$user_data['total']."</td>";
-                }
-                ?>         
-=======
-                  <tr>
-                    <td>23/09/2024</td>
-                    <td>1234567</td>
-                    <td>R$ 200,00</td>
-                    <td>
+                  }
+                  ?>  
+                  <td>
                     <a href="pedido.php"><button type="submit" class="btn" value="abrirPedido">Abrir</button></a>
                       <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
                             <i class="fa-solid fa-trash"></i>
                       </div>
                     </td>
                   </tr>
->>>>>>> Stashed changes
+
             </tbody>
         </table>
     </div>
