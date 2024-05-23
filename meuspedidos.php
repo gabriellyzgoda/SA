@@ -169,6 +169,7 @@ $resultado2 = $conexao->query($sqlClientes);
                   echo "<tr>";
                   echo "<td>".$user_data['pedido']."</td>";
                   echo "<td >".$user_data['total']."</td>";
+                  echo "<tr>";
                   }
                   ?>  
                   <td>
