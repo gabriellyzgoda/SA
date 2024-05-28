@@ -14,6 +14,7 @@ if(!isset($_SESSION['email'])) {
     <title>Home Aluno</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloMovimentacao.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -169,47 +170,57 @@ if(!isset($_SESSION['email'])) {
          <h1>Movimentação</h1>
         </div>
     </div>
-<center>
-        <div>
-          <table>
+    <div class="linha-movimentacao">
+      <div class="quadro-movimentacao">
+        <table>
+          <thead>
             <tr>
                 <th>Operações em Aberto</th>
                 <th>UN</th>
                 <th>QTD</th>
                 <th>Posição</th>
+                <th></th>
             </tr>
-          </table>
+          </thead>
+
+          <tbody>
+            <form class="form" method="post" action="" id="formlogin" name="formlogin" >
+              <tr>
+                  <td><input type="text" name="operacao" placeholder=""></td>
+                  <td><input type="text" name="un" placeholder=""></td>
+                  <td><input type="text" name="qtd" placeholder=""></td>
+                  <td><input type="text" name="posicao" placeholder=""></td>
+                  <td><input class="" id="pegar" type="submit" value="Pegar"/></td>
+              </tr>
+              <tr>
+                  <td><input type="text" name="operacao" placeholder=""></td>
+                  <td><input type="text" name="un" placeholder=""></td>
+                  <td><input type="text" name="qtd" placeholder=""></td>
+                  <td><input type="text" name="posicao" placeholder=""></td>
+                  <td><input class="" id="pegar" type="submit" value="Pegar"/></td>
+              </tr>
+              <tr>
+                  <td><input type="text" name="operacao" placeholder=""></td>
+                  <td><input type="text" name="un" placeholder=""></td>
+                  <td><input type="text" name="qtd" placeholder=""></td>
+                  <td><input type="text" name="posicao" placeholder=""></td>
+                  <td><input class="" id="pegar" type="submit" value="Pegar"/></td>
+              </tr>
+              <tr>
+                  <td><input type="text" name="operacao" placeholder=""></td>
+                  <td><input type="text" name="un" placeholder=""></td>
+                  <td><input type="text" name="qtd" placeholder=""></td>
+                  <td><input type="text" name="posicao" placeholder=""></td>
+                  <td><input class="" id="pegar" type="submit" value="Pegar"/></td>
+              </tr>
+        </tbody>
+        </table> 
+        <div class="linhaBM">
+        <input class="" id="pegar" type="submit" value="Operação de Movimentação >>>"/> 
         </div>
-    <form class="form" method="post" action="" id="formlogin" name="formlogin" >
-        <div>
-            <input type="text" name="operacao" placeholder="">
-            <input type="text" name="un" placeholder="">
-            <input type="text" name="qtd" placeholder="">
-            <input type="text" name="posicao" placeholder="">
-            <input class="" id="pegar" type="submit" value="Pegar"/>         
-            <br><br>                          
-            <input type="text" name="operacao" placeholder="">
-            <input type="text" name="un" placeholder="">
-            <input type="text" name="qtd" placeholder="">
-            <input type="text" name="posicao" placeholder="">
-            <input class="" id="pegar" type="submit" value="Pegar"/>    
-            <br><br>                          
-            <input type="text" name="operacao" placeholder="">
-            <input type="text" name="un" placeholder="">
-            <input type="text" name="qtd" placeholder="">
-            <input type="text" name="posicao" placeholder="">
-            <input class="" id="pegar" type="submit" value="Pegar"/>      
-            <br><br>                          
-            <input type="text" name="operacao" placeholder="">
-            <input type="text" name="un" placeholder="">
-            <input type="text" name="qtd" placeholder="">
-            <input type="text" name="posicao" placeholder="">
-            <input class="" id="pegar" type="submit" value="Pegar"/> 
-            <br><br>
-            <input class="" id="pegar" type="submit" value="Operação"/> 
-        </div>
-    </form>
-</center>
+        </form>
+      </div>
+    </div>
     <footer>
         <div class="linha-footer"><div>
         <center>
@@ -217,7 +228,6 @@ if(!isset($_SESSION['email'])) {
             3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
         </center>
     </footer>
-
     <script>
   
     let arrow = document.querySelectorAll(".arrow");
