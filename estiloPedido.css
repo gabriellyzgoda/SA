@@ -1,0 +1,97 @@
+.quadro-pedidos {
+    background-color: #fff;
+    border: 4px solid #85c4f9;
+    border-radius: 30px;
+    padding: 10px;
+    width: 700px;
+}
+.borda-quadro {
+    width: 100%;
+    justify-content: center;
+    display: flex;
+    height: auto;
+}
+
+.borda {
+    width: 770px;
+    height: 600px;
+    background-color: #dbedfe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+}
+
+.titulo-quadro-pedidos {
+    width: 100%;
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.titulo-quadro-pedidos p {
+    color: #195ca9;
+    font-size: 28px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+}
+
+.linha1 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.linha1 input {
+    width: 400px;
+    margin-left: 20px;
+    border: 2px solid #8fc3f7;
+}
+
+.quadrado-numero {
+    background-color: #85c4f9;border-radius: 5px;
+    padding: 4px 10px;
+    text-align: center;
+}
+
+.quadrado-numero p {
+    font-family: "League Spartan", sans-serif;
+    color:#fff;
+    font-weight: 700;
+    font-size: 23px;
+}
+
+.linha2 {
+    display: flex;
+    justify-content: center;
+    
+}
+
+.linha2 input {
+    border: 2px solid #8fc3f7;
+    margin: 0px 5px;
+    height: 20px;
+    width: 100px;
+    margin-top: 1px;
+}
+
+.linha2 label {
+    color: #195ca9;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "League Spartan", sans-serif;
+}
+
+.bloco {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.produto {
+    margin-bottom: 40px;
+}
+

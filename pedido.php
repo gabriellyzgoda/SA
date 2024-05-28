@@ -144,14 +144,115 @@ $resultado = $conexao->query($sqlPedidos);
         <div class="titulo-conteudo">    
          <h1>Pedido nº 1234567</h1>
         </div>
+        <div class="borda-quadro">
+          <div class="borda">
+            <div class="quadro-pedidos">
+              <div class="titulo-quadro-pedidos"><p>Produtos</p></div>
+                <div class="produto">
+                  <div class="linha1">
+                    <div class="quadrado-numero"><p>1</p></div>
+                    <input type="text" name="">
+                  </div>
+                  <div class="linha2">
+                    <div class="bloco">
+                      <label>UN</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>QTD</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>R$/Un</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>R$ Total</label>
+                      <input type="text" name="">
+                    </div>
+                  </div>
+                </div>
+                <div class="produto">
+                  <div class="linha1">
+                    <div class="quadrado-numero"><p>2</p></div>
+                    <input type="text" name="">
+                  </div>
+                  <div class="linha2">
+                    <div class="bloco">
+                      <label>UN</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>QTD</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>R$/Un</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>R$ Total</label>
+                      <input type="text" name="">
+                    </div>
+                  </div>
+                </div>
+                <div class="produto">
+                  <div class="linha1">
+                    <div class="quadrado-numero"><p>3</p></div>
+                    <input type="text" name="">
+                  </div>
+                  <div class="linha2">
+                    <div class="bloco">
+                      <label>UN</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>QTD</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>R$/Un</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>R$ Total</label>
+                      <input type="text" name="">
+                    </div>
+                  </div>
+                </div>
+                <div class="produto">
+                  <div class="linha1">
+                    <div class="quadrado-numero"><p>4</p></div>
+                    <input type="text" name="">
+                  </div>
+                  <div class="linha2">
+                    <div class="bloco">
+                      <label>UN</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>QTD</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>R$/Un</label>
+                      <input type="text" name="">
+                    </div>
+                    <div class="bloco">
+                      <label>R$ Total</label>
+                      <input type="text" name="">
+                    </div>
+                  </div>
+                </div>
+            </div>
+          </div>
+        </div>
     </div>
-    <div class="quadro-pedidos">
-        
-    </div>
+    
     <footer>
         <div class="linha-footer"><div>
         <center>
-            <p>Gabrielly, Chris, Julia e Amanda</br>
+            <p>Gabrielly, Letícia, Julia e Amanda</br>
             3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
         </center>
     </footer>

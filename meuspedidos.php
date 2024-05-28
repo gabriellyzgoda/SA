@@ -185,7 +185,7 @@ $resultado2 = $conexao->query($sqlClientes);
     <footer>
         <div class="linha-footer"><div>
         <center>
-            <p>Gabrielly, Chris, Julia e Amanda</br>
+            <p>Gabrielly, Letícia, Julia e Amanda</br>
             3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
         </center>
     </footer>
