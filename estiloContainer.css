@@ -1,0 +1,137 @@
+
+
+.linha-vistoria {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadro-vistoria {
+    background-color: #c1e1fc;
+    border: 15px solid #dbedfe;
+    border-radius: 30px;
+    height: auto;
+    min-width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+}
+
+.quadroForm {
+    display: flex;
+    flex-direction: row;
+}
+
+.bloco01 {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30px;
+}
+
+.bloco01 .linhasBloco01 {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+.bloco01 .linhasBloco01 input {
+    border: none;
+    margin: 5px 0px 5px 7px;
+    height: 24px;
+    width: 200px;
+    padding-left: 5px;
+}
+
+.bloco01 .linhasBloco01 label {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    color: #185CA9;
+}
+
+.bloco2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.bloco02Quadro {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.quadroBotao {
+    display: flex;
+    justify-content: center;
+}
+
+
+.bloco02Titulo{
+    display: flex;
+    justify-content: center;
+    background-color: #85C4F9;
+    padding: 6px 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.bloco02Titulo p {
+    color: #fff;
+    font-size: 28px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+}
+
+.subBloco1 {
+    margin-right: 10px;
+}
+
+.linhasSubBloco1, .linhasSubBloco2 {
+    margin-bottom: 7px;
+    display: flex;
+    align-items: center;
+}
+
+
+.linhasSubBloco1 label {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    color: #185CA9;
+}
+
+.linhasSubBloco2 label {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    color: #185CA9;
+}
+
+.linhasSubBloco1 input, .linhasSubBloco2 input {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.quadroBotao {
+    width: 100%;
+    margin-top: 25px;
+}
+
+
+.quadroBotao input {
+    border: none;
+    background-color: #85C4F9;
+    color: #fff;
+    font-size: 28px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    padding: 10px 30px;
+    border-radius: 30px;
+}

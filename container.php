@@ -25,6 +25,7 @@ $conexao -> close();?>
     <title>Home Aluno</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloContainer.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -195,6 +196,128 @@ $conexao -> close();?>
         <div class="titulo-conteudo">    
          <h1>Vistoria e Conferência - Container</h1>
         </div>
+    </div>
+    <div class="linha-vistoria">
+      <div class="quadro-vistoria">
+      <form class="form" method="post" action="" id="" name="" >
+        <div class="quadroForm">
+            <div class="bloco01">
+              <div class="linhasBloco01">
+                <label>Placa do caminhão:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>Nome do caminhão:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>Container:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>Cliente:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>Tipo:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>Lacre:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>Lacre SIF:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>Temperatura:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>IMO:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linhasBloco01">
+                <label>Nº ONU:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+            </div>
+            <div class="bloco02">
+              <div class="bloco02Titulo">
+                <p>Assinale se houver alguma avaria:</p>
+              </div>
+              <div class="bloco02Quadro">
+                <div class="subBloco1">
+                  <div class="linhasSubBloco1">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Container bem desgastado</label>
+                  </div>
+                  <div class="linhasSubBloco1">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Avaria na lateral direita</label>
+                  </div>
+                  <div class="linhasSubBloco1">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Avaria na lateral esquerda</label>
+                  </div>
+                  <div class="linhasSubBloco1">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Avaria no teto</label>
+                  </div>
+                  <div class="linhasSubBloco1">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Avaria na frente</label>
+                  </div>
+                  <div class="linhasSubBloco1">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Sem lacre</label>
+                  </div>
+                  <div class="linhasSubBloco1">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Adesivos avariados</label>
+                  </div>
+                </div>
+                <div class="subBloco2">
+                  <div class="linhasSubBloco2">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Excesso de altura</label>
+                  </div>
+                  <div class="linhasSubBloco2">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Excesso na direita</label>
+                  </div>
+                  <div class="linhasSubBloco2">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Excesso na esquerda</label>
+                  </div>
+                  <div class="linhasSubBloco2">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Excesso frontal</label>
+                  </div>
+                  <div class="linhasSubBloco2">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Painel avariado</label>
+                  </div>
+                  <div class="linhasSubBloco2">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Sem cabo de energia</label>
+                  </div>
+                  <div class="linhasSubBloco2">
+                    <input type="checkbox" id="saida" name="saida" />
+                    <label>Sem lona</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="quadroBotao">
+          <input class="" id="pegar" type="submit" value="Enviar"/>
+          </form>
+        </div>
+        
+          
+      </div>
     </div>
 
     <footer>
