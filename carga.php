@@ -25,6 +25,7 @@ $conexao -> close();?>
     <title>Home Aluno</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloCarga.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -195,8 +196,44 @@ $conexao -> close();?>
         <div class="titulo-conteudo">    
          <h1>Vistoria e Conferência - Carga</h1>
         </div>
+      <div class="linhaVistoria">
+        <div class="quadroCarga">
+          <form>
+            <div class="linha01">
+              <div class="linha01-01">
+                <label>Nota Fiscal:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linha01-02">
+                <label>Doca:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+              <div class="linha01-03">
+                <label>Pedido de compra:</label>
+                <input type="text" name="un" placeholder="">
+              </div>
+            </div>
+            <div class="linha02">
+              <label>Sem pedido:</label>
+              <button>OK</button>
+            </div>
+            <div class="linha03">
+              <div class="quadroProdutos">
+                  <div class="tituloQuadroProdutos">
+                    <p>Produtos</p>
+                  </div>
+                  <div class="produtos">
+                    <div class="produto01"></div>
+                  </div>
+              </div>
+            </div>
+            <div class="linha04">
+              <input class="" id="pegar" type="submit" value="Enviar"/>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-
     <footer>
         <div class="linha-footer"><div>
         <center>

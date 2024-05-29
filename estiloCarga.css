@@ -1,0 +1,146 @@
+.linhaVistoria {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.quadroCarga {
+    width: auto;
+    height: auto;
+    background-color: #c1e1fc;
+    border: 16px solid #dbedfe;
+    border-radius: 30px;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.linha01 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 20px
+}
+
+.linha01-01 label, .linha01-02 label, .linha01-03 label {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    color: #185CA9;
+}
+
+.linha01-01 {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+.linha01-02 {
+    margin-right: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.linha01-03 {
+    display: flex;
+    align-items: center;
+
+}
+
+.linha01-01 input {
+    border: none;
+    width: 170px;
+    height: 23px;
+    margin-left: 10px;
+}
+
+.linha01-02 input {
+    border: none;
+    width: 80px;
+    height: 23px;
+    margin-left: 10px;
+}
+
+.linha01-03 input {
+    border: none;
+    width: 170px;
+    height: 23px;
+    margin-left: 10px;
+}
+
+.linha02 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.linha02 label {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    color: #185CA9;
+    margin-right: 10px;
+}
+
+.linha02 button {
+    border: none;
+    padding: 7px 25px;
+    background-color: #8fc3f7;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "League Spartan", sans-serif;
+    border-radius: 30px;
+}
+
+.linha03 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.quadroProdutos {
+    width: 800px;
+    height: auto;
+    background-color: #fff;
+    border-radius: 20px;
+    padding-bottom: 17px;
+}
+
+.tituloQuadroProdutos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.tituloQuadroProdutos {
+    margin: 15px 0px;
+    font-size: 25px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    color: #185CA9;
+}
+
+.produtos {
+    display: block;
+    overflow-y: scroll;
+    height: 250px;
+}
+
+.linha04 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.linha04 input {
+    border: none;
+    background-color: #8fc3f7;
+    color: #fff;
+    border-radius: 30px;
+    padding: 8px 50px;
+    font-size: 28px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+}

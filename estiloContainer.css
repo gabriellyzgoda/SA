@@ -78,12 +78,13 @@
     background-color: #85C4F9;
     padding: 6px 12px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 35px;
+    margin-top: 10px;
 }
 
 .bloco02Titulo p {
     color: #fff;
-    font-size: 28px;
+    font-size: 30px;
     font-family: "League Spartan", sans-serif;
     font-weight: 700;
 }
@@ -93,7 +94,7 @@
 }
 
 .linhasSubBloco1, .linhasSubBloco2 {
-    margin-bottom: 7px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
 }

@@ -61,7 +61,7 @@ $conexao -> close();?>
           <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
-    <div class="sidebar close">
+    <div class="sidebar ">
       
       <div class="logo-details">
         
