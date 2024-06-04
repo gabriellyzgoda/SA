@@ -223,7 +223,130 @@ $conexao -> close();?>
                     <p>Produtos</p>
                   </div>
                   <div class="produtos">
-                    <div class="produto01"></div>
+                    <div class="produto01">
+                      <div class="produtoLinha1">
+                        <div class="numeroProduto"><p>1</p></div>
+                        <input type="text" id="nome" name="">
+                        <label>Faltando?</label>
+                        <input type="checkbox" id="saida" name="saida" />
+                        <label>Avaria?</label>
+                        <input type="checkbox" id="saida" name="saida" />
+                      </div>
+                      <div class="produtoLinha2">
+                        <div class="produtoLinha2-Bloco1">
+                          <label>UN</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco2">
+                          <label>QTD</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco3">
+                          <label>R$/Un</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco4">
+                          <label>R$ Total</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco5">
+                          <button>OK</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="produto02">
+                      <div class="produtoLinha1">
+                        <div class="numeroProduto"><p>2</p></div>
+                        <input type="text" id="nome" name="">
+                        <label>Faltando?</label>
+                        <input type="checkbox" id="saida" name="saida" />
+                        <label>Avaria?</label>
+                        <input type="checkbox" id="saida" name="saida" />
+                      </div>
+                      <div class="produtoLinha2">
+                        <div class="produtoLinha2-Bloco1">
+                          <label>UN</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco2">
+                          <label>QTD</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco3">
+                          <label>R$/Un</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco4">
+                          <label>R$ Total</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco5">
+                          <button>OK</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="produto03">
+                      <div class="produtoLinha1">
+                        <div class="numeroProduto"><p>3</p></div>
+                        <input type="text" id="nome" name="">
+                        <label>Faltando?</label>
+                        <input type="checkbox" id="saida" name="saida" />
+                        <label>Avaria?</label>
+                        <input type="checkbox" id="saida" name="saida" />
+                      </div>
+                      <div class="produtoLinha2">
+                        <div class="produtoLinha2-Bloco1">
+                          <label>UN</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco2">
+                          <label>QTD</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco3">
+                          <label>R$/Un</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco4">
+                          <label>R$ Total</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco5">
+                          <button>OK</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="produto04">
+                      <div class="produtoLinha1">
+                        <div class="numeroProduto"><p>4</p></div>
+                        <input type="text" id="nome" name="">
+                        <label>Faltando?</label>
+                        <input type="checkbox" id="saida" name="saida" />
+                        <label>Avaria?</label>
+                        <input type="checkbox" id="saida" name="saida" />
+                      </div>
+                      <div class="produtoLinha2">
+                        <div class="produtoLinha2-Bloco1">
+                          <label>UN</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco2">
+                          <label>QTD</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco3">
+                          <label>R$/Un</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco4">
+                          <label>R$ Total</label>
+                          <input type="text" name="">
+                        </div>
+                        <div class="produtoLinha2-Bloco5">
+                          <button>OK</button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
               </div>
             </div>
