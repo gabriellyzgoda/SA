@@ -283,11 +283,7 @@ $resultado = $conexao->query($sqlPedidos);
     </footer>
 
     <script>
-      function confirmarExclusao(id) {
-            if (confirm("Tem certeza que deseja excluir este pedido?")) {
-                window.location.href = "deleteProduto.php?id=" + id;
-            }
-        }
+
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

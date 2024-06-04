@@ -9,7 +9,7 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sqlPedidos = "SELECT * FROM pedidos";
+$sqlPedidos = "SELECT `pedido`, `total` FROM pedidos";
 
 $resultado = $conexao->query($sqlPedidos);
 
@@ -186,21 +186,40 @@ $resultado2 = $conexao->query($sqlClientes);
                   echo "<tr>";
                   echo "<td>".$user_data['data']."</td>";
                 }
-                ?>
-                <?php
-                  while($user_data = mysqli_fetch_assoc($resultado)){
-                  echo "<td>".$user_data['pedido']."</td>";
-                  echo "<td >".$user_data['total']."</td>";
-                  ?>  
+
+                if ($resultado->num_rows > 0) {
+                  // Exibir o pedido
+                  $pedido = $resultado->fetch_assoc();
+                  if (isset($pedido['pedido'])) {
+                      echo "<td>" . $pedido['pedido'] . "</td>";
+                  } else {
+                      echo "<td>Pedido não disponível</td>";
+                  }
+              }?>
+            <?php
+            $sqlClientes = "SELECT * FROM dadoscliente";
+
+            $resultado2 = $conexao->query($sqlClientes);
+
+              // Verificar se o segundo resultado tem linhas
+              if ($resultado2->num_rows > 0) {
+                  // Exibir o pedido
+                  $pedido2 = $resultado2->fetch_assoc();
+                  if (isset($pedido2['totalcompra'])) {
+                      echo "<td>" . $pedido2['totalcompra'] . "</td>";
+                  } else {
+                      echo "<td>Total da compra não disponível</td>";
+                  }
+              ?>  
                   <td>
                     <a href="pedido.php"><button type="submit" class="btn" value="abrirPedido">Abrir</button></a>
-                      <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
+                      <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['pedido']; ?>)">
                             <i class="fa-solid fa-trash"></i>
                       </div>
                     </td>
-                    <?php
-                    }
-                    ?>
+                <?php
+              }
+            ?>
             </tbody>
         </table>
     </div>
@@ -213,7 +232,7 @@ $resultado2 = $conexao->query($sqlClientes);
     </footer>
 
     <script>
-      function confirmarExclusao(id) {
+      function confirmarExclusao(pedido) {
             if (confirm("Tem certeza que deseja excluir este pedido?")) {
                 window.location.href = "deleteProduto.php?id=" + id;
             }
