@@ -206,7 +206,7 @@ $resultado = $conexao->query($sql);
                 <div class="Bloco1-1">
                   <div class="bloco1-linha1">
                     <label>Nº</label>
-                    <input type="number" name="numero">
+                    <input type="number" name="numero" value="<?php?>">
                   </div>
                   <div class="bloco1-linha2">
                     <label>Série:</label>
