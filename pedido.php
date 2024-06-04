@@ -243,6 +243,9 @@ $resultado = $conexao->query($sqlPedidos);
                       <input type="text" name="">
                     </div>
                   </div>
+                  <center>
+                  <a href="meuspedidos.php">Voltar</a>
+                </center>
                 </div>
             </div>
           </div>

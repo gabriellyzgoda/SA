@@ -20,7 +20,7 @@ $resultado2 = $conexao->query($sqlClientes);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Professor</title>
+    <title>Meus pedidos</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="estiloMeusPedidos.css" media="screen"/>
@@ -169,8 +169,6 @@ $resultado2 = $conexao->query($sqlClientes);
                   while($user_data = mysqli_fetch_assoc($resultado)){
                   echo "<td>".$user_data['pedido']."</td>";
                   echo "<td >".$user_data['total']."</td>";
-                  echo "<tr>";
-                  }
                   ?>  
                   <td>
                     <a href="pedido.php"><button type="submit" class="btn" value="abrirPedido">Abrir</button></a>
@@ -178,7 +176,9 @@ $resultado2 = $conexao->query($sqlClientes);
                             <i class="fa-solid fa-trash"></i>
                       </div>
                     </td>
-                  </tr>
+                    <?php
+                    }
+                    ?>
             </tbody>
         </table>
     </div>
@@ -196,6 +196,7 @@ $resultado2 = $conexao->query($sqlClientes);
                 window.location.href = "deleteProduto.php?id=" + id;
             }
         }
+
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{
