@@ -218,7 +218,7 @@ $resultado = $conexao->query($sql);
                     <p>Observações:</p>
                   </div>
                   <div class="blocoObservacoes">
-                  <textarea id="" name="" rows="4" cols="85" placeholder="Digite..."></textarea>
+                  <textarea id="" name="" rows="5" cols="65" placeholder="Digite..."></textarea>
                   </div>
                   <div class="blocoFinal">
                       <input type="submit" value="Enviar">

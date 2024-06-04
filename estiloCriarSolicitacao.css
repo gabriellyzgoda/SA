@@ -444,6 +444,7 @@ body, html{
   width: 160px;
   height: 23px;
   font-size: 16px;
+  padding-left: 7px;
 }
 
 
@@ -490,7 +491,7 @@ body, html{
   margin-left: 5px;
   font-family: "League Spartan", sans-serif;
   font-size: 16px;
-
+  padding-left: 7px;
 }
 
 .form td:nth-child(3) input {
@@ -498,6 +499,7 @@ body, html{
   margin-left: 25px;
   font-family: "League Spartan", sans-serif;
   font-size: 16px;
+  text-align: center;
 }
 
 .form td:nth-child(4) input {
@@ -505,7 +507,7 @@ body, html{
   margin-left: 2px;
   font-family: "League Spartan", sans-serif;
   font-size: 16px;
-
+  text-align: center;
 }
 
 .form td:nth-child(5) input {
@@ -513,23 +515,16 @@ body, html{
   margin-left: 2px;
   font-family: "League Spartan", sans-serif;
   font-size: 16px;
-
+  text-align: center;
 }
 
 
 /*      th         */
-
-
-
-
 .form th:nth-child(3) p {
   margin-left: 25px;
   font-size: 18px;
   padding: 0px 15px;
 }
-
-
-
 
 .tituloObservacoes {
   width: 100%;
@@ -537,6 +532,7 @@ body, html{
   justify-content: space-between;
   margin-top: 15px;
   align-items: center;
+  margin-bottom: 10px;
 }
 
 .tituloObservacoes p {
@@ -554,23 +550,23 @@ body, html{
   justify-content: center;
 }
 
-
-
-
-
+.blocoObservacoes textarea {
+  font-family: "League Spartan", sans-serif;
+  font-size: 18px;
+  padding: 10px 8px;
+  border: none;
+  resize: none;
+}
 
 /*////////////////////////Bloco Final////////////////////////*/
 
 .blocoFinal {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
-  padding-right: 50px;
   margin-top: 20px;
   margin-bottom: 5px;
 }
-
-
 
 .blocoFinal input {
   border: none;
