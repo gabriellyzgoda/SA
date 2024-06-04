@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Maio-2024 às 16:27
+-- Tempo de geração: 04-Jun-2024 às 16:52
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `sa`
 --
-CREATE DATABASE IF NOT EXISTS `sa` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `sa`;
 
 -- --------------------------------------------------------
 
@@ -29,7 +27,6 @@ USE `sa`;
 -- Estrutura da tabela `cadastro`
 --
 
-DROP TABLE IF EXISTS `cadastro`;
 CREATE TABLE `cadastro` (
   `id` int(11) NOT NULL,
   `nome` varchar(200) NOT NULL,
@@ -45,48 +42,17 @@ CREATE TABLE `cadastro` (
 --
 
 INSERT INTO `cadastro` (`id`, `nome`, `email`, `senha`, `professor`, `recuperar_senha`, `cargo`) VALUES
-(1, 'leo', 'leo', 'leo', 0, '', 'aa'),
+(1, 'Leo', 'leo', 'leo', 0, '', 'Auxiliar'),
 (2, 'prof', 'prof', 'prof', 1, '', ''),
 (3, 'profju', 'profju', 'profju', 1, '', '');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `dadoscliente`
+-- Estrutura da tabela `container`
 --
 
-DROP TABLE IF EXISTS `dadoscliente`;
-CREATE TABLE `dadoscliente` (
-  `cnpj` varchar(15) NOT NULL,
-  `nome` varchar(200) NOT NULL,
-  `endereco` varchar(200) NOT NULL,
-  `telefone` varchar(10) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `data` date NOT NULL,
-  `totalcompra` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `destinatario`
---
-
-DROP TABLE IF EXISTS `destinatario`;
-CREATE TABLE `destinatario` (
-  `cnpjd` int(11) NOT NULL,
-  `razao_nome` varchar(200) NOT NULL,
-  `ie` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `notafiscal`
---
-
-DROP TABLE IF EXISTS `notafiscal`;
-CREATE TABLE `notafiscal` (
+CREATE TABLE `container` (
   `id` int(11) NOT NULL,
   `placa_caminhao` varchar(7) NOT NULL,
   `nome_motorista` varchar(200) NOT NULL,
@@ -117,20 +83,64 @@ CREATE TABLE `notafiscal` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `dadoscliente`
+--
+
+CREATE TABLE `dadoscliente` (
+  `cnpj` varchar(15) NOT NULL,
+  `nome` varchar(200) NOT NULL,
+  `endereco` varchar(200) NOT NULL,
+  `telefone` varchar(10) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `data` date NOT NULL,
+  `totalcompra` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `danfe`
+--
+
+CREATE TABLE `danfe` (
+  `id` int(11) NOT NULL,
+  `n` varchar(255) NOT NULL,
+  `serie` varchar(255) NOT NULL,
+  `operacao` tinyint(1) NOT NULL,
+  `data_emissao` date NOT NULL,
+  `hora_emissao` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `destinatario`
+--
+
+CREATE TABLE `destinatario` (
+  `cnpjd` int(11) NOT NULL,
+  `razao_nome` varchar(200) NOT NULL,
+  `ie` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `pedidos`
 --
 
-DROP TABLE IF EXISTS `pedidos`;
 CREATE TABLE `pedidos` (
   `id` int(11) NOT NULL,
+  `pedido` int(11) NOT NULL,
   `produto` varchar(200) NOT NULL,
-  `unidades` varchar(200) NOT NULL,
+  `unidades` varchar(255) NOT NULL,
   `quantidades` int(11) NOT NULL,
   `valor` float NOT NULL,
   `total` float NOT NULL,
   `ncm` int(11) NOT NULL,
   `cst` int(11) NOT NULL,
-  `cfop` int(11) NOT NULL
+  `cfop` int(11) NOT NULL,
+  `cnpj` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -144,22 +154,28 @@ ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `container`
+--
+ALTER TABLE `container`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `dadoscliente`
 --
 ALTER TABLE `dadoscliente`
   ADD PRIMARY KEY (`cnpj`);
 
 --
+-- Índices para tabela `danfe`
+--
+ALTER TABLE `danfe`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `destinatario`
 --
 ALTER TABLE `destinatario`
   ADD PRIMARY KEY (`cnpjd`);
-
---
--- Índices para tabela `notafiscal`
---
-ALTER TABLE `notafiscal`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices para tabela `pedidos`
@@ -178,16 +194,22 @@ ALTER TABLE `cadastro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de tabela `container`
+--
+ALTER TABLE `container`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `danfe`
+--
+ALTER TABLE `danfe`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `destinatario`
 --
 ALTER TABLE `destinatario`
   MODIFY `cnpjd` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `notafiscal`
---
-ALTER TABLE `notafiscal`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pedidos`
