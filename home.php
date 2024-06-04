@@ -165,6 +165,7 @@ if(!isset($_SESSION['email'])) {
             
             <li><a class="link_name" href="#">Controle</a></li>
             <li><a href="pedidodoca.php">Doca Recebimento</a></li>
+            <li><a href="controleSolicitacoes.php">Solicitações</a></li>
           
           </ul>
           

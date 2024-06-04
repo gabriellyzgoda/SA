@@ -157,6 +157,28 @@ $conexao -> close();
           <ul class="sub-menu">
             <li><a class="link_name" href="relatoriosP.php">Relatórios</a></li>
           </ul>
+        </li>  
+        <li>
+          
+          <div class="iocn-link">
+            
+            <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+              <span class="link_name">Solicitações</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
+          
+          </div>
+          
+          <ul class="sub-menu">
+          
+            <li><a class="link_name" href="#">Solicitações</a></li>
+            <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
+            <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
+          
+          </ul>
+
         </li>   
       </ul><!--Fecha ul-->
     </div>    
