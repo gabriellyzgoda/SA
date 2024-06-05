@@ -27,17 +27,33 @@ $resultado = $conexao->query($sql);
     </style>
 </head>
 <body>
-    <header class="header-topo">
+<header class="header-topo">
         <div class="logo">
           <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
-            <a href="perfil.php">
+          <div class="dropdown-perfil">
+            <a href="#" >
                 <div class="circulo">
                         <i class="fa-solid fa-user"></i>
                 </div>
             </a>
-            <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+            <div class="dropdown-content">
+              <div class="dropdown-section">
+                <h4>Nome:</h4>
+                <p><?php echo $_SESSION['nome'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Email:</h4>
+                <p><?php echo $_SESSION['email'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Cargo:</h4>
+                <p><?php echo $_SESSION['cargo'];?></p>
+              </div>
+            </div>
+          </div>
+          <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar close">
@@ -194,11 +210,11 @@ $resultado = $conexao->query($sql);
                           <td><input type="text" name="produto"></td>
                           <td><input type="text" name="unidades"></td>
                           <td><input type="number" name="quantidades"></td>
-                          <td><input type="text" name="valor"></td>
+                          <td><input type="text" name="valor" value="R$"></td>
                           <td><input type="number" name="ncm"></td>
                           <td><input type="number" name="cst"></td>
                           <td><input type="number" name="cfop"></td>
-                          <td><input type="text" name="total"></td>
+                          <td><input type="text" name="total" value="R$"></td>
                           <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
                       </tr> 
                       <tr>
@@ -206,11 +222,11 @@ $resultado = $conexao->query($sql);
                           <td><input type="text" name="produto2"></td>
                           <td><input type="text" name="unidades2"></td>
                           <td><input type="number" name="quantidades2"></td>
-                          <td><input type="text" name="valor2"></td>
+                          <td><input type="text" name="valor2" value="R$"></td>
                           <td><input type="number" name="ncm2"></td>
                           <td><input type="number" name="cst2"></td>
                           <td><input type="number" name="cfop2"></td>
-                          <td><input type="text" name="total2"></td>
+                          <td><input type="text" name="total2" value="R$"></td>
                           <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
                       </tr>
                       <tr>
@@ -218,11 +234,11 @@ $resultado = $conexao->query($sql);
                           <td><input type="text" name="produto3"></td>
                           <td><input type="text" name="unidades3"></td>
                           <td><input type="number" name="quantidades3"></td>
-                          <td><input type="text" name="valor3"></td>
+                          <td><input type="text" name="valor3" value="R$"></td>
                           <td><input type="number" name="ncm3"></td>
                           <td><input type="number" name="cst3"></td>
                           <td><input type="number" name="cfop3"></td>
-                          <td><input type="text" name="total3"></td>
+                          <td><input type="text" name="total3" value="R$"></td>
                           <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
                       </tr>
                       <tr>
@@ -230,11 +246,11 @@ $resultado = $conexao->query($sql);
                           <td><input type="text" name="produto4"></td>
                           <td><input type="text" name="unidades4"></td>
                           <td><input type="number" name="quantidades4"></td>
-                          <td><input type="text" name="valor4"></td>
+                          <td><input type="text" name="valor4" value="R$"></td>
                           <td><input type="number" name="ncm4"></td>
                           <td><input type="number" name="cst4"></td>
                           <td><input type="number" name="cfop4"></td>
-                          <td><input type="text" name="total4"></td>
+                          <td><input type="text" name="total4" value="R$"></td>
                           <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
                       </tr>
                     </tbody>
@@ -281,7 +297,7 @@ $resultado = $conexao->query($sql);
                     </div>
                     <div class="totalCompra">
                       <label>Total da compra:</label>
-                      <input id="totalcompra" type="text" name="totalcompra">
+                      <input id="totalcompra" type="text" name="totalcompra" value="R$">
                     </div>
                   </div>
                   

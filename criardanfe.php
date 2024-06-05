@@ -184,6 +184,7 @@ $resultado = $conexao->query($sql);
         </div>
         <div class="quadro-conteudo">
           <div class="bloco-conteudo">
+            <form>
             <div class="chave">
                 <p>Chave de Acesso:</p>
                 <input class="" type="text" name="acesso" id="acesso" size="20">
@@ -206,7 +207,7 @@ $resultado = $conexao->query($sql);
                 <div class="Bloco1-1">
                   <div class="bloco1-linha1">
                     <label>Nº</label>
-                    <input type="number" name="numero" value="<?php?>">
+                    <input type="number" name="n" value="n">
                   </div>
                   <div class="bloco1-linha2">
                     <label>Série:</label>
@@ -216,35 +217,35 @@ $resultado = $conexao->query($sql);
                 <div class="Bloco1-2">
                   <div class="bloco12-linha1"><label>Operação:</label></div>
                   <div class="bloco12-linha2">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" id="saida" name="operacao" />
                     <label>Saída</label>
-                    <input type="checkbox" id="entrada" name="entrada" />
+                    <input type="checkbox" id="entrada" name="operacao" />
                     <label>Entrada</label>
                   </div>
                 </div>
               </div>
               <div class="dadosBloco2">
                 <label>Data de Emissão:</label>
-                <input type="date" name="data">
+                <input type="date" name="data_emissao">
               </div>
               <div class="dadosBloco3">
                 <label>Hora da Emissão:</label>
-                <input type="time" name="hora">
+                <input type="time" name="hora_emissao">
               </div>
             </div>
             <div class="titulo-destinatario"><h2>DESTINATÁRIO</h2></div>
             <div class="nome-destinatario">
               <label>Nome/Razão social:</label>
-              <input type="text" name="nome">
+              <input type="text" name="razao_nome">
             </div>
             <div class="informacoes-destinatario">
               <div class="destinatarioBloco1">
                 <label>CNPJ:</label>
-                <input type="text" name="cnpj">
+                <input type="text" name="cnpjd">
               </div>
               <div class="destinatarioBloco2">
                 <label>Inscrição Estadual:</label>
-                <input type="text" name="inscricao">
+                <input type="text" name="ie">
               </div>
               <div class="destinatarioBloco3">
                 <label>Valor total da nota:</label>
@@ -253,6 +254,7 @@ $resultado = $conexao->query($sql);
               <div class="destinatarioBloco4">
                 <input type="submit" value="Criar" name="criar">
               </div>
+</form>
             </div>
           </div>
         </div>

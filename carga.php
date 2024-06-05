@@ -34,7 +34,7 @@ $conexao -> close();?>
 <body>
 <header class="header-topo">
         <div class="logo">
-          <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
@@ -46,19 +46,19 @@ $conexao -> close();?>
             <div class="dropdown-content">
               <div class="dropdown-section">
                 <h4>Nome:</h4>
-                <p><?php echo $row['nome'];?></p>
+                <p><?php echo $_SESSION['nome'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Email:</h4>
-                <p><?php echo $row['email'];?></p>
+                <p><?php echo $_SESSION['email'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
-                <p><?php echo $row['cargo'];?></p>
+                <p><?php echo $_SESSION['cargo'];?></p>
               </div>
             </div>
           </div>
-          <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+          <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar close">

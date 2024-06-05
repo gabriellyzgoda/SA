@@ -30,17 +30,33 @@ $resultado2 = $conexao->query($sqlClientes);
     </style>
 </head>
 <body>
-    <header class="header-topo">
+<header class="header-topo">
         <div class="logo">
           <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
-            <a href="perfil.php">
+          <div class="dropdown-perfil">
+            <a href="#" >
                 <div class="circulo">
                         <i class="fa-solid fa-user"></i>
                 </div>
             </a>
-            <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+            <div class="dropdown-content">
+              <div class="dropdown-section">
+                <h4>Nome:</h4>
+                <p><?php echo $_SESSION['nome'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Email:</h4>
+                <p><?php echo $_SESSION['email'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Cargo:</h4>
+                <p><?php echo $_SESSION['cargo'];?></p>
+              </div>
+            </div>
+          </div>
+          <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar close">
@@ -182,20 +198,20 @@ $resultado2 = $conexao->query($sqlClientes);
             </thead>
             <tbody>
               <?php
-                while($user_data = mysqli_fetch_assoc($resultado2)){
-                  echo "<tr>";
-                  echo "<td>".$user_data['data']."</td>";
-                }
-
-                if ($resultado->num_rows > 0) {
+                if ($resultado2->num_rows > 0) {
                   // Exibir o pedido
-                  $pedido = $resultado->fetch_assoc();
-                  if (isset($pedido['pedido'])) {
-                      echo "<td>" . $pedido['pedido'] . "</td>";
-                  } else {
-                      echo "<td>Pedido não disponível</td>";
-                  }
-              }?>
+                  $pedido = $resultado2->fetch_assoc();
+                  if (isset($pedido['data'])) {
+                      echo "<td>" . $pedido['data'] . "</td>";
+              }}
+
+                  // Exibir o pedido
+                  if ($resultado->num_rows > 0) {
+                    // Exibir o pedido
+                    $pedido = $resultado->fetch_assoc();
+                    if (isset($pedido['pedido'])) {
+                        echo "<td>" . $pedido['pedido'] . "</td>";
+                }}?>
             <?php
             $sqlClientes = "SELECT * FROM dadoscliente";
 
@@ -206,14 +222,12 @@ $resultado2 = $conexao->query($sqlClientes);
                   // Exibir o pedido
                   $pedido2 = $resultado2->fetch_assoc();
                   if (isset($pedido2['totalcompra'])) {
-                      echo "<td>" . $pedido2['totalcompra'] . "</td>";
-                  } else {
-                      echo "<td>Total da compra não disponível</td>";
+                      echo "<td>" . "R$" . "" . $pedido2['totalcompra'] . "</td>";
                   }
               ?>  
                   <td>
                     <a href="pedido.php"><button type="submit" class="btn" value="abrirPedido">Abrir</button></a>
-                      <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['pedido']; ?>)">
+                      <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
                             <i class="fa-solid fa-trash"></i>
                       </div>
                     </td>
@@ -232,7 +246,7 @@ $resultado2 = $conexao->query($sqlClientes);
     </footer>
 
     <script>
-      function confirmarExclusao(pedido) {
+      function confirmarExclusao(id) {
             if (confirm("Tem certeza que deseja excluir este pedido?")) {
                 window.location.href = "deleteProduto.php?id=" + id;
             }
