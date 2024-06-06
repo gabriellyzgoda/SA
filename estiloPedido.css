@@ -14,7 +14,7 @@
 
 .borda {
     width: 770px;
-    height: 600px;
+    height: 550px;
     background-color: #dbedfe;
     display: flex;
     justify-content: center;
@@ -25,9 +25,9 @@
 .titulo-quadro-pedidos {
     width: 100%;
     display: flex;
-    margin-top: 10px;
+    margin-top: 2px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .titulo-quadro-pedidos p {
@@ -92,6 +92,23 @@
 }
 
 .produto {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
+.linhaFinal {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.linhaFinal button{
+    border: none;
+    background-color: #85c4f9;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: "League Spartan", sans-serif;
+    padding: 8px 40px;
+    border-radius: 30px;
+}
