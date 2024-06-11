@@ -25,6 +25,7 @@ $conexao -> close();?>
     <title>Home Aluno</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloPicking.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -195,6 +196,60 @@ $conexao -> close();?>
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
          <h1>Picking</h1>
+        </div>
+        <div class="faixa">
+          <div class="bloco-picking">
+            <div class="linha1">
+              <label>Solicitação nº:</label>
+              <input></input>
+            </div>
+            <div class="linha2">
+              <table>
+              <thead>
+                <tr>
+                    <th>Pordutos do Picking</th>
+                    <th>UN</th>
+                    <th>QTD</th>
+                    <th>Posição</th>
+                    <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><input type="text" name="operacao" placeholder=""></td>
+                      <td><input type="text" name="un" placeholder=""></td>
+                      <td><input type="text" name="qtd" placeholder=""></td>
+                      <td><input type="text" name="posicao" placeholder=""></td>
+                      <td><input class="" id="pegar" type="submit" value="Pego"/></td>
+                  </tr>
+                  <tr>
+                      <td><input type="text" name="operacao" placeholder=""></td>
+                      <td><input type="text" name="un" placeholder=""></td>
+                      <td><input type="text" name="qtd" placeholder=""></td>
+                      <td><input type="text" name="posicao" placeholder=""></td>
+                      <td><input class="" id="pegar" type="submit" value="Pego"/></td>
+                  </tr>
+                  <tr>
+                      <td><input type="text" name="operacao" placeholder=""></td>
+                      <td><input type="text" name="un" placeholder=""></td>
+                      <td><input type="text" name="qtd" placeholder=""></td>
+                      <td><input type="text" name="posicao" placeholder=""></td>
+                      <td><input class="" id="pegar" type="submit" value="Pego"/></td>
+                  </tr>
+                  <tr>
+                      <td><input type="text" name="operacao" placeholder=""></td>
+                      <td><input type="text" name="un" placeholder=""></td>
+                      <td><input type="text" name="qtd" placeholder=""></td>
+                      <td><input type="text" name="posicao" placeholder=""></td>
+                      <td><input class="" id="pegar" type="submit" value="Pego"/></td>
+                  </tr>
+                </tbody>
+              </table> 
+            </div>
+            <div class="linha3">
+              <button>Finalizar Picking</button>
+            </div>
+          </div>
         </div>
     </div>
 
