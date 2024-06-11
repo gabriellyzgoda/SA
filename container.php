@@ -208,7 +208,7 @@ $conexao -> close();?>
                 <input type="text" name="placa_caminhao" placeholder="">
               </div>
               <div class="linhasBloco01">
-                <label>Nome do caminhão:</label>
+                <label>Nome do motorista:</label>
                 <input type="text" name="nome_motorista" placeholder="">
               </div>
               <div class="linhasBloco01">
