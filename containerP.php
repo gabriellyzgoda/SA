@@ -185,10 +185,7 @@ if(!isset($_SESSION['email'])) {
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Bem vindo professor(a)...</h1>
-        </div>
-        <div class="imagem-home">
-        <img src="imagens/img-home.jpg" alt="Minha Figura" width="650" height="auto">
+         <h1>Vistoria e Conferência  - Container</h1>
         </div>
     </div>
 
