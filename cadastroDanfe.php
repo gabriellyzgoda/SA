@@ -21,7 +21,7 @@
 				if($_POST['saida'] != ""){
 					$operacao = 0;
 				} else{
-					$operacao = 0;
+					$operacao = 1;
 				}
 				$sql = "INSERT INTO `danfe`
                             (`id`,`codbarra`, `n`, `serie`, `operacao`, `data_emissao`, `hora_emissao`, `total`) 

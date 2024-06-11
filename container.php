@@ -200,48 +200,48 @@ $conexao -> close();?>
     </div>
     <div class="linha-vistoria">
       <div class="quadro-vistoria">
-      <form class="form" method="post" action="" id="" name="" >
+      <form class="form" method="post" action="cadastroContainer.php" id="cadastroPedidio" name="cadastroPedidio" >
         <div class="quadroForm">
             <div class="bloco01">
               <div class="linhasBloco01">
                 <label>Placa do caminhão:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="placa_caminhao" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>Nome do caminhão:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="nome_motorista" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>Container:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="container" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>Cliente:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="cliente" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>Tipo:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="tipo" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>Lacre:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="lacre" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>Lacre SIF:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="lacre_sif" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>Temperatura:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="temperatura" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>IMO:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="IMO" placeholder="">
               </div>
               <div class="linhasBloco01">
                 <label>Nº ONU:</label>
-                <input type="text" name="un" placeholder="">
+                <input type="text" name="n_onu" placeholder="">
               </div>
             </div>
             <div class="bloco02">
@@ -251,61 +251,61 @@ $conexao -> close();?>
               <div class="bloco02Quadro">
                 <div class="subBloco1">
                   <div class="linhasSubBloco1">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="desgastado" />
                     <label>Container bem desgastado</label>
                   </div>
                   <div class="linhasSubBloco1">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="avaria_direita" />
                     <label>Avaria na lateral direita</label>
                   </div>
                   <div class="linhasSubBloco1">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="avaria_esquerda" />
                     <label>Avaria na lateral esquerda</label>
                   </div>
                   <div class="linhasSubBloco1">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="avaria_teto" />
                     <label>Avaria no teto</label>
                   </div>
                   <div class="linhasSubBloco1">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="avaria_frente" />
                     <label>Avaria na frente</label>
                   </div>
                   <div class="linhasSubBloco1">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="sem_lacre" />
                     <label>Sem lacre</label>
                   </div>
                   <div class="linhasSubBloco1">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="adesivo_avaria" />
                     <label>Adesivos avariados</label>
                   </div>
                 </div>
                 <div class="subBloco2">
                   <div class="linhasSubBloco2">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="execesso_altura" />
                     <label>Excesso de altura</label>
                   </div>
                   <div class="linhasSubBloco2">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="execesso_direita" />
                     <label>Excesso na direita</label>
                   </div>
                   <div class="linhasSubBloco2">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="execesso_esquerda" />
                     <label>Excesso na esquerda</label>
                   </div>
                   <div class="linhasSubBloco2">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="execesso_frontal" />
                     <label>Excesso frontal</label>
                   </div>
                   <div class="linhasSubBloco2">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="painel_avaria" />
                     <label>Painel avariado</label>
                   </div>
                   <div class="linhasSubBloco2">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="sem_caboenergia" />
                     <label>Sem cabo de energia</label>
                   </div>
                   <div class="linhasSubBloco2">
-                    <input type="checkbox" id="saida" name="saida" />
+                    <input type="checkbox" name="sem_lona" />
                     <label>Sem lona</label>
                   </div>
                 </div>
