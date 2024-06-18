@@ -6,21 +6,11 @@
 		
 			$conexao = new mysqli($hostname,$user,$password,$database);
 
+			$placa = $_POST['placa_caminhao'];
 			if ($conexao -> connect_errno) {
 				echo "Failed to connect to MySQL: " . $conexao -> connect_error;
 				exit();
 			} else {
-				// Evita caracteres epsciais (SQL Inject)
-				$placa = $conexao -> real_escape_string($_POST['placa_caminhao']);
-				$nome = $conexao -> real_escape_string($_POST['nome_motorista']);
-				$container = $conexao -> real_escape_string($_POST['container']);
-				$cliente = $conexao -> real_escape_string($_POST['cliente']);
-				$tipo = $conexao -> real_escape_string($_POST['tipo']);
-				$lacre = $conexao -> real_escape_string($_POST['lacre']);
-				$lacre_sif = $conexao -> real_escape_string($_POST['lacre_sif']);
-				$temperatura = $conexao -> real_escape_string($_POST['temperatura']);
-				$IMO = $conexao -> real_escape_string($_POST['IMO']);
-				$n_onu = $conexao -> real_escape_string($_POST['n_onu']);
 				if($_POST['desgastado'] != ""){
 					$desgastado = 1;
 				} else{
@@ -91,10 +81,9 @@
 				} else{
 					$sem_lona = 0;
 				}
-				$sql = "INSERT INTO `container`
-                            (`placa_caminhao`, `nome_motorista`, `container`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`, `desgastado`, `avaria_esquerda`, `avaria_direita`, `avaria_teto`, `avaria_frente`, `sem_lacre`, `adesivo_avaria`, `execesso_altura`, `execesso_direita`, `execesso_esquerda`, `execesso_frontal`, `painel_avaria`, `sem_caboenergia`, `sem_lona`) 
-                        VALUES 
-				             ('".$placa."','".$nome."','".$container."','".$cliente."','".$tipo."','".$lacre."','".$lacre_sif."','".$temperatura."','".$IMO."','".$n_onu."','".$desgastado."','".$avaria_esq."', '".$avaria_dir."', '".$avaria_teto."', '".$avaria_fre."', '".$sem_lacre."', '".$adesivo_ava."', '".$execesso_alt."', '".$execesso_dir."', '".$execesso_esq."', '".$execesso_fro."', '".$painel_ava."','".$sem_cabo."','".$sem_lona."');";
+				$sql = "UPDATE `container` SET 
+				`desgastado`='[$desgastado]', `avaria_esquerda`= '[$avaria_esq]', `avaria_direita` = '[$avaria_dir]', `avaria_teto` ='[$avaria_teto]', `avaria_frente`= '[$avaria_fre]', `sem_lacre` = '[$sem_lacre]', `adesivo_avaria` = '[$avaria_fre]', `execesso_altura` = '[$execesso_alt]', `execesso_direita` = '[$execesso_dir]', `execesso_esquerda` = '[$execesso_esq]', `execesso_frontal = '[$execesso_fro]'`, `painel_avaria = '[$painel_ava]'`, `sem_caboenergia`= '[$sem_cabo]', `sem_lona= '[$sem_lona]'
+							 WHERE 1;";
 echo $sql;
 				$resultado = $conexao->query($sql);
 				
