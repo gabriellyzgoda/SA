@@ -201,7 +201,7 @@ $resultado = $conexao->query($sql);
                         <th><p>CST</p></th>
                         <th><p>CFOP</p></th>
                         <th><p>Total</p></th>
-                        <th><p></p></th>
+                        
                     </tr>
                   </thead>
                   <tbody>
@@ -215,7 +215,7 @@ $resultado = $conexao->query($sql);
                           <td><input type="number" name="cst"></td>
                           <td><input type="number" name="cfop"></td>
                           <td><input type="text" name="total" value="R$"></td>
-                          <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+                          
                       </tr> 
                       <tr>
                           <td><div class="quadrado-numero-produto">2</div></td>
@@ -227,7 +227,7 @@ $resultado = $conexao->query($sql);
                           <td><input type="number" name="cst2"></td>
                           <td><input type="number" name="cfop2"></td>
                           <td><input type="text" name="total2" value="R$"></td>
-                          <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+                          
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >3</div></td>
@@ -239,7 +239,7 @@ $resultado = $conexao->query($sql);
                           <td><input type="number" name="cst3"></td>
                           <td><input type="number" name="cfop3"></td>
                           <td><input type="text" name="total3" value="R$"></td>
-                          <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+                          
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >4</div></td>
@@ -251,7 +251,7 @@ $resultado = $conexao->query($sql);
                           <td><input type="number" name="cst4"></td>
                           <td><input type="number" name="cfop4"></td>
                           <td><input type="text" name="total4" value="R$"></td>
-                          <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
+                          
                       </tr>
                     </tbody>
                   </table>
