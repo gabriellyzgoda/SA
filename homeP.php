@@ -172,7 +172,7 @@ if(!isset($_SESSION['email'])) {
           
           <ul class="sub-menu">
           
-            <li><a class="link_name" href="#">Solicitações</a></li>
+            <li><a class="link_name" href="#">Solicitações...</a></li>
             <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
             <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
           
