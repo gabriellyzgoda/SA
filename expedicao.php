@@ -25,6 +25,7 @@ $conexao -> close();?>
     <title>Home Aluno</title>
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="expedicao.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -195,6 +196,31 @@ $conexao -> close();?>
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
          <h1>Expedição</h1>
+        </div>
+        <div class="linha">
+          <div class="quadro-expedicao">
+            <div class="titulo-quadro">
+              <p>Nº SOLICITAÇÃO</p>
+            </div>
+            <div class="expedicao">
+              <div class="linhaExpedicao">
+                <input type="text" id="" value="--">
+                <button>Abrir</button>
+              </div>
+              <div class="linhaExpedicao">
+                <input type="text" id="" value="--">
+                <button>Abrir</button>
+              </div>
+              <div class="linhaExpedicao">
+                <input type="text" id="" value="--">
+                <button>Abrir</button>
+              </div>
+              <div class="linhaExpedicao">
+                <input type="text" id="" value="--">
+                <button>Abrir</button>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 
