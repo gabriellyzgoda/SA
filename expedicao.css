@@ -1,0 +1,70 @@
+.linha {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;
+    background-color: #fff;
+}
+
+.quadro-expedicao {
+    width: 500px;
+    height: auto;
+    background-color: #e1f2ff;
+}
+
+.titulo-quadro {
+    width: 100%;
+    background-color: #5f88c1;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0px 20px 0px;
+}
+
+.titulo-quadro p {
+    color: #fff;
+    font-size:28px;
+    font-weight: 700;
+    font-family: "League Spartan", sans-serif;
+}
+
+.expedicao {
+    border-right: 5px solid #85C4F9;
+    border-left: 5px solid #85C4F9;
+    display: block;
+    overflow-y: scroll;
+    height: 350px;
+    padding-top: 20px;
+}
+
+.linhaExpedicao {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 30px 20px 30px;
+}
+
+.linhaExpedicao input {
+    border: none;
+    text-align: center;
+    color: #185CA9;
+    font-size:20px;
+    width: 150px;
+    font-weight: 600;
+    font-family: "League Spartan", sans-serif;
+    padding: 5px 0px;
+}
+
+.linhaExpedicao button {
+    border: none;
+    background-color: #85C4F9;
+    color: #fff;
+    font-size:24px;
+    font-weight: 700;
+    font-family: "League Spartan", sans-serif;
+    padding: 8px 30px;
+    border-radius: 30px;
+}
+
+.linhaExpedicao button:hover {
+    background-color: #718fc3;
+    transition: all 0.3s ease;
+}

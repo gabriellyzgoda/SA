@@ -233,7 +233,7 @@ if(!isset($_SESSION['email'])) {
         </tbody>
         </table> 
         <div class="linhaBM">
-        <input class="" id="pegar" type="submit" value="Operação de Movimentação >>>"/> 
+      <a href="operacaoMovimentacao.php"><input class="" id="pegar" type="submit" value="Operação de Movimentação >>>"/> </a>
         </div>
         </form>
       </div>
