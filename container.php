@@ -3,26 +3,18 @@
 <?php
 session_start();
 include_once('config.php');
-include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM cadastro
-WHERE professor = 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
-$_SESSION["cargo"]= $row[2];
-$conexao -> close();?>
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Aluno</title>
+
+    <title>Container</title>
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
@@ -33,9 +25,12 @@ $conexao -> close();?>
     </style>
 </head>
 <body>
+<?php
+      
+  ?>
 <header class="header-topo">
         <div class="logo">
-          <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
@@ -47,19 +42,19 @@ $conexao -> close();?>
             <div class="dropdown-content">
               <div class="dropdown-section">
                 <h4>Nome:</h4>
-                <p><?php echo $row['nome'];?></p>
+                <p><?php echo $_SESSION['nome'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Email:</h4>
-                <p><?php echo $row['email'];?></p>
+                <p><?php echo $_SESSION['email'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
-                <p><?php echo $row['cargo'];?></p>
+                <p><?php echo $_SESSION['cargo'];?></p>
               </div>
             </div>
           </div>
-          <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+          <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar ">
@@ -201,54 +196,78 @@ $conexao -> close();?>
     </div>
     <div class="linha-vistoria">
       <div class="quadro-vistoria">
-      <form class="form" method="post" action="cadastroContainer.php" id="cadastroPedidio" name="cadastroPedidio" >
         <div class="quadroForm">
             <div class="bloco01">
-              <div class="linhasBloco01">
+            <form class="form" method="POST" action="container.php">
+            <div class="linhasBloco01">
                 <label>Placa do caminhão:</label>
                 <input type="text" name="placa_caminhao" placeholder="">
+                <input type="submit" name="OK" value="OK">
               </div>
-              <div class="linhasBloco01">
-                <label>Nome do motorista:</label>
-                <input type="text" name="nome_motorista" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Container:</label>
-                <input type="text" name="container" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Cliente:</label>
-                <input type="text" name="cliente" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Tipo:</label>
-                <input type="text" name="tipo" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Lacre:</label>
-                <input type="text" name="lacre" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Lacre SIF:</label>
-                <input type="text" name="lacre_sif" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Temperatura:</label>
-                <input type="text" name="temperatura" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>IMO:</label>
-                <input type="text" name="IMO" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Nº ONU:</label>
-                <input type="text" name="n_onu" placeholder="">
-              </div>
-            </div>
+              </form>
+              <?php
+              if(isset($_POST['placa_caminhao'])) {
+if ($conexao -> connect_errno) {
+  echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+  exit();
+} else {
+  // Evita caracteres epsciais (SQL Inject)
+  $placa = $conexao -> real_escape_string($_POST['placa_caminhao']);
+
+  $sql="SELECT *
+          FROM `container`
+          WHERE `placa_caminhao`='".$placa."';";
+
+  $resultado = $conexao->query($sql);
+  
+  if($resultado->num_rows != 0)
+  {
+      $row = $resultado -> fetch_array();
+
+              echo "<div class='linhasBloco01'>";
+                echo "<label>Nome do motorista:</label>";
+                echo "<input type='text' name='nome_motorista' placeholder='' disabled value=" . $row['nome_motorista'].">";
+              echo "</div>";
+              echo "<div class='linhasBloco01'>";
+                echo "<label>Container:</label>";
+                echo "<input type='text' name='container' placeholder='' disabled value=" . $row['container'].">";
+              echo "</div>";
+              echo "<div class='linhasBloco01'>";
+                echo "<label>Cliente:</label>";
+                echo "<input type='text' name='cliente' placeholder='' disabled value=" . $row['cliente'].">";
+              echo "</div>";
+              echo '<div class="linhasBloco01">';
+                echo "<label>Tipo:</label>";
+                echo '<input type="text" name="tipo" placeholder="" disabled value=' . $row["tipo"].">";
+              echo "</div>";
+              echo '<div class="linhasBloco01">';
+                echo "<label>Lacre:</label>";
+                echo '<input type="text" name="lacre" placeholder="" disabled value=' . $row["lacre"].">";
+              echo "</div>";
+              echo '<div class="linhasBloco01">';
+                echo 'label>Lacre SIF:</label>';
+                echo '<input type="text" name="lacre_sif" placeholder="" disabled value=' . $row["lacre_sif"].">";
+              echo "</div>";
+              echo '<div class="linhasBloco01">';
+                echo "<label>Temperatura:</label>";
+                echo '<input type="text" name="temperatura" placeholder="" disabled value=' . $row["temperatura"].">";
+              echo '</div>';
+              echo '<div class="linhasBloco01">';
+                echo '<label>IMO:</label>';
+                echo 'input type="text" name="IMO" placeholder="" disabled value=' . $row["IMO"].">";
+              echo '</div>';
+              echo '<div class="linhasBloco01">';
+                echo '<label>Nº ONU:</label>';
+                echo '<input type="text" name="n_onu" placeholder="" disabled value=' . $row["n_onu"].">";
+              echo '</div>';
+            echo '</div>';
+            ?>
             <div class="bloco02">
               <div class="bloco02Titulo">
                 <p>Assinale se houver alguma avaria:</p>
               </div>
+              <form class="form" method="POST" action="cadastroContainer.php">
+                <input type="hidden" value="<?php echo $row['placa_caminhao'] ?>">
               <div class="bloco02Quadro">
                 <div class="subBloco1">
                   <div class="linhasSubBloco1">
@@ -317,7 +336,12 @@ $conexao -> close();?>
           <input class="" id="pegar" type="submit" value="Enviar"/>
           </form>
         </div>
-        
+     <?php 
+      } else {
+      
+      $conexao -> close();
+      echo 'Nenhum registro encontrado.';
+  }}}?>
           
       </div>
     </div>
