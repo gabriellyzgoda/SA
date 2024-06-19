@@ -1,0 +1,60 @@
+.linhaContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.quadroContainer {
+    background-color: #c1e1fc;
+    border: 20px solid #dbedfe;
+    border-radius: 30px;
+    height: auto;
+    width: auto;
+    padding: 30px 40px;
+}
+
+
+.linhasBloco01 label {
+    width: 170px;
+    display: flex;
+    justify-content: end;
+    margin-right: 10px;
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    color: #2a60a9;
+    font-weight: 600;
+}
+.linhasBloco01 input {
+    flex: 1;
+    border: none;
+    padding: 5px 8px;
+}
+
+.linhasBloco01 {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.quadroBotao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.quadroBotao input {
+    border: none;
+    background-color: #85C4F9;
+    font-size: 25px;
+    font-family: "League Spartan", sans-serif;
+    color: #fff;
+    font-weight: 700;
+    padding: 8px 30px;
+    border-radius: 30px;
+}
+
+.quadroBotao input:hover {
+    background-color: #718fc3;
+    transition: all 0.3s ease;
+}
+
