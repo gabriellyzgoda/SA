@@ -223,7 +223,10 @@ if ($conexao -> connect_errno) {
   if($resultado->num_rows != 0)
   {
       $row = $resultado -> fetch_array();
-
+              echo '<div class="linhasBloco01">
+              <label>Placa do caminhão:</label>
+              <input type="text" name="placa_caminhao" placeholder="" disabled value=' . $row["placa_caminhao"].'>
+            </div>';
               echo "<div class='linhasBloco01'>";
                 echo "<label>Nome do motorista:</label>";
                 echo "<input type='text' name='nome_motorista' placeholder='' disabled value=" . $row['nome_motorista'].">";
@@ -340,7 +343,7 @@ if ($conexao -> connect_errno) {
       } else {
       
       $conexao -> close();
-      echo 'Nenhum registro encontrado.';
+      echo "<center>Nenhum registro encontrado.</center>";
   }}}?>
           
       </div>
