@@ -208,7 +208,7 @@ $conexao -> close();?>
               <table>
                 <thead>
                   <tr>
-                      <th>Operações em Aberto</th>
+                      <th>Produtos da Solicitação</th>
                       <th>UN</th>
                       <th>QTD</th>  
                       <th></th>
