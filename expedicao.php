@@ -23,9 +23,10 @@ $conexao -> close();?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Aluno</title>
+    <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="expedicao.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloExpedicao.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -205,19 +206,19 @@ $conexao -> close();?>
             <div class="expedicao">
               <div class="linhaExpedicao">
                 <input type="text" id="" value="--">
-                <button>Abrir</button>
+                <a href="expedicao2.php"><button>Abrir</button></a>
               </div>
               <div class="linhaExpedicao">
                 <input type="text" id="" value="--">
-                <button>Abrir</button>
+                <a href="expedicao2.php"><button>Abrir</button></a>
               </div>
               <div class="linhaExpedicao">
                 <input type="text" id="" value="--">
-                <button>Abrir</button>
+                <a href="expedicao2.php"><button>Abrir</button></a>
               </div>
               <div class="linhaExpedicao">
                 <input type="text" id="" value="--">
-                <button>Abrir</button>
+                <a href="expedicao2.php"><button>Abrir</button></a>
               </div>
             </div>
           </div>

@@ -26,6 +26,7 @@ $conexao -> close();?>
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloExpedicao2.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -34,7 +35,7 @@ $conexao -> close();?>
 <body>
 <header class="header-topo">
         <div class="logo">
-          <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
@@ -46,19 +47,19 @@ $conexao -> close();?>
             <div class="dropdown-content">
               <div class="dropdown-section">
                 <h4>Nome:</h4>
-                <p><?php echo $row['nome'];?></p>
+                <p><?php echo $_SESSION['nome'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Email:</h4>
-                <p><?php echo $row['email'];?></p>
+                <p><?php echo $_SESSION['email'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
-                <p><?php echo $row['cargo'];?></p>
+                <p><?php echo $_SESSION['cargo'];?></p>
               </div>
             </div>
           </div>
-          <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+          <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
     <div class="sidebar close">
@@ -195,8 +196,63 @@ $conexao -> close();?>
     </div>        
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Relatório</h1>
+         <h1>Expedição 2</h1>
         </div>
+        <div class="linhaExpedicao">
+          <div class="quadroExpedicao">
+            <div class="linha01">
+              <label>Solicitação nº:</label>
+              <input type="text" name="" placeholder="">
+            </div>
+            <div class="linha02">
+              <table>
+                <thead>
+                  <tr>
+                      <th>Operações em Aberto</th>
+                      <th>UN</th>
+                      <th>QTD</th>  
+                      <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <form class="form" method="post" action="" id="formlogin" name="formlogin" >
+                    <tr>
+                        <td><input type="text" name="operacao" placeholder=""></td>
+                        <td><input type="text" name="un" placeholder=""></td>
+                        <td><input type="text" name="qtd" placeholder=""></td>
+                        <td><input class="" id="OK" type="submit" value="OK"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="operacao" placeholder=""></td>
+                        <td><input type="text" name="un" placeholder=""></td>
+                        <td><input type="text" name="qtd" placeholder=""></td>
+                        <td><input class="" id="OK" type="submit" value="OK"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="operacao" placeholder=""></td>
+                        <td><input type="text" name="un" placeholder=""></td>
+                        <td><input type="text" name="qtd" placeholder=""></td>
+                        <td><input class="" id="OK" type="submit" value="OK"/></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="operacao" placeholder=""></td>
+                        <td><input type="text" name="un" placeholder=""></td>
+                        <td><input type="text" name="qtd" placeholder=""></td>
+                        <td><input class="" id="OK" type="submit" value="OK"/></td>
+                    </tr>
+                </tbody>
+              </table> 
+            </div>
+            <div class="linha03">
+              <label>Enviado para qual doca de saída?</label>
+              <input type="number" name="" placeholder="">
+            </div>
+            <div class="linha04">
+            <input type="submit" id="" value="Pedido OK na doca">
+            </div>
+          </div>
+        </div>
+        
     </div>
 
     <footer>
