@@ -192,15 +192,9 @@ if(!isset($_SESSION['email'])) {
         <img src="imagens/img-home.jpg" alt="Minha Figura" width="650" height="auto">
         </div>
     </div>
-
-    <footer>
-        <div class="linha-footer"><div>
-        <center>
-            <p>Gabrielly, Letícia, Julia e Amanda</br>
-            3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
-        </center>
-    </footer>
-
+<?php
+include_once('footer.php');
+?>
     <script>
   
     let arrow = document.querySelectorAll(".arrow");

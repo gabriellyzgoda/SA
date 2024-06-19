@@ -35,7 +35,7 @@ $conexao -> close();?>
 <body>
 <header class="header-topo">
         <div class="logo">
-          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+          <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">

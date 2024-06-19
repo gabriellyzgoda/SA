@@ -343,19 +343,15 @@ if ($conexao -> connect_errno) {
       } else {
       
       $conexao -> close();
-      echo "<center>Nenhum registro encontrado.</center>";
+      echo "<center>Nenhum registro encontrado.</center> ";
   }}}?>
           
       </div>
     </div>
 
-    <footer>
-        <div class="linha-footer"><div>
-        <center>
-            <p>Gabrielly, Letícia, Julia e Amanda</br>
-            3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
-        </center>
-    </footer>
+<?php
+include_once('footer.php');
+?>
 
     <script>
   

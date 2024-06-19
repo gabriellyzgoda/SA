@@ -188,15 +188,9 @@ $conexao -> close();
          <h1>Controle</h1>
         </div>
     </div>
-
-    <footer>
-        <div class="linha-footer"><div>
-        <center>
-            <p>Gabrielly, Letícia, Julia e Amanda</br>
-            3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
-        </center>
-    </footer>
-
+<?php
+include_once('footer.php');
+?>
     <script>
   
     let arrow = document.querySelectorAll(".arrow");

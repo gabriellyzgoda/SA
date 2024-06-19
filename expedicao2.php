@@ -35,7 +35,7 @@ $conexao -> close();?>
 <body>
 <header class="header-topo">
         <div class="logo">
-          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+          <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
@@ -254,15 +254,9 @@ $conexao -> close();?>
         </div>
         
     </div>
-
-    <footer>
-        <div class="linha-footer"><div>
-        <center>
-            <p>Gabrielly, Letícia, Julia e Amanda</br>
-            3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
-        </center>
-    </footer>
-
+<?php
+include_once('footer.php');
+?>
     <script>
   
     let arrow = document.querySelectorAll(".arrow");
