@@ -17,6 +17,7 @@ if(!isset($_SESSION['email'])) {
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloContainerP.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -188,58 +189,61 @@ if(!isset($_SESSION['email'])) {
         <div class="titulo-conteudo">    
          <h1>Vistoria e Conferência  - Container</h1>
         </div>
-    </div>
-    <center>
-    <form class="form" method="post" action="cadastroContainerP.php" id="cadastroPedidio" name="cadastroPedidio" >
-        <div class="quadroForm">
-            <div class="bloco01">
-              <div class="linhasBloco01">
-                <label>Placa do caminhão:</label>
-                <input type="text" name="placa_caminhao" placeholder="">
+        <div class="linhaContainer">
+          <div class="quadroContainer">
+            <form class="form" method="post" action="cadastroContainerP.php" id="cadastroPedidio" name="cadastroPedidio" >
+              <div class="quadroForm">
+                  <div class="bloco01">
+                    <div class="linhasBloco01">
+                      <label>Placa do caminhão:</label>
+                      <input type="text" name="placa_caminhao" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>Nome do motorista:</label>
+                      <input type="text" name="nome_motorista" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>Container:</label>
+                      <input type="text" name="container" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>Cliente:</label>
+                      <input type="text" name="cliente" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>Tipo:</label>
+                      <input type="text" name="tipo" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>Lacre:</label>
+                      <input type="text" name="lacre" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>Lacre SIF:</label>
+                      <input type="text" name="lacre_sif" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>Temperatura:</label>
+                      <input type="text" name="temperatura" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>IMO:</label>
+                      <input type="text" name="IMO" placeholder="">
+                    </div>
+                    <div class="linhasBloco01">
+                      <label>Nº ONU:</label>
+                      <input type="text" name="n_onu" placeholder="">
+                    </div>
+                  </div>
+                  <div class="quadroBotao">
+                    <input class="" id="pegar" type="submit" value="Enviar"/>
+            </form>
+                  </div>
               </div>
-              <div class="linhasBloco01">
-                <label>Nome do motorista:</label>
-                <input type="text" name="nome_motorista" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Container:</label>
-                <input type="text" name="container" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Cliente:</label>
-                <input type="text" name="cliente" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Tipo:</label>
-                <input type="text" name="tipo" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Lacre:</label>
-                <input type="text" name="lacre" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Lacre SIF:</label>
-                <input type="text" name="lacre_sif" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Temperatura:</label>
-                <input type="text" name="temperatura" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>IMO:</label>
-                <input type="text" name="IMO" placeholder="">
-              </div>
-              <div class="linhasBloco01">
-                <label>Nº ONU:</label>
-                <input type="text" name="n_onu" placeholder="">
-              </div>
-            </div>
-            <div class="quadroBotao">
-          <input class="" id="pegar" type="submit" value="Enviar"/>
-          </form>
+          </div>
         </div>
-</div>
-            </center>
+    </div>
+
 <?php
 include_once('footer.php');
 ?>
