@@ -26,6 +26,7 @@ $conexao -> close();?>
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloControleSolicitacoes.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -195,7 +196,32 @@ $conexao -> close();?>
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1> Solicitações </h1>
+         <h1> Solicitações dos Clientes</h1>
+        </div>
+        <div class="linhaControle">
+          <div class="quadroCS">
+            <div class="titulo-quadro">
+              <p>Nº SOLICITAÇÃO</p>
+            </div>
+            <div class="CS">
+              <div class="linhaCS">
+                <input type="text" id="" value="--">
+                <a href=""><button>Enviar</button></a>
+              </div>
+              <div class="linhaCS">
+                <input type="text" id="" value="--">
+                <a href=""><button>Enviar</button></a>
+              </div>
+              <div class="linhaCS">
+                <input type="text" id="" value="--">
+                <a href=""><button>Enviar</button></a>
+              </div>
+              <div class="linhaCS">
+                <input type="text" id="" value="--">
+                <a href=""><button>Enviar</button></a>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 <?php
