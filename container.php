@@ -248,7 +248,7 @@ if ($conexao -> connect_errno) {
                 echo '<input type="text" name="lacre" placeholder="" disabled value=' . $row["lacre"].">";
               echo "</div>";
               echo '<div class="linhasBloco01">';
-                echo 'label>Lacre SIF:</label>';
+                echo "<label>Lacre SIF:</label>";
                 echo '<input type="text" name="lacre_sif" placeholder="" disabled value=' . $row["lacre_sif"].">";
               echo "</div>";
               echo '<div class="linhasBloco01">';
@@ -257,7 +257,7 @@ if ($conexao -> connect_errno) {
               echo '</div>';
               echo '<div class="linhasBloco01">';
                 echo '<label>IMO:</label>';
-                echo 'input type="text" name="IMO" placeholder="" disabled value=' . $row["IMO"].">";
+                echo '<input type="text" name="IMO" placeholder="" disabled value=' . $row['IMO'].'>';
               echo '</div>';
               echo '<div class="linhasBloco01">';
                 echo '<label>Nº ONU:</label>';
