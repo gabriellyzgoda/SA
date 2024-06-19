@@ -236,14 +236,9 @@ $resultado = $conexao->query($sqlProfessor);
         </div>
         <div class="overlay" id="overlay" style="display: none;"></div>
     </div>
-    <footer>
-        <div class="linha-footer"><div>
-        <center>
-            <p>Gabrielly, Letícia, Julia e Amanda</br>
-            3º ano da Turma de desenvolvimento de sistemas do Sesi</p>
-        </center>
-    </footer>
-
+<?php
+include_once('footer.php');
+?>
     <script>
 
         function confirmarExclusao(id) {
