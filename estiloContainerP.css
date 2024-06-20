@@ -33,6 +33,7 @@
 .linhasBloco01 {
     display: flex;
     margin-bottom: 10px;
+    align-items: center;
 }
 
 .quadroBotao {
