@@ -74,6 +74,12 @@ thead th {
     text-align: center;
 }
 
+.linhaBM input:hover {
+    background-color: #718fc3;
+    transition: all 0.3s ease;
+
+}
+
 tbody td #pegar {
     border: none;
     color: #fff;

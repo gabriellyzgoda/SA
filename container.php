@@ -57,7 +57,7 @@ if(!isset($_SESSION['email'])) {
           <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
     </header>
-    <div class="sidebar ">
+    <div class="sidebar close">
       
       <div class="logo-details">
         
@@ -202,7 +202,7 @@ if(!isset($_SESSION['email'])) {
             <div id="linhaPlaca" class="linhasBloco01">
                 <label>Placa do caminhão:</label>
                 <input type="text" name="placa_caminhao" placeholder="">
-                <input type="submit" name="OK" value="OK">
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
               </div>
               </form>
               <?php
@@ -343,7 +343,7 @@ if ($conexao -> connect_errno) {
       } else {
       
       $conexao -> close();
-      echo "<center>Nenhum registro encontrado.</center> ";
+      echo "<div class='linhaErro'><p>Nenhum registro encontrado.</p></div> ";
   }}}?>
           
       </div>

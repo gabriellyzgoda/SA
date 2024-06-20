@@ -136,3 +136,40 @@
     padding: 10px 30px;
     border-radius: 30px;
 }
+
+.quadroBotao input:hover {
+    background-color: #718fc3;
+    transition: all 0.3s ease;
+}
+
+.linhaErro {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    color: #185CA9;
+    font-size: 25px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+}
+
+#linhaPlaca input {
+    width: 100px;
+    margin-left: 10px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#linhaPlaca button {
+    height: 26px;
+    border-radius: 0px;
+    border: none;
+    background-color: #8fc3f7;
+    color: #fff;
+    font-weight: 800;
+    font-size: 16px;
+}
+
+#linhaPlaca button:hover {
+    background-color: #718fc3;
+    transition: all 0.2s ease;
+}
