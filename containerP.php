@@ -196,43 +196,43 @@ if(!isset($_SESSION['email'])) {
                   <div class="bloco01">
                     <div class="linhasBloco01">
                       <label>Placa do caminhão:</label>
-                      <input type="text" name="placa_caminhao" placeholder="">
+                      <input type="text" name="placa_caminhao" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>Nome do motorista:</label>
-                      <input type="text" name="nome_motorista" placeholder="">
+                      <input type="text" name="nome_motorista" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>Container:</label>
-                      <input type="text" name="container" placeholder="">
+                      <input type="text" name="container" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>Cliente:</label>
-                      <input type="text" name="cliente" placeholder="">
+                      <input type="text" name="cliente" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>Tipo:</label>
-                      <input type="text" name="tipo" placeholder="">
+                      <input type="text" name="tipo" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>Lacre:</label>
-                      <input type="text" name="lacre" placeholder="">
+                      <input type="text" name="lacre" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>Lacre SIF:</label>
-                      <input type="text" name="lacre_sif" placeholder="">
+                      <input type="text" name="lacre_sif" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>Temperatura:</label>
-                      <input type="text" name="temperatura" placeholder="">
+                      <input type="text" name="temperatura" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>IMO:</label>
-                      <input type="text" name="IMO" placeholder="">
+                      <input type="text" name="IMO" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
                       <label>Nº ONU:</label>
-                      <input type="text" name="n_onu" placeholder="">
+                      <input type="text" name="n_onu" placeholder="" required>
                     </div>
                   </div>
                   <div class="quadroBotao">
