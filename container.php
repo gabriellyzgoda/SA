@@ -30,7 +30,7 @@ if(!isset($_SESSION['email'])) {
   ?>
 <header class="header-topo">
         <div class="logo">
-          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+          <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
@@ -270,7 +270,7 @@ if ($conexao -> connect_errno) {
                 <p>Assinale se houver alguma avaria:</p>
               </div>
               <form class="form" method="POST" action="cadastroContainer.php">
-                <input type="hidden" name="idCaminhao">
+                <input type="hidden" name="idPlaca" value="<?php echo $row['id'] ?>">
               <div class="bloco02Quadro">
                 <div class="subBloco1">
                   <div class="linhasSubBloco1">
