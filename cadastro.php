@@ -33,7 +33,7 @@
                         <label><h2>Email: </h2></label>
                             <div class="div-input">
                             <i class="fa-solid fa-envelope"></i>
-                            <input  class="inputs" type="text" name="email" id="email" size="20" required>
+                            <input  class="inputs" type="email" name="email" id="email" size="20" required>
                         </div>
                         
                         <label><h2>Senha: </h2></label>

@@ -220,19 +220,19 @@ if(!isset($_SESSION['email'])) {
                     </div>
                     <div class="linhasBloco01">
                       <label>Lacre SIF:</label>
-                      <input type="text" name="lacre_sif" placeholder="" required>
+                      <input type="number" name="lacre_sif" placeholder="">
                     </div>
                     <div class="linhasBloco01">
                       <label>Temperatura:</label>
-                      <input type="text" name="temperatura" placeholder="" required>
+                      <input type="text" name="temperatura" placeholder="">
                     </div>
                     <div class="linhasBloco01">
                       <label>IMO:</label>
-                      <input type="text" name="IMO" placeholder="" required>
+                      <input type="text" name="IMO" placeholder="">
                     </div>
                     <div class="linhasBloco01">
                       <label>Nº ONU:</label>
-                      <input type="text" name="n_onu" placeholder="" required>
+                      <input type="text" name="n_onu" placeholder="">
                     </div>
                   </div>
                   <div class="quadroBotao">
