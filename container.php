@@ -198,8 +198,8 @@ if(!isset($_SESSION['email'])) {
       <div class="quadro-vistoria">
         <div class="quadroForm">
             <div class="bloco01">
-            <form class="form" method="POST" action="container.php">
-            <div class="linhasBloco01">
+            <form id="formPlaca" class="form" method="POST" action="container.php">
+            <div id="linhaPlaca" class="linhasBloco01">
                 <label>Placa do caminhão:</label>
                 <input type="text" name="placa_caminhao" placeholder="">
                 <input type="submit" name="OK" value="OK">
@@ -270,7 +270,7 @@ if ($conexao -> connect_errno) {
                 <p>Assinale se houver alguma avaria:</p>
               </div>
               <form class="form" method="POST" action="cadastroContainer.php">
-                <input type="hidden" value="<?php echo $row['placa_caminhao'] ?>">
+                <input type="hidden" name="idCaminhao">
               <div class="bloco02Quadro">
                 <div class="subBloco1">
                   <div class="linhasSubBloco1">
@@ -354,7 +354,17 @@ include_once('footer.php');
 ?>
 
     <script>
-  
+    // Função para ocultar a linha da placa do caminhão
+    function ocultarLinhaPlaca() {
+        var linhaPlaca = document.getElementById('linhaPlaca');
+        linhaPlaca.style.display = 'none'; // Oculta a linha
+    }
+
+    // Event listener para o formulário ser submetido
+    document.getElementById('formPlaca').addEventListener('submit', function() {
+        ocultarLinhaPlaca(); // Chama a função para ocultar a linha da placa
+    });
+    
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{
