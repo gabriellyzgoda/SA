@@ -11,7 +11,7 @@
 				echo "Failed to connect to MySQL: " . $conexao -> connect_error;
 				exit();
 			} else {
-				if($_POST['desgastado'] != ""){
+				if($conexao->real_escape_string($_POST['desgastado']) != ""){
 					$desgastado = 1;
 				} else{
 					$desgastado = 0;

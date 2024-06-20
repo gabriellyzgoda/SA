@@ -354,17 +354,6 @@ include_once('footer.php');
 ?>
 
     <script>
-    // Função para ocultar a linha da placa do caminhão
-    function ocultarLinhaPlaca() {
-        var linhaPlaca = document.getElementById('linhaPlaca');
-        linhaPlaca.style.display = 'none'; // Oculta a linha
-    }
-
-    // Event listener para o formulário ser submetido
-    document.getElementById('formPlaca').addEventListener('submit', function() {
-        ocultarLinhaPlaca(); // Chama a função para ocultar a linha da placa
-    });
-    
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{
