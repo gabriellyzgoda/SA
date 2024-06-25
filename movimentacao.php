@@ -169,6 +169,7 @@ if(!isset($_SESSION['email'])) {
             <li><a class="link_name" href="#">Controle</a></li>
             <li><a href="pedidodoca.php">Doca Recebimento</a></li>
             <li><a href="controleSolicitacoes.php">Solicitações</a></li>
+          <li><a href="designarprodutos.php">Designar Produtos</a></li>
           
           </ul>
           
@@ -237,7 +238,7 @@ if(!isset($_SESSION['email'])) {
         </tbody>
         </table> 
         <div class="linhaBM">
-      <a href="operacaoMovimentacao.php"><input class="" id="pegar" type="submit" value="Operação de Movimentação >>>"/> </a>
+        <a href="operacaoMovimentacao.php"><input class="" id="pegar" type="submit" value="Operação de Movimentação >>>"/> </a>
         </div>
         </form>
       </div>

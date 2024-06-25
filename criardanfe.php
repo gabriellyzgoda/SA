@@ -30,6 +30,9 @@ $resultado = $conexao->query($sql);
 
 <body>
   <header class="header-topo">
+  <div class="logSenai">
+          <a href="homeP.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
+        </div>
     <div class="logo">
       <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
     </div>
@@ -58,7 +61,7 @@ $resultado = $conexao->query($sql);
       <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
   </header>
-  <div class="sidebar ">
+  <div class="sidebar close">
 
     <div class="logo-details">
 

@@ -17,6 +17,7 @@ if(!isset($_SESSION['email'])) {
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloDesignarProdutos.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -192,11 +193,65 @@ if(!isset($_SESSION['email'])) {
   </div>      
   <div class="conteudo"> 
       <div class="titulo-conteudo">    
-        <h1>Bem vindo aluno(a)...</h1>
+        <h1>Designar Produtos</h1>
       </div>
-      <div class="imagem-home">
-      <img src="imagens/img-home.jpg" alt="Minha Figura" width="650" height="auto">
+      <div class="linhaDesignar">
+        <div class="blocoDesignar">
+            <div class="linha01">
+                <label>Solicitação nº:</label>
+                <input type="text" name="" >
+            </div>
+            <div class="linha02">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Produtos:</th>
+                            <th>UN</th>
+                            <th>QTD</th>
+                            <th>Posição</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form class="form" method="post" action="" id="formlogin" name="formlogin" >
+                        <tr>
+                            <td><input type="text" name="operacao" placeholder=""></td>
+                            <td><input type="text" name="un" placeholder=""></td>
+                            <td><input type="text" name="qtd" placeholder=""></td>
+                            <td><input type="text" name="posicao" placeholder=""></td>
+                            <td><input class="" id="Enviar" type="submit" value="Enviar"/></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="operacao" placeholder=""></td>
+                            <td><input type="text" name="un" placeholder=""></td>
+                            <td><input type="text" name="qtd" placeholder=""></td>
+                            <td><input type="text" name="posicao" placeholder=""></td>
+                            <td><input class="" id="Enviar" type="submit" value="Enviar"/></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="operacao" placeholder=""></td>
+                            <td><input type="text" name="un" placeholder=""></td>
+                            <td><input type="text" name="qtd" placeholder=""></td>
+                            <td><input type="text" name="posicao" placeholder=""></td>
+                            <td><input class="" id="Enviar" type="submit" value="Enviar"/></td>
+                        </tr>
+                        <tr>
+                            <td><input type="text" name="operacao" placeholder=""></td>
+                            <td><input type="text" name="un" placeholder=""></td>
+                            <td><input type="text" name="qtd" placeholder=""></td>
+                            <td><input type="text" name="posicao" placeholder=""></td>
+                            <td><input class="" id="Enviar" type="submit" value="Enviar"/></td>
+                        </tr>
+                    </tbody>
+                </table> 
+            </div>
+            <div class="linha03">
+                <a href="picking.php"><button>Retornar</button></a>
+            </div>
+        </div>
       </div>
+        
+      
   </div>
 <?php
 include_once('footer.php');
