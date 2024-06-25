@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 session_start();
+include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
