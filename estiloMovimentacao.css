@@ -92,3 +92,8 @@ tbody td #pegar {
     padding: 5px 18px;
     margin: 0px;
 }
+
+tbody td #pegar:hover {
+    background-color: #718fc3;
+    transition: all 0.3s ease;
+}

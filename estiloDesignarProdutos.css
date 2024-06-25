@@ -1,0 +1,156 @@
+.linhaDesignar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.blocoDesignar {
+    height: auto;
+    width: auto;
+    background-color: #c1e1fc;
+    border: 20px solid #dbedfe;
+    border-radius: 30px;
+    padding: 40px 30px;
+}
+
+.linha01 {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    margin-bottom: 35px;
+    align-items: center;
+}
+
+.linha01 label {
+    margin-right: 15px;
+    color: #185CA9;
+    font-family: "League Spartan", sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.linha01 input {
+    border: none;
+    height: 23px;
+    width: 170px;
+    padding-left: 8px;
+}
+
+table thead th {
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    color: #2563ae;
+    font-weight: 600;
+}
+
+.linha03 {
+    width: 100%;
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.linha03 button {
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background-color: #85C4F9;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.linha03 button:hover {
+    background-color: #718fc3;
+  transition: all 0.3s ease;
+}
+
+
+
+
+table th:nth-child(1) {
+    text-align: start;
+}
+
+table td:nth-child(1) input {
+    border: none;
+    font-size: 15px;
+    padding: 5px 5px;
+}
+
+table th:nth-child(2) {
+    padding-left: 30px;
+}
+
+table td:nth-child(2) {
+    padding-left: 30px;
+}
+
+table td:nth-child(2) input {
+    border: none;
+    font-size: 15px;
+    padding: 5px 5px;
+    width: 50px;
+}
+
+table td:nth-child(3) input {
+    border: none;
+    font-size: 15px;
+    padding: 5px 5px;
+    width: 50px;
+}
+
+table th:nth-child(3) {
+    padding-left: 15px;
+}
+
+table td:nth-child(3) {
+    padding-left: 15px;
+}
+
+table td:nth-child(4) input {
+    border: none;
+    font-size: 15px;
+    padding: 5px 5px;
+    width: 100px;
+}
+
+table th:nth-child(4) {
+    padding-left: 30px;
+}
+
+table td:nth-child(4) {
+    padding-left: 30px;
+}
+
+table th:nth-child(5) {
+    padding-left: 30px;
+}
+
+table td:nth-child(5) {
+    padding-left: 30px;
+}
+
+
+table td:nth-child(5) input {
+    border: none;
+    color: #fff;
+    background-color: #85c4f9;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+    border-radius: 30px;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px 18px;
+}
+
+table td:nth-child(5) input:hover {
+background-color: #718fc3;
+  transition: all 0.3s ease;
+}
+
+table tbody tr input{
+    margin-bottom: 10px;
+}

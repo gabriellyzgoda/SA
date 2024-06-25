@@ -34,9 +34,12 @@ $conexao -> close();?>
 </head>
 <body>
 <header class="header-topo">
-        <div class="logo">
-          <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
-        </div>
+        <div class="logSenai">
+      <a href="home.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
+    </div>
+    <div class="logo">
+      <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+    </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
             <a href="#" >
@@ -177,6 +180,7 @@ $conexao -> close();?>
             <li><a class="link_name" href="#">Controle</a></li>
             <li><a href="pedidodoca.php">Doca Recebimento</a></li>
             <li><a href="controleSolicitacoes.php">Solicitações</a></li>
+          <li><a href="designarprodutos.php">Designar Produtos</a></li>
           
           </ul>
           

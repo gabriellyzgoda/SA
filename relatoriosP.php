@@ -33,6 +33,9 @@ $conexao -> close();
 </head>
 <body>
 <header class="header-topo">
+        <div class="logSenai">
+          <a href="homeP.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
+        </div>
         <div class="logo">
           <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
         </div>
