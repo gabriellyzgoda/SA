@@ -118,12 +118,13 @@ body, html{
     color: #fff;
     font-family: "League Spartan", sans-serif;
     font-size: 35px;
-    margin-left: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 
 .form .inputs {
-    width: 70%;
+    width: 60%;
     padding: 13px;
     border: 2px solid #fff;
     background-color: #85C4F9;
@@ -140,9 +141,8 @@ body, html{
 }
 
 .div-input {
-    margin-left: 25px;
     display: flex;
-    margin-bottom: 10px;
+    justify-content: center;
 }
 
 .botao-login {
@@ -154,7 +154,6 @@ body, html{
     padding: 15px;
     color: #85C4F9;
     font-weight: bold;
-    margin: 70px 50px 40px 0px;
     font-family: "League Spartan", sans-serif;
 }
 
@@ -184,6 +183,20 @@ body, html{
     border: 2px solid #fff;
     width: 350px;
     height: auto;
-    margin: 0% 15%;
     box-shadow: 1px 9px 21px #0a09094f;
+}
+
+.linha-erro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+
+.linhaBotao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
 }

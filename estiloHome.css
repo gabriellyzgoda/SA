@@ -18,7 +18,12 @@ p {
 }
 
 .logo {
-    margin: 10px 5px 5px 200px;
+    margin: 10px 5px 5px 10px;
+    justify-self: center;
+}
+
+.logSenai {
+  margin: 5px 120PX 5px 5%;
 }
 
 .linha {
@@ -55,7 +60,7 @@ footer p {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-right: 200px;
+  margin: 5px 8% 5px 5px
 }
 
 

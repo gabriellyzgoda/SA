@@ -37,14 +37,16 @@
                             <i class="fa-solid fa-lock"></i>
                             <input class="inputs" type="password" name="senha" id="senha" size="20" required>
                         </div>
-                            <center>
-                                <input class="botao-login" id="entrar" type="submit" value="Entrar"/>
-                            </center>
+                        <div class="linhaBotao">
+                            <input class="botao-login" id="entrar" type="submit" value="Entrar"/>
+                        </div>
                         <?php if (isset($_GET['erro'])){ ?>
-                            <div class="mensagem-erro">
+                            <div class="linha-erro">
+                                <div class="mensagem-erro">
                                 <p>
-                                <?php echo "Você não tem permissão para acessar";?>
-                                </p>
+                                    <?php echo "Você não tem permissão para acessar";?>
+                                    </p>
+                                </div>
                             </div>    
                         <?php } ?>
                         
