@@ -86,6 +86,7 @@ if(!isset($_SESSION['email'])) {
           <li><a class="link_name" href="#">Recebimento</a></li>
           <li><a href="container.php">Container</a></li>
           <li><a href="carga.php">Carga</a></li>
+          <li><a href="pedidodoca.php">Docas</a></li>
         
         </ul>
         
@@ -170,7 +171,6 @@ if(!isset($_SESSION['email'])) {
         <ul class="sub-menu">
           
           <li><a class="link_name" href="#">Controle</a></li>
-          <li><a href="pedidodoca.php">Doca Recebimento</a></li>
           <li><a href="controleSolicitacoes.php">Solicitações</a></li>
           <li><a href="designarprodutos.php">Designar Produtos</a></li>
         

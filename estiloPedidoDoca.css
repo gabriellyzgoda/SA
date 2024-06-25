@@ -1,0 +1,31 @@
+.linhaDocas {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.quadroDocas {
+    width: 600px;
+    height: auto;
+    background-color: #e1f2ff;
+
+}
+
+.tituloDocas {
+    background-color: #5f88c1;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 5px;
+}
+
+.tituloDocas p {
+    color: #fff;
+    font-size: 28px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 700;
+}
+
+.conteudoDocas {
+    display: flex;
+    padding: 30px;
+}
