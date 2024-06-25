@@ -214,48 +214,48 @@ $resultado = $conexao->query($sql);
                         <td><div class="quadrado-numero-produto">1</div></td>
                           <td><input type="text" name="produto"></td>
                           <td><input type="text" name="unidades"></td>
-                          <td><input type="number" name="quantidades"></td>
-                          <td><input type="text" name="valor" value="R$"></td>
+                          <td><input type="number" name="quantidades" id="quantidades" oninput="calcularTotal(1)"></td>
+                          <td><input type="text" name="valor" id="valor" oninput="calcularTotal(1)"></td>
                           <td><input type="number" name="ncm"></td>
                           <td><input type="number" name="cst"></td>
                           <td><input type="number" name="cfop"></td>
-                          <td><input type="text" name="total" value="R$"></td>
+                          <td><input type="text" name="total"></td>
                           
                       </tr> 
                       <tr>
                           <td><div class="quadrado-numero-produto">2</div></td>
                           <td><input type="text" name="produto2"></td>
                           <td><input type="text" name="unidades2"></td>
-                          <td><input type="number" name="quantidades2"></td>
-                          <td><input type="text" name="valor2" value="R$"></td>
+                          <td><input type="number" name="quantidades2" id="quantidade2" oninput="calcularTotal(2)"></td>
+                          <td><input type="text" name="valor2" id="valor2" oninput="calcularTotal(2)"></td>
                           <td><input type="number" name="ncm2"></td>
                           <td><input type="number" name="cst2"></td>
                           <td><input type="number" name="cfop2"></td>
-                          <td><input type="text" name="total2" value="R$"></td>
+                          <td><input type="text" name="total2"></td>
                           
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >3</div></td>
                           <td><input type="text" name="produto3"></td>
                           <td><input type="text" name="unidades3"></td>
-                          <td><input type="number" name="quantidades3"></td>
-                          <td><input type="text" name="valor3" value="R$"></td>
+                          <td><input type="number" name="quantidades3" id="quantidade3" oninput="calcularTotal(3)"></td>
+                          <td><input type="text" name="valor3" id="valor3" oninput="calcularTotal(3)"></td>
                           <td><input type="number" name="ncm3"></td>
                           <td><input type="number" name="cst3"></td>
                           <td><input type="number" name="cfop3"></td>
-                          <td><input type="text" name="total3" value="R$"></td>
+                          <td><input type="text" name="total3"></td>
                           
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >4</div></td>
                           <td><input type="text" name="produto4"></td>
                           <td><input type="text" name="unidades4"></td>
-                          <td><input type="number" name="quantidades4"></td>
-                          <td><input type="text" name="valor4" value="R$"></td>
+                          <td><input type="number" name="quantidades4" id="quantidade4" oninput="calcularTotal(4)"></td>
+                          <td><input type="text" name="valor4" id="valor4" oninput="calcularTotal(4)"></td>
                           <td><input type="number" name="ncm4"></td>
                           <td><input type="number" name="cst4"></td>
                           <td><input type="number" name="cfop4"></td>
-                          <td><input type="text" name="total4" value="R$"></td>
+                          <td><input type="text" name="total4"></td>
                           
                       </tr>
                     </tbody>
@@ -299,10 +299,9 @@ $resultado = $conexao->query($sql);
                     </div>
                     <div class="totalCompra">
                       <label>Total da compra:</label>
-                      <input id="totalcompra" type="text" name="totalcompra" value="R$">
-                    </div>
+                      <input id="totalcompra" type="text" name="totalcompra" value="R$ 0.00">
+                      </div>
                   </div>
-                  
               </form>
           </div>
         </div>
@@ -311,6 +310,16 @@ $resultado = $conexao->query($sql);
 include_once('footer.php');
 ?>
     <script>
+    function calcularTotal(1) {
+    var valor1 = parseFloat(document.getElementsbyid('valor').value);
+    var quantidade1 = parseFloat(document.getElementsbyid('quantidades').value);
+    
+      var totalItem = valor1 * quantidade1;
+      return totalItem;
+    } else {
+      return 0;
+    }
+  
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

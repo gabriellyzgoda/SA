@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 session_start();
+include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
@@ -205,41 +206,46 @@ if(!isset($_SESSION['email'])) {
                 <th></th>
             </tr>
           </thead>
-
+<?php $sql = "SELECT * FROM pedidos
+            WHERE 1";
+// puxa conexão
+$resultado = $conexao->query($sql);
+?>
           <tbody>
-            <form class="form" method="post" action="" id="formlogin" name="formlogin" >
-              <tr>
-                  <td><input type="text" name="operacao" placeholder=""></td>
-                  <td><input type="text" name="un" placeholder=""></td>
-                  <td><input type="text" name="qtd" placeholder=""></td>
-                  <td><input type="text" name="posicao" placeholder=""></td>
-                  <td><input class="" id="pegar" type="submit" value="Pegar"/></td>
-              </tr>
-              <tr>
-                  <td><input type="text" name="operacao" placeholder=""></td>
-                  <td><input type="text" name="un" placeholder=""></td>
-                  <td><input type="text" name="qtd" placeholder=""></td>
-                  <td><input type="text" name="posicao" placeholder=""></td>
-                  <td><input class="" id="pegar" type="submit" value="Pegar"/></td>
-              </tr>
-              <tr>
-                  <td><input type="text" name="operacao" placeholder=""></td>
-                  <td><input type="text" name="un" placeholder=""></td>
-                  <td><input type="text" name="qtd" placeholder=""></td>
-                  <td><input type="text" name="posicao" placeholder=""></td>
-                  <td><input class="" id="pegar" type="submit" value="Pegar"/></td>
-              </tr>
-              <tr>
-                  <td><input type="text" name="operacao" placeholder=""></td>
-                  <td><input type="text" name="un" placeholder=""></td>
-                  <td><input type="text" name="qtd" placeholder=""></td>
-                  <td><input type="text" name="posicao" placeholder=""></td>
-                  <td><input class="" id="pegar" type="submit" value="Pegar"/></td>
-              </tr>
+            <form class="form" method="post" action="selecionarMovi.php" id="formlogin" name="formlogin" >
+            <?php
+            while($user_data = mysqli_fetch_assoc($resultado))
+                    {  
+            echo 'form<tr>
+                  <td><input type="text" name="operacao" disabled value="'.$user_data['produto']. '"></td>
+                  <td><input type="text" name="un" disabled value="'.$user_data['unidades']. '"></td>
+                  <td><input type="text" name="qtd" disabled value="'.$user_data['quantidades']. '"></td>
+                  <td><select name="posicao" required="required">
+                    <option value="a1">A1</option>
+                    <option value="a2">A2</option>
+                    <option value="a3">A3</option>
+                    <option value="a4">A4</option>
+                    <option value="b1">B1</option>
+                    <option value="b2">B2</option>
+                    <option value="b3">B3</option>
+                    <option value="b4">B4</option>
+                    <option value="c1">C1</option>
+                    <option value="c2">C2</option>
+                    <option value="c3">C3</option>
+                    <option value="c4">C4</option>
+                    <option value="d1">D1</option>
+                    <option value="d2">D2</option>
+                    <option value="d3">D3</option>
+                    <option value="d4">D4</option>
+                  </select><td>
+                  <input type="checkbox" id="pegar" name="pegar"/>
+                  </tr>';
+                    }
+              ?>
         </tbody>
         </table> 
         <div class="linhaBM">
-        <a href="operacaoMovimentacao.php"><input class="" id="pegar" type="submit" value="Operação de Movimentação >>>"/> </a>
+      <input class="" id="pegar" type="submit" value="Operação de Movimentação >>>"/> </a>
         </div>
         </form>
       </div>
