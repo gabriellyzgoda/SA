@@ -11,12 +11,11 @@
 				exit();
 			} else {
 				// Evita caracteres epsciais (SQL Inject)
-				if($_POST['pegar'] != ""){
+				if($_POST['pegar']){
 
-				$sql = "SELECT cadastro
-							(`nome`, `email`, `senha`, `professor`)
-						VALUES
-							('".$nome."', '".$email."', '".$senha."', '".$professor."');";
+				$sql = "UPDATE `pedidos` SET 
+				`doca`='[value-11]' 
+						WHERE 1";
 echo $sql;
 				$resultado = $conexao->query($sql);
                 }

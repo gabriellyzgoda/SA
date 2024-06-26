@@ -216,7 +216,7 @@ $resultado = $conexao->query($sql);
             <?php
             while($user_data = mysqli_fetch_assoc($resultado))
                     {  
-            echo 'form<tr>
+            echo '<input type="hidden" name="id" value="'.$user_data['id']. '">
                   <td><input type="text" name="operacao" disabled value="'.$user_data['produto']. '"></td>
                   <td><input type="text" name="un" disabled value="'.$user_data['unidades']. '"></td>
                   <td><input type="text" name="qtd" disabled value="'.$user_data['quantidades']. '"></td>
