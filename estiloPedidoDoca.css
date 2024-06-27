@@ -5,7 +5,7 @@
 }
 
 .quadroDocas {
-    width: 600px;
+    width: auto;
     height: auto;
     background-color: #e1f2ff;
 
@@ -14,18 +14,88 @@
 .tituloDocas {
     background-color: #5f88c1;
     display: flex;
-    justify-content: space-around;
     padding: 15px 5px;
 }
 
-.tituloDocas p {
+.tituloDocas .p1, .tituloDocas .p2{
     color: #fff;
     font-size: 28px;
     font-family: "League Spartan", sans-serif;
     font-weight: 700;
 }
 
+.p1 {
+    flex: 1;
+    padding-left: 60px;
+}
+.p2 {
+    flex: 1;
+    padding-left: 150px;
+}
+
+
 .conteudoDocas {
     display: flex;
-    padding: 30px;
+    justify-content: center;
+}
+
+.bloco01, .bloco02 {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    align-items: center;
+    
+}
+
+.bloco01 {
+    border-left: 3px solid #85C4F9;
+    border-right: 3px solid #85C4F9;
+    padding: 30px 80px 10px 80px;
+}
+
+.bloco02  {
+    border-right: 3px solid #85C4F9;
+    padding: 30px 50px 10px 50px;
+}
+
+.linha01  {
+    margin-bottom: 34px;
+}
+
+.linha01 input {
+    border: none;
+    padding: 5px 8px;
+    font-size: 15px;
+    width: 120px;
+}
+
+.linha02 {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+
+.linha02 input {
+    border: none;
+    padding: 5px 8px;
+    font-size: 15px;
+    width: 120px;
+    margin-right: 40px;
+}
+
+.linha02 button {
+     border: none;
+     background-color: #85C4F9;
+     color: #fff;
+     font-size: 23px;
+     font-family: "League Spartan", sans-serif;
+     font-weight: 600;
+     padding: 5px 20px;
+     border-radius: 30px;
+}
+
+.linha02 button:hover {
+    background-color: #718fc3;
+    transition: all 0.3s ease;
 }

@@ -17,6 +17,7 @@ if(!isset($_SESSION['email'])) {
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloMinhaDanfe.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -180,6 +181,31 @@ if(!isset($_SESSION['email'])) {
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
          <h1> Minhas Danfes</h1>
+        </div>
+        <div class="linha">
+          <div class="quadroMinhaDanfe">
+            <div class="titulo-quadro">
+              <p>N° DANFE</p>
+            </div>
+            <div class="MinhaDanfe">
+              <div class="linhaMinhaDanfe">
+                <input type="text" id="" value="--">
+                <a href=" "><button>Abrir</button></a>
+              </div>
+              <div class="linhaMinhaDanfe">
+                <input type="text" id="" value="--">
+                <a href=""><button>Abrir</button></a>
+              </div>
+              <div class="linhaMinhaDanfe">
+                <input type="text" id="" value="--">
+                <a href=" "><button>Abrir</button></a>
+              </div>
+              <div class="linhaMinhaDanfe">
+                <input type="text" id="" value="--">
+                <a href=" "><button>Abrir</button></a>
+              </div>
+            </div>
+          </div>
         </div>
     </div>
 <?php
