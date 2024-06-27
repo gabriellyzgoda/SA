@@ -206,8 +206,8 @@ $conexao -> close();?>
         <div class="linhaDocas">
           <div class="quadroDocas">
             <div class="tituloDocas">
-              <p>Nº DO PEDIDO</p>
-              <P>DOCA</P>
+              <p class="p1">Nº DO PEDIDO</p>
+              <P class="p2">DOCA</P>
             </div>
             <div class="conteudoDocas">
               <div class="bloco01">
@@ -227,19 +227,19 @@ $conexao -> close();?>
               <div class="bloco02">
                 <div class="linha02">
                   <input type="text" name="" placeholder="">
-                  <input type="submit" name="" placeholder="">
+                  <button>Abrir</button>
                 </div>
                 <div class="linha02">
                   <input type="text" name="" placeholder="">
-                  <input type="submit" name="" placeholder="">
+                  <button>Abrir</button>
                 </div>
                 <div class="linha02">
                   <input type="text" name="" placeholder="">
-                  <input type="submit" name="" placeholder="">
+                  <button>Abrir</button>
                 </div>
                 <div class="linha02">
                   <input type="text" name="" placeholder="">
-                  <input type="submit" name="" placeholder="">
+                  <button>Abrir</button>
                 </div>
               </div>
             </div>
