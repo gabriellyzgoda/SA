@@ -189,10 +189,36 @@ $resultado = $conexao->query($sql);
     </div>
     <div class="quadro-conteudo">
       <div class="bloco-conteudo">
-        <form class="form" method="POST" action="cadastroDanfe.php">
           <div class="chave">
-            <p>Chave de Acesso:</p>
-            <input class="" type="text" name="id" id="id" size="20">
+            <form class="form" method="POST" action="criardanfe.php">
+                <p>Digite o Nº do Pedido</p>
+                <input class="" type="text" name="pedido" id="pedido" size="20">
+                <button type="submit">OK</button>
+            </form>
+            <?php
+            if(isset($_POST['pedido'])) {
+              if ($conexao -> connect_errno) {
+                echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+                exit();
+              } else {
+                // Evita caracteres epsciais (SQL Inject)
+                $pedido = $conexao -> real_escape_string($_POST['pedido']);
+              
+                $sql="SELECT *
+                        FROM `pedidos`
+                        WHERE `pedido`='".$pedido."';";
+              
+                $resultado = $conexao->query($sql);
+                
+                if($resultado->num_rows != 0)
+                {
+                  $row = $resultado -> fetch_array();
+            echo '
+            <form class="form" method="POST" action="cadastroDanfe.php">
+            <div>
+              <p>Chave de Acesso:</p>
+              <input class="" type="text" name="id" id="id" size="20">
+            </div>
           </div>
           <div class="informacoes">
             <div class="informacoesBloco1">
@@ -243,29 +269,43 @@ $resultado = $conexao->query($sql);
           </div>
           <div class="nome-destinatario">
             <label>Nome/Razão social:</label>
-            <input type="text" name="razao_nome">
+            <input type="text" name="razao_nome" value="SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI" disabled>
           </div>
           <div class="informacoes-destinatario">
             <div class="destinatarioBloco1">
               <label>CNPJ:</label>
-              <input type="text" name="cnpjd">
+              <input type="text" name="cnpjd" value="33564543 0001 90" disabled>
             </div>
             <div class="destinatarioBloco2">
               <label>Inscrição Estadual:</label>
-              <input type="text" name="ie">
+              <input type="text" name="ie" value="03.851.105/0001-42" disabled>
             </div>
             <div class="destinatarioBloco3">
-              <label>Valor total da nota:</label>
-              <input type="text" value="R$" name="total">
+              <label>Valor total da nota:</label>';
+
+              $sql2= "SELECT *
+                        FROM dadoscliente
+                        INNER JOIN pedidos
+                        ON `dadoscliente`.`cnpj` = `pedidos`.`id`;";
+                        $resultado2 = $conexao->query($sql);
+  
+                        if($resultado2->num_rows != 0)
+                        {
+                            $row = $resultado -> fetch_array();
+                            
+              echo '<input type="text" name="total" disabled value=' . $row["totalcompra"] ." >";'
             </div>
             <div class="destinatarioBloco4">
               <input type="submit" value="Criar" name="criar">
             </div>
-        </form>
+      </form>';
+                }}}}
+      ?>
       </div>
     </div>
   </div>
   </div>
+  <?php $produto * $quantidade1 = $total ?>
 <?php
 include_once('footer.php');
 ?>

@@ -221,22 +221,22 @@ $resultado = $conexao->query($sql);
                   <td><input type="text" name="un" disabled value="'.$user_data['unidades']. '"></td>
                   <td><input type="text" name="qtd" disabled value="'.$user_data['quantidades']. '"></td>
                   <td><select name="posicao" required="required">
-                    <option value="a1">A1</option>
-                    <option value="a2">A2</option>
-                    <option value="a3">A3</option>
-                    <option value="a4">A4</option>
-                    <option value="b1">B1</option>
-                    <option value="b2">B2</option>
-                    <option value="b3">B3</option>
-                    <option value="b4">B4</option>
-                    <option value="c1">C1</option>
-                    <option value="c2">C2</option>
-                    <option value="c3">C3</option>
-                    <option value="c4">C4</option>
-                    <option value="d1">D1</option>
-                    <option value="d2">D2</option>
-                    <option value="d3">D3</option>
-                    <option value="d4">D4</option>
+                    <option name="doca" value="a1">A1</option>
+                    <option name="doca" value="a2">A2</option>
+                    <option name="doca" value="a3">A3</option>
+                    <option name="doca" value="a4">A4</option>
+                    <option name="doca" value="b1">B1</option>
+                    <option name="doca" value="b2">B2</option>
+                    <option name="doca" value="b3">B3</option>
+                    <option name="doca" value="b4">B4</option>
+                    <option name="doca" value="c1">C1</option>
+                    <option name="doca" value="c2">C2</option>
+                    <option name="doca" value="c3">C3</option>
+                    <option name="doca" value="c4">C4</option>
+                    <option name="doca" value="d1">D1</option>
+                    <option name="doca" value="d2">D2</option>
+                    <option name="doca" value="d3">D3</option>
+                    <option name="doca" value="d4">D4</option>
                   </select><td>
                   <input type="checkbox" id="pegar" name="pegar"/>
                   </tr>';

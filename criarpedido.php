@@ -214,12 +214,12 @@ $resultado = $conexao->query($sql);
                         <td><div class="quadrado-numero-produto">1</div></td>
                           <td><input type="text" name="produto"></td>
                           <td><input type="text" name="unidades"></td>
-                          <td><input type="number" name="quantidades" id="quantidades" oninput="calcularTotal(1)"></td>
-                          <td><input type="text" name="valor" id="valor" oninput="calcularTotal(1)"></td>
+                          <td><input type="number" name="quantidades" id="quantidades"></td>
+                          <td><input type="text" name="valor" id="valor"></td>
                           <td><input type="number" name="ncm"></td>
                           <td><input type="number" name="cst"></td>
                           <td><input type="number" name="cfop"></td>
-                          <td><input type="text" name="total"></td>
+                          <td><input type="text" name="total" value=""></td>
                           
                       </tr> 
                       <tr>

@@ -11,11 +11,11 @@
 				exit();
 			} else {
 				// Evita caracteres epsciais (SQL Inject)
-				if($_POST['pegar']){
+				if(isset($_POST['pegar'])){
+					$doca = $_POST['doca']; 
 
-				$sql = "UPDATE `pedidos` SET 
-				`doca`='[value-11]' 
-						WHERE 1";
+				$sql = "UPDATE `pedidos` SET `doca`='$doca' 
+						WHERE id";
 echo $sql;
 				$resultado = $conexao->query($sql);
                 }
