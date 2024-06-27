@@ -190,19 +190,19 @@ if(!isset($_SESSION['email'])) {
             <div class="MinhaDanfe">
               <div class="linhaMinhaDanfe">
                 <input type="text" id="" value="--">
-                <a href="expedicao2.php"><button>Abrir</button></a>
+                <a href=" "><button>Abrir</button></a>
               </div>
               <div class="linhaMinhaDanfe">
                 <input type="text" id="" value="--">
-                <a href="expedicao2.php"><button>Abrir</button></a>
+                <a href=""><button>Abrir</button></a>
               </div>
               <div class="linhaMinhaDanfe">
                 <input type="text" id="" value="--">
-                <a href="expedicao2.php"><button>Abrir</button></a>
+                <a href=" "><button>Abrir</button></a>
               </div>
               <div class="linhaMinhaDanfe">
                 <input type="text" id="" value="--">
-                <a href="expedicao2.php"><button>Abrir</button></a>
+                <a href=" "><button>Abrir</button></a>
               </div>
             </div>
           </div>
