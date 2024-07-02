@@ -214,49 +214,45 @@ $resultado = $conexao->query($sql);
                         <td><div class="quadrado-numero-produto">1</div></td>
                           <td><input type="text" name="produto"></td>
                           <td><input type="text" name="unidades"></td>
-                          <td><input type="number" name="quantidades" id="quantidades"></td>
-                          <td><input type="text" name="valor" id="valor"></td>
+                          <td><input type="number" name="quantidade1" id="quantidade1" onchange="calcularTotal()"></td>
+                          <td><input type="text" name="valor1" id="valor1" onchange="calcularTotal()"></td>
                           <td><input type="number" name="ncm"></td>
                           <td><input type="number" name="cst"></td>
                           <td><input type="number" name="cfop"></td>
-                          <td><input type="text" name="total" value=""></td>
-                          
+                          <td><div name="total1" id="total1"></div></td>                          
                       </tr> 
                       <tr>
                           <td><div class="quadrado-numero-produto">2</div></td>
                           <td><input type="text" name="produto2"></td>
                           <td><input type="text" name="unidades2"></td>
-                          <td><input type="number" name="quantidades2" id="quantidade2" oninput="calcularTotal(2)"></td>
-                          <td><input type="text" name="valor2" id="valor2" oninput="calcularTotal(2)"></td>
+                          <td><input type="number" name="quantidade2" id="quantidade2" onchange="calcularTotal()"></td>
+                          <td><input type="text" name="valor2" id="valor2" onchange="calcularTotal2)"></td>
                           <td><input type="number" name="ncm2"></td>
                           <td><input type="number" name="cst2"></td>
                           <td><input type="number" name="cfop2"></td>
-                          <td><input type="text" name="total2"></td>
-                          
+                          <td><div name="total2" id="total2"></div></td>                          
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >3</div></td>
                           <td><input type="text" name="produto3"></td>
                           <td><input type="text" name="unidades3"></td>
-                          <td><input type="number" name="quantidades3" id="quantidade3" oninput="calcularTotal(3)"></td>
-                          <td><input type="text" name="valor3" id="valor3" oninput="calcularTotal(3)"></td>
+                          <td><input type="number" name="quantidade3" id="quantidade3" onchange="calcularTotal()"></td>
+                          <td><input type="text" name="valor3" id="valor3" onchange="calcularTotal()"></td>
                           <td><input type="number" name="ncm3"></td>
                           <td><input type="number" name="cst3"></td>
                           <td><input type="number" name="cfop3"></td>
-                          <td><input type="text" name="total3"></td>
-                          
+                          <td><div name="total3" id="total3"></div></td>                          
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >4</div></td>
                           <td><input type="text" name="produto4"></td>
                           <td><input type="text" name="unidades4"></td>
-                          <td><input type="number" name="quantidades4" id="quantidade4" oninput="calcularTotal(4)"></td>
-                          <td><input type="text" name="valor4" id="valor4" oninput="calcularTotal(4)"></td>
+                          <td><input type="number" name="quantidade4" id="quantidade4" onchange="calcularTotal()"></td>
+                          <td><input type="text" name="valor4" id="valor4" onchange="calcularTotal()"></td>
                           <td><input type="number" name="ncm4"></td>
                           <td><input type="number" name="cst4"></td>
                           <td><input type="number" name="cfop4"></td>
-                          <td><input type="text" name="total4"></td>
-                          
+                          <td><div name="total4" id="total4"></div></td>                          
                       </tr>
                     </tbody>
                   </table>
@@ -297,11 +293,8 @@ $resultado = $conexao->query($sql);
                     <div class="blocoBotaoCriarPedido">
                       <input type="submit" value="Enviar">
                     </div>
-                    <div class="totalCompra">
-                      <label>Total da compra:</label>
-                      <input id="totalcompra" type="text" name="totalcompra" value="R$ 0.00">
-                      </div>
-                  </div>
+                    <label>Total da Compra:</label>
+                    <div class="totalCompra" id="totalcompra" type="text" name="totalcompra"></div>
               </form>
           </div>
         </div>
@@ -310,14 +303,29 @@ $resultado = $conexao->query($sql);
 include_once('footer.php');
 ?>
     <script>
-    function calcularTotal(1) {
-    var valor1 = parseFloat(document.getElementsbyid('valor').value);
-    var quantidade1 = parseFloat(document.getElementsbyid('quantidades').value);
-    
-      var totalItem = valor1 * quantidade1;
-      return totalItem;
-    } else {
-      return 0;
+    function calcularTotal() {
+      const valorUnitario1 = parseFloat(document.getElementById('valor1').value) || 0;
+      const quantidade1 = parseInt(document.getElementById('quantidade1').value) || 0;
+      const valorUnitario2 = parseFloat(document.getElementById('valor2').value) || 0;
+      const quantidade2 = parseInt(document.getElementById('quantidade2').value) || 0;
+      const valorUnitario3 = parseFloat(document.getElementById('valor3').value) || 0;
+      const quantidade3 = parseInt(document.getElementById('quantidade3').value) || 0;
+      const valorUnitario4 = parseFloat(document.getElementById('valor4').value) || 0;
+      const quantidade4 = parseInt(document.getElementById('quantidade4').value) || 0;
+
+      const totalProduto1 = valorUnitario1 * quantidade1;
+      const totalProduto2 = valorUnitario2 * quantidade2;
+      const totalProduto3 = valorUnitario3 * quantidade3;
+      const totalProduto4 = valorUnitario4 * quantidade4;
+
+      document.getElementById('total1').innerHTML=totalProduto1.toFixed(2);
+      document.getElementById('total2').innerHTML=totalProduto2.toFixed(2);
+      document.getElementById('total3').innerHTML=totalProduto3.toFixed(2);
+      document.getElementById('total4').innerHTML=totalProduto4.toFixed(2);
+
+      const totalGeral = totalProduto1 + totalProduto2 + totalProduto3 + totalProduto4;
+
+      document.getElementById('totalcompra').innerHTML=totalGeral.toFixed(2);
     }
   
     let arrow = document.querySelectorAll(".arrow");
