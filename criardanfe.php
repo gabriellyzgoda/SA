@@ -281,31 +281,19 @@ $resultado = $conexao->query($sql);
               <input type="text" name="ie" value="03.851.105/0001-42" disabled>
             </div>
             <div class="destinatarioBloco3">
-              <label>Valor total da nota:</label>';
-
-              $sql2= "SELECT *
-                        FROM dadoscliente
-                        INNER JOIN pedidos
-                        ON `dadoscliente`.`cnpj` = `pedidos`.`id`;";
-                        $resultado2 = $conexao->query($sql);
-  
-                        if($resultado2->num_rows != 0)
-                        {
-                            $row = $resultado -> fetch_array();
-                            
-              echo '<input type="text" name="total" disabled value=' . $row["totalcompra"] ." >";'
+              <label>Valor total da nota:</label>
+              <input type="text" name="total" disabled value=' . $row["totalcompra"] ." >";'
             </div>
             <div class="destinatarioBloco4">
               <input type="submit" value="Criar" name="criar">
             </div>
       </form>';
-                }}}}
+                }}}
       ?>
       </div>
     </div>
   </div>
   </div>
-  <?php $produto * $quantidade1 = $total ?>
 <?php
 include_once('footer.php');
 ?>

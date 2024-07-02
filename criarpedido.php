@@ -219,7 +219,7 @@ $resultado = $conexao->query($sql);
                           <td><input type="number" name="ncm"></td>
                           <td><input type="number" name="cst"></td>
                           <td><input type="number" name="cfop"></td>
-                          <td><div name="total1" id="total1"></div></td>                          
+                          <td><input type="text" name="total1" id="total1" disabled>                          
                       </tr> 
                       <tr>
                           <td><div class="quadrado-numero-produto">2</div></td>
@@ -230,7 +230,7 @@ $resultado = $conexao->query($sql);
                           <td><input type="number" name="ncm2"></td>
                           <td><input type="number" name="cst2"></td>
                           <td><input type="number" name="cfop2"></td>
-                          <td><div name="total2" id="total2"></div></td>                          
+                          <td><input type="text" name="total2" id="total2"disabled></input></td>                          
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >3</div></td>
@@ -241,7 +241,7 @@ $resultado = $conexao->query($sql);
                           <td><input type="number" name="ncm3"></td>
                           <td><input type="number" name="cst3"></td>
                           <td><input type="number" name="cfop3"></td>
-                          <td><div name="total3" id="total3"></div></td>                          
+                          <td><input type="text" name="total3" id="total3"disabled></input></td>                          
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >4</div></td>
@@ -252,7 +252,7 @@ $resultado = $conexao->query($sql);
                           <td><input type="number" name="ncm4"></td>
                           <td><input type="number" name="cst4"></td>
                           <td><input type="number" name="cfop4"></td>
-                          <td><div name="total4" id="total4"></div></td>                          
+                          <td><input type="text" name="total4" id="total4"disabled></input></td>                          
                       </tr>
                     </tbody>
                   </table>
@@ -318,10 +318,10 @@ include_once('footer.php');
       const totalProduto3 = valorUnitario3 * quantidade3;
       const totalProduto4 = valorUnitario4 * quantidade4;
 
-      document.getElementById('total1').innerHTML=totalProduto1.toFixed(2);
-      document.getElementById('total2').innerHTML=totalProduto2.toFixed(2);
-      document.getElementById('total3').innerHTML=totalProduto3.toFixed(2);
-      document.getElementById('total4').innerHTML=totalProduto4.toFixed(2);
+      document.getElementById('total1').value=totalProduto1.toFixed(2);
+      document.getElementById('total2').value=totalProduto2.toFixed(2);
+      document.getElementById('total3').value=totalProduto3.toFixed(2);
+      document.getElementById('total4').value=totalProduto4.toFixed(2);
 
       const totalGeral = totalProduto1 + totalProduto2 + totalProduto3 + totalProduto4;
 
