@@ -96,7 +96,6 @@ CREATE TABLE `dadoscliente` (
   `telefone` varchar(10) NOT NULL,
   `email` varchar(200) NOT NULL,
   `data` date NOT NULL,
-  `totalcompra` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -132,6 +131,8 @@ CREATE TABLE `pedidos` (
   `ncm` int(11) NOT NULL,
   `cst` int(11) NOT NULL,
   `cfop` int(11) NOT NULL,
+  `doca` varchar(10) NOT NULL,
+  `totalcompra` float NOT NULL
   `cnpj` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
