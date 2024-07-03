@@ -284,12 +284,13 @@ $resultado = $conexao->query($sql);
               <label>Valor total da nota:</label>
               <input type="text" name="total" disabled value=' . $row["totalcompra"] ." >";'
             </div>
-            <div class="destinatarioBloco4">
-              <input type="submit" value="Criar" name="criar">
-            </div>
-      </form>';
+            ';
                 }}}
       ?>
+      <div class="destinatarioBloco4">
+              <input type="submit" value="Criar" name="criar">
+            </div>
+      </form>
       </div>
     </div>
   </div>

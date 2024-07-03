@@ -112,28 +112,10 @@ INSERT INTO `dadoscliente` (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `da
 -- Estrutura da tabela `danfe`
 --
 
-CREATE TABLE `danfe` (
-  `id` int(11) NOT NULL,
-  `n` varchar(255) NOT NULL,
-  `serie` varchar(255) NOT NULL,
-  `operacao` tinyint(1) NOT NULL,
-  `data_emissao` date NOT NULL,
-  `hora_emissao` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
---
--- Estrutura da tabela `destinatario`
---
-
-CREATE TABLE `destinatario` (
-  `cnpjd` int(11) NOT NULL,
-  `razao_nome` varchar(200) NOT NULL,
-  `ie` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
 
 --
 -- Estrutura da tabela `pedidos`
@@ -215,12 +197,6 @@ ALTER TABLE `container`
 --
 ALTER TABLE `danfe`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de tabela `destinatario`
---
-ALTER TABLE `destinatario`
-  MODIFY `cnpjd` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `pedidos`
