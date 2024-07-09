@@ -28,12 +28,6 @@
 							('".$chave."','".$cod."', '".$numero."', '".$serie."', '".$operacao."','".$data."', '".$hora."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
-				
-				$sql = "INSERT INTO `pedidos`
-				(`codbarra`) 
-			VALUES 
-				('".$cod."');";
-echo $sql;
-	$resultado = $conexao->query($sql);
-				}
+				$conexao -> close();
+				header('Location: minhadanfe.php', true, 301);				}
 ?>		

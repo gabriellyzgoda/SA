@@ -212,7 +212,7 @@ ALTER TABLE `pedidos`
 --
 -- Limitadores para a tabela `pedidos`
 --
-ALTER TABLE `pedidos`
+ALTER TABLE `pedido s`
   ADD CONSTRAINT `fk_cnpj_` FOREIGN KEY (`cnpj`) REFERENCES `dadoscliente` (`cnpj`);
 COMMIT;
 
