@@ -28,6 +28,20 @@
 							('".$chave."','".$cod."', '".$numero."', '".$serie."', '".$operacao."','".$data."', '".$hora."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
+
+				if ($resultado) {
+					// Obtém o ID inserido na tabela danfe
+					$id_danfe = $conexao->insert_id;
+			
+					// Atualiza a tabela pedidos com o id_danfe
+					$id_pedido = $conexao->real_escape_string($_POST['pedido']);
+
+					$sql2 = "UPDATE `pedidos` SET `id_danfe` = '$id_danfe' 
+					WHERE id = '$id_pedido'";
+					$resultado2 = $conexao->query($sql2);
+echo $sql2;
+				$resultado2 = $conexao->query($sql2);
+				}
 				$conexao -> close();
 				header('Location: minhadanfe.php', true, 301);				}
 ?>		

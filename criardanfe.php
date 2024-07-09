@@ -216,6 +216,7 @@ $resultado = $conexao->query($sql);
             echo '
             <form class="form" method="POST" action="cadastroDanfe.php">
             <div>
+              <input class="" type="hidden" name="pedido" id="pedido" size="20">
               <p>Chave de Acesso:</p>
               <input class="" type="text" name="id" id="id" size="20">
             </div>
