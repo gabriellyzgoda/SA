@@ -31,7 +31,7 @@ $resultado2 = $conexao->query($sqlClientes);
     </style>
 </head>
 <body>
-<header class="header-topo">
+      <header class="header-topo">
         <div class="logSenai">
           <a href="homeP.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
         </div>
@@ -207,9 +207,11 @@ $resultado2 = $conexao->query($sqlClientes);
 
             if ($resultado->num_rows > 0) {
               while ($pedido = mysqli_fetch_assoc($resultado)) {
+                 // Formata a data no formato day/month/year
+                  $dataEmissao = date("d/m/Y", strtotime($pedido['data_emissao']));
                   echo "<tr>";
                   // Exibe a data do pedido (vinda da tabela dadoscliente)
-                  echo "<td>" . $pedido['data_emissao'] . "</td>";
+                  echo "<td>" . $dataEmissao . "</td>";
                   // Exibe o número do pedido
                   echo "<td>" . $pedido['pedido'] . "</td>";
                   // Exibe o total da compra
