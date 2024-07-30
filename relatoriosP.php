@@ -147,21 +147,7 @@ $conexao -> close();
 
         </li>
 
-        <li>
           
-          <div class="iocn-link">
-          
-            <a href="relatoriosP.php">
-            <i class="fa-solid fa-file-lines"></i>
-              <span class="link_name">Relatórios</span>
-            </a>
-            
-          </div>
-          
-          <ul class="sub-menu">
-            <li><a class="link_name" href="relatoriosP.php">Relatórios</a></li>
-          </ul>
-        </li>  
         <li>
           
           <div class="iocn-link">

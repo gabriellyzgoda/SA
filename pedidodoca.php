@@ -178,16 +178,7 @@ if(!isset($_SESSION['email'])) {
           
         </li>
 
-        <li>
-          <a href="relatorios.php">
-          <i class="fa-regular fa-file"></i>
-            <span class="link_name">Relatório</span>
-          </a>
-          
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
-          </ul>
-        </li>      
+              
       </ul><!--Fecha ul-->
     </div>      
     <div class="conteudo"> 

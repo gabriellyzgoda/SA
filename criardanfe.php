@@ -19,6 +19,7 @@ $resultado = $conexao->query($sql);
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home Professor</title>
+  <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
   <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="estiloCriarDanfe.css" media="screen" />
@@ -152,21 +153,7 @@ $resultado = $conexao->query($sql);
 
       </li>
 
-      <li>
-
-        <div class="iocn-link">
-
-          <a href="relatoriosP.php">
-            <i class="fa-solid fa-file-lines"></i>
-            <span class="link_name">Relatórios</span>
-          </a>
-
-        </div>
-
-        <ul class="sub-menu">
-          <li><a class="link_name" href="relatoriosP.php">Relatórios</a></li>
-        </ul>
-      </li>
+     
       <li>
 
         <div class="iocn-link">
