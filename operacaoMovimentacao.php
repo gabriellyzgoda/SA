@@ -9,13 +9,35 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$id = $_POST['posicao_' . $id];
 
-$posicao = $_POST['posicao_' . $id];
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+  $idsSelecionados = [];
+  foreach ($_POST as $key => $value) {
+      if (strpos($key, 'select_') === 0 && !empty($value)) {
+          $index = str_replace('select_', '', $key);
+          $posicao = isset($_POST['posicao_' . $index]) ? $_POST['posicao_' . $index] : '';
 
-            // Atualiza o banco de dados com a nova posição
-            $sql = "UPDATE pedidos SET posicao = '$posicao' WHERE id = '$id'";
-            $resultado = $conexao->query($sql);?>
+          // Verifica se a posição não está vazia
+          if (!empty($posicao)) {
+              $idsSelecionados[] = [
+                  'id' => intval($value),
+                  'posicao' => $posicao
+              ];
+          }
+      }
+  }
+
+  if (!empty($idsSelecionados)) {
+      foreach ($idsSelecionados as $info) {
+          $id = $info['id'];
+          $posicao = $info['posicao'];
+          // Atualiza o banco de dados com a nova posição
+          $sql = "UPDATE pedidos SET posicao = '$posicao' WHERE id = '$id';";
+          $conexao->query($sql);
+      }
+  }
+}
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
