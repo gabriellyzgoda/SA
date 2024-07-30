@@ -51,18 +51,14 @@
     font-family: "League Spartan", sans-serif;
     font-size: 20px;
     font-weight: 500;
-    border-right: 3px solid #fff;
     border-left: 3px solid #fff;
     height: 55px;
     text-align: center;
 }
 
-
-
 td:nth-child(1) {
     border-left: none !important;
 }
-
   
 td:nth-child(4) {
     border-right: none !important;

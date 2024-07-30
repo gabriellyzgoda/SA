@@ -17,7 +17,7 @@
     background-color: #dbedfe;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
-    padding: 15px 0px 15px 60px;
+    padding: 15px 50px 15px 60px;
     align-items: center;
 }
 
@@ -34,6 +34,18 @@
     font-family: "League Spartan", sans-serif;
     font-size: 17px;
     padding: 5px 5px;
+}
+
+.chave button {
+    border: none;
+    background-color: #85C4F9;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 20px;
+    padding: 5px 15px;
+    margin: 0px 10px;
 }
 
 .informacoes {
@@ -171,7 +183,7 @@
 .dadosBloco3 input {
     border: none;
     border-bottom: 1px solid #718fc3;
-    width: 70px;
+    width: 80px;
     color: #4568ac;
     font-size: 15px;
 }

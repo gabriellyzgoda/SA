@@ -241,11 +241,11 @@ $conexao->close();
                         <label>Pedido de compra:</label>
                         <input type="text" name="pedido" placeholder="">
                     </div>
+                    <div class="linha01-04">
+                      <button type="submit" name="verificar">OK</button>
+                    </div>
                 </div>
-                <div class="linha02">
-                    <label>Sem pedido:</label>
-                    <button type="submit" name="verificar">OK</button>
-                </div>
+                
             </form>
 
             <?php if ($mostrarProdutos): ?>
