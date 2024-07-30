@@ -196,6 +196,7 @@ if(!isset($_SESSION['email'])) {
     </div>
     <div class="linha-movimentacao">
       <div class="quadro-movimentacao">
+        <div class="quadro-tabela">
         <table>
           <thead>
             <tr>
@@ -243,13 +244,14 @@ $resultado = $conexao->query($sql);
                                     <option value="D4" '.($user_data['posicao'] == 'D4' ? 'selected' : '').'>D4</option>
                                 </select>
                             </td>
-                            <td><input type="checkbox" name="select_'.$index.'" value="'.$user_data['id'].'"></td>
+                            <td><input id="selecionar" type="checkbox" name="select_'.$index.'" value="'.$user_data['id'].'"></td>
                         </tr>';
                     $index++;
                 }
                 ?>
                 </tbody>
-            </table>
+              </table>
+            </div>
             <div class="linhaBM">
                 <input class="" type="submit" value="Operação de Movimentação >>>"/>
             </div>
