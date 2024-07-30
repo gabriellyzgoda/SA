@@ -9,11 +9,7 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM pedidos";
-// puxa conexão
-$resultado = $conexao->query($sql);
 
-// puxa conexão
 ?>
 <head>
     <meta charset="UTF-8">
@@ -119,14 +115,22 @@ $resultado = $conexao->query($sql);
         </li>
 
         <li>
+        <div class="iocn-link">
+            
+            <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+              <span class="link_name">Controle</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
           
-          <a href="controleP.php">
-            <i class="fa-solid fa-warehouse"></i>
-            <span class="link_name">Controle</span>
-          </a>
+          </div>
 
-          <ul class="sub-menu blank">
+          <ul class="sub-menu ">
             <li><a class="link_name" href="controleP.php">Controle</a></li>
+            <li><a href="controleP.php">Controle</a></li>
+            <li><a href="containerP.php">Container</a></li>
+
           </ul>
 
         </li>
@@ -190,9 +194,13 @@ $resultado = $conexao->query($sql);
         <div class="criacao-pedido">
           <div class="bloco-criacao-pedido">
               <form class="form" method="post" action="cadastroPedido.php" id="formPedido">
+              <?php if (isset($_SESSION['erro'])): ?>
+                        <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
+                    <?php endif; ?>
                     <div class="form-numero">
-                      <label>Pedido nº:</label>
-                      <input type="number" name="pedido">
+                        <label>Pedido nº:</label>
+                        <input type="number" name="pedido" id="pedido" required>
+                        <p id="pedidoErro" class="error" style="display: none;">O número do pedido já está em uso.</p>
                     </div>
                 <table>
                   <thead>
@@ -212,47 +220,47 @@ $resultado = $conexao->query($sql);
                   <tbody>
                       <tr>
                         <td><div class="quadrado-numero-produto">1</div></td>
-                          <td><input type="text" name="produto"></td>
-                          <td><input type="text" name="unidades"></td>
-                          <td><input type="number" name="quantidade1" id="quantidade1" onchange="calcularTotal()"></td>
-                          <td><input type="text" name="valor1" id="valor1" onchange="calcularTotal()"></td>
-                          <td><input type="number" name="ncm"></td>
-                          <td><input type="number" name="cst"></td>
-                          <td><input type="number" name="cfop"></td>
-                          <td><input type="text" name="total1" id="total1" disabled>                          
+                          <td><input type="text" name="produto" required></td>
+                          <td><input type="text" name="unidades" required></td>
+                          <td><input type="number" name="quantidade1" id="quantidade1" onchange="calcularTotal()" required></td>
+                          <td><input type="text" name="valor1" id="valor1" onchange="calcularTotal()" required></td>
+                          <td><input type="number" name="ncm" required></td>
+                          <td><input type="number" name="cst" required></td>
+                          <td><input type="number" name="cfop" required></td>
+                          <td><input type="text" name="total1" id="total1" readonly></input></td>                         
                       </tr> 
                       <tr>
                           <td><div class="quadrado-numero-produto">2</div></td>
-                          <td><input type="text" name="produto2"></td>
-                          <td><input type="text" name="unidades2"></td>
-                          <td><input type="number" name="quantidade2" id="quantidade2" onchange="calcularTotal()"></td>
-                          <td><input type="text" name="valor2" id="valor2" onchange="calcularTotal2)"></td>
-                          <td><input type="number" name="ncm2"></td>
-                          <td><input type="number" name="cst2"></td>
-                          <td><input type="number" name="cfop2"></td>
-                          <td><input type="text" name="total2" id="total2"disabled></input></td>                          
+                          <td><input type="text" name="produto2" required></td>
+                          <td><input type="text" name="unidades2" required></td>
+                          <td><input type="number" name="quantidade2" id="quantidade2" onchange="calcularTotal()" required></td>
+                          <td><input type="text" name="valor2" id="valor2" onchange="calcularTotal()" required></td>
+                          <td><input type="number" name="ncm2" required></td>
+                          <td><input type="number" name="cst2" required></td>
+                          <td><input type="number" name="cfop2" required></td>
+                          <td><input type="text" name="total2" id="total2" readonly></input></td>                          
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >3</div></td>
-                          <td><input type="text" name="produto3"></td>
-                          <td><input type="text" name="unidades3"></td>
-                          <td><input type="number" name="quantidade3" id="quantidade3" onchange="calcularTotal()"></td>
-                          <td><input type="text" name="valor3" id="valor3" onchange="calcularTotal()"></td>
-                          <td><input type="number" name="ncm3"></td>
-                          <td><input type="number" name="cst3"></td>
-                          <td><input type="number" name="cfop3"></td>
-                          <td><input type="text" name="total3" id="total3"disabled></input></td>                          
+                          <td><input type="text" name="produto3" required></td>
+                          <td><input type="text" name="unidades3" required></td>
+                          <td><input type="number" name="quantidade3" id="quantidade3" onchange="calcularTotal()" required></td>
+                          <td><input type="text" name="valor3" id="valor3" onchange="calcularTotal()" required></td>
+                          <td><input type="number" name="ncm3" required></td>
+                          <td><input type="number" name="cst3" required></td>
+                          <td><input type="number" name="cfop3" required></td>
+                          <td><input type="text" name="total3" id="total3" readonly></input></td>                          
                       </tr>
                       <tr>
                           <td><div class="quadrado-numero-produto" >4</div></td>
-                          <td><input type="text" name="produto4"></td>
-                          <td><input type="text" name="unidades4"></td>
-                          <td><input type="number" name="quantidade4" id="quantidade4" onchange="calcularTotal()"></td>
-                          <td><input type="text" name="valor4" id="valor4" onchange="calcularTotal()"></td>
-                          <td><input type="number" name="ncm4"></td>
-                          <td><input type="number" name="cst4"></td>
-                          <td><input type="number" name="cfop4"></td>
-                          <td><input type="text" name="total4" id="total4"disabled></input></td>                          
+                          <td><input type="text" name="produto4" required></td>
+                          <td><input type="text" name="unidades4" required></td>
+                          <td><input type="number" name="quantidade4" id="quantidade4" onchange="calcularTotal()" required></td>
+                          <td><input type="text" name="valor4" id="valor4" onchange="calcularTotal()" required></td>
+                          <td><input type="number" name="ncm4" required></td>
+                          <td><input type="number" name="cst4" required></td>
+                          <td><input type="number" name="cfop4" required></td>
+                          <td><input type="text" name="total4" id="total4" readonly></input></td>                          
                       </tr>
                     </tbody>
                   </table>
@@ -263,38 +271,40 @@ $resultado = $conexao->query($sql);
                     <div class="clienteBloco1">
                       <div  class="clienteBlocoLinha">
                         <label>Nome:</label>
-                        <input  type="text" name="nome">
+                        <input  type="text" name="nome" required>
                       </div>
                       <div class="clienteBlocoLinha">
                         <label>Endereço:</label>
-                        <input  type="text" name="endereco">
+                        <input  type="text" name="endereco"required>
                       </div>
                       <div  class="clienteBlocoLinha">
                         <label>Data:</label>
-                        <input id="data" type="date" name="data">
+                        <input id="data" type="date" name="data" required>
                       </div>
                     </div>
                     <div class="clienteBloco2">
                       <div class="clienteBlocoLinha">
                         <label>Telefone:</label>
-                        <input  type="number"    name="telefone">
+                        <input  type="number" name="telefone" required>
                       </div>
                       <div  class="clienteBlocoLinha">
                         <label>Email:</label>
-                        <input  type="text" name="email">
+                        <input  type="text" name="email" required>
                       </div>
                       <div class="clienteBlocoLinha">
                         <label>CNPJ:</label>
-                        <input  type="text" name="cnpj">
+                        <input  type="text" name="cnpj" required>
                       </div>
                     </div>
                   </div>
                   <div class="blocoFinal">
                     <div class="blocoBotaoCriarPedido">
                       <input type="submit" value="Enviar">
-                    </div>
-                    <label>Total da Compra:</label>
-                    <div class="totalCompra" id="totalcompra" type="text" name="totalcompra"></div>
+                    </div> 
+                  <div class="totalCompra">
+                  <label>Total da Compra:</label>
+                    <input type="text" name="totalcompra" id="totalcompra" readonly></input>
+                  </div>
               </form>
           </div>
         </div>
@@ -304,30 +314,55 @@ include_once('footer.php');
 ?>
     <script>
     function calcularTotal() {
-      const valorUnitario1 = parseFloat(document.getElementById('valor1').value) || 0;
-      const quantidade1 = parseInt(document.getElementById('quantidade1').value) || 0;
-      const valorUnitario2 = parseFloat(document.getElementById('valor2').value) || 0;
-      const quantidade2 = parseInt(document.getElementById('quantidade2').value) || 0;
-      const valorUnitario3 = parseFloat(document.getElementById('valor3').value) || 0;
-      const quantidade3 = parseInt(document.getElementById('quantidade3').value) || 0;
-      const valorUnitario4 = parseFloat(document.getElementById('valor4').value) || 0;
-      const quantidade4 = parseInt(document.getElementById('quantidade4').value) || 0;
+  const valorUnitario1 = parseFloat(document.getElementById('valor1').value) || 0;
+  const quantidade1 = parseInt(document.getElementById('quantidade1').value) || 0;
+  const valorUnitario2 = parseFloat(document.getElementById('valor2').value) || 0;
+  const quantidade2 = parseInt(document.getElementById('quantidade2').value) || 0;
+  const valorUnitario3 = parseFloat(document.getElementById('valor3').value) || 0;
+  const quantidade3 = parseInt(document.getElementById('quantidade3').value) || 0;
+  const valorUnitario4 = parseFloat(document.getElementById('valor4').value) || 0;
+  const quantidade4 = parseInt(document.getElementById('quantidade4').value) || 0;
 
-      const totalProduto1 = valorUnitario1 * quantidade1;
-      const totalProduto2 = valorUnitario2 * quantidade2;
-      const totalProduto3 = valorUnitario3 * quantidade3;
-      const totalProduto4 = valorUnitario4 * quantidade4;
+  const totalProduto1 = valorUnitario1 * quantidade1;
+  const totalProduto2 = valorUnitario2 * quantidade2;
+  const totalProduto3 = valorUnitario3 * quantidade3;
+  const totalProduto4 = valorUnitario4 * quantidade4;
 
-      document.getElementById('total1').value=totalProduto1.toFixed(2);
-      document.getElementById('total2').value=totalProduto2.toFixed(2);
-      document.getElementById('total3').value=totalProduto3.toFixed(2);
-      document.getElementById('total4').value=totalProduto4.toFixed(2);
+  document.getElementById('total1').value = totalProduto1.toFixed(2);
+  document.getElementById('total2').value = totalProduto2.toFixed(2);
+  document.getElementById('total3').value = totalProduto3.toFixed(2);
+  document.getElementById('total4').value = totalProduto4.toFixed(2);
 
-      const totalGeral = totalProduto1 + totalProduto2 + totalProduto3 + totalProduto4;
+  const totalGeral = totalProduto1 + totalProduto2 + totalProduto3 + totalProduto4;
 
-      document.getElementById('totalcompra').innerHTML=totalGeral.toFixed(2);
-    }
-  
+  document.getElementById('totalcompra').value = totalGeral.toFixed(2); // Corrigido aqui
+}
+document.getElementById('pedido').addEventListener('blur', function() {
+            var pedido = this.value;
+            var erroMsg = document.getElementById('pedidoErro');
+
+            // Verificar se o número do pedido não está vazio
+            if (pedido.trim() === '') {
+                erroMsg.style.display = 'none';
+                return;
+            }
+
+            // Fazer a solicitação AJAX para verificar o número do pedido
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', 'verificarPedido.php?pedido=' + encodeURIComponent(pedido), true);
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.exists) {
+                        erroMsg.style.display = 'block';
+                    } else {
+                        erroMsg.style.display = 'none';
+                    }
+                }
+            };
+            xhr.send();
+        });
+
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

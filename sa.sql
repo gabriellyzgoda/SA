@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 27-Jun-2024 às 16:27
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.1.2
+-- Tempo de geração: 30/07/2024 às 12:42
+-- Versão do servidor: 10.4.32-MariaDB
+-- Versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cadastro`
+-- Estrutura para tabela `cadastro`
 --
 
 CREATE TABLE `cadastro` (
@@ -33,26 +33,12 @@ CREATE TABLE `cadastro` (
   `email` varchar(200) NOT NULL,
   `senha` varchar(200) NOT NULL,
   `professor` tinyint(1) NOT NULL,
-  `recuperar_senha` varchar(255) NOT NULL,
   `cargo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `cadastro`
---
-
-INSERT INTO `cadastro` (`id`, `nome`, `email`, `senha`, `professor`, `recuperar_senha`, `cargo`) VALUES
-(1, 'Amanda Mallet', 'leo', 'amanda', 0, '', 'Conferente'),
-(2, 'prof', 'prof', 'prof', 1, '', ''),
-(3, 'profju', 'profju', 'profju', 1, '', ''),
-(4, 'ju', 'ju', 'ju', 1, '', ''),
-(7, 'leo', 'root', 'usbw', 0, '', ''),
-(8, 'root', 'root@root', 'root', 0, '', '');
-
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `container`
+-- Estrutura para tabela `container`
 --
 
 CREATE TABLE `container` (
@@ -81,12 +67,11 @@ CREATE TABLE `container` (
   `painel_avaria` tinyint(1) NOT NULL,
   `sem_caboenergia` tinyint(1) NOT NULL,
   `sem_lona` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `dadoscliente`
+-- Estrutura para tabela `dadoscliente`
 --
 
 CREATE TABLE `dadoscliente` (
@@ -95,29 +80,30 @@ CREATE TABLE `dadoscliente` (
   `endereco` varchar(200) NOT NULL,
   `telefone` varchar(10) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `data` date NOT NULL,
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `data` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
---
--- Extraindo dados da tabela `dadoscliente`
---
-
-INSERT INTO `dadoscliente` (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`, `totalcompra`) VALUES
-('', '', '', '', '', '0000-00-00', 0);
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `danfe`
+-- Estrutura para tabela `danfe`
 --
 
-  ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+CREATE TABLE `danfe` (
+  `id` int(11) NOT NULL,
+  `codbarra` int(11) NOT NULL,
+  `n` varchar(255) NOT NULL,
+  `serie` varchar(255) NOT NULL,
+  `operacao` tinyint(1) NOT NULL,
+  `data_emissao` date NOT NULL,
+  `hora_emissao` time NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
-
 --
--- Estrutura da tabela `pedidos`
+-- Estrutura para tabela `pedidos`
 --
 
 CREATE TABLE `pedidos` (
@@ -132,88 +118,103 @@ CREATE TABLE `pedidos` (
   `cst` int(11) NOT NULL,
   `cfop` int(11) NOT NULL,
   `doca` varchar(10) NOT NULL,
-  `totalcompra` float NOT NULL
-  `cnpj` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `faltando` tinyint(11) NOT NULL,
+  `avaria` tinyint(11) NOT NULL,
+  `totalcompra` float NOT NULL,
+  `posicao` varchar(2) NOT NULL,
+  `cnpj` varchar(15) NOT NULL,
+  `id_danfe` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `solicitacoes`
+--
+
+CREATE TABLE `solicitacoes` (
+  `id` int(11) NOT NULL,
+  `solicitacao` int(11) NOT NULL,
+  `produto` varchar(255) NOT NULL,
+  `unidades` varchar(255) NOT NULL,
+  `quantidades` int(11) NOT NULL,
+  `valor` float NOT NULL,
+  `observacoes` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `cadastro`
+-- Índices de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `container`
+-- Índices de tabela `container`
 --
 ALTER TABLE `container`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `dadoscliente`
+-- Índices de tabela `dadoscliente`
 --
 ALTER TABLE `dadoscliente`
   ADD PRIMARY KEY (`cnpj`);
 
 --
--- Índices para tabela `danfe`
+-- Índices de tabela `danfe`
 --
 ALTER TABLE `danfe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices para tabela `destinatario`
---
-ALTER TABLE `destinatario`
-  ADD PRIMARY KEY (`cnpjd`);
-
---
--- Índices para tabela `pedidos`
+-- Índices de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_cnpj_` (`cnpj`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- Índices de tabela `solicitacoes`
+--
+ALTER TABLE `solicitacoes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT para tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de tabela `container`
 --
 ALTER TABLE `container`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `danfe`
 --
 ALTER TABLE `danfe`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2147483648;
 
 --
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- Restrições para despejos de tabelas
+-- AUTO_INCREMENT de tabela `solicitacoes`
 --
-
---
--- Limitadores para a tabela `pedidos`
---
-ALTER TABLE `pedido s`
-  ADD CONSTRAINT `fk_cnpj_` FOREIGN KEY (`cnpj`) REFERENCES `dadoscliente` (`cnpj`);
+ALTER TABLE `solicitacoes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

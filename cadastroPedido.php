@@ -52,23 +52,23 @@
                 $cnpj = $conexao -> real_escape_string($_POST['cnpj']);
 				$totalcompra = $conexao -> real_escape_string($_POST['totalcompra']);
                 
-                $sql = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`, `totalcompra`) 
-                VALUES ('".$pedido."', '".$produto."', '".$unidades."', '".$quantidades."', '".$valor."', '".$total."', '".$ncm."', '".$cst."', '".$cfop."' , '".$cnpj."','".$totalcompra."');";
+                $sql = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`) 
+                VALUES ('".$pedido."', '".$produto."', '".$unidades."', '".$quantidades."', '".$valor."', '".$total."', '".$ncm."', '".$cst."', '".$cfop."' ,'".$totalcompra."', '".$cnpj."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 
-				$sql2 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`, `totalcompra`) 
-                VALUES ('".$pedido."', '".$produto2."', '".$unidades2."', '".$quantidades2."', '".$valor2."', '".$total2."', '".$ncm2."', '".$cst2."', '".$cfop2."', '".$cnpj."','".$totalcompra."');";
+				$sql2 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`) 
+                VALUES ('".$pedido."', '".$produto2."', '".$unidades2."', '".$quantidades2."', '".$valor2."', '".$total2."', '".$ncm2."', '".$cst2."', '".$cfop2."','".$totalcompra."', '".$cnpj."');";
 echo $sql2;
 				$resultado = $conexao->query($sql2);
                 
-                $sql3 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`, `totalcompra`) 
-                VALUES ('".$pedido."', '".$produto3."', '".$unidades3."', '".$quantidades3."', '".$valor3."', '".$total3."', '".$ncm3."', '".$cst3."', '".$cfop3."', '".$cnpj."','".$totalcompra."');";
+                $sql3 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`) 
+                VALUES ('".$pedido."', '".$produto3."', '".$unidades3."', '".$quantidades3."', '".$valor3."', '".$total3."', '".$ncm3."', '".$cst3."', '".$cfop3."','".$totalcompra."', '".$cnpj."');";
 echo $sql3;
 				$resultado = $conexao->query($sql3);
 
-                $sql4 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `cnpj`, `totalcompra`) 
-                VALUES ('".$pedido."', '".$produto4."', '".$unidades4."', '".$quantidades4."', '".$valor4."', '".$total4."', '".$ncm4."', '".$cst4."', '".$cfop4."', '".$cnpj."','".$totalcompra."');";
+                $sql4 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`) 
+                VALUES ('".$pedido."', '".$produto4."', '".$unidades4."', '".$quantidades4."', '".$valor4."', '".$total4."', '".$ncm4."', '".$cst4."', '".$cfop4."','".$totalcompra."', '".$cnpj."');";
 echo $sql4;
 				$resultado = $conexao->query($sql4);
 			
@@ -82,7 +82,10 @@ echo $sql4;
                 VALUES ('".$cnpj."', '".$nome."', '".$endereco."', '".$telefone."', '".$email."', '".$data."');";
 echo $sqlClientes;
 				$resultado = $conexao->query($sqlClientes);
-
+				if (!$resultado) {
+					echo "Erro ao inserir no banco de dados: " . $conexao->error;
+					exit(); // ou trate o erro de outra forma
+				}
 				$conexao -> close();
 				header('Location: meuspedidos.php', true, 301);
 			}

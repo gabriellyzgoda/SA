@@ -3,22 +3,13 @@
 <?php
 session_start();
 include_once('config.php');
-include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM cadastro
-WHERE professor = 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
-$_SESSION["cargo"]= $row[2];
-$conexao -> close();?>
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -209,43 +200,40 @@ $conexao -> close();?>
               <p class="p1">Nº DO PEDIDO</p>
               <P class="p2">DOCA</P>
             </div>
+            <?php
+            // Consulta para obter pedidos distintos com uma única doca associada
+            $sql = "
+                SELECT pedido, MIN(doca) as doca
+                FROM pedidos
+                GROUP BY pedido
+            ";
+            $resultado = $conexao->query($sql);
+
+            if ($resultado->num_rows > 0) {
+                // Itera sobre os resultados e exibe cada pedido e doca
+                while ($doca = $resultado->fetch_assoc()) {
+                    echo '
             <div class="conteudoDocas">
-              <div class="bloco01">
-                <div class="linha01">
-                  <input type="text" name="" placeholder="">
+                <div class="bloco01">
+                    <div class="linha01">
+                        <input type="text" name="pedido" value="' . htmlspecialchars($doca['pedido']) . '" readonly>
+                    </div>
                 </div>
-                <div class="linha01">
-                  <input type="text" name="" placeholder="">
+                <div class="bloco02">
+                    <div class="linha02">
+                        <input type="text" name="doca" value="' . htmlspecialchars($doca['doca']) . '" readonly>
+                        <a href="detalhesPedido.php?pedido=' . urlencode($doca['pedido']) . '"><button>Abrir</button></a>
+                    </div>
                 </div>
-                <div class="linha01">
-                  <input type="text" name="" placeholder="">
-                </div>
-                <div class="linha01">
-                  <input type="text" name="" placeholder="">
-                </div>
-              </div>
-              <div class="bloco02">
-                <div class="linha02">
-                  <input type="text" name="" placeholder="">
-                  <button>Abrir</button>
-                </div>
-                <div class="linha02">
-                  <input type="text" name="" placeholder="">
-                  <button>Abrir</button>
-                </div>
-                <div class="linha02">
-                  <input type="text" name="" placeholder="">
-                  <button>Abrir</button>
-                </div>
-                <div class="linha02">
-                  <input type="text" name="" placeholder="">
-                  <button>Abrir</button>
-                </div>
-              </div>
-            </div>
-          </div>
+            </div>';
+                }
+            } else {
+                echo '<p>Nenhum pedido encontrado.</p>';
+            }
+            ?>
         </div>
     </div>
+</div>
 <?php
 include_once('footer.php');
 ?>

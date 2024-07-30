@@ -3,22 +3,44 @@
 <?php
 session_start();
 include_once('config.php');
-include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM cadastro
-WHERE professor = 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
-$_SESSION["cargo"]= $row[2];
-$conexao -> close();?>
+// Inicializa variáveis
+$mostrarProdutos = false;
+$notafiscal = $doca = $pedido = '';
+
+// Processa o formulário quando o botão OK é clicado
+if (isset($_POST['verificar'])) {
+  $notafiscal = $conexao->real_escape_string($_POST['notafiscal']);
+  $doca = $conexao->real_escape_string($_POST['doca']);
+  $pedido = $conexao->real_escape_string($_POST['pedido']);
+
+  // Verificar se a nota fiscal e o pedido existem
+  $sql = "SELECT * FROM pedidos 
+          WHERE pedido='$pedido' 
+          AND id_danfe='$notafiscal';";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      // Atualizar a doca na tabela pedidos
+      $sql_update = "UPDATE pedidos 
+                      SET doca='$doca' 
+                      WHERE pedido='$pedido' 
+                      AND id_danfe='$notafiscal';";
+      $conexao->query($sql_update);
+
+      if ($resultado->num_rows > 0) {
+          $mostrarProdutos = true;
+      }
+  }
+}
+
+$conexao->close();
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -199,191 +221,103 @@ $conexao -> close();?>
         </li>      
       </ul><!--Fecha ul-->
     </div>       
-    <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1>Vistoria e Conferência - Carga</h1>
-        </div>
-      <div class="linhaVistoria">
-        <div class="quadroCarga">
-          <form>
-            <div class="linha01">
-              <div class="linha01-01">
-                <label>Nota Fiscal:</label>
-                <input type="text" name="un" placeholder="">
-              </div>
-              <div class="linha01-02">
-                <label>Doca:</label>
-                <input type="text" name="un" placeholder="">
-              </div>
-              <div class="linha01-03">
-                <label>Pedido de compra:</label>
-                <input type="text" name="un" placeholder="">
-              </div>
-            </div>
-            <div class="linha02">
-              <label>Sem pedido:</label>
-              <button>OK</button>
-            </div>
-            <div class="linha03">
-              <div class="quadroProdutos">
-                  <div class="tituloQuadroProdutos">
-                    <p>Produtos</p>
-                  </div>
-                  <div class="produtos">
-                    <div class="produto01">
-                      <div class="produtoLinha1">
-                        <div class="numeroProduto"><p>1</p></div>
-                        <input type="text" id="nome" name="">
-                        <label>Faltando?</label>
-                        <input type="checkbox" id="saida" name="saida" />
-                        <label>Avaria?</label>
-                        <input type="checkbox" id="saida" name="saida" />
-                      </div>
-                      <div class="produtoLinha2">
-                        <div class="produtoLinha2-Bloco1">
-                          <label>UN</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco2">
-                          <label>QTD</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco3">
-                          <label>R$/Un</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco4">
-                          <label>R$ Total</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco5">
-                          <button>OK</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="produto02">
-                      <div class="produtoLinha1">
-                        <div class="numeroProduto"><p>2</p></div>
-                        <input type="text" id="nome" name="">
-                        <label>Faltando?</label>
-                        <input type="checkbox" id="saida" name="saida" />
-                        <label>Avaria?</label>
-                        <input type="checkbox" id="saida" name="saida" />
-                      </div>
-                      <div class="produtoLinha2">
-                        <div class="produtoLinha2-Bloco1">
-                          <label>UN</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco2">
-                          <label>QTD</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco3">
-                          <label>R$/Un</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco4">
-                          <label>R$ Total</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco5">
-                          <button>OK</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="produto03">
-                      <div class="produtoLinha1">
-                        <div class="numeroProduto"><p>3</p></div>
-                        <input type="text" id="nome" name="">
-                        <label>Faltando?</label>
-                        <input type="checkbox" id="saida" name="saida" />
-                        <label>Avaria?</label>
-                        <input type="checkbox" id="saida" name="saida" />
-                      </div>
-                      <div class="produtoLinha2">
-                        <div class="produtoLinha2-Bloco1">
-                          <label>UN</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco2">
-                          <label>QTD</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco3">
-                          <label>R$/Un</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco4">
-                          <label>R$ Total</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco5">
-                          <button>OK</button>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="produto04">
-                      <div class="produtoLinha1">
-                        <div class="numeroProduto"><p>4</p></div>
-                        <input type="text" id="nome" name="">
-                        <label>Faltando?</label>
-                        <input type="checkbox" id="saida" name="saida" />
-                        <label>Avaria?</label>
-                        <input type="checkbox" id="saida" name="saida" />
-                      </div>
-                      <div class="produtoLinha2">
-                        <div class="produtoLinha2-Bloco1">
-                          <label>UN</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco2">
-                          <label>QTD</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco3">
-                          <label>R$/Un</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco4">
-                          <label>R$ Total</label>
-                          <input type="text" name="">
-                        </div>
-                        <div class="produtoLinha2-Bloco5">
-                          <button>OK</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="linha04">
-              <input class="" id="pegar" type="submit" value="Enviar"/>
-            </div>
-          </form>
-        </div>
-      </div>
+    <div class="conteudo">
+    <div class="titulo-conteudo">
+        <h1>Vistoria e Conferência - Carga</h1>
     </div>
-<?php
-include_once('footer.php');
-?>
-    <script>
-  
+    <div class="linhaVistoria">
+        <div class="quadroCarga">
+            <form id="formPlaca" class="form" method="POST" action="carga.php">
+                <div class="linha01">
+                    <div class="linha01-01">
+                        <label>Nota Fiscal:</label>
+                        <input type="text" name="notafiscal" placeholder="">
+                    </div>
+                    <div class="linha01-02">
+                        <label>Doca:</label>
+                        <input type="text" name="doca" placeholder="">
+                    </div>
+                    <div class="linha01-03">
+                        <label>Pedido de compra:</label>
+                        <input type="text" name="pedido" placeholder="">
+                    </div>
+                </div>
+                <div class="linha02">
+                    <label>Sem pedido:</label>
+                    <button type="submit" name="verificar">OK</button>
+                </div>
+            </form>
+
+            <?php if ($mostrarProdutos): ?>
+                <div class="linha03">
+                    <div class="quadroProdutos">
+                        <div class="tituloQuadroProdutos">
+                            <p>Produtos</p>
+                        </div>
+                        <form id="formVistoria" class="form" method="POST" action="vistoriaCarga.php">
+                            <div class="produtos">
+                                <?php
+                                $contador = 1;
+                                while ($row = $resultado->fetch_assoc()) { ?>
+                                    <div class="produto">
+                                        <input type="hidden" name="produto_id[]" value="<?php echo $row['id']; ?>" />
+                                        <div class="produtoLinha1">
+                                            <div class="numeroProduto"><p><?php echo $contador; ?></p></div>
+                                            <input type="text" id="nome" name="nome[]" value="<?php echo $row['produto']; ?>" disabled>
+                                            <label>Faltando?</label>
+                                            <input type="checkbox" name="faltando[]" value="<?php echo $row['id']; ?>" />
+                                            <label>Avaria?</label>
+                                            <input type="checkbox" name="avaria[]" value="<?php echo $row['id']; ?>" />
+                                        </div>
+                                        <div class="produtoLinha2">
+                                            <div class="produtoLinha2-Bloco1">
+                                                <label>UN</label>
+                                                <input type="text" name="unidade[]" value="<?php echo $row['unidades']; ?>" disabled>
+                                            </div>
+                                            <div class="produtoLinha2-Bloco2">
+                                                <label>QTD</label>
+                                                <input type="text" name="quantidade[]" value="<?php echo $row['quantidades']; ?>" disabled>
+                                            </div>
+                                            <div class="produtoLinha2-Bloco3">
+                                                <label>R$/Un</label>
+                                                <input type="text" name="valor[]" value="<?php echo $row['valor']; ?>" disabled>
+                                            </div>
+                                            <div class="produtoLinha2-Bloco4">
+                                                <label>R$ Total</label>
+                                                <input type="text" name="total[]" value="<?php echo $row['total']; ?>" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php
+                                    $contador++;
+                                } ?>
+                            </div>
+                            <div class="linha04">
+                                <input id="pegar" type="submit" value="Enviar"/>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+</div>
+<?php include_once('footer.php'); ?>
+<script>
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
-      arrow[i].addEventListener("click", (e)=>{
-     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-     arrowParent.classList.toggle("showMenu");
-      });
+        arrow[i].addEventListener("click", (e) => {
+            let arrowParent = e.target.parentElement.parentElement; // selecting main parent of arrow
+            arrowParent.classList.toggle("showMenu");
+        });
     }
-    
+
     let sidebar = document.querySelector(".sidebar");
     let sidebarBtn = document.querySelector(".bx-menu");
     console.log(sidebarBtn);
-    sidebarBtn.addEventListener("click", ()=>{
-      sidebar.classList.toggle("close");
+    sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
     });
-
 </script>
 </body>
 </html>

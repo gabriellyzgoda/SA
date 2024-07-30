@@ -30,6 +30,6 @@ echo $sql;
 				$resultado = $conexao->query($sql);
 				
 				$conexao -> close();
-				header('Location: container.php', true, 301);
+				header('Location: controleP.php', true, 301);
 			}
 ?>		

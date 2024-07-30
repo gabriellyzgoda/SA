@@ -9,7 +9,7 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sqlPedidos = "SELECT `pedido`, `total` FROM pedidos";
+$sqlPedidos = "SELECT `pedido`, `totalcompra` FROM pedidos";
 
 $resultado = $conexao->query($sqlPedidos);
 
@@ -121,14 +121,22 @@ $resultado2 = $conexao->query($sqlClientes);
         </li>
 
         <li>
+        <div class="iocn-link">
+            
+            <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+              <span class="link_name">Controle</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
           
-          <a href="controleP.php">
-            <i class="fa-solid fa-warehouse"></i>
-            <span class="link_name">Controle</span>
-          </a>
+          </div>
 
-          <ul class="sub-menu blank">
+          <ul class="sub-menu ">
             <li><a class="link_name" href="controleP.php">Controle</a></li>
+            <li><a href="controleP.php">Controle</a></li>
+            <li><a href="containerP.php">Container</a></li>
+
           </ul>
 
         </li>
@@ -191,80 +199,78 @@ $resultado2 = $conexao->query($sqlClientes);
         </div>
     </div>
     <div class="quadro-pedidos">
-      <table>
-            <thead> 
-              <tr>
+    <table>
+        <thead> 
+            <tr>
                 <th>CARIMBO DATA</th>
                 <th>Nº DO PEDIDO</th>
                 <th>TOTAL</th>
                 <th>VISUALIZAR</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-                if ($resultado2->num_rows > 0) {
-                  // Exibir o pedido
-                  $pedido = $resultado2->fetch_assoc();
-                  if (isset($pedido['data'])) {
-                      echo "<td>" . $pedido['data'] . "</td>";
-              }}
-
-                  // Exibir o pedido
-                  if ($resultado->num_rows > 0) {
-                    // Exibir o pedido
-                    $pedido = $resultado->fetch_assoc();
-                    if (isset($pedido['pedido'])) {
-                        echo "<td>" . $pedido['pedido'] . "</td>";
-                }}?>
+                <th>APAGAR</th>
+            </tr>
+        </thead>
+        <tbody>
             <?php
-            $sqlClientes = "SELECT * FROM dadoscliente";
+            // Consulta SQL para agrupar os pedidos e exibir apenas um por número de pedido
+            $sql = "SELECT p.id, p.pedido, MAX(dc.data) AS data_emissao, MAX(p.totalcompra) AS totalcompra
+                    FROM pedidos p
+                    INNER JOIN dadoscliente dc ON p.cnpj = dc.cnpj
+                    GROUP BY p.pedido";
+            
+            $resultado = $conexao->query($sql);
 
-            $resultado2 = $conexao->query($sqlClientes);
-
-              // Verificar se o segundo resultado tem linhas
-              if ($resultado2->num_rows > 0) {
-                  // Exibir o pedido
-                  $pedido2 = $resultado2->fetch_assoc();
-                  if (isset($pedido2['totalcompra'])) {
-                      echo "<td>" . "R$" . "" . $pedido2['totalcompra'] . "</td>";
-                  }
-              ?>  
-                  <td>
-                    <a href="pedido.php"><button type="submit" class="btn" value="abrirPedido">Abrir</button></a>
-                      <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
-                            <i class="fa-solid fa-trash"></i>
-                      </div>
-                    </td>
-                <?php
+            if ($resultado->num_rows > 0) {
+              while ($pedido = mysqli_fetch_assoc($resultado)) {
+                  echo "<tr>";
+                  // Exibe a data do pedido (vinda da tabela dadoscliente)
+                  echo "<td>" . $pedido['data_emissao'] . "</td>";
+                  // Exibe o número do pedido
+                  echo "<td>" . $pedido['pedido'] . "</td>";
+                  // Exibe o total da compra
+                  echo "<td>R$ " . $pedido['totalcompra'] . "</td>";
+                  // Coloque aqui o link para visualizar detalhes do pedido específico
+                  echo "<td><a href='pedido.php?pedido=" . $pedido['pedido'] . "'><button type='button' class='btn'>Abrir</button></a></td>";
+                  // Botão de exclusão
+                  echo "<td><div class='botaoDeletar' onclick='confirmarExclusao(" . $pedido['pedido'] . ")'><i class='fa-solid fa-trash'></i></div></td>";
+                  echo "</tr>";
               }
-            ?>
-            </tbody>
-        </table>
-    </div>
+          } else {
+              echo "<td colspan='5'>Nenhum pedido encontrado.</td>";
+          }
+          
+          ?>
+          <?php
+if (isset($_GET['excluido']) && $_GET['excluido'] === 'sucesso') {
+  echo "<div class='mensagem-sucesso'>Pedido excluído com sucesso!</div>";
+}
+?>
+      </tbody>
+  </table>
+</div>
+</div>
 <?php
 include_once('footer.php');
 ?>
-    <script>
-      function confirmarExclusao(id) {
-            if (confirm("Tem certeza que deseja excluir este pedido?")) {
-                window.location.href = "deleteProduto.php?id=" + id;
-            }
-        }
+<script>
+function confirmarExclusao(pedido) {
+  if (confirm("Tem certeza que deseja excluir este pedido?")) {
+      window.location.href = "deleteProduto.php?pedido=" + pedido;
+  }
+}
 
-    let arrow = document.querySelectorAll(".arrow");
-    for (var i = 0; i < arrow.length; i++) {
-      arrow[i].addEventListener("click", (e)=>{
-     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-     arrowParent.classList.toggle("showMenu");
-      });
-    }
-    
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".bx-menu");
-    console.log(sidebarBtn);
-    sidebarBtn.addEventListener("click", ()=>{
-      sidebar.classList.toggle("close");
-    });
+let arrow = document.querySelectorAll(".arrow");
+for (var i = 0; i < arrow.length; i++) {
+  arrow[i].addEventListener("click", (e)=>{
+      let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+      arrowParent.classList.toggle("showMenu");
+  });
+}
+
+let sidebar = document.querySelector(".sidebar");
+let sidebarBtn = document.querySelector(".bx-menu");
+sidebarBtn.addEventListener("click", ()=>{
+  sidebar.classList.toggle("close");
+});
 
 </script>
 </body>

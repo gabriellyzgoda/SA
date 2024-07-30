@@ -114,14 +114,22 @@ if(!isset($_SESSION['email'])) {
         </li>
 
         <li>
+        <div class="iocn-link">
+            
+            <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+              <span class="link_name">Controle</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
           
-          <a href="controleP.php">
-            <i class="fa-solid fa-warehouse"></i>
-            <span class="link_name">Controle</span>
-          </a>
+          </div>
 
-          <ul class="sub-menu blank">
+          <ul class="sub-menu ">
             <li><a class="link_name" href="controleP.php">Controle</a></li>
+            <li><a href="controleP.php">Controle</a></li>
+            <li><a href="containerP.php">Container</a></li>
+
           </ul>
 
         </li>
@@ -178,34 +186,40 @@ if(!isset($_SESSION['email'])) {
         </li>   
       </ul><!--Fecha ul-->
     </div>    
-    <div class="conteudo"> 
+    <<div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1> Minhas Danfes</h1>
+            <h1>Minhas Danfes</h1>
         </div>
         <div class="linha">
-          <div class="quadroMinhaDanfe">
-            <div class="titulo-quadro">
-              <p>N° DANFE</p>
+            <div class="quadroMinhaDanfe">
+                <div class="titulo-quadro">
+                    <p>N° DANFE</p>
+                </div>
+                <div class="MinhaDanfe">
+                    <?php
+                    // Consulta para obter todas as DANFEs
+                    $sql = "SELECT * FROM danfe";
+                    $resultado = $conexao->query($sql);
+
+                    if ($resultado->num_rows > 0) {
+                        // Itera sobre os resultados e exibe cada DANFE
+                        while ($row = $resultado->fetch_assoc()) {
+                            echo '<div class="linhaMinhaDanfe">';
+                            echo '<input type="text" value="' . $row['id'] . '" readonly>';
+                            echo '<a href="verDanfe.php?id=' . $row['id'] . '"><button>Abrir</button></a>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<div class="linhaMinhaDanfe">';
+                        echo '<p>Nenhuma DANFE encontrada.</p>';
+                        echo '</div>';
+                    }
+
+                    // Fecha a conexão
+                    $conexao->close();
+                    ?>
+                </div>
             </div>
-            <div class="MinhaDanfe">
-              <div class="linhaMinhaDanfe">
-                <input type="text" id="" value="--">
-                <a href=" "><button>Abrir</button></a>
-              </div>
-              <div class="linhaMinhaDanfe">
-                <input type="text" id="" value="--">
-                <a href=""><button>Abrir</button></a>
-              </div>
-              <div class="linhaMinhaDanfe">
-                <input type="text" id="" value="--">
-                <a href=" "><button>Abrir</button></a>
-              </div>
-              <div class="linhaMinhaDanfe">
-                <input type="text" id="" value="--">
-                <a href=" "><button>Abrir</button></a>
-              </div>
-            </div>
-          </div>
         </div>
     </div>
 <?php

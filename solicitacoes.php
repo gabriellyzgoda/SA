@@ -9,11 +9,6 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM pedidos";
-// puxa conexão
-$resultado = $conexao->query($sql);
-
-// puxa conexão
 ?>
 <head>
     <meta charset="UTF-8">
@@ -119,14 +114,22 @@ $resultado = $conexao->query($sql);
         </li>
 
         <li>
+        <div class="iocn-link">
+            
+            <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+              <span class="link_name">Controle</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
           
-          <a href="controleP.php">
-            <i class="fa-solid fa-warehouse"></i>
-            <span class="link_name">Controle</span>
-          </a>
+          </div>
 
-          <ul class="sub-menu blank">
+          <ul class="sub-menu ">
             <li><a class="link_name" href="controleP.php">Controle</a></li>
+            <li><a href="controleP.php">Controle</a></li>
+            <li><a href="containerP.php">Container</a></li>
+
           </ul>
 
         </li>
@@ -193,25 +196,25 @@ $resultado = $conexao->query($sql);
               <p>N° SOLICITAÇÃO</p>
             </div>
             <div class="Solicitacoes">
+            <?php
+                    // Consulta para obter todos os números de solicitação e produtos relacionados
+                    $sql = "SELECT solicitacao, GROUP_CONCAT(produto ORDER BY produto SEPARATOR ', ') AS produtos
+                            FROM solicitacoes
+                            GROUP BY solicitacao";
+                    $resultado = $conexao->query($sql);
+
+                    if ($resultado->num_rows > 0) {
+                        while ($row = $resultado->fetch_assoc()) {
+                          echo'
               <div class="linhaSolicitacoes">
-                <input type="text" id="" value="--">
-                <a href=" "><button>Abrir</button></a>
+                <input type="text" id="solicitacoes" value="' . htmlspecialchars($row['solicitacao']) . '" readonly>
+                <a href="abrirSolicitacao.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
               </div>
-              <div class="linhaSolicitacoes">
-                <input type="text" id="" value="--">
-                <a href=" "><button>Abrir</button></a>
-              </div>
-              <div class="linhaSolicitacoes">
-                <input type="text" id="" value="--">
-                <a href=""><button>Abrir</button></a>
-              </div>
-              <div class="linhaSolicitacoes">
-                <input type="text" id="" value="--">
-                <a href=" "><button>Abrir</button></a>
-              </div>
-            </div>
-          </div>
+            ';
+            }}?>
         </div>
+      </div>
+    </div>
 <?php
 include_once('footer.php');
 ?>

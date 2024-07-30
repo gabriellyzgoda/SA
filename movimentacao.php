@@ -84,7 +84,7 @@ if(!isset($_SESSION['email'])) {
             <li><a class="link_name" href="#">Recebimento</a></li>
             <li><a href="container.php">Container</a></li>
             <li><a href="carga.php">Carga</a></li>
-          <li><a href="pedidodoca.php">Docas</a></li>
+          <li><a href="pedidoposicao.php">posicaos</a></li>
           
           </ul>
           
@@ -212,42 +212,46 @@ if(!isset($_SESSION['email'])) {
 $resultado = $conexao->query($sql);
 ?>
           <tbody>
-            <form class="form" method="post" action="selecionarMovi.php" id="formlogin" name="formlogin" >
-            <?php
-            while($user_data = mysqli_fetch_assoc($resultado))
-                    {  
-            echo '<input type="hidden" name="id" value="'.$user_data['id']. '">
-                  <td><input type="text" name="operacao" disabled value="'.$user_data['produto']. '"></td>
-                  <td><input type="text" name="un" disabled value="'.$user_data['unidades']. '"></td>
-                  <td><input type="text" name="qtd" disabled value="'.$user_data['quantidades']. '"></td>
-                  <td><select name="posicao" required="required">
-                    <option name="doca" value="a1">A1</option>
-                    <option name="doca" value="a2">A2</option>
-                    <option name="doca" value="a3">A3</option>
-                    <option name="doca" value="a4">A4</option>
-                    <option name="doca" value="b1">B1</option>
-                    <option name="doca" value="b2">B2</option>
-                    <option name="doca" value="b3">B3</option>
-                    <option name="doca" value="b4">B4</option>
-                    <option name="doca" value="c1">C1</option>
-                    <option name="doca" value="c2">C2</option>
-                    <option name="doca" value="c3">C3</option>
-                    <option name="doca" value="c4">C4</option>
-                    <option name="doca" value="d1">D1</option>
-                    <option name="doca" value="d2">D2</option>
-                    <option name="doca" value="d3">D3</option>
-                    <option name="doca" value="d4">D4</option>
-                  </select><td>
-                  <input type="checkbox" id="pegar" name="pegar"/>
-                  </tr>';
-                    }
-              ?>
-        </tbody>
-        </table> 
-        <div class="linhaBM">
-      <input class="" id="pegar" type="submit" value="Operação de Movimentação >>>"/> </a>
-        </div>
-        </form>
+          <tbody>
+          <form class="form" method="post" action="operacaoMovimentacao.php" id="formlogin" name="formlogin">
+          <?php
+          $index = 0; // Adiciona um índice para distinguir cada linha
+          while ($user_data = mysqli_fetch_assoc($resultado)) {
+              echo '<tr>
+                      <input type="hidden" name="id_'.$index.'" value="'.$user_data['id'].'">
+                      <td><input type="text" name="operacao_'.$index.'" disabled value="'.$user_data['produto'].'"></td>
+                      <td><input type="text" name="un_'.$index.'" disabled value="'.$user_data['unidades'].'"></td>
+                      <td><input type="text" name="qtd_'.$index.'" disabled value="'.$user_data['quantidades'].'"></td>
+                      <td><select name="posicao_'.$index.'" required="required">
+                          <option name="posicao" value="a1">A1</option>
+                          <option name="posicao" value="a2">A2</option>
+                          <option name="posicao" value="a3">A3</option>
+                          <option name="posicao" value="a4">A4</option>
+                          <option name="posicao" value="b1">B1</option>
+                          <option name="posicao" value="b2">B2</option>
+                          <option name="posicao" value="b3">B3</option>
+                          <option name="posicao" value="b4">B4</option>
+                          <option name="posicao" value="c1">C1</option>
+                          <option name="posicao" value="c2">C2</option>
+                          <option name="posicao" value="c3">C3</option>
+                          <option name="posicao" value="c4">C4</option>
+                          <option name="posicao" value="d1">D1</option>
+                          <option name="posicao" value="d2">D2</option>
+                          <option name="posicao" value="d3">D3</option>
+                          <option name="posicao" value="d4">D4</option>
+                        </select>
+                      </td>
+                      <td><input type="checkbox" name="select_'.$index.'" value="'.$user_data['id'].'"></td>
+                    </tr>';
+              $index++;
+          }
+          ?>
+          </tbody>
+      </table> 
+      <div class="linhaBM">
+          <input class="" type="submit" value="Operação de Movimentação >>>"/> 
+      </div>
+      </form>
       </div>
     </div>
 <?php

@@ -5,6 +5,7 @@
 			$database = "sa";
 		
 			$conexao = new mysqli($hostname,$user,$password,$database);
+			$pedido = ($_POST['pedido']);
 
 			if ($conexao -> connect_errno) {
 				echo "Failed to connect to MySQL: " . $conexao -> connect_error;
@@ -17,6 +18,9 @@
 				$serie = $conexao -> real_escape_string($_POST['serie']);
 				$data = $conexao -> real_escape_string($_POST['data_emissao']);
 				$hora = $conexao -> real_escape_string($_POST['hora_emissao']);
+
+				$pedido = $conexao->real_escape_string($_POST['pedido']);
+
 				if($_POST['saida'] != ""){
 					$operacao = 0;
 				} else{
@@ -30,18 +34,27 @@ echo $sql;
 				$resultado = $conexao->query($sql);
 
 				if ($resultado) {
-					// Obtém o ID inserido na tabela danfe
-					$id_danfe = $conexao->insert_id;
-			
-					// Atualiza a tabela pedidos com o id_danfe
-					$id_pedido = $conexao->real_escape_string($_POST['pedido']);
+					$id_danfe = $chave;
 
-					$sql2 = "UPDATE `pedidos` SET `id_danfe` = '$id_danfe' 
-					WHERE id = '$id_pedido'";
-					$resultado2 = $conexao->query($sql2);
-echo $sql2;
-				$resultado2 = $conexao->query($sql2);
-				}
-				$conexao -> close();
-				header('Location: minhadanfe.php', true, 301);				}
-?>		
+        $sqlUpdatePedidos = "UPDATE `pedidos` 
+                             SET `id_danfe` = '$id_danfe' 
+                             WHERE `pedido` = '".$pedido."';";
+
+echo $sqlUpdatePedidos;
+
+        $resultadoUpdatePedidos = $conexao->query($sqlUpdatePedidos);
+
+        if ($resultadoUpdatePedidos) {
+            header('Location: minhadanfe.php');
+            exit;
+        } else {
+            echo "Erro ao atualizar tabela pedidos: " . $conexao->error;
+        }
+    } else {
+        echo "Erro ao inserir na tabela danfe: " . $conexao->error;
+    }
+
+    // Fecha a conexão com o banco de dados
+    $conexao->close();
+}
+?>

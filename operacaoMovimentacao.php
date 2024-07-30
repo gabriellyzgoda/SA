@@ -8,7 +8,14 @@ include_once('config.php');
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
-}?>
+}
+$id = $_POST['posicao_' . $id];
+
+$posicao = $_POST['posicao_' . $id];
+
+            // Atualiza o banco de dados com a nova posição
+            $sql = "UPDATE pedidos SET posicao = '$posicao' WHERE id = '$id'";
+            $resultado = $conexao->query($sql);?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -188,8 +195,26 @@ if(!isset($_SESSION['email'])) {
           </ul>
         </li>      
       </ul><!--Fecha ul-->
-    </div>       
-    <div class="conteudo"> 
+    </div> 
+    <?php   
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $idsSelecionados = [];
+
+    foreach ($_POST as $key => $value) {
+        if (strpos($key, 'select_') === 0 && !empty($value)) {
+            $idsSelecionados[] = $value;
+        }
+    }
+
+    if (!empty($idsSelecionados)) {
+        // Transformar IDs em string separada por vírgulas para usar na consulta
+        $ids = implode(',', array_map('intval', $idsSelecionados));
+
+        // Consulta para buscar os dados dos IDs selecionados
+        $sql = "SELECT * FROM pedidos WHERE id IN ($ids)";
+        $resultado = $conexao->query($sql);   
+        echo '
+        <div class="conteudo"> 
         <div class="titulo-conteudo">    
          <h1>Operação de Movimentação</h1>
         </div>
@@ -207,44 +232,27 @@ if(!isset($_SESSION['email'])) {
             </tr>
           </thead>
 
-          <tbody>
-            <form class="form" method="post" action="" id="" name="" >
-              <tr>
-                  <td><input type="text" name="operacao" placeholder=""></td>
-                  <td><input type="text" name="un" placeholder=""></td>
-                  <td><input type="text" name="qtd" placeholder=""></td>
-                  <td><input type="text" name="posicao" placeholder=""></td>
-                  <td><input class="" id="pegar" type="submit" value="Finalizar"/></td>
-              </tr>
-              <tr>
-                  <td><input type="text" name="operacao" placeholder=""></td>
-                  <td><input type="text" name="un" placeholder=""></td>
-                  <td><input type="text" name="qtd" placeholder=""></td>
-                  <td><input type="text" name="posicao" placeholder=""></td>
-                  <td><input class="" id="pegar" type="submit" value="Finalizar"/></td>
-              </tr>
-              <tr>
-                  <td><input type="text" name="operacao" placeholder=""></td>
-                  <td><input type="text" name="un" placeholder=""></td>
-                  <td><input type="text" name="qtd" placeholder=""></td>
-                  <td><input type="text" name="posicao" placeholder=""></td>
-                  <td><input class="" id="pegar" type="submit" value="Finalizar"/></td>
-              </tr>
-              <tr>
-                  <td><input type="text" name="operacao" placeholder=""></td>
-                  <td><input type="text" name="un" placeholder=""></td>
-                  <td><input type="text" name="qtd" placeholder=""></td>
-                  <td><input type="text" name="posicao" placeholder=""></td>
-                  <td><input class="" id="pegar" type="submit" value="Finalizar"/></td>
-              </tr>
-        </tbody>
+          <tbody>';       
+            while ($row = mysqli_fetch_assoc($resultado)) {
+                        echo '<tr>
+                                <td> <input type="text" name="operacao" value="'.$row['produto'].'" readonly></td>
+                                <td> <input type="text" name="un" value="'.$row['unidades'].'" readonly></td>
+                                <td> <input type="text" name="qtd" value="'.$row['quantidades'].'" readonly></td>
+                                <td> <input type="text" name="posicao" value="'.$row['posicao'].'" readonly></td>
+                                <td><input class="" id="pegar" type="submit" value="Finalizar"/></td>
+                              </tr>'; }
+       echo '</tbody>
         </table> 
         <div class="linhaBM">
-        <input class="" id="pegar" type="submit" value="<<< Retornar"/> 
+        <a href="movimentacao.php"><input class="" id="pegar" type="submit" value="<<< Retornar"/> </a>
         </div>
-        </form>
       </div>
-    </div>
+    </div>';
+            }}else{
+              echo 'Nenhum item selecionado
+                      <a href="movimentacao.php"><input class="" id="pegar" type="submit" value="<<< Retornar"/> </a>';
+            }
+            ?>
 <?php
 include_once('footer.php');
 ?>

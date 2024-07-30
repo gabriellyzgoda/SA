@@ -119,17 +119,25 @@ $resultado = $conexao->query($sql);
       </li>
 
       <li>
+        <div class="iocn-link">
+            
+            <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+              <span class="link_name">Controle</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
+          
+          </div>
 
-        <a href="controleP.php">
-          <i class="fa-solid fa-warehouse"></i>
-          <span class="link_name">Controle</span>
-        </a>
+          <ul class="sub-menu ">
+            <li><a class="link_name" href="controleP.php">Controle</a></li>
+            <li><a href="controleP.php">Controle</a></li>
+            <li><a href="containerP.php">Container</a></li>
 
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="controleP.php">Controle</a></li>
-        </ul>
+          </ul>
 
-      </li>
+        </li>
 
       <li>
 
@@ -213,12 +221,16 @@ $resultado = $conexao->query($sql);
                 if($resultado->num_rows != 0)
                 {
                   $row = $resultado -> fetch_array();
-            echo '
+                  ?>
             <form class="form" method="POST" action="cadastroDanfe.php">
+            <?php if (isset($_SESSION['erro'])): ?>
+              <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
+            <?php endif; ?>
             <div>
-              <input class="" type="hidden" name="pedido" id="pedido" size="20">
+              <input type="hidden" name="pedido" value="<?php echo $row['pedido'] ?>">
               <p>Chave de Acesso:</p>
-              <input class="" type="text" name="id" id="id" size="20">
+              <input class="" type="text" name="id" id="id" size="20" required>
+              <p id="idErro" class="error" style="display: none;">O número do ID já está em uso.</p>
             </div>
           </div>
           <div class="informacoes">
@@ -283,9 +295,9 @@ $resultado = $conexao->query($sql);
             </div>
             <div class="destinatarioBloco3">
               <label>Valor total da nota:</label>
-              <input type="text" name="total" disabled value=' . $row["totalcompra"] ." >";'
+              <input type="text" name="total" disabled value="<?php echo $row['totalcompra'] ?>">
             </div>
-            ';
+            <?php
                 }}}
       ?>
       <div class="destinatarioBloco4">
@@ -300,27 +312,32 @@ $resultado = $conexao->query($sql);
 include_once('footer.php');
 ?>
   <script>
-    function gerarNumeroUnico() {
-    // Obtém a data e hora atual em milissegundos
-    var timestamp = new Date().getTime();
+document.getElementById('id').addEventListener('blur', function() {
+      var id = this.value;
+      var erroMsg = document.getElementById('idErro');
 
-    // Gera um número aleatório de 4 dígitos
-    var aleatorio = Math.floor(Math.random() * 10000);
+      // Verificar se o ID não está vazio
+      if (id.trim() === '') {
+        erroMsg.style.display = 'none';
+        return;
+      }
 
-    // Concatena o timestamp e o número aleatório
-    var numeroUnico = timestamp.toString() + aleatorio.toString();
-
-    // Se o número gerado for maior que 11 caracteres, pegamos os 11 primeiros caracteres
-    if (numeroUnico.length > 11) {
-        numeroUnico = numeroUnico.substring(0, 11);
-    }
-
-    return numeroUnico;
-}
-
-// Exemplo de uso
-var numero = gerarNumeroUnico();
-console.log(numero);
+      // Fazer a solicitação AJAX para verificar o ID
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'verificarDanfe.php?id=' + encodeURIComponent(id), true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          if (response.exists) {
+            erroMsg.style.display = 'block';
+          } else {
+            erroMsg.style.display = 'none';
+          }
+        }
+      };
+      xhr.send();
+    });
+        
 
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
