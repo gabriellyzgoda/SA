@@ -22,9 +22,18 @@ $produtosFiltrados = [];
                           
                           // Consulta produtos com base na pesquisa
                           $sql = "SELECT posicao, produto FROM pedidos WHERE produto LIKE '%$produtoPesquisa%'";
-                          $resultado = $conexao->query($sql);
-
-                  ?>
+                          $resultado = $conexao->query($sql);                
+                          if ($resultado && $resultado->num_rows > 0) {
+                            while ($row = $resultado->fetch_assoc()) {
+                                $posicao = $row['posicao'];
+                                if (!isset($produtosFiltrados[$posicao])) {
+                                    $produtosFiltrados[$posicao] = [];
+                                }
+                                $produtosFiltrados[$posicao][] = $row['produto'];
+                                    }
+                                }
+                              }
+                          }?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -290,19 +299,7 @@ button.desmarcado {
                     <br><br>
                     </form>
                 </div>
-                <?php
                 
-                if ($resultado && $resultado->num_rows > 0) {
-                  while ($row = $resultado->fetch_assoc()) {
-                      $posicao = $row['posicao'];
-                      if (!isset($produtosFiltrados[$posicao])) {
-                          $produtosFiltrados[$posicao] = [];
-                      }
-                      $produtosFiltrados[$posicao][] = $row['produto'];
-                          }
-                      }
-                    }
-                }?>
                         <div class="button-container">
                 <!-- Linha 1 - Posições A -->
                 <div class="button-row">
