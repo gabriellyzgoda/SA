@@ -242,7 +242,7 @@ button.desmarcado {
           <div class="iocn-link">
             
             <a href="#">
-                <i class="fa-solid  fa-truck-front"></i>
+                <i class="fa-solid fa-pen-to-square"></i>
               <span class="link_name">Controle</span>
             </a>
             
@@ -263,7 +263,7 @@ button.desmarcado {
         
         <li>
           <a href="relatorios.php">
-          <i class="fa-regular fa-file"></i>
+          <i class="fa-solid fa-file"></i>
             <span class="link_name">Relatório</span>
           </a>
           

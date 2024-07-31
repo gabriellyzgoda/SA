@@ -153,7 +153,7 @@ $conexao -> close();
           <div class="iocn-link">
             
             <a href="#">
-            <i class="fa-solid fa-receipt"></i>
+            <i class="fa-solid fa-clipboard-list fa-lg"></i>
               <span class="link_name">Solicitações</span>
             </a>
             
@@ -168,7 +168,17 @@ $conexao -> close();
             <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
           
           </ul>
-
+          
+        </li>
+        <li>
+          <a href="relatorios.php">
+          <i class="fa-solid fa-file"></i>
+            <span class="link_name">Relatório</span>
+          </a>
+          
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
+          </ul>
         </li>   
       </ul><!--Fecha ul-->
     </div>         

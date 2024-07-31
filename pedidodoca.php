@@ -159,7 +159,7 @@ if(!isset($_SESSION['email'])) {
           <div class="iocn-link">
             
             <a href="#">
-                <i class="fa-solid  fa-truck-front"></i>
+                <i class="fa-solid fa-pen-to-square"></i>
               <span class="link_name">Controle</span>
             </a>
             
@@ -177,7 +177,16 @@ if(!isset($_SESSION['email'])) {
           </ul>
           
         </li>
-
+        <li>
+          <a href="relatorios.php">
+          <i class="fa-solid fa-file"></i>
+            <span class="link_name">Relatório</span>
+          </a>
+          
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
+          </ul>
+        </li>
               
       </ul><!--Fecha ul-->
     </div>      

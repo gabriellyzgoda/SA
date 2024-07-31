@@ -369,6 +369,7 @@ footer p {
   border-radius: 10px;
   margin-top: 1px;
   min-width: 200px;
+  right: 70px;
 }
 
 .dropdown-content p {

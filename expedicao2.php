@@ -159,7 +159,7 @@ if(!isset($_SESSION['email'])) {
           <div class="iocn-link">
             
             <a href="#">
-                <i class="fa-solid  fa-truck-front"></i>
+                <i class="fa-solid fa-pen-to-square"></i>
               <span class="link_name">Controle</span>
             </a>
             
