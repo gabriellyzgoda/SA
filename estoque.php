@@ -21,10 +21,16 @@ $produtosFiltrados = [];
                           $produtoPesquisa = $conexao->real_escape_string($_POST['produto']);
                           
                           // Consulta produtos com base na pesquisa
-                          $sql = "SELECT posicao, produto FROM pedidos WHERE produto LIKE '%$produtoPesquisa%'";
-                          $resultado = $conexao->query($sql);
-
-                  ?>
+                          $sql = "SELECT posicao, produto, quantidades FROM pedidos WHERE produto LIKE '%$produtoPesquisa%'";
+                          $resultado = $conexao->query($sql);                
+                          if ($resultado && $resultado->num_rows > 0) {
+                            while ($row = $resultado->fetch_assoc()) {
+                                $posicao = $row['posicao'];
+                                if (!isset($produtosFiltrados[$posicao])) {
+                                    $produtosFiltrados[$posicao] = [];
+                                }
+                                $produtosFiltrados[$posicao][] = $row['produto'];
+                                    ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -291,18 +297,9 @@ button.desmarcado {
                     </form>
                 </div>
                 <?php
-                
-                if ($resultado && $resultado->num_rows > 0) {
-                  while ($row = $resultado->fetch_assoc()) {
-                      $posicao = $row['posicao'];
-                      if (!isset($produtosFiltrados[$posicao])) {
-                          $produtosFiltrados[$posicao] = [];
-                      }
-                      $produtosFiltrados[$posicao][] = $row['produto'];
-                          }
-                      }
-                    }
-                }?>
+                  echo "Produto: " . htmlspecialchars($row['produto']) . "<br>
+                        Quantidades: " . htmlspecialchars($row['quantidades']) . "<br>";                
+                  ?>
                         <div class="button-container">
                 <!-- Linha 1 - Posições A -->
                 <div class="button-row">
@@ -342,6 +339,10 @@ button.desmarcado {
     const produtosPorPosicao = <?php echo json_encode($produtosFiltrados); ?>;
 </script>
 <?php 
+}
+}
+}
+}
 include_once('footer.php'); 
 ?>
 <script>
