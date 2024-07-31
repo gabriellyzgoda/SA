@@ -191,37 +191,39 @@ if(!isset($_SESSION['email'])) {
               <p class="p1">Nº DO PEDIDO</p>
               <P class="p2">DOCA</P>
             </div>
-            <?php
-            // Consulta para obter pedidos distintos com uma única doca associada
-            $sql = "
-                SELECT pedido, MIN(doca) as doca
-                FROM pedidos
-                GROUP BY pedido
-            ";
-            $resultado = $conexao->query($sql);
+            <div class="quadroConteudoDocas">
+              <?php
+              // Consulta para obter pedidos distintos com uma única doca associada
+              $sql = "
+                  SELECT pedido, MIN(doca) as doca
+                  FROM pedidos
+                  GROUP BY pedido
+              ";
+              $resultado = $conexao->query($sql);
 
-            if ($resultado->num_rows > 0) {
-                // Itera sobre os resultados e exibe cada pedido e doca
-                while ($doca = $resultado->fetch_assoc()) {
-                    echo '
-            <div class="conteudoDocas">
-                <div class="bloco01">
-                    <div class="linha01">
-                        <input type="text" name="pedido" value="' . htmlspecialchars($doca['pedido']) . '" readonly>
-                    </div>
-                </div>
-                <div class="bloco02">
-                    <div class="linha02">
-                        <input type="text" name="doca" value="' . htmlspecialchars($doca['doca']) . '" readonly>
-                        <a href="detalhesPedido.php?pedido=' . urlencode($doca['pedido']) . '"><button>Abrir</button></a>
-                    </div>
-                </div>
-            </div>';
-                }
-            } else {
-                echo '<p>Nenhum pedido encontrado.</p>';
-            }
-            ?>
+              if ($resultado->num_rows > 0) {
+                  // Itera sobre os resultados e exibe cada pedido e doca
+                  while ($doca = $resultado->fetch_assoc()) {
+                      echo '
+                      <div class="conteudoDocas">
+                        <div class="bloco01">
+                            <div class="linha01">
+                                <input type="text" name="pedido" value="' . htmlspecialchars($doca['pedido']) . '" readonly>
+                            </div>
+                        </div>
+                        <div class="bloco02">
+                            <div class="linha02">
+                                <input type="text" name="doca" value="' . htmlspecialchars($doca['doca']) . '" readonly>
+                                <a href="detalhesPedido.php?pedido=' . urlencode($doca['pedido']) . '"><button>Abrir</button></a>
+                            </div>
+                        </div>
+                    </div>';
+                  }
+              } else {
+                  echo '<p>Nenhum pedido encontrado.</p>';
+              }
+              ?>
+          </div>
         </div>
     </div>
 </div>

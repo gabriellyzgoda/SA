@@ -99,3 +99,9 @@
     background-color: #718fc3;
     transition: all 0.3s ease;
 }
+
+.quadroConteudoDocas {
+    display: block;
+    overflow-y: scroll;
+    height: 380px;
+}
