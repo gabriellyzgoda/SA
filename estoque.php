@@ -19,7 +19,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     } else {
         // Protege a entrada do usuário contra SQL Injection
+        $produtoPesquisa = $conexao->real_escape_string($_POST['produto']);
         
+        // Consulta produtos com base na pesquisa
+        $sql = "SELECT posicao, produto, quantidades FROM pedidos WHERE produto LIKE '%$produtoPesquisa%'";
+        $resultado = $conexao->query($sql);                
+        if ($resultado && $resultado->num_rows > 0) {
+            while ($row = $resultado->fetch_assoc()) {
+                $posicao = $row['posicao'];
+                if (!isset($produtosFiltrados[$posicao])) {
+                    $produtosFiltrados[$posicao] = [];
+                }
+                $produtosFiltrados[$posicao][] = [
+                    'produto' => $row['produto'],
+                    'quantidades' => $row['quantidades']
+                ];
+            }
+        }
+    }
+} 
 ?>
 <head>
     <meta charset="UTF-8">
@@ -287,25 +305,7 @@ button.desmarcado {
                     <br>
                 </form>
             </div>
-            <?php $produtoPesquisa = $conexao->real_escape_string($_POST['produto']);
-        
-        // Consulta produtos com base na pesquisa
-        $sql = "SELECT posicao, produto, quantidades FROM pedidos WHERE produto LIKE '%$produtoPesquisa%'";
-        $resultado = $conexao->query($sql);                
-        if ($resultado && $resultado->num_rows > 0) {
-            while ($row = $resultado->fetch_assoc()) {
-                $posicao = $row['posicao'];
-                if (!isset($produtosFiltrados[$posicao])) {
-                    $produtosFiltrados[$posicao] = [];
-                }
-                $produtosFiltrados[$posicao][] = [
-                    'produto' => $row['produto'],
-                    'quantidades' => $row['quantidades']
-                ];
-            }
-        }
-    }
-}
+            <?php
              if (!empty($produtosFiltrados)) : ?>
                 <?php foreach ($produtosFiltrados as $posicao => $produtos) : ?>
                     <div>
