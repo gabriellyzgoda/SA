@@ -9,21 +9,22 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-// Consultar produtos e suas posições
-$posicoes = [];
-$sql = "SELECT posicao, produto FROM pedidos";
-$resultado = $conexao->query($sql);
+$produtosFiltrados = [];
 
-if ($resultado && $resultado->num_rows > 0) {
-    while ($row = $resultado->fetch_assoc()) {
-        $posicao = $row['posicao'];
-        if (!isset($posicoes[$posicao])) {
-            $posicoes[$posicao] = [];
-        }
-        $posicoes[$posicao][] = $row['produto'];
-    }
-}
-?>
+                  // Verifica se o formulário foi enviado
+                  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                      if ($conexao->connect_errno) {
+                          echo "Failed to connect to MySQL: " . $conexao->connect_error;
+                          exit();
+                      } else {
+                          // Protege a entrada do usuário contra SQL Injection
+                          $produtoPesquisa = $conexao->real_escape_string($_POST['produto']);
+                          
+                          // Consulta produtos com base na pesquisa
+                          $sql = "SELECT posicao, produto FROM pedidos WHERE produto LIKE '%$produtoPesquisa%'";
+                          $resultado = $conexao->query($sql);
+
+                  ?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,12 +79,13 @@ button:hover {
 }
 
 button.destaque {
-    background-color: #004080; /* Cor mais escura para a posição */
+    background-color: #004080; /* Cor mais escura para o botão destacado */
 }
 
 button.desmarcado {
     background-color: #007bff; /* Cor padrão para os botões não destacados */
 }
+
 
 #resultado {
     margin-top: 20px;
@@ -282,110 +284,85 @@ button.desmarcado {
                 <div id="" class="linhasBloco01">
                     <label>Pesquise um produto:</label>
                     <form id="formPlaca" class="form" method="POST" action="estoque.php">
-                    <input type="text" name="produto" id="produto" autocomplete="off">
+                    <input type="text" name="produto" id="produto" autocomplete="on">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     <div id="suggestions" class="suggestions"></div>
                     <br><br>
                     </form>
                 </div>
                 <?php
-                  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                      if ($conexao->connect_errno) {
-                          echo "Failed to connect to MySQL: " . $conexao->connect_error;
-                          exit();
-                      } else {
-                          $produto = $conexao->real_escape_string($_POST['produto']);
-                          $sql = "SELECT * FROM pedidos WHERE produto LIKE '%$produto%';";
-                          $resultado = $conexao->query($sql);
-                          if ($resultado && $resultado->num_rows > 0) {
-                              while ($row = $resultado->fetch_assoc()) {
-                                  echo "Produto: " . htmlspecialchars($row['produto']) . "<br>
-                                        Quantidades: " . htmlspecialchars($row['quantidades']) . "<br>";
-                              }
-                          } else {
-                              echo "Nenhum produto encontrado.";
+                
+                if ($resultado && $resultado->num_rows > 0) {
+                  while ($row = $resultado->fetch_assoc()) {
+                      $posicao = $row['posicao'];
+                      if (!isset($produtosFiltrados[$posicao])) {
+                          $produtosFiltrados[$posicao] = [];
+                      }
+                      $produtosFiltrados[$posicao][] = $row['produto'];
                           }
                       }
-                  }
-                  ?>
-                        <div class="button-container">
-                            <!-- Linha 1 - Posições A -->
-                            <div class="button-row">
-                                <button id="A1" class="<?php echo isset($posicoes['A1']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('A1')">A1</button>
-                                <button id="A2" class="<?php echo isset($posicoes['A2']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('A2')">A2</button>
-                                <button id="A3" class="<?php echo isset($posicoes['A3']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('A3')">A3</button>
-                                <button id="A4" class="<?php echo isset($posicoes['A4']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('A4')">A4</button>
-                            </div>
-                            <!-- Linha 2 - Posições B -->
-                            <div class="button-row">
-                                <button id="B1" class="<?php echo isset($posicoes['B1']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('B1')">B1</button>
-                                <button id="B2" class="<?php echo isset($posicoes['B2']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('B2')">B2</button>
-                                <button id="B3" class="<?php echo isset($posicoes['B3']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('B3')">B3</button>
-                                <button id="B4" class="<?php echo isset($posicoes['B4']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('B4')">B4</button>
-                            </div>
-                            <!-- Linha 3 - Posições C -->
-                            <div class="button-row">
-                                <button id="C1" class="<?php echo isset($posicoes['C1']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('C1')">C1</button>
-                                <button id="C2" class="<?php echo isset($posicoes['C2']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('C2')">C2</button>
-                                <button id="C3" class="<?php echo isset($posicoes['C3']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('C3')">C3</button>
-                                <button id="C4" class="<?php echo isset($posicoes['C4']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('C4')">C4</button>
-                            </div>
-                            <!-- Linha 4 - Posições D -->
-                            <div class="button-row">
-                                <button id="D1" class="<?php echo isset($posicoes['D1']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('D1')">D1</button>
-                                <button id="D2" class="<?php echo isset($posicoes['D2']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('D2')">D2</button>
-                                <button id="D3" class="<?php echo isset($posicoes['D3']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('D3')">D3</button>
-                                <button id="D4" class="<?php echo isset($posicoes['D4']) ? 'destaque' : 'desmarcado'; ?>" onclick="mostrarProdutos('D4')">D4</button>
-                            </div>
-                        </div>
-                        <div id="resultado"></div>
-                        <script>
-                    const produtosPorPosicao = <?php echo json_encode($posicoes); ?>;
-
-                    function mostrarProdutos(posicao) {
-                        const produtos = produtosPorPosicao[posicao] || ['Nenhum produto encontrado.'];
-                        document.getElementById('resultado').innerHTML = `<h3>Produtos na posição ${posicao}:</h3><ul>${produtos.map(produto => `<li>${produto}</li>`).join('')}</ul>`;
-
-                        // Atualiza a cor dos botões com base na posição selecionada
-                        document.querySelectorAll('.button-container button').forEach(button =>
-                            if (button.id === posicao) {
-                                button.classList.add('destaque');
-                                button.classList.remove('desmarcado');
-                        });
                     }
-                </script>
+                }?>
+                        <div class="button-container">
+                <!-- Linha 1 - Posições A -->
+                <div class="button-row">
+                    <button id="A1">A1</button>
+                    <button id="A2">A2</button>
+                    <button id="A3">A3</button>
+                    <button id="A4">A4</button>
+                </div>
+                <!-- Linha 2 - Posições B -->
+                <div class="button-row">
+                    <button id="B1">B1</button>
+                    <button id="B2">B2</button>
+                    <button id="B3">B3</button>
+                    <button id="B4">B4</button>
+                </div>
+                <!-- Linha 3 - Posições C -->
+                <div class="button-row">
+                    <button id="C1">C1</button>
+                    <button id="C2">C2</button>
+                    <button id="C3">C3</button>
+                    <button id="C4">C4</button>
+                </div>
+                <!-- Linha 4 - Posições D -->
+                <div class="button-row">
+                    <button id="D1">D1</button>
+                    <button id="D2">D2</button>
+                    <button id="D3">D3</button>
+                    <button id="D4">D4</button>
+                </div>
+            </div>
+                        <div id="resultado"></div>
         </center>
     </main>
 </div>
-<?php include_once('footer.php'); ?>
 <script>
-      document.getElementById('produto').addEventListener('input', function() {
-                const query = this.value;
-                if (query.length > 0) { // Começa a buscar após 3 caracteres
-                    fetchSuggestions(query);
-                } else {
-                    document.getElementById('suggestions').innerHTML = '';
-                }
-            });
+    // Dados das posições e produtos filtrados
+    const produtosPorPosicao = <?php echo json_encode($produtosFiltrados); ?>;
+</script>
+<?php 
+include_once('footer.php'); 
+?>
+<script>
 
-            function fetchSuggestions(query) {
-                fetch('pesquisarSugestao.php?q=' + encodeURIComponent(query))
-                    .then(response => response.json())
-                    .then(data => {
-                        const suggestionsContainer = document.getElementById('suggestions');
-                        suggestionsContainer.innerHTML = '';
-                        data.forEach(item => {
-                            const div = document.createElement('div');
-                            div.className = 'suggestion-item';
-                            div.textContent = item.produto;
-                            div.onclick = () => {
-                                document.getElementById('produto').value = item.produto;
-                                suggestionsContainer.innerHTML = '';
-                            };
-                            suggestionsContainer.appendChild(div);
-                        });
-                    });
-            }
+// Dados das posições e produtos filtrados
+
+function destacarBotoes() {
+    // Destaca automaticamente os botões com base nas posições dos produtos filtrados
+    document.querySelectorAll('.button-container button').forEach(button => {
+        if (produtosPorPosicao[button.id]) {
+            button.classList.add('destaque');
+            button.classList.remove('desmarcado');
+        } else {
+            button.classList.remove('destaque');
+            button.classList.add('desmarcado');
+        }
+    });
+}
+
+// Chama a função para destacar os botões após a página carregar
+destacarBotoes();
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
         arrow[i].addEventListener("click", (e) => {
