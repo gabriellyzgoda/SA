@@ -10,15 +10,7 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM cadastro
-WHERE professor = 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
-$_SESSION["cargo"]= $row[2];
-$conexao -> close();?>
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
