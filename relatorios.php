@@ -255,7 +255,7 @@ $_SESSION["cargo"]= $row[2];
                       }
                       echo "</table></div></div>";
                   } else {
-                      echo "Nenhum dado encontrado na tabela $tabela.";
+                      echo "<div class='semDados'><p>Nenhum dado encontrado na tabela $tabela.</p></div>";
                   }
               }
               ?>
