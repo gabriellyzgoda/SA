@@ -3,7 +3,6 @@
 <?php
 session_start();
 include_once('config.php');
-include_once('config.php');
 
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
@@ -18,7 +17,7 @@ $row = $resultado -> fetch_array();
 $_SESSION["nome"]= $row[0];
 $_SESSION["email"]= $row[1];
 $_SESSION["cargo"]= $row[2];
-$conexao -> close();?>
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,6 +25,7 @@ $conexao -> close();?>
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloRelatorios.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -63,7 +63,7 @@ $conexao -> close();?>
           </div>
           <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
-    </header>
+</header>
     <div class="sidebar close">
       
       <div class="logo-details">
@@ -201,6 +201,65 @@ $conexao -> close();?>
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
          <h1>Relatório</h1>
+        </div>
+        <div class="linhaR">
+          <div class="quadroR">
+            <div class="linha01">
+              <form method="POST" action="">
+                <label for="tabela">Selecione uma tabela:</label>
+                <select name="tabela" id="tabela">
+                    <?php
+                    // Consulta SQL para listar todas as tabelas do banco de dados
+                    $sql = "SHOW TABLES";
+                    $resultado = $conexao->query($sql);
+
+                    // Verifica se há resultados
+                    if ($resultado->num_rows > 0) {
+                        while ($row = $resultado->fetch_array()) {
+                            $tabela_selecionada = isset($_POST['tabela']) ? $_POST['tabela'] : '';
+                            $selected = ($row[0] == $tabela_selecionada) ? 'selected' : '';
+                            echo "<option value='" . $row[0] . "' $selected>" . $row[0] . "</option>";
+                        }
+                    } else {
+                        echo "<option value=''>Nenhuma tabela encontrada</option>";
+                    }
+                    ?>
+                </select>
+                <button type="submit">OK</button>
+              </form>
+            </div>
+            
+
+          <?php
+              // Exibir os dados da tabela selecionada
+              if (isset($_POST['tabela'])) {
+                  $tabela = $_POST['tabela'];
+                  $sql = "SELECT * FROM $tabela";
+                  $resultado = $conexao->query($sql);
+
+                  if ($resultado->num_rows > 0) {
+                      echo "<div class='linha02'><div class='quadroTabela'><table border='1'>";
+                      echo "<tr>";
+                      $fields = $resultado->fetch_fields();
+                      foreach ($fields as $field) {
+                          echo "<th>" . $field->name . "</th>";
+                      }
+                      echo "</tr>";
+
+                      while ($row = $resultado->fetch_assoc()) {
+                          echo "<tr>";
+                          foreach ($row as $value) {
+                              echo "<td>" . $value . "</td>";
+                          }
+                          echo "</tr>";
+                      }
+                      echo "</table></div></div>";
+                  } else {
+                      echo "Nenhum dado encontrado na tabela $tabela.";
+                  }
+              }
+              ?>
+          </div>
         </div>
     </div>
 <?php

@@ -1,0 +1,64 @@
+.linhaR{
+    display: flex;
+    justify-content: center;
+}
+
+.quadroR {
+    width: auto;
+    height: auto;
+    max-width: 1000px;
+    max-height: 450px;
+}
+
+.linha01 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 20px 0px;
+    align-items: center;
+}
+
+.linha01 label {
+    font-size: 23px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    color: #185CA9;
+    margin-right: 10px;
+}
+
+.linha01 select {
+    border: 2px solid #185CA9;
+    background-color: #fff;
+    padding: 3px 5px;
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 500;
+    color: #185CA9;
+    border-radius: 20px;
+}
+
+.linha01 form button {
+    border: none;
+    background-color: #185ca9b0;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 5px 10px;
+    border-radius: 30px;
+    margin-left: 10px;
+}
+
+.linha02 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.quadroTabela {
+    display: block;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    height: auto;
+    max-height: 400px;
+}
