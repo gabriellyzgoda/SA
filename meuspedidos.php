@@ -235,9 +235,6 @@ $resultado2 = $conexao->query($sqlClientes);
           } else {
               echo "<td colspan='5'>Nenhum pedido encontrado.</td>";
           }
-          
-          ?>
-          <?php
 if (isset($_GET['excluido']) && $_GET['excluido'] === 'sucesso') {
   echo "<div class='mensagem-sucesso'>Pedido excluído com sucesso!</div>";
 }

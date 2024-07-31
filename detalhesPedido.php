@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <?php
 session_start();
 include_once('config.php');
+
 // Verifica se o usuário está logado
-if(!isset($_SESSION['email'])) {
+if (!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
@@ -16,7 +17,7 @@ if(!isset($_SESSION['email'])) {
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="estiloControleSolicitacoes.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloPedidoDoca.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -24,37 +25,37 @@ if(!isset($_SESSION['email'])) {
 </head>
 <body>
 <header class="header-topo">
-        <div class="logSenai">
+    <div class="logSenai">
       <a href="home.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
     </div>
     <div class="logo">
       <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
     </div>
-        <div class="menu-header">
-          <div class="dropdown-perfil">
-            <a href="#" >
-                <div class="circulo">
-                        <i class="fa-solid fa-user"></i>
-                </div>
-            </a>
-            <div class="dropdown-content">
-              <div class="dropdown-section">
-                <h4>Nome:</h4>
-                <p><?php echo $_SESSION['nome'];?></p>
+      <div class="menu-header">
+        <div class="dropdown-perfil">
+          <a href="#" >
+              <div class="circulo">
+                      <i class="fa-solid fa-user"></i>
               </div>
-              <div class="dropdown-section">
-                <h4>Email:</h4>
-                <p><?php echo $_SESSION['email'];?></p>
-              </div>
-              <div class="dropdown-section">
-                <h4>Cargo:</h4>
-                <p><?php echo $_SESSION['cargo'];?></p>
-              </div>
+          </a>
+          <div class="dropdown-content">
+            <div class="dropdown-section">
+              <h4>Nome:</h4>
+              <p><?php echo $_SESSION['nome'];?></p>
+            </div>
+            <div class="dropdown-section">
+              <h4>Email:</h4>
+              <p><?php echo $_SESSION['email'];?></p>
+            </div>
+            <div class="dropdown-section">
+              <h4>Cargo:</h4>
+              <p><?php echo $_SESSION['cargo'];?></p>
             </div>
           </div>
-          <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
-    </header>
+        <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+      </div>
+</header>
     <div class="sidebar close">
       
       <div class="logo-details">
@@ -186,49 +187,76 @@ if(!isset($_SESSION['email'])) {
             <li><a class="link_name" href="relatorios.php">Relatório</a></li>
           </ul>
         </li>
-
               
       </ul><!--Fecha ul-->
-    </div>      
+    </div>   
+    <center>
     <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1> Solicitações dos Clientes</h1>
-        </div>
-        <div class="linhaControle">
-          <div class="quadroCS">
-            <div class="titulo-quadro">
-              <p>Nº SOLICITAÇÃO</p>
-            </div>
-            <table>
-            <tbody>
-            <div class="CS">
+    <div class="titulo-conteudo">    
+        <?php
+            if (isset($_GET['pedido'])) {
+                $pedido = $_GET['pedido'];
             
-            <?php
-            // Consulta SQL para agrupar os pedidos e exibir apenas um por número de pedido
-                $sql = "SELECT 
-                        solicitacao,
-                        MAX(id) as id,
-                        MAX(produto) as produto
-                    FROM 
-                        solicitacoes
-                    GROUP BY 
-                        solicitacao;";
+                $sql = "SELECT * FROM pedidos WHERE pedido = '$pedido'";
+                
                 $resultado = $conexao->query($sql);
-
-                if ($resultado->num_rows > 0) {
-                  while ($pedido = mysqli_fetch_assoc($resultado)) {
-                    echo'<div class="linhaCS">
-                    <input type="text" id="" value=' . $pedido['solicitacao'] . '>
-                    <a href=""><button>Abrir</button></a>
-                    </div>';
-                }}
+                
+            } else {
+                echo "<p>Número de pedido não especificado.</p>";
+            }
+                    if (isset($pedido)) {
+                        echo "<h1>Pedido nº $pedido</h1>";
+                    }
         ?>
-    </tbody>
-    </table>
+    </div> 
+    <div class="borda-quadro">
+        <div class="borda">
+            <div class="quadro-pedidos">
+                <div class="titulo-quadro-pedidos"><p>Produtos</p></div>
+                <?php
+                if ($resultado && $resultado->num_rows > 0) {
+                    $contador = 1; // Inicia o contador para a numeração fictícia de 1 a 4
+                    while ($row = $resultado -> fetch_array()) {
+                ?>
+                <div class="produto">
+                    <div class="linha1">
+                        <div class="quadrado-numero"><p><?php echo $contador; ?></p></div>
+                        <input type="text" name="produto" value="<?php echo $row['produto']; ?>" disabled>
+                    </div>
+                    <div class="linha2">
+                        <div class="bloco">
+                            <label>UN</label>
+                            <input type="text" name="unidades" value="<?php echo $row['unidades']; ?>" disabled>
+                        </div>
+                        <div class="bloco">
+                            <label>QTD</label>
+                            <input type="text" name="quantidades" value="<?php echo $row['quantidades']; ?>" disabled>
+                        </div>
+                        <div class="bloco">
+                            <label>R$/Un</label>
+                            <input type="text" name="valor" value="R$ <?php echo $row['valor']; ?>" disabled>
+                        </div>
+                        <div class="bloco">
+                            <label>R$ Total</label>
+                            <input type="text" name="total" value="R$ <?php echo $row['total']; ?>" disabled>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    $contador++; // Incrementa o contador para a próxima numeração fictícia
+                    }
+                } else {
+                    echo "<p>Erro na consulta: " . $conexao->error . "</p>";
+                    }
+                ?>
+                <div class="linhaFinal">
+                    <a href="pedidodoca.php"><button>Voltar</button></a>
+                </div>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-    </div>
+</div>
+</center>
 <?php
 include_once('footer.php');
 ?>

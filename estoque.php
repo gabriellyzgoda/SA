@@ -5,32 +5,22 @@ session_start();
 include_once('config.php');
 
 // Verifica se o usuário está logado
-if(!isset($_SESSION['email'])) {
+if (!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
+
 $produtosFiltrados = [];
 
-                  // Verifica se o formulário foi enviado
-                  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-                      if ($conexao->connect_errno) {
-                          echo "Failed to connect to MySQL: " . $conexao->connect_error;
-                          exit();
-                      } else {
-                          // Protege a entrada do usuário contra SQL Injection
-                          $produtoPesquisa = $conexao->real_escape_string($_POST['produto']);
-                          
-                          // Consulta produtos com base na pesquisa
-                          $sql = "SELECT posicao, produto, quantidades FROM pedidos WHERE produto LIKE '%$produtoPesquisa%'";
-                          $resultado = $conexao->query($sql);                
-                          if ($resultado && $resultado->num_rows > 0) {
-                            while ($row = $resultado->fetch_assoc()) {
-                                $posicao = $row['posicao'];
-                                if (!isset($produtosFiltrados[$posicao])) {
-                                    $produtosFiltrados[$posicao] = [];
-                                }
-                                $produtosFiltrados[$posicao][] = $row['produto'];
-                                    ?>
+// Verifica se o formulário foi enviado
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if ($conexao->connect_errno) {
+        echo "Failed to connect to MySQL: " . $conexao->connect_error;
+        exit();
+    } else {
+        // Protege a entrada do usuário contra SQL Injection
+        
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -281,26 +271,54 @@ button.desmarcado {
         </li>      
       </ul><!--Fecha ul-->
     </div>     
-    <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1>Estoque</h1>
-         </div>
-         <main>
-            <center>
-                <div id="" class="linhasBloco01">
-                    <label>Pesquise um produto:</label>
-                    <form id="formPlaca" class="form" method="POST" action="estoque.php">
+    <div class="conteudo">
+    <div class="titulo-conteudo">
+        <h1>Estoque</h1>
+    </div>
+    <main>
+        <center>
+            <div class="linhasBloco01">
+                <label>Pesquise um produto:</label>
+                <form id="formPlaca" class="form" method="POST" action="estoque.php">
                     <input type="text" name="produto" id="produto" autocomplete="on">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     <div id="suggestions" class="suggestions"></div>
-                    <br><br>
-                    </form>
-                </div>
-                <?php
-                  echo "Produto: " . htmlspecialchars($row['produto']) . "<br>
-                        Quantidades: " . htmlspecialchars($row['quantidades']) . "<br>";                
-                  ?>
-                        <div class="button-container">
+                    <br>
+                    <br>
+                </form>
+            </div>
+            <?php $produtoPesquisa = $conexao->real_escape_string($_POST['produto']);
+        
+        // Consulta produtos com base na pesquisa
+        $sql = "SELECT posicao, produto, quantidades FROM pedidos WHERE produto LIKE '%$produtoPesquisa%'";
+        $resultado = $conexao->query($sql);                
+        if ($resultado && $resultado->num_rows > 0) {
+            while ($row = $resultado->fetch_assoc()) {
+                $posicao = $row['posicao'];
+                if (!isset($produtosFiltrados[$posicao])) {
+                    $produtosFiltrados[$posicao] = [];
+                }
+                $produtosFiltrados[$posicao][] = [
+                    'produto' => $row['produto'],
+                    'quantidades' => $row['quantidades']
+                ];
+            }
+        }
+    }
+}
+             if (!empty($produtosFiltrados)) : ?>
+                <?php foreach ($produtosFiltrados as $posicao => $produtos) : ?>
+                    <div>
+                        <?php foreach ($produtos as $produtoData) : ?>
+                            <p>Produto: <?php echo htmlspecialchars($produtoData['produto']); ?><br>
+                            Quantidades: <?php echo htmlspecialchars($produtoData['quantidades']); ?></p>
+                        <h4>Posição: <?php echo htmlspecialchars($posicao); ?></h4>
+                        <?php endforeach; ?>
+                    </div>
+                <?php endforeach; ?>
+            <?php endif; ?>
+            <br>
+            <div class="button-container">
                 <!-- Linha 1 - Posições A -->
                 <div class="button-row">
                     <button id="A1">A1</button>
@@ -330,24 +348,17 @@ button.desmarcado {
                     <button id="D4">D4</button>
                 </div>
             </div>
-                        <div id="resultado"></div>
+            <div id="resultado"></div>
         </center>
     </main>
 </div>
-<script>
-    // Dados das posições e produtos filtrados
-    const produtosPorPosicao = <?php echo json_encode($produtosFiltrados); ?>;
-</script>
 <?php 
-}
-}
-}
-}
 include_once('footer.php'); 
 ?>
 <script>
 
 // Dados das posições e produtos filtrados
+const produtosPorPosicao = <?php echo json_encode($produtosFiltrados); ?>;
 
 function destacarBotoes() {
     // Destaca automaticamente os botões com base nas posições dos produtos filtrados
