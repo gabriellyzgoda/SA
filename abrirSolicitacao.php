@@ -92,24 +92,13 @@ if (!isset($_SESSION['email'])) {
             </ul>
         </li>
         <li>
-        <div class="iocn-link">
-            
-            <a href="#">
-            <i class="fa-solid fa-warehouse"></i>
-              <span class="link_name">Controle</span>
+            <a href="controleP.php">
+                <i class="fa-solid fa-warehouse"></i>
+                <span class="link_name">Controle</span>
             </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
-
-          <ul class="sub-menu ">
-            <li><a class="link_name" href="controleP.php">Controle</a></li>
-            <li><a href="controleP.php">Controle</a></li>
-            <li><a href="containerP.php">Container</a></li>
-
-          </ul>
-
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="controleP.php">Controle</a></li>
+            </ul>
         </li>
         <li>
             <a href="alunos.php">
@@ -122,60 +111,41 @@ if (!isset($_SESSION['email'])) {
         </li>
           
         <li>
-          
-          <div class="iocn-link">
-            
-            <a href="#">
-            <i class="fa-solid fa-clipboard-list fa-lg"></i>
-              <span class="link_name">Solicitações</span>
-            </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
-          
-          <ul class="sub-menu">
-          
-            <li><a class="link_name" href="#">Solicitações</a></li>
-            <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
-            <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
-          
-          </ul>
-          
-        </li>  
-
-        <li>
-          <a href="relatorios.php">
-          <i class="fa-solid fa-file"></i>
-            <span class="link_name">Relatório</span>
-          </a>
-          
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
-          </ul>
+            <div class="iocn-link">
+                <a href="#">
+                    <i class="fa-solid fa-receipt"></i>
+                    <span class="link_name">Solicitações</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a class="link_name" href="#">Solicitações</a></li>
+                <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
+                <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
+            </ul>
         </li>   
     </ul><!--Fecha ul-->
 </div>   
 <div class="conteudo"> 
     <div class="titulo-conteudo">    
         <?php
-            if (isset($_GET['pedido'])) {
-                $pedido = $_GET['pedido'];
+            if (isset($_GET['solicitacao'])) {
+                $solicitacao = $_GET['solicitacao'];
             
-                $sql = "SELECT * FROM pedidos WHERE pedido = '$pedido'";
+                $sql = "SELECT * FROM solicitacoes WHERE solicitacao = '$solicitacao'";
                 
                 $resultado = $conexao->query($sql);
                 
             } 
-                    if (isset($pedido)) {
-                        echo "<h1>Pedido nº $pedido</h1>";
+                    if (isset($solicitacao)) {
+                        echo "<h1>Solicitação nº $solicitacao</h1>";
                     }
         ?>
     </div>
     <div class="borda-quadro">
         <div class="borda">
             <div class="quadro-pedidos">
-                <div class="titulo-quadro-pedidos"><p>Produtos</p></div>
+                <div class="titulo-quadro-pedidos"><p>Solicitações</p></div>
                 <?php
                 if ($resultado && $resultado->num_rows > 0) {
                     $contador = 1; // Inicia o contador para a numeração fictícia de 1 a 4
@@ -199,10 +169,6 @@ if (!isset($_SESSION['email'])) {
                             <label>R$/Un</label>
                             <input type="text" name="valor" value="R$ <?php echo $row['valor']; ?>" disabled>
                         </div>
-                        <div class="bloco">
-                            <label>R$ Total</label>
-                            <input type="text" name="total" value="R$ <?php echo $row['total']; ?>" disabled>
-                        </div>
                     </div>
                 </div>
                 <?php
@@ -213,7 +179,7 @@ if (!isset($_SESSION['email'])) {
                     }
                 ?>
                 <div class="linhaFinal">
-                    <a href="meuspedidos.php"><button>Voltar</button></a>
+                    <a href="solicitacoes.php"><button>Voltar</button></a>
                 </div>
             </div>
         </div>

@@ -9,13 +9,6 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM cadastro
-WHERE professor != 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
 ?>
 <head>
     <meta charset="UTF-8">
@@ -121,14 +114,22 @@ $_SESSION["email"]= $row[1];
         </li>
 
         <li>
-          
-          <a href="controleP.php">
+        <div class="iocn-link">
+            
+            <a href="#">
             <i class="fa-solid fa-warehouse"></i>
-            <span class="link_name">Controle</span>
-          </a>
+              <span class="link_name">Controle</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
+          
+          </div>
 
-          <ul class="sub-menu blank">
+          <ul class="sub-menu ">
             <li><a class="link_name" href="controleP.php">Controle</a></li>
+            <li><a href="controleP.php">Controle</a></li>
+            <li><a href="containerP.php">Container</a></li>
+
           </ul>
 
         </li>

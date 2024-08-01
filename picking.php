@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
+<p?php
 session_start();
 include_once('config.php');
 include_once('config.php');
@@ -10,15 +10,7 @@ if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM cadastro
-WHERE professor = 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
-$_SESSION["cargo"]= $row[2];
-$conexao -> close();?>
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -204,16 +196,34 @@ $conexao -> close();?>
          <h1>Picking</h1>
         </div>
         <div class="faixa">
-          <div class="bloco-picking">
+          < class="bloco-picking">
             <div class="linha1">
+            <form class="form" method="POST" action="picking.php">
               <label>Solicitação nº:</label>
-              <input></input>
+              <input class="" type="text" name="solicitacao" id="solicitacao" size="20">
+                <button type="submit">OK</button>
             </div>
+            </form>
+            <?php
+            if(isset($_POST['solicitacao'])) {
+              if ($conexao -> connect_errno) {
+                echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+                exit();
+              } else {
+                // Evita caracteres epsciais (SQL Inject)
+                $solicitacao = $conexao -> real_escape_string($_POST['solicitacao']);
+              
+                $sql="SELECT *
+                        FROM `solicitacoes`
+                        WHERE `solicitacao`='".$solicitacao."';";
+              
+                $resultado = $conexao->query($sql);
+                  ?>
             <div class="linha2">
               <table>
               <thead>
                 <tr>
-                    <th>Pordutos do Picking</th>
+                    <th>Produtos do Picking</th>
                     <th>UN</th>
                     <th>QTD</th>
                     <th>Posição</th>
@@ -222,33 +232,43 @@ $conexao -> close();?>
               </thead>
               <tbody>
                   <tr>
-                      <td><input type="text" name="operacao" placeholder=""></td>
-                      <td><input type="text" name="un" placeholder=""></td>
-                      <td><input type="text" name="qtd" placeholder=""></td>
-                      <td><input type="text" name="posicao" placeholder=""></td>
+                    <?php 
+                    if ($resultado && $resultado->num_rows > 0) {
+                      $index = 0;
+                    while ($row = $resultado -> fetch_array()) {
+                    echo'
+                      <td><input type="text" name="produto_'.$index.'" value="'. $row['produto'] .'" readonly></td>
+                      <td><input type="text" name="unidades_'.$index.'" value="'. $row['unidades'] .'" readonly></td>
+                      <td><input type="text" name="quantidades_'.$index.'" value="'. $row['quantidades'] .'" readonly></td>
+                      <td>
+                                <select name="posicao_'.$index.'">
+                                    <option value="">Selecione</option>
+                                    <option value="A1" '.($row['posicao'] == 'A1' ? 'selected' : '').'>A1</option>
+                                    <option value="A2" '.($row['posicao'] == 'A2' ? 'selected' : '').'>A2</option>
+                                    <option value="A3" '.($row['posicao'] == 'A3' ? 'selected' : '').'>A3</option>
+                                    <option value="A4" '.($row['posicao'] == 'A4' ? 'selected' : '').'>A4</option>
+                                    <option value="B1" '.($row['posicao'] == 'B1' ? 'selected' : '').'>B1</option>
+                                    <option value="B2" '.($row['posicao'] == 'B2' ? 'selected' : '').'>B2</option>
+                                    <option value="B3" '.($row['posicao'] == 'B3' ? 'selected' : '').'>B3</option>
+                                    <option value="B4" '.($row['posicao'] == 'B4' ? 'selected' : '').'>B4</option>
+                                    <option value="C1" '.($row['posicao'] == 'C1' ? 'selected' : '').'>C1</option>
+                                    <option value="C2" '.($row['posicao'] == 'C2' ? 'selected' : '').'>C2</option>
+                                    <option value="C3" '.($row['posicao'] == 'C3' ? 'selected' : '').'>C3</option>
+                                    <option value="C4" '.($row['posicao'] == 'C4' ? 'selected' : '').'>C4</option>
+                                    <option value="D1" '.($row['posicao'] == 'D1' ? 'selected' : '').'>D1</option>
+                                    <option value="D2" '.($row['posicao'] == 'D2' ? 'selected' : '').'>D2</option>
+                                    <option value="D3" '.($row['posicao'] == 'D3' ? 'selected' : '').'>D3</option>
+                                    <option value="D4" '.($row['posicao'] == 'D4' ? 'selected' : '').'>D4</option>
+                                </select>
+                            </td>
                       <td><input class="" id="pegar" type="submit" value="Pego"/></td>
-                  </tr>
-                  <tr>
-                      <td><input type="text" name="operacao" placeholder=""></td>
-                      <td><input type="text" name="un" placeholder=""></td>
-                      <td><input type="text" name="qtd" placeholder=""></td>
-                      <td><input type="text" name="posicao" placeholder=""></td>
-                      <td><input class="" id="pegar" type="submit" value="Pego"/></td>
-                  </tr>
-                  <tr>
-                      <td><input type="text" name="operacao" placeholder=""></td>
-                      <td><input type="text" name="un" placeholder=""></td>
-                      <td><input type="text" name="qtd" placeholder=""></td>
-                      <td><input type="text" name="posicao" placeholder=""></td>
-                      <td><input class="" id="pegar" type="submit" value="Pego"/></td>
-                  </tr>
-                  <tr>
-                      <td><input type="text" name="operacao" placeholder=""></td>
-                      <td><input type="text" name="un" placeholder=""></td>
-                      <td><input type="text" name="qtd" placeholder=""></td>
-                      <td><input type="text" name="posicao" placeholder=""></td>
-                      <td><input class="" id="pegar" type="submit" value="Pego"/></td>
-                  </tr>
+                  </tr>';
+                  $index++;
+                    }}}
+                  }else {
+                    echo "<p>Erro na consulta: " . $conexao->error . "</p>";
+                    }
+                ?>
                 </tbody>
               </table> 
             </div>
