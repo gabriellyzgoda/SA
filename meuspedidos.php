@@ -232,13 +232,11 @@ $resultado2 = $conexao->query($sqlClientes);
                   echo "<td><div class='botaoDeletar' onclick='confirmarExclusao(" . $pedido['pedido'] . ")'><i class='fa-solid fa-trash'></i></div></td>";
                   echo "</tr>";
               }
-          } else {
-              echo "<td colspan='5'>Nenhum pedido encontrado.</td>";
-          }
-if (isset($_GET['excluido']) && $_GET['excluido'] === 'sucesso') {
-  echo "<div class='mensagem-sucesso'>Pedido excluído com sucesso!</div>";
-}
-?>
+            } else {
+                echo "<td colspan='5'>Nenhum pedido encontrado.</td>";
+            }
+            
+        ?>
       </tbody>
   </table>
 </div>
@@ -250,6 +248,7 @@ include_once('footer.php');
 function confirmarExclusao(pedido) {
   if (confirm("Tem certeza que deseja excluir este pedido?")) {
       window.location.href = "deleteProduto.php?pedido=" + pedido;
+      
   }
 }
 
