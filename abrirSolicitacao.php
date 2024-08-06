@@ -58,74 +58,131 @@ if (!isset($_SESSION['email'])) {
     </div>
 </header>
 <div class="sidebar close">
+
     <div class="logo-details">
-        <i class="bx bx-menu"></i>
-        <span class="logo_name">Menu</span>
+
+      <i class="bx bx-menu"></i>
+      <span class="logo_name">Menu</span>
+
     </div>
+
     <ul class="nav-links">
-        <li>
-            <div class="iocn-link">
-                <a href="#">
-                    <i class="fa-solid fa-box"></i>
-                    <span class="link_name">Pedidos</span>
-                </a>
-                <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="#">Pedidos</a></li>
-                <li><a href="meuspedidos.php">Meus pedidos</a></li>
-                <li><a href="criarpedido.php">Criar pedido</a></li>
-            </ul>
-        </li>
-        <li>
-            <div class="iocn-link">
-                <a href="#">
-                    <i class="fa-solid fa-receipt"></i>
-                    <span class="link_name">Nota fiscal</span>
-                </a>
-                <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="#">Nota fiscal</a></li>
-                <li><a href="criardanfe.php">Criar Danfe</a></li>
-                <li><a href="minhadanfe.php">Minhas Danfe's</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="controleP.php">
-                <i class="fa-solid fa-warehouse"></i>
-                <span class="link_name">Controle</span>
+
+      <li>
+
+        <div class="iocn-link">
+
+          <a href="#">
+            <i class="fa-solid fa-box"></i>
+            <span class="link_name">Pedidos</span>
+          </a>
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
+        </div>
+
+        <ul class="sub-menu">
+
+          <li><a class="link_name" href="#">Pedidos</a></li>
+          <li><a href="meuspedidos.php">Meus pedidos</a></li>
+          <li><a href="criarpedido.php">Criar pedido</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>
+
+        <div class="iocn-link">
+
+          <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+            <span class="link_name">Nota fiscal</span>
+          </a>
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
+        </div>
+
+        <ul class="sub-menu">
+
+          <li><a class="link_name" href="#">Nota fiscal</a></li>
+          <li><a href="criardanfe.php">Criar Danfe</a></li>
+          <li><a href="minhadanfe.php">Minhas Danfe's</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>
+        <div class="iocn-link">
+            
+            <a href="#">
+            <i class="fa-solid fa-warehouse"></i>
+              <span class="link_name">Controle</span>
             </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="controleP.php">Controle</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="alunos.php">
-                <i class="fa-solid fa-users"></i>
-                <span class="link_name">Alunos</span>
-            </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="alunos.php">Alunos</a></li>
-            </ul>
-        </li>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
           
-        <li>
-            <div class="iocn-link">
-                <a href="#">
-                    <i class="fa-solid fa-receipt"></i>
-                    <span class="link_name">Solicitações</span>
-                </a>
-                <i class='bx bxs-chevron-down arrow' ></i>
-            </div>
-            <ul class="sub-menu">
-                <li><a class="link_name" href="#">Solicitações</a></li>
-                <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
-                <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
-            </ul>
-        </li>   
+          </div>
+
+          <ul class="sub-menu ">
+            <li><a class="link_name" href="controleP.php">Controle</a></li>
+            <li><a href="controleP.php">Controle</a></li>
+            <li><a href="containerP.php">Container</a></li>
+
+          </ul>
+
+        </li>
+
+      <li>
+
+        <a href="alunos.php">
+          <i class="fa-solid fa-users"></i>
+          <span class="link_name">Alunos</span>
+        </a>
+
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="alunos.php">Alunos</a></li>
+        </ul>
+
+      </li>
+
+     
+      <li>
+
+        <div class="iocn-link">
+
+          <a href="#">
+          <i class="fa-solid fa-clipboard-list fa-lg"></i>
+            <span class="link_name">Solicitações</span>
+          </a>
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
+        </div>
+
+        <ul class="sub-menu">
+
+          <li><a class="link_name" href="#">Solicitações</a></li>
+          <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
+          <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
+
+        </ul>
+
+      </li>
+      <li>
+          <a href="relatoriosP.php">
+          <i class="fa-solid fa-file"></i>
+            <span class="link_name">Relatório</span>
+          </a>
+          
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
+          </ul>
+        </li>
     </ul><!--Fecha ul-->
-</div>   
+  </div>
 <div class="conteudo"> 
     <div class="titulo-conteudo">    
         <?php
