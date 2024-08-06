@@ -267,7 +267,7 @@ if(!isset($_SESSION['email'])) {
                         } else {
                             echo '<tbody>
                                 <tr>
-                                    <td colspan="5">Nenhuma solicitação encontrada.</td>
+                                    <td colspan="5"><p>Nenhuma solicitação encontrada.</p></td>
                                 </tr>
                             </tbody>';
                         }

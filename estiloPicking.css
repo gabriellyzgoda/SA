@@ -37,6 +37,19 @@
     padding-left: 8px;
 }
 
+.linha1 button {
+    border: none;
+    background-color: #85C4F9;
+    color: #FFF;
+    font-family: "League Spartan", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 6px 15px;
+    margin-left: 10px;
+
+}
+
 .linha2 {
     width: 100%;
     margin-top: 30px;
@@ -121,4 +134,26 @@ thead th {
 .linha3 button:hover {
     background-color: #718fc3;
     transition: all 0.3s ease;
+}
+
+td p {
+    color: #185CA9;
+    font-family: "League Spartan", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 50px;
+}
+
+#selecionar {
+    height: 20px;
+    width: 20px;
+    padding-left: 0px;
+    margin-right: 0px;
+    margin: 0px 25px 0px 15px;
+}
+
+tbody td select {
+    border: none;
+    height: 25px;
+    background-color: #d2e5f7;
 }
