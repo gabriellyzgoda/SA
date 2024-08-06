@@ -139,8 +139,10 @@ CREATE TABLE `solicitacoes` (
   `unidades` varchar(255) NOT NULL,
   `quantidades` int(11) NOT NULL,
   `valor` float NOT NULL,
-  `observacoes` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `observacoes` varchar(255) NOT NULL,
+  `posicao` varchar(2) NOT NULL,
+  `doca` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tabelas despejadas

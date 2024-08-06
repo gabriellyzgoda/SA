@@ -230,6 +230,7 @@ if(!isset($_SESSION['email'])) {
                             $index = 0;
                             while ($row = $resultado->fetch_array()) {
                                 echo '
+                                 <form class="form" method="POST" action="atualizarSolicitacao.php">
                                 <tr>
                                     <td><input type="text" name="produto_' . $index . '" value="' . $row['produto'] . '" readonly></td>
                                     <td><input type="text" name="unidades_' . $index . '" value="' . $row['unidades'] . '" readonly></td>
