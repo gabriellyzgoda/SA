@@ -50,7 +50,7 @@ $hostname = "127.0.0.1";
                                 $resultado = $conexao->query($sql);
 
                 $sql = "INSERT INTO `solicitacoes`(`solicitacao`, `produto`, `unidades`, `quantidades`, `valor`, `observacoes`) 
-                        VALUES ('".$solicitacao."', '".$produto3."', '".$unidades3."', '".$quantidades3."', '".$valor3."', '".$observacoes3."');";
+                        VALUES ('".$solicitacao."', '".$produto3."', '".$unidades3."', '".$quantidades3."', '".$valor3."', '".$observacoes."');";
 
                 echo $sql;
                                 $resultado = $conexao->query($sql);

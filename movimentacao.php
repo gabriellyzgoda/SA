@@ -220,9 +220,9 @@ $resultado = $conexao->query($sql);
                 $index = 0; // Índice para distinguir cada linha
                 while ($user_data = mysqli_fetch_assoc($resultado)) {
                     echo '<tr>
-                            <td><input type="text" name="operacao_'.$index.'" disabled value="'.$user_data['produto'].'"></td>
-                            <td><input type="text" name="un_'.$index.'" disabled value="'.$user_data['unidades'].'"></td>
-                            <td><input type="text" name="qtd_'.$index.'" disabled value="'.$user_data['quantidades'].'"></td>
+                            <td><input type="text" name="operacao_'.$index.'" readonly value="'.$user_data['produto'].'"></td>
+                            <td><input type="text" name="un_'.$index.'" readonly value="'.$user_data['unidades'].'"></td>
+                            <td><input type="text" name="qtd_'.$index.'" readonly value="'.$user_data['quantidades'].'"></td>
                             <td>
                                 <select name="posicao_'.$index.'">
                                     <option value="">Selecione</option>
@@ -262,7 +262,6 @@ $resultado = $conexao->query($sql);
 include_once('footer.php');
 ?>
     <script>
-  
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

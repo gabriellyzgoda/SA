@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<p?php
+<?php
 session_start();
-include_once('config.php');
 include_once('config.php');
 
 // Verifica se o usuário está logado
@@ -196,7 +195,7 @@ if(!isset($_SESSION['email'])) {
          <h1>Picking</h1>
         </div>
         <div class="faixa">
-          < class="bloco-picking">
+          <div class="bloco-picking">
             <div class="linha1">
             <form class="form" method="POST" action="picking.php">
               <label>Solicitação nº:</label>
@@ -231,50 +230,50 @@ if(!isset($_SESSION['email'])) {
                 </tr>
               </thead>
               <tbody>
-                  <tr>
-                    <?php 
-                    if ($resultado && $resultado->num_rows > 0) {
+              <form class="form" method="post" action="atualizarSolicitacao.php" id="formlogin" name="formlogin">
+              <?php 
+                  if ($resultado && $resultado->num_rows > 0) {
                       $index = 0;
-                    while ($row = $resultado -> fetch_array()) {
-                    echo'
-                      <td><input type="text" name="produto_'.$index.'" value="'. $row['produto'] .'" readonly></td>
-                      <td><input type="text" name="unidades_'.$index.'" value="'. $row['unidades'] .'" readonly></td>
-                      <td><input type="text" name="quantidades_'.$index.'" value="'. $row['quantidades'] .'" readonly></td>
-                      <td>
-                                <select name="posicao_'.$index.'">
-                                    <option value="">Selecione</option>
-                                    <option value="A1" '.($row['posicao'] == 'A1' ? 'selected' : '').'>A1</option>
-                                    <option value="A2" '.($row['posicao'] == 'A2' ? 'selected' : '').'>A2</option>
-                                    <option value="A3" '.($row['posicao'] == 'A3' ? 'selected' : '').'>A3</option>
-                                    <option value="A4" '.($row['posicao'] == 'A4' ? 'selected' : '').'>A4</option>
-                                    <option value="B1" '.($row['posicao'] == 'B1' ? 'selected' : '').'>B1</option>
-                                    <option value="B2" '.($row['posicao'] == 'B2' ? 'selected' : '').'>B2</option>
-                                    <option value="B3" '.($row['posicao'] == 'B3' ? 'selected' : '').'>B3</option>
-                                    <option value="B4" '.($row['posicao'] == 'B4' ? 'selected' : '').'>B4</option>
-                                    <option value="C1" '.($row['posicao'] == 'C1' ? 'selected' : '').'>C1</option>
-                                    <option value="C2" '.($row['posicao'] == 'C2' ? 'selected' : '').'>C2</option>
-                                    <option value="C3" '.($row['posicao'] == 'C3' ? 'selected' : '').'>C3</option>
-                                    <option value="C4" '.($row['posicao'] == 'C4' ? 'selected' : '').'>C4</option>
-                                    <option value="D1" '.($row['posicao'] == 'D1' ? 'selected' : '').'>D1</option>
-                                    <option value="D2" '.($row['posicao'] == 'D2' ? 'selected' : '').'>D2</option>
-                                    <option value="D3" '.($row['posicao'] == 'D3' ? 'selected' : '').'>D3</option>
-                                    <option value="D4" '.($row['posicao'] == 'D4' ? 'selected' : '').'>D4</option>
-                                </select>
-                            </td>
-                      <td><input class="" id="pegar" type="submit" value="Pego"/></td>
-                  </tr>';
-                  $index++;
-                    }}}
-                  }else {
-                    echo "<p>Erro na consulta: " . $conexao->error . "</p>";
-                    }
-                ?>
-                </tbody>
+                      while ($row = $resultado->fetch_array()) {
+                          echo '
+                          <tr>
+                              <td><input type="text" name="produto_'.$index.'" value="'. $row['produto'] .'" readonly></td>
+                              <td><input type="text" name="unidades_'.$index.'" value="'. $row['unidades'] .'" readonly></td>
+                              <td><input type="text" name="quantidades_'.$index.'" value="'. $row['quantidades'] .'" readonly></td>
+                              <td>
+                                       <select name="posicao_'.$index.'">
+                                          <option value="">Selecione</option>
+                                          <option value="A1" '.($row['posicao'] == 'A1' ? 'selected' : '').'>A1</option>
+                                          <option value="A2" '.($row['posicao'] == 'A2' ? 'selected' : '').'>A2</option>
+                                          <option value="A3" '.($row['posicao'] == 'A3' ? 'selected' : '').'>A3</option>
+                                          <option value="A4" '.($row['posicao'] == 'A4' ? 'selected' : '').'>A4</option>
+                                          <option value="B1" '.($row['posicao'] == 'B1' ? 'selected' : '').'>B1</option>
+                                          <option value="B2" '.($row['posicao'] == 'B2' ? 'selected' : '').'>B2</option>
+                                          <option value="B3" '.($row['posicao'] == 'B3' ? 'selected' : '').'>B3</option>
+                                          <option value="B4" '.($row['posicao'] == 'B4' ? 'selected' : '').'>B4</option>
+                                          <option value="C1" '.($row['posicao'] == 'C1' ? 'selected' : '').'>C1</option>
+                                          <option value="C2" '.($row['posicao'] == 'C2' ? 'selected' : '').'>C2</option>
+                                          <option value="C3" '.($row['posicao'] == 'C3' ? 'selected' : '').'>C3</option>
+                                          <option value="C4" '.($row['posicao'] == 'C4' ? 'selected' : '').'>C4</option>
+                                          <option value="D1" '.($row['posicao'] == 'D1' ? 'selected' : '').'>D1</option>
+                                          <option value="D2" '.($row['posicao'] == 'D2' ? 'selected' : '').'>D2</option>
+                                          <option value="D3" '.($row['posicao'] == 'D3' ? 'selected' : '').'>D3</option>
+                                          <option value="D4" '.($row['posicao'] == 'D4' ? 'selected' : '').'>D4</option>
+                                      </select>
+                              </td>
+                                  <td><input id="selecionar" type="checkbox" name="select_'.$index.'" value="'.$row['id'].'"></td>
+                          </tr>';
+                          $index++;
+                      }}}
+                  }
+                  ?>
+              </tbody>
               </table> 
             </div>
             <div class="linha3">
-              <button>Finalizar Picking</button>
+              <button type="submit">Finalizar Picking</button>
             </div>
+            </form>
           </div>
         </div>
     </div>
@@ -282,7 +281,35 @@ if(!isset($_SESSION['email'])) {
 include_once('footer.php');
 ?>
     <script>
-  
+  document.addEventListener('DOMContentLoaded', function() {
+    const pegarBtns = document.querySelectorAll('.pegar-btn');
+
+    pegarBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault(); // Impede o envio do formulário padrão
+            
+            const form = this.closest('form');
+            const formData = new FormData(form);
+
+            fetch('atualizarSolicitacao.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+                location.reload(); // Atualiza a página após o sucesso
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+        });
+    });
+
+    document.querySelector('.linha3 button').addEventListener('click', function() {
+        window.location.href = 'expedicao.php';
+    });
+});
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

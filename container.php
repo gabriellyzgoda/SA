@@ -212,144 +212,144 @@ if(!isset($_SESSION['email'])) {
               </form>
               <?php
               if(isset($_POST['placa_caminhao'])) {
-if ($conexao -> connect_errno) {
-  echo "Failed to connect to MySQL: " . $conexao -> connect_error;
-  exit();
-} else {
-  // Evita caracteres epsciais (SQL Inject)
-  $placa = $conexao -> real_escape_string($_POST['placa_caminhao']);
+              if ($conexao -> connect_errno) {
+                echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+                exit();
+              } else {
+                // Evita caracteres epsciais (SQL Inject)
+                $placa = $conexao -> real_escape_string($_POST['placa_caminhao']);
 
-  $sql="SELECT *
-          FROM `container`
-          WHERE `placa_caminhao`='".$placa."';";
+                $sql="SELECT *
+                        FROM `container`
+                        WHERE `placa_caminhao`='".$placa."';";
 
-  $resultado = $conexao->query($sql);
-  
-  if($resultado->num_rows != 0)
-  {
-      $row = $resultado -> fetch_array();
-              echo '<div class="linhasBloco01">
-              <label>Placa do caminhão:</label>
-              <input type="text" name="placa_caminhao" placeholder="" disabled value=' . $row["placa_caminhao"].'>
-            </div>';
-              echo "<div class='linhasBloco01'>";
-                echo "<label>Nome do motorista:</label>";
-                echo "<input type='text' name='nome_motorista' placeholder='' disabled value=" . $row['nome_motorista'].">";
-              echo "</div>";
-              echo "<div class='linhasBloco01'>";
-                echo "<label>Container:</label>";
-                echo "<input type='text' name='container' placeholder='' disabled value=" . $row['container'].">";
-              echo "</div>";
-              echo "<div class='linhasBloco01'>";
-                echo "<label>Cliente:</label>";
-                echo "<input type='text' name='cliente' placeholder='' disabled value=" . $row['cliente'].">";
-              echo "</div>";
-              echo '<div class="linhasBloco01">';
-                echo "<label>Tipo:</label>";
-                echo '<input type="text" name="tipo" placeholder="" disabled value=' . $row["tipo"].">";
-              echo "</div>";
-              echo '<div class="linhasBloco01">';
-                echo "<label>Lacre:</label>";
-                echo '<input type="text" name="lacre" placeholder="" disabled value=' . $row["lacre"].">";
-              echo "</div>";
-              echo '<div class="linhasBloco01">';
-                echo "<label>Lacre SIF:</label>";
-                echo '<input type="text" name="lacre_sif" placeholder="" disabled value=' . $row["lacre_sif"].">";
-              echo "</div>";
-              echo '<div class="linhasBloco01">';
-                echo "<label>Temperatura:</label>";
-                echo '<input type="text" name="temperatura" placeholder="" disabled value=' . $row["temperatura"].">";
-              echo '</div>';
-              echo '<div class="linhasBloco01">';
-                echo '<label>IMO:</label>';
-                echo '<input type="text" name="IMO" placeholder="" disabled value=' . $row['IMO'].'>';
-              echo '</div>';
-              echo '<div class="linhasBloco01">';
-                echo '<label>Nº ONU:</label>';
-                echo '<input type="text" name="n_onu" placeholder="" disabled value=' . $row["n_onu"].">";
-              echo '</div>';
-            echo '</div>';
-            ?>
-            <div class="bloco02">
-              <div class="bloco02Titulo">
-                <p>Assinale se houver alguma avaria:</p>
-              </div>
-              <form class="form" method="POST" action="cadastroContainer.php">
-                <input type="hidden" name="idPlaca" value="<?php echo $row['id'] ?>">
-              <div class="bloco02Quadro">
-                <div class="subBloco1">
-                  <div class="linhasSubBloco1">
-                    <input type="checkbox" name="desgastado" />
-                    <label>Container bem desgastado</label>
-                  </div>
-                  <div class="linhasSubBloco1">
-                    <input type="checkbox" name="avaria_direita" />
-                    <label>Avaria na lateral direita</label>
-                  </div>
-                  <div class="linhasSubBloco1">
-                    <input type="checkbox" name="avaria_esquerda" />
-                    <label>Avaria na lateral esquerda</label>
-                  </div>
-                  <div class="linhasSubBloco1">
-                    <input type="checkbox" name="avaria_teto" />
-                    <label>Avaria no teto</label>
-                  </div>
-                  <div class="linhasSubBloco1">
-                    <input type="checkbox" name="avaria_frente" />
-                    <label>Avaria na frente</label>
-                  </div>
-                  <div class="linhasSubBloco1">
-                    <input type="checkbox" name="sem_lacre" />
-                    <label>Sem lacre</label>
-                  </div>
-                  <div class="linhasSubBloco1">
-                    <input type="checkbox" name="adesivo_avaria" />
-                    <label>Adesivos avariados</label>
-                  </div>
-                </div>
-                <div class="subBloco2">
-                  <div class="linhasSubBloco2">
-                    <input type="checkbox" name="execesso_altura" />
-                    <label>Excesso de altura</label>
-                  </div>
-                  <div class="linhasSubBloco2">
-                    <input type="checkbox" name="execesso_direita" />
-                    <label>Excesso na direita</label>
-                  </div>
-                  <div class="linhasSubBloco2">
-                    <input type="checkbox" name="execesso_esquerda" />
-                    <label>Excesso na esquerda</label>
-                  </div>
-                  <div class="linhasSubBloco2">
-                    <input type="checkbox" name="execesso_frontal" />
-                    <label>Excesso frontal</label>
-                  </div>
-                  <div class="linhasSubBloco2">
-                    <input type="checkbox" name="painel_avaria" />
-                    <label>Painel avariado</label>
-                  </div>
-                  <div class="linhasSubBloco2">
-                    <input type="checkbox" name="sem_caboenergia" />
-                    <label>Sem cabo de energia</label>
-                  </div>
-                  <div class="linhasSubBloco2">
-                    <input type="checkbox" name="sem_lona" />
-                    <label>Sem lona</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div class="quadroBotao">
-          <input class="" id="pegar" type="submit" value="Enviar"/>
-          </form>
-        </div>
-     <?php 
-      } else {
-      
-      $conexao -> close();
-      echo "<div class='linhaErro'><p>Nenhum registro encontrado.</p></div> ";
-  }}}?>
+                $resultado = $conexao->query($sql);
+                
+                if($resultado->num_rows != 0)
+                {
+                    $row = $resultado -> fetch_array();
+                            echo '<div class="linhasBloco01">
+                            <label>Placa do caminhão:</label>
+                            <input type="text" name="placa_caminhao" placeholder="" disabled value=' . $row["placa_caminhao"].'>
+                          </div>';
+                            echo "<div class='linhasBloco01'>";
+                              echo "<label>Nome do motorista:</label>";
+                              echo "<input type='text' name='nome_motorista' placeholder='' disabled value=" . $row['nome_motorista'].">";
+                            echo "</div>";
+                            echo "<div class='linhasBloco01'>";
+                              echo "<label>Container:</label>";
+                              echo "<input type='text' name='container' placeholder='' disabled value=" . $row['container'].">";
+                            echo "</div>";
+                            echo "<div class='linhasBloco01'>";
+                              echo "<label>Cliente:</label>";
+                              echo "<input type='text' name='cliente' placeholder='' disabled value=" . $row['cliente'].">";
+                            echo "</div>";
+                            echo '<div class="linhasBloco01">';
+                              echo "<label>Tipo:</label>";
+                              echo '<input type="text" name="tipo" placeholder="" disabled value=' . $row["tipo"].">";
+                            echo "</div>";
+                            echo '<div class="linhasBloco01">';
+                              echo "<label>Lacre:</label>";
+                              echo '<input type="text" name="lacre" placeholder="" disabled value=' . $row["lacre"].">";
+                            echo "</div>";
+                            echo '<div class="linhasBloco01">';
+                              echo "<label>Lacre SIF:</label>";
+                              echo '<input type="text" name="lacre_sif" placeholder="" disabled value=' . $row["lacre_sif"].">";
+                            echo "</div>";
+                            echo '<div class="linhasBloco01">';
+                              echo "<label>Temperatura:</label>";
+                              echo '<input type="text" name="temperatura" placeholder="" disabled value=' . $row["temperatura"].">";
+                            echo '</div>';
+                            echo '<div class="linhasBloco01">';
+                              echo '<label>IMO:</label>';
+                              echo '<input type="text" name="IMO" placeholder="" disabled value=' . $row['IMO'].'>';
+                            echo '</div>';
+                            echo '<div class="linhasBloco01">';
+                              echo '<label>Nº ONU:</label>';
+                              echo '<input type="text" name="n_onu" placeholder="" disabled value=' . $row["n_onu"].">";
+                            echo '</div>';
+                          echo '</div>';
+                          ?>
+                          <div class="bloco02">
+                            <div class="bloco02Titulo">
+                              <p>Assinale se houver alguma avaria:</p>
+                            </div>
+                            <form class="form" method="POST" action="cadastroContainer.php">
+                              <input type="hidden" name="idPlaca" value="<?php echo $row['id'] ?>">
+                            <div class="bloco02Quadro">
+                              <div class="subBloco1">
+                                <div class="linhasSubBloco1">
+                                  <input type="checkbox" name="desgastado" />
+                                  <label>Container bem desgastado</label>
+                                </div>
+                                <div class="linhasSubBloco1">
+                                  <input type="checkbox" name="avaria_direita" />
+                                  <label>Avaria na lateral direita</label>
+                                </div>
+                                <div class="linhasSubBloco1">
+                                  <input type="checkbox" name="avaria_esquerda" />
+                                  <label>Avaria na lateral esquerda</label>
+                                </div>
+                                <div class="linhasSubBloco1">
+                                  <input type="checkbox" name="avaria_teto" />
+                                  <label>Avaria no teto</label>
+                                </div>
+                                <div class="linhasSubBloco1">
+                                  <input type="checkbox" name="avaria_frente" />
+                                  <label>Avaria na frente</label>
+                                </div>
+                                <div class="linhasSubBloco1">
+                                  <input type="checkbox" name="sem_lacre" />
+                                  <label>Sem lacre</label>
+                                </div>
+                                <div class="linhasSubBloco1">
+                                  <input type="checkbox" name="adesivo_avaria" />
+                                  <label>Adesivos avariados</label>
+                                </div>
+                              </div>
+                              <div class="subBloco2">
+                                <div class="linhasSubBloco2">
+                                  <input type="checkbox" name="execesso_altura" />
+                                  <label>Excesso de altura</label>
+                                </div>
+                                <div class="linhasSubBloco2">
+                                  <input type="checkbox" name="execesso_direita" />
+                                  <label>Excesso na direita</label>
+                                </div>
+                                <div class="linhasSubBloco2">
+                                  <input type="checkbox" name="execesso_esquerda" />
+                                  <label>Excesso na esquerda</label>
+                                </div>
+                                <div class="linhasSubBloco2">
+                                  <input type="checkbox" name="execesso_frontal" />
+                                  <label>Excesso frontal</label>
+                                </div>
+                                <div class="linhasSubBloco2">
+                                  <input type="checkbox" name="painel_avaria" />
+                                  <label>Painel avariado</label>
+                                </div>
+                                <div class="linhasSubBloco2">
+                                  <input type="checkbox" name="sem_caboenergia" />
+                                  <label>Sem cabo de energia</label>
+                                </div>
+                                <div class="linhasSubBloco2">
+                                  <input type="checkbox" name="sem_lona" />
+                                  <label>Sem lona</label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="quadroBotao">
+                        <input class="" id="pegar" type="submit" value="Enviar"/>
+                        </form>
+                      </div>
+                  <?php 
+                    } else {
+                    
+                    $conexao -> close();
+                    echo "<div class='linhaErro'><p>Nenhum registro encontrado.</p></div> ";
+                }}}?>
           
       </div>
     </div>

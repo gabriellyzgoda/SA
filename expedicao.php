@@ -199,22 +199,28 @@ if(!isset($_SESSION['email'])) {
               <p>Nº SOLICITAÇÃO</p>
             </div>
             <div class="expedicao">
-              <div class="linhaExpedicao">
-                <input type="text" id="" value="--">
-                <a href="expedicao2.php"><button>Abrir</button></a>
-              </div>
-              <div class="linhaExpedicao">
-                <input type="text" id="" value="--">
-                <a href="expedicao2.php"><button>Abrir</button></a>
-              </div>
-              <div class="linhaExpedicao">
-                <input type="text" id="" value="--">
-                <a href="expedicao2.php"><button>Abrir</button></a>
-              </div>
-              <div class="linhaExpedicao">
-                <input type="text" id="" value="--">
-                <a href="expedicao2.php"><button>Abrir</button></a>
-              </div>
+            <?php 
+                    $sql = "SELECT p.id, p.solicitacao, MAX(p.observacoes) AS observacoes
+                    FROM solicitacoes p
+                    GROUP BY p.solicitacao";
+                    $resultado = $conexao->query($sql);
+
+                    if ($resultado->num_rows > 0) {
+                        while ($row = $resultado->fetch_assoc()) {
+                            echo '<div class="linhaExpedicao">';
+                            echo '<input type="text" value="' . $row['solicitacao'] . '" readonly>';
+                            echo '<a href="expedicao2.php?id=' . $row['solicitacao'] . '"><button>Abrir</button></a>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<div class="expedicao">';
+                        echo '<p>Nenhuma solicitação encontrada.</p>';
+                        echo '</div>';
+                    }
+
+                    // Fecha a conexão
+                    $conexao->close();
+                    ?>
             </div>
           </div>
         </div>
