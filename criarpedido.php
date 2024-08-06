@@ -218,7 +218,7 @@ if(!isset($_SESSION['email'])) {
                           <td><input type="text" name="produto" required></td>
                           <td><input type="text" name="unidades" required></td>
                           <td><input type="number" name="quantidade1" id="quantidade1" onchange="calcularTotal()" required></td>
-                          <td><input type="text" name="valor1" id="valor1" onchange="calcularTotal()" required></td>
+                          <td><input type="number" name="valor1" id="valor1" onchange="calcularTotal()" required></td>
                           <td><input type="number" name="ncm" required></td>
                           <td><input type="number" name="cst" required></td>
                           <td><input type="number" name="cfop" required></td>
@@ -229,7 +229,7 @@ if(!isset($_SESSION['email'])) {
                           <td><input type="text" name="produto2" required></td>
                           <td><input type="text" name="unidades2" required></td>
                           <td><input type="number" name="quantidade2" id="quantidade2" onchange="calcularTotal()" required></td>
-                          <td><input type="text" name="valor2" id="valor2" onchange="calcularTotal()" required></td>
+                          <td><input type="number" name="valor2" id="valor2" onchange="calcularTotal()" required></td>
                           <td><input type="number" name="ncm2" required></td>
                           <td><input type="number" name="cst2" required></td>
                           <td><input type="number" name="cfop2" required></td>
@@ -240,7 +240,7 @@ if(!isset($_SESSION['email'])) {
                           <td><input type="text" name="produto3" required></td>
                           <td><input type="text" name="unidades3" required></td>
                           <td><input type="number" name="quantidade3" id="quantidade3" onchange="calcularTotal()" required></td>
-                          <td><input type="text" name="valor3" id="valor3" onchange="calcularTotal()" required></td>
+                          <td><input type="number" name="valor3" id="valor3" onchange="calcularTotal()" required></td>
                           <td><input type="number" name="ncm3" required></td>
                           <td><input type="number" name="cst3" required></td>
                           <td><input type="number" name="cfop3" required></td>
@@ -251,7 +251,7 @@ if(!isset($_SESSION['email'])) {
                           <td><input type="text" name="produto4" required></td>
                           <td><input type="text" name="unidades4" required></td>
                           <td><input type="number" name="quantidade4" id="quantidade4" onchange="calcularTotal()" required></td>
-                          <td><input type="text" name="valor4" id="valor4" onchange="calcularTotal()" required></td>
+                          <td><input type="number" name="valor4" id="valor4" onchange="calcularTotal()" required></td>
                           <td><input type="number" name="ncm4" required></td>
                           <td><input type="number" name="cst4" required></td>
                           <td><input type="number" name="cfop4" required></td>
