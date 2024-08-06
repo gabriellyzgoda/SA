@@ -264,8 +264,7 @@ if(!isset($_SESSION['email'])) {
                                   <td><input id="selecionar" type="checkbox" name="select_'.$index.'" value="'.$row['id'].'"></td>
                           </tr>';
                           $index++;
-                      }}}
-                  }
+                      }
                   ?>
               </tbody>
               </table> 
@@ -274,6 +273,10 @@ if(!isset($_SESSION['email'])) {
               <button type="submit">Finalizar Picking</button>
             </div>
             </form>
+            <?php
+            }}}
+          
+          ?>
           </div>
         </div>
     </div>
