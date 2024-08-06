@@ -189,67 +189,67 @@ if(!isset($_SESSION['email'])) {
         </li>
               
       </ul><!--Fecha ul-->
-    </div>        
-    <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1>Expedição 2</h1>
+    </div>  
+        <?php
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+            // Evita caracteres especiais (SQL Inject)
+            $id = $conexao->real_escape_string($id);
+
+            // Consulta para buscar a solicitação e os produtos associados
+            $sql = "SELECT * FROM solicitacoes WHERE solicitacao = '$id' AND posicao != ''";
+            $resultado = $conexao->query($sql);
+
+            if ($resultado && $resultado->num_rows > 0) {
+                echo '<div class="titulo-conteudo">
+                        <h1>Solicitação nº  '.$id.'</h1>
+                    </div>';
+                echo '<div class="conteudo">
+                      <div class="linhaExpedicao">
+                       <div class="quadroExpedicao"><div class="linha02">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Produtos da Solicitação</th>
+                                    <th>UN</th>
+                                    <th>QTD</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>';
+
+                while ($row = $resultado->fetch_assoc()) {
+                    echo '<form class="form" method="post" action="atualizarExpedicao.php" id="formlogin" name="formlogin">
+                            <tr>
+                            <td><input type="text" name="produto" value="' . htmlspecialchars($row['produto']) . '" readonly></td>
+                            <td><input type="text" name="unidades" value="' . htmlspecialchars($row['unidades']) . '" readonly></td>
+                            <td><input type="text" name="quantidades" value="' . htmlspecialchars($row['quantidades']) . '" readonly></td>
+                        <td><input type="checkbox" name="ids[]" value="' . htmlspecialchars($row['id']) . '"></td>
+                        </tr>';
+                }
+
+                echo '</tbody>
+                    </table>
+                </div>';
+
+                echo '<div class="linha03">
+                        <label>Enviado para qual doca de saída?</label>
+                        <input type="number" id="doca" name="doca" value"" required>
+                    </div>
+                    <div class="linha04">
+                            <input type="submit" value="OK">
+                        </form>
+                    </div>
+                    <a href="expedicao.php"><button>Voltar</button></a>';
+            } else {
+                echo '<p>Nenhuma solicitação encontrada ou todos os produtos não têm posição.</p>';
+            }
+        } 
+        ?>
         </div>
-        <div class="linhaExpedicao">
-          <div class="quadroExpedicao">
-            <div class="linha01">
-              <label>Solicitação nº:</label>
-              <input type="text" name="" placeholder="">
-            </div>
-            <div class="linha02">
-              <table>
-                <thead>
-                  <tr>
-                      <th>Produtos da Solicitação</th>
-                      <th>UN</th>
-                      <th>QTD</th>  
-                      <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <form class="form" method="post" action="" id="formlogin" name="formlogin" >
-                    <tr>
-                        <td><input type="text" name="operacao" placeholder=""></td>
-                        <td><input type="text" name="un" placeholder=""></td>
-                        <td><input type="text" name="qtd" placeholder=""></td>
-                        <td><input class="" id="OK" type="submit" value="OK"/></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="operacao" placeholder=""></td>
-                        <td><input type="text" name="un" placeholder=""></td>
-                        <td><input type="text" name="qtd" placeholder=""></td>
-                        <td><input class="" id="OK" type="submit" value="OK"/></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="operacao" placeholder=""></td>
-                        <td><input type="text" name="un" placeholder=""></td>
-                        <td><input type="text" name="qtd" placeholder=""></td>
-                        <td><input class="" id="OK" type="submit" value="OK"/></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="operacao" placeholder=""></td>
-                        <td><input type="text" name="un" placeholder=""></td>
-                        <td><input type="text" name="qtd" placeholder=""></td>
-                        <td><input class="" id="OK" type="submit" value="OK"/></td>
-                    </tr>
-                </tbody>
-              </table> 
-            </div>
-            <div class="linha03">
-              <label>Enviado para qual doca de saída?</label>
-              <input type="number" name="" placeholder="">
-            </div>
-            <div class="linha04">
-            <input type="submit" id="" value="Pedido OK na doca">
-            </div>
-          </div>
-        </div>
-        
     </div>
+</div>
 <?php
 include_once('footer.php');
 ?>
