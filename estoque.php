@@ -237,10 +237,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="linhasBloco01">
           <form id="formPlaca" class="form" method="POST" action="estoque.php">
             <div class="linhaPesquisa">
-              <input type="text" name="produto" id="produto" autocomplete="on" placeholder="Pesquise um produto">
+              <input type="text" name="produto" id="produto"  placeholder="Pesquise um produto">
               <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-            <div id="suggestions" class="suggestions"></div>
           </form>
         </div>
         <?php
