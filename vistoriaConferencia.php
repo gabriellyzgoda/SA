@@ -197,7 +197,7 @@ if(!isset($_SESSION['email'])) {
         <div class="linhaDocas">
         <div class="quadroDocas">
             <div class="tituloDocas">
-            <p class="p1">Nº DO PEDIDO</p>
+            <p class="p1">Nº DA SOLICITAÇÃO</p>
             <P class="p2">DOCA</P>
             </div>
             <div class="quadroConteudoDocas">
