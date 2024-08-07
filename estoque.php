@@ -235,22 +235,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="linhaE">
       <div class="blocoE1">
         <div class="linhasBloco01">
-          <label>Pesquise um produto:</label>
           <form id="formPlaca" class="form" method="POST" action="estoque.php">
-            <input type="text" name="produto" id="produto" autocomplete="on">
-            <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <div class="linhaPesquisa">
+              <input type="text" name="produto" id="produto" autocomplete="on" placeholder="Pesquise um produto">
+              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
             <div id="suggestions" class="suggestions"></div>
-            <br>
-            <br>
           </form>
         </div>
         <?php
         if (!empty($produtosFiltrados)) : ?>
           <?php foreach ($produtosFiltrados as $posicao => $produtos) : ?>
-            <div>
+            <div class="linhaResultado">
               <?php foreach ($produtos as $produtoData) : ?>
-                <p>Produto: <?php echo htmlspecialchars($produtoData['produto']); ?><br>
-                  Quantidades: <?php echo htmlspecialchars($produtoData['quantidades']); ?></p>
+                <p>Produto: <?php echo htmlspecialchars($produtoData['produto']); ?></p>
+                <p>Quantidades: <?php echo htmlspecialchars($produtoData['quantidades']); ?></p>
                 <h4>Posição: <?php echo htmlspecialchars($posicao); ?></h4>
               <?php endforeach; ?>
             </div>
@@ -258,30 +257,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <?php endif; ?>
       </div>
       <div class="blocoE2">
+        <div class="tituloE2">
+          <p>Posições</p>
+        </div>
         <div class="button-container">
-          <!-- Linha 1 - Posições A -->
-          <div class="button-row">
+          <!-- Linha  1 - Posições A -->
+          <div id="button-row1" class="button-row">
             <button id="A1">A1</button>
             <button id="A2">A2</button>
             <button id="A3">A3</button>
             <button id="A4">A4</button>
           </div>
           <!-- Linha 2 - Posições B -->
-          <div class="button-row">
+          <div id="button-row2" class="button-row">
             <button id="B1">B1</button>
             <button id="B2">B2</button>
             <button id="B3">B3</button>
             <button id="B4">B4</button>
           </div>
           <!-- Linha 3 - Posições C -->
-          <div class="button-row">
+          <div id="button-row3" class="button-row">
             <button id="C1">C1</button>
             <button id="C2">C2</button>
             <button id="C3">C3</button>
             <button id="C4">C4</button>
           </div>
           <!-- Linha 4 - Posições D -->
-          <div class="button-row">
+          <div id="button-row4" class="button-row">
             <button id="D1">D1</button>
             <button id="D2">D2</button>
             <button id="D3">D3</button>

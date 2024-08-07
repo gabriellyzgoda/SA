@@ -2,36 +2,135 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: start;
 }
 
 .blocoE1 {
     width: 400px;
     display: flex;
-    justify-content: center;
+    justify-content: top;
+    flex-direction: column;
+    align-items: center;
+}
+
+.linhaPesquisa {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+
 }
 
 .blocoE2 {
     width: 400px;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
+.blocoE2 .tituloE2 {
+    margin-bottom: 10px;
+}
+
+.blocoE2 .tituloE2 p {
+    font-size: 25px;
+    font-family: "League Spartan", sans-serif;
+    color: #185CA9;
+    font-weight: 700;
+    border: none;
+}
+
+
+.blocoE2 .button-container {
+    background-color: #c0e1fc;
+    border: 10px solid #d9edfd;
+    border-radius: 30px;
+    padding: 15px 20px;
+}
 
 .button-row button {
     width: 50px;
-    height: 40px;
-    font-size: 18px;
+    height: 35px;
+    font-size: 20px;
     font-family: "League Spartan", sans-serif;
-    color: #fff;
+    color: #185CA9 ;
     font-weight: 600;
     border: none;
     border-radius: 10px;
+    margin-right: 10px;
+}
+
+#button-row1, #button-row2, #button-row3  {
+    margin-bottom: 10px;
+}
+
+#A4, #B4, #C4, #D4 {
+    margin-right: 0px;
 }
 
 button.desmarcado {
-    background-color: #718fc3; /* Cor padrão para os botões não destacados */
+    background-color: #fff; /* Cor padrão para os botões não destacados */
 }
 
 button.destaque {
-    background-color: #185CA9; /* Cor mais escura para o botão destacado */
+    background-color: #185CA9;
+    color: #fff; /* Cor mais escura para o botão destacado */
 }
+
+.linhasBloco01 button {
+    width: 45px;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #185ca9c7;
+    background-color: #fff;
+}
+
+.linhasBloco01 button i {
+    font-size: 20px;
+    color: #185CA9;
+    
+}
+
+#produto {
+    width: 230px;
+    height: auto;
+    padding: 10px 10px;
+    border: none;
+    border-bottom: 2px solid #185ca9c7;
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    color: #185CA9 ;
+    font-weight: 600;
+}
+
+#produto::placeholder {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    color: #185CA9 ;
+    font-weight: 600;
+}
+
+.linhaResultado {
+    width: 300px;
+    margin-top: 30px;
+}
+
+.linhaResultado p {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    color: #185CA9 ;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.linhaResultado h4 {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    color: #185CA9 ;
+    font-weight: 700;
+    margin-bottom: 0px;
+}
+
+
+
