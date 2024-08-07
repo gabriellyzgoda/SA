@@ -151,6 +151,7 @@ if (!isset($_SESSION['email'])) {
 
         <ul class="sub-menu">
           <li><a class="link_name" href="expedicao.php">Expedição</a></li>
+          <li><a class="link_name" href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
         </ul>
 
       </li>
@@ -169,13 +170,12 @@ if (!isset($_SESSION['email'])) {
         </div>
 
         <ul class="sub-menu">
-
-          <li><a class="link_name" href="#">Controle</a></li>
-
-          <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-          <li><a href="designarprodutos.php">Designar Produtos</a></li>
-
-        </ul>
+            
+            <li><a class="link_name" href="#">Controle</a></li>
+            
+            <li><a href="controleSolicitacoes.php">Solicitações</a></li>
+          
+          </ul>
 
       </li>
       <li>

@@ -149,6 +149,7 @@ if(!isset($_SESSION['email'])) {
           
           <ul class="sub-menu">
             <li><a class="link_name" href="expedicao.php">Expedição</a></li>
+            <li><a class="link_name" href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
           </ul>
 
         </li>
@@ -171,7 +172,6 @@ if(!isset($_SESSION['email'])) {
             <li><a class="link_name" href="#">Controle</a></li>
             
             <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-          <li><a href="designarprodutos.php">Designar Produtos</a></li>
           
           </ul>
           
@@ -192,7 +192,7 @@ if(!isset($_SESSION['email'])) {
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1> Solicitações dos Clientes</h1>
+         <h1> Controle de Solicitações</h1>
         </div>
         <div class="linhaControle">
           <div class="quadroCS">
@@ -204,7 +204,6 @@ if(!isset($_SESSION['email'])) {
             <div class="CS">
             
             <?php
-            // Consulta SQL para agrupar os pedidos e exibir apenas um por número de pedido
                 $sql = "SELECT 
                         solicitacao,
                         MAX(id) as id,
@@ -216,10 +215,10 @@ if(!isset($_SESSION['email'])) {
                 $resultado = $conexao->query($sql);
 
                 if ($resultado->num_rows > 0) {
-                  while ($pedido = mysqli_fetch_assoc($resultado)) {
+                  while ($row = mysqli_fetch_assoc($resultado)) {
                     echo'<div class="linhaCS">
-                    <input type="text" id="" value=' . $pedido['solicitacao'] . '>
-                    <a href=""><button>Abrir</button></a>
+                    <input type="text" id="" value=' . $row['solicitacao'] . '>
+                    <a href="verSolicitacao.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
                     </div>';
                 }}
         ?>

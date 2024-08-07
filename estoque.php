@@ -187,6 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <ul class="sub-menu">
           <li><a class="link_name" href="expedicao.php">Expedição</a></li>
+          <li><a class="link_name" href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
         </ul>
 
       </li>

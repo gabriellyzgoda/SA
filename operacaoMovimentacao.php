@@ -178,6 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           
           <ul class="sub-menu">
             <li><a class="link_name" href="expedicao.php">Expedição</a></li>
+            <li><a class="link_name" href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
           </ul>
 
         </li>
@@ -200,12 +201,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <li><a class="link_name" href="#">Controle</a></li>
             
             <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-          <li><a href="designarprodutos.php">Designar Produtos</a></li>
           
           </ul>
           
         </li>
-        
+        <li>
+        <a href="relatorios.php">
+          <i class="fa-solid fa-file"></i>
+          <span class="link_name">Relatório</span>
+        </a>
+
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="relatorios.php">Relatório</a></li>
+        </ul>
+      </li>
               
       </ul><!--Fecha ul-->
     </div> 

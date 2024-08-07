@@ -181,6 +181,7 @@ $conexao->close();
           
           <ul class="sub-menu">
             <li><a class="link_name" href="expedicao.php">Expedição</a></li>
+            <li><a class="link_name" href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
           </ul>
 
         </li>
@@ -203,7 +204,6 @@ $conexao->close();
             <li><a class="link_name" href="#">Controle</a></li>
             
             <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-          <li><a href="designarprodutos.php">Designar Produtos</a></li>
           
           </ul>
           

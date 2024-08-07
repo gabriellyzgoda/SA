@@ -3,20 +3,11 @@
 <?php
 session_start();
 include_once('config.php');
-
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
     exit;
 }
-$sql = "SELECT * FROM cadastro
-WHERE professor = 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
-$_SESSION["cargo"]= $row[2];
 ?>
 <head>
     <meta charset="UTF-8">
@@ -25,7 +16,7 @@ $_SESSION["cargo"]= $row[2];
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="estiloRelatorios.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloPedido.css" media="screen"/>
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -49,21 +40,21 @@ $_SESSION["cargo"]= $row[2];
             <div class="dropdown-content">
               <div class="dropdown-section">
                 <h4>Nome:</h4>
-                <p><?php echo $row['nome'];?></p>
+                <p><?php echo $_SESSION['nome'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Email:</h4>
-                <p><?php echo $row['email'];?></p>
+                <p><?php echo $_SESSION['email'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
-                <p><?php echo $row['cargo'];?></p>
+                <p><?php echo $_SESSION['cargo'];?></p>
               </div>
             </div>
           </div>
-          <a href="index.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+          <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
         </div>
-</header>
+    </header>
     <div class="sidebar close">
       
       <div class="logo-details">
@@ -195,73 +186,70 @@ $_SESSION["cargo"]= $row[2];
             <li><a class="link_name" href="relatorios.php">Relatório</a></li>
           </ul>
         </li>
+
               
       </ul><!--Fecha ul-->
-    </div>        
+    </div>      
     <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1>Relatório</h1>
-        </div>
-        <div class="linhaR">
-          <div class="quadroR">
-            <div class="linha01">
-              <form method="POST" action="">
-                <label for="tabela">Selecione uma tabela:</label>
-                <select name="tabela" id="tabela">
-                    <?php
-                    // Consulta SQL para listar todas as tabelas do banco de dados
-                    $sql = "SHOW TABLES";
-                    $resultado = $conexao->query($sql);
-
-                    // Verifica se há resultados
-                    if ($resultado->num_rows > 0) {
-                        while ($row = $resultado->fetch_array()) {
-                            $tabela_selecionada = isset($_POST['tabela']) ? $_POST['tabela'] : '';
-                            $selected = ($row[0] == $tabela_selecionada) ? 'selected' : '';
-                            echo "<option value='" . $row[0] . "' $selected>" . $row[0] . "</option>";
-                        }
-                    } else {
-                        echo "<option value=''>Nenhuma tabela encontrada</option>";
-                    }
-                    ?>
-                </select>
-                <button type="submit">OK</button>
-              </form>
-            </div>
+    <div class="titulo-conteudo">    
+        <?php
+            if (isset($_GET['solicitacao'])) {
+                $solicitacao = $_GET['solicitacao'];
             
-
-          <?php
-              // Exibir os dados da tabela selecionada
-              if (isset($_POST['tabela'])) {
-                  $tabela = $_POST['tabela'];
-                  $sql = "SELECT * FROM $tabela";
-                  $resultado = $conexao->query($sql);
-
-                  if ($resultado->num_rows > 0) {
-                      echo "<div class='linha02'><div class='quadroTabela'><table border='1'>";
-                      echo "<tr>";
-                      $fields = $resultado->fetch_fields();
-                      foreach ($fields as $field) {
-                          echo "<th>" . $field->name . "</th>";
-                      }
-                      echo "</tr>";
-
-                      while ($row = $resultado->fetch_assoc()) {
-                          echo "<tr>";
-                          foreach ($row as $value) {
-                              echo "<td>" . $value . "</td>";
-                          }
-                          echo "</tr>";
-                      }
-                      echo "</table></div></div>";
-                  } else {
-                      echo "<div class='semDados'><p>Nenhum dado encontrado na tabela $tabela.</p></div>";
-                  }
-              }
-              ?>
-          </div>
+                $sql = "SELECT * FROM solicitacoes 
+                        WHERE solicitacao = '$solicitacao'";
+                
+                $resultado = $conexao->query($sql);
+                
+            } 
+                    if (isset($solicitacao)) {
+                        echo "<h1>Solicitação nº $solicitacao</h1>";
+                    }
+        ?>
+    </div>
+    <div class="borda-quadro">
+        <div class="borda">
+            <div class="quadro-pedidos">
+                <div class="titulo-quadro-pedidos"><p>Solicitações</p></div>
+                <?php
+                if ($resultado && $resultado->num_rows > 0) {
+                    $contador = 1; // Inicia o contador para a numeração fictícia de 1 a 4
+                    while ($result = $resultado -> fetch_array()) {
+                ?>
+                <div class="produto">
+                    <div class="linha1">
+                        <div class="quadrado-numero"><p><?php echo $contador; ?></p></div>
+                        <input type="text" name="produto" value="<?php echo $result['produto']; ?>" disabled>
+                    </div>
+                    <div class="linha2">
+                        <div class="bloco">
+                            <label>UN</label>
+                            <input type="text" name="unidades" value="<?php echo $result['unidades']; ?>" disabled>
+                        </div>
+                        <div class="bloco">
+                            <label>QTD</label>
+                            <input type="text" name="quantidades" value="<?php echo $result['quantidades']; ?>" disabled>
+                        </div>
+                        <div class="bloco">
+                            <label>R$/Un</label>
+                            <input type="text" name="valor" value="R$ <?php echo $result['valor']; ?>" disabled>
+                        </div>
+                    </div>
+                </div>
+                <?php
+                    $contador++; // Incrementa o contador para a próxima numeração fictícia
+                    }
+                } else {
+                    echo "<p>Erro na consulta: " . $conexao->error . "</p>";
+                    }
+                ?>
+                <div class="linhaFinal">
+                    <a href="controleSolicitacoes.php"><button>Voltar</button></a>
+                </div>
+            </div>
         </div>
     </div>
+</div>
 <?php
 include_once('footer.php');
 ?>
