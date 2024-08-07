@@ -224,7 +224,7 @@ if(!isset($_SESSION['email'])) {
                         <div class="bloco02">
                             <div class="linha02">
                                 <input type="text" name="doca" value="' . $row['doca'] . '" readonly>
-                                <a href="verSolicitacao.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
+                                <a href="verVistoria.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
                             </div>
                         </div>
                     </div>';
