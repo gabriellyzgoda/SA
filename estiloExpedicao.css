@@ -68,3 +68,11 @@
     background-color: #718fc3;
     transition: all 0.3s ease;
 }
+
+.nenhumaExpedicao p {
+    text-align: center;
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    color: #185CA9 ;
+    font-weight: 600;
+}

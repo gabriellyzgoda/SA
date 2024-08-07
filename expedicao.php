@@ -213,7 +213,7 @@ if(!isset($_SESSION['email'])) {
                             echo '</div>';
                         }
                     } else {
-                        echo '<div class="expedicao">';
+                        echo '<div class="nenhumaExpedicao">';
                         echo '<p>Nenhuma solicitação encontrada.</p>';
                         echo '</div>';
                     }
