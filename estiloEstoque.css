@@ -112,7 +112,7 @@ button.destaque {
 }
 
 .linhaResultado {
-    width: 300px;
+    width: 270px;
     margin-top: 30px;
 }
 
@@ -136,6 +136,7 @@ button.destaque {
     height: 400px;
     overflow-y: scroll;
     display: block;
+    width: 295px;
 }
 
 

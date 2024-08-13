@@ -164,24 +164,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         </li>
 
-        <li>
+         <li>
+        
+        <div class="iocn-link">
+        
+          <a href="expedicao.php">
+          <i class="fa-solid fa-truck-fast"></i>
+            <span class="link_name">Expedição</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
           
-          <div class="iocn-link">
-          
-            <a href="expedicao.php">
-            <i class="fa-solid fa-truck-fast"></i>
-              <span class="link_name">Expedição</span>
-            </a>
-            
-            
-          </div>
-          
-          <ul class="sub-menu">
-            <li><a class="link_name" href="expedicao.php">Expedição</a></li>
-            <li><a class="link_name" href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
-          </ul>
+        </div>
+        
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Expedição</a></li>
+          <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
+          <li><a href="expedicao.php">Expedição</a></li>
+        </ul>
 
-        </li>
+      </li>
         
         <li>
           
