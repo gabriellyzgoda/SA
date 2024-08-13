@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         <div class="iocn-link">
         
-          <a href="expedicao.php">
+          <a href="#">
           <i class="fa-solid fa-truck-fast"></i>
             <span class="link_name">Expedição</span>
           </a>

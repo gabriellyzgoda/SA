@@ -1,0 +1,69 @@
+.faixa {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.blocoVistoria {
+    background-color: #c1e1fc;
+    border: 20px solid #dbedfe;
+    border-radius: 30px;
+    height: auto;
+    width: auto;
+    padding: 30px 40px;
+}
+.linha01 {
+    width: auto;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.linha02 {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.linha02 button {
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    background-color: #85C4F9;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.linha02 button:hover {
+    background-color: #718fc3;
+  transition: all 0.3s ease;
+}
+
+table thead th {
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    color: #2563ae;
+    font-weight: 600;
+}
+
+table td input {
+    border: none;
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    padding: 4px 10px;
+    text-align: center;
+}
+
+table td:nth-child(1) input {
+    text-align: start;
+    width: 200px; 
+}
+
+table td:nth-child(2) input {
+    width: 50px; 
+}
+
+table td:nth-child(3) input {
+    width: 50px; 
+}
