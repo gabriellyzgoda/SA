@@ -237,23 +237,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="linhasBloco01">
           <form id="formPlaca" class="form" method="POST" action="estoque.php">
             <div class="linhaPesquisa">
-              <input type="text" name="produto" id="produto"  placeholder="Pesquise um produto">
+              <input type="text" name="produto" id="produto" placeholder="Pesquise um produto">
               <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
           </form>
         </div>
-        <?php
-        if (!empty($produtosFiltrados)) : ?>
-          <?php foreach ($produtosFiltrados as $posicao => $produtos) : ?>
-            <div class="linhaResultado">
-              <?php foreach ($produtos as $produtoData) : ?>
-                <p>Produto: <?php echo htmlspecialchars($produtoData['produto']); ?></p>
-                <p>Quantidades: <?php echo htmlspecialchars($produtoData['quantidades']); ?></p>
-                <h4>Posição: <?php echo htmlspecialchars($posicao); ?></h4>
-              <?php endforeach; ?>
-            </div>
-          <?php endforeach; ?>
-        <?php endif; ?>
+        <div class="resultado">
+          <?php
+          if (!empty($produtosFiltrados)) : ?>
+            <?php foreach ($produtosFiltrados as $posicao => $produtos) : ?>
+              <div class="linhaResultado">
+                <?php foreach ($produtos as $produtoData) : ?>
+                  <p>Produto: <?php echo htmlspecialchars($produtoData['produto']); ?></p>
+                  <p>Quantidades: <?php echo htmlspecialchars($produtoData['quantidades']); ?></p>
+                  <h4>Posição: <?php echo htmlspecialchars($posicao); ?></h4>
+                <?php endforeach; ?>
+              </div>
+            <?php endforeach; ?>
+          <?php endif; ?>
+        </div>
       </div>
       <div class="blocoE2">
         <div class="tituloE2">

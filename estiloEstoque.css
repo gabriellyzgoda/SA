@@ -132,7 +132,11 @@ button.destaque {
     margin-bottom: 10px;
 }
 
-
+.resultado {
+    height: 400px;
+    overflow-y: scroll;
+    display: block;
+}
 
 
 
