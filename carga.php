@@ -231,18 +231,10 @@ $conexao->close();
             <form id="formPlaca" class="form" method="POST" action="carga.php">
                 <div class="linha01">
                     <div class="linha01-01">
-                        <label>Nota Fiscal:</label>
-                        <input type="text" name="notafiscal" placeholder="">
-                    </div>
-                    <div class="linha01-02">
-                        <label>Doca:</label>
-                        <input type="text" name="doca" placeholder="">
-                    </div>
-                    <div class="linha01-03">
                         <label>Pedido de compra:</label>
                         <input type="text" name="pedido" placeholder="">
                     </div>
-                    <div class="linha01-04">
+                    <div class="linha01-02">
                       <button type="submit" name="verificar">OK</button>
                     </div>
                 </div>
@@ -250,6 +242,14 @@ $conexao->close();
             </form>
 
             <?php if ($mostrarProdutos): ?>
+              <div class="linha01-03">
+                        <label>Nota Fiscal:</label>
+                        <input type="text" name="notafiscal" value="">
+                    </div>
+                    <div class="linha01-04">
+                        <label>Doca:</label>
+                        <input type="text" name="doca" value="">
+                    </div>
                 <div class="linha03">
                     <div class="quadroProdutos">
                         <div class="tituloQuadroProdutos">

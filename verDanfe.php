@@ -83,12 +83,12 @@ if (!isset($_SESSION['email'])) {
         </div>
 
         <ul class="sub-menu">
-
-          <li><a class="link_name" href="#">Pedidos</a></li>
-          <li><a href="meuspedidos.php">Meus pedidos</a></li>
-          <li><a href="criarpedido.php">Criar pedido</a></li>
-
-        </ul>
+            
+            <li><a class="link_name" href="#">Pedidos</a></li>
+            <li><a href="criarpedido.php">Criar pedido</a></li>
+            <li><a href="meuspedidos.php">Meus pedidos</a></li>
+          
+          </ul>
 
       </li>
 
@@ -195,7 +195,7 @@ if (!isset($_SESSION['email'])) {
 
     if ($resultado && $resultado->num_rows > 0) {
         $row = $resultado->fetch_array();
-        if($row['operacao'] == 1){
+        if($row['operacao'] == 0){
           $operacao = 'Saída';
         }else{
           $operacao = 'Entrada';

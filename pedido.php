@@ -72,10 +72,12 @@ if (!isset($_SESSION['email'])) {
                 <i class='bx bxs-chevron-down arrow' ></i>
             </div>
             <ul class="sub-menu">
-                <li><a class="link_name" href="#">Pedidos</a></li>
-                <li><a href="meuspedidos.php">Meus pedidos</a></li>
-                <li><a href="criarpedido.php">Criar pedido</a></li>
-            </ul>
+            
+            <li><a class="link_name" href="#">Pedidos</a></li>
+            <li><a href="criarpedido.php">Criar pedido</a></li>
+            <li><a href="meuspedidos.php">Meus pedidos</a></li>
+          
+          </ul>
         </li>
         <li>
             <div class="iocn-link">

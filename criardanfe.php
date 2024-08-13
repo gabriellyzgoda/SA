@@ -87,12 +87,12 @@ $resultado = $conexao->query($sql);
         </div>
 
         <ul class="sub-menu">
-
-          <li><a class="link_name" href="#">Pedidos</a></li>
-          <li><a href="meuspedidos.php">Meus pedidos</a></li>
-          <li><a href="criarpedido.php">Criar pedido</a></li>
-
-        </ul>
+            
+            <li><a class="link_name" href="#">Pedidos</a></li>
+            <li><a href="criarpedido.php">Criar pedido</a></li>
+            <li><a href="meuspedidos.php">Meus pedidos</a></li>
+          
+          </ul>
 
       </li>
 
@@ -256,8 +256,6 @@ $resultado = $conexao->query($sql);
               <div class="Bloco1-2">
                 <div class="bloco12-linha1"><label>Operação:</label></div>
                 <div class="bloco12-linha2">
-                  <input type="checkbox" id="saida" name="saida" />
-                  <label>Saída</label>
                   <input type="checkbox" id="entrada" name="entrada" />
                   <label>Entrada</label>
                 </div>
@@ -273,24 +271,24 @@ $resultado = $conexao->query($sql);
             </div>
           </div>
           <div class="titulo-destinatario">
-            <h2>DESTINATÁRIO</h2>
+            <h2>REMETENTE</h2>
           </div>
           <div class="nome-destinatario">
             <label>Nome/Razão social:</label>
-            <input type="text" name="razao_nome" value="SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI" disabled>
+            <input type="text" name="razao_nome" value="SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI" readonly>
           </div>
           <div class="informacoes-destinatario">
             <div class="destinatarioBloco1">
               <label>CNPJ:</label>
-              <input type="text" name="cnpjd" value="33564543 0001 90" disabled>
+              <input type="text" name="cnpjd" value="33564543 0001 90" readonly>
             </div>
             <div class="destinatarioBloco2">
               <label>Inscrição Estadual:</label>
-              <input type="text" name="ie" value="03.851.105/0001-42" disabled>
+              <input type="text" name="ie" value="03.851.105/0001-42" readonly>
             </div>
             <div class="destinatarioBloco3">
               <label>Valor total da nota:</label>
-              <input type="text" name="total" disabled value="<?php echo $row['totalcompra'] ?>">
+              <input type="text" name="total" readonly value="<?php echo $row['totalcompra'] ?>">
             </div>
             
       <div class="destinatarioBloco4">

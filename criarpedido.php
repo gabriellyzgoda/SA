@@ -84,8 +84,8 @@ if(!isset($_SESSION['email'])) {
           <ul class="sub-menu">
             
             <li><a class="link_name" href="#">Pedidos</a></li>
-            <li><a href="meuspedidos.php">Meus pedidos</a></li>
             <li><a href="criarpedido.php">Criar pedido</a></li>
+            <li><a href="meuspedidos.php">Meus pedidos</a></li>
           
           </ul>
           
