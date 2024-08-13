@@ -126,13 +126,12 @@ $resultado = $conexao->query($sql);
             <i class="fa-solid fa-warehouse"></i>
               <span class="link_name">Controle</span>
             </a>
-            
+            <!-- #region -->
             <i class='bx bxs-chevron-down arrow' ></i>
           
           </div>
 
           <ul class="sub-menu ">
-            <li><a class="link_name" href="controleP.php">Controle</a></li>
             <li><a href="containerP.php">Container</a></li>
 
           </ul>
