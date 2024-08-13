@@ -243,7 +243,9 @@ if(!isset($_SESSION['email'])) {
                     </div>
                     <a href="expedicao.php"><button>Voltar</button></a>';
             } else {
+                echo '<div class="senao">';
                 echo '<p>Nenhuma solicitação encontrada ou todos os produtos não têm posição.</p>';
+                echo '</div>';
             }
         } 
         ?>

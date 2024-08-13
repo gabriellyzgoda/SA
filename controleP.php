@@ -126,7 +126,6 @@ if(!isset($_SESSION['email'])) {
 
           <ul class="sub-menu ">
             <li><a class="link_name" href="controleP.php">Controle</a></li>
-            <li><a href="controleP.php">Controle</a></li>
             <li><a href="containerP.php">Container</a></li>
 
           </ul>

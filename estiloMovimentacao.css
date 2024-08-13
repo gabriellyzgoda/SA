@@ -30,6 +30,20 @@ td:nth-child(4) input{
     width: 100px;
 }
 
+td:nth-child(5) input{
+    height:auto;
+    padding: 5px 15px;
+    margin-right: 0px;
+    border: none;
+    background-color: #85C4F9;
+    color:#fff;
+    border-radius: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
 tbody td {
     padding-bottom: 20px;
 }
@@ -104,3 +118,4 @@ tbody td #pegar:hover {
     margin-right: 0px;
     margin: 0px 25px 0px 15px;
 }
+

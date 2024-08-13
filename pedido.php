@@ -105,7 +105,6 @@ if (!isset($_SESSION['email'])) {
 
           <ul class="sub-menu ">
             <li><a class="link_name" href="controleP.php">Controle</a></li>
-            <li><a href="controleP.php">Controle</a></li>
             <li><a href="containerP.php">Container</a></li>
 
           </ul>
@@ -176,42 +175,44 @@ if (!isset($_SESSION['email'])) {
         <div class="borda">
             <div class="quadro-pedidos">
                 <div class="titulo-quadro-pedidos"><p>Produtos</p></div>
-                <?php
-                if ($resultado && $resultado->num_rows > 0) {
-                    $contador = 1; // Inicia o contador para a numeração fictícia de 1 a 4
-                    while ($row = $resultado -> fetch_array()) {
-                ?>
-                <div class="produto">
-                    <div class="linha1">
-                        <div class="quadrado-numero"><p><?php echo $contador; ?></p></div>
-                        <input type="text" name="produto" value="<?php echo $row['produto']; ?>" disabled>
+                <div class="produtos">
+                    <?php
+                    if ($resultado && $resultado->num_rows > 0) {
+                        $contador = 1; // Inicia o contador para a numeração fictícia de 1 a 4
+                        while ($row = $resultado -> fetch_array()) {
+                    ?>
+                    <div class="produto">
+                        <div class="linha1">
+                            <div class="quadrado-numero"><p><?php echo $contador; ?></p></div>
+                            <input type="text" name="produto" value="<?php echo $row['produto']; ?>" disabled>
+                        </div>
+                        <div class="linha2">
+                            <div class="bloco">
+                                <label>UN</label>
+                                <input type="text" name="unidades" value="<?php echo $row['unidades']; ?>" disabled>
+                            </div>
+                            <div class="bloco">
+                                <label>QTD</label>
+                                <input type="text" name="quantidades" value="<?php echo $row['quantidades']; ?>" disabled>
+                            </div>
+                            <div class="bloco">
+                                <label>R$/Un</label>
+                                <input type="text" name="valor" value="R$ <?php echo $row['valor']; ?>" disabled>
+                            </div>
+                            <div class="bloco">
+                                <label>R$ Total</label>
+                                <input type="text" name="total" value="R$ <?php echo $row['total']; ?>" disabled>
+                            </div>
+                        </div>
                     </div>
-                    <div class="linha2">
-                        <div class="bloco">
-                            <label>UN</label>
-                            <input type="text" name="unidades" value="<?php echo $row['unidades']; ?>" disabled>
-                        </div>
-                        <div class="bloco">
-                            <label>QTD</label>
-                            <input type="text" name="quantidades" value="<?php echo $row['quantidades']; ?>" disabled>
-                        </div>
-                        <div class="bloco">
-                            <label>R$/Un</label>
-                            <input type="text" name="valor" value="R$ <?php echo $row['valor']; ?>" disabled>
-                        </div>
-                        <div class="bloco">
-                            <label>R$ Total</label>
-                            <input type="text" name="total" value="R$ <?php echo $row['total']; ?>" disabled>
-                        </div>
-                    </div>
+                    <?php
+                        $contador++; // Incrementa o contador para a próxima numeração fictícia
+                        }
+                    } else {
+                        echo "<p>Erro na consulta: " . $conexao->error . "</p>";
+                        }
+                    ?>
                 </div>
-                <?php
-                    $contador++; // Incrementa o contador para a próxima numeração fictícia
-                    }
-                } else {
-                    echo "<p>Erro na consulta: " . $conexao->error . "</p>";
-                    }
-                ?>
                 <div class="linhaFinal">
                     <a href="meuspedidos.php"><button>Voltar</button></a>
                 </div>
