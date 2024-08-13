@@ -205,7 +205,7 @@ if (!isset($_SESSION['email'])) {
   ?>
   <div class="conteudo">
     <div class="titulo-conteudo">
-        <h1>Nota Fiscal nº <?php echo $row['id'];; ?></h1>
+        <h1>Nota Fiscal nº <?php echo $row['id']; ?></h1>
     </div>
     <div class="quadro-conteudo">
       <div class="bloco-conteudo">
