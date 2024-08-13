@@ -19,6 +19,7 @@
 }
 
 .linha02 {
+    margin-top: 30px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -66,4 +67,18 @@ table td:nth-child(2) input {
 
 table td:nth-child(3) input {
     width: 50px; 
+}
+
+table td:nth-child(4) input {
+    width: 50px; 
+}
+table td:nth-child(5) input {
+    width: 250px; 
+    text-align: start;
+}
+
+table td:nth-child(6) input {
+    width: 23px; 
+    height: 23px;
+    margin-left: 10px;
 }
