@@ -13,7 +13,7 @@ if(!isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Professor</title>
+    <title>Minhas Danfes</title>
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
