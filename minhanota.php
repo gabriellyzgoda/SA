@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <?php
 session_start();
 include_once('config.php');
-
 // Verifica se o usuário está logado
 if(!isset($_SESSION['email'])) {
     header("Location: login.php?erro=false");
@@ -13,7 +12,7 @@ if(!isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minhas Danfes</title>
+    <title>Home Aluno</title>
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
@@ -26,11 +25,11 @@ if(!isset($_SESSION['email'])) {
 <body>
 <header class="header-topo">
         <div class="logSenai">
-          <a href="homeP.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
-        </div>
-        <div class="logo">
-          <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
-        </div>
+      <a href="home.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
+    </div>
+    <div class="logo">
+      <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
+    </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
             <a href="#" >
@@ -72,8 +71,8 @@ if(!isset($_SESSION['email'])) {
           <div class="iocn-link">
             
             <a href="#">
-            <i class="fa-solid fa-box"></i>
-              <span class="link_name">Pedidos</span>
+                <i class="fa-solid  fa-truck-front"></i>
+              <span class="link_name">Recebimento</span>
             </a>
             
             <i class='bx bxs-chevron-down arrow' ></i>
@@ -82,9 +81,10 @@ if(!isset($_SESSION['email'])) {
           
           <ul class="sub-menu">
             
-            <li><a class="link_name" href="#">Pedidos</a></li>
-            <li><a href="criarpedido.php">Criar pedido</a></li>
-            <li><a href="meuspedidos.php">Meus pedidos</a></li>
+            <li><a class="link_name" href="#">Recebimento</a></li>
+            <li><a href="container.php">Container</a></li>
+            <li><a href="carga.php">Carga</a></li>
+          <li><a href="pedidodoca.php">Docas</a></li>
           
           </ul>
           
@@ -94,82 +94,90 @@ if(!isset($_SESSION['email'])) {
           
           <div class="iocn-link">
             
-            <a href="#">
-            <i class="fa-solid fa-receipt"></i>
-              <span class="link_name">Nota fiscal</span>
+            <a href="movimentacao.php">
+            <i class="fa-solid fa-truck-ramp-box"></i>
+              <span class="link_name">Movimentação</span>
             </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
           
           </div>
           
           <ul class="sub-menu">
           
-            <li><a class="link_name" href="#">Nota fiscal</a></li>
-            <li><a href="criardanfe.php">Criar Danfe</a></li>
-            <li><a href="minhadanfe.php">Minhas Danfe's</a></li>
+            <li><a class="link_name" href="movimentacao.php">Movimentação</a></li>
           
           </ul>
 
         </li>
 
         <li>
+          
+          <a href="estoque.php">
+            <i class="fa-solid fa-warehouse"></i>
+            <span class="link_name">Estoque</span>
+          </a>
+
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="estoque.php">Estoque</a></li>
+          </ul>
+
+        </li>
+        
+        <li>
+          
+          <a href="picking.php">
+          <i class="fa-solid fa-box"></i>
+            <span class="link_name">Picking</span>
+          </a>
+
+          <ul class="sub-menu blank">
+            <li><a class="link_name" href="picking.php">Picking</a></li>
+          </ul>
+
+        </li>
+
+         <li>
+        
         <div class="iocn-link">
+        
+          <a href="#">
+          <i class="fa-solid fa-truck-fast"></i>
+            <span class="link_name">Expedição</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+          
+        </div>
+        
+        <ul class="sub-menu">
+        <li><a href="expedicao.php">Expedição</a></li>
+        <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
+        <li><a href="criarNota.php">Criação de Nota Fiscal</a></li>
+        <li><a href="minhanota.php">Minhas Danfe's</a></li>
+        </ul>
+
+      </li>
+        
+        <li>
+          
+          <div class="iocn-link">
             
             <a href="#">
-            <i class="fa-solid fa-warehouse"></i>
+                <i class="fa-solid fa-pen-to-square"></i>
               <span class="link_name">Controle</span>
             </a>
             
             <i class='bx bxs-chevron-down arrow' ></i>
           
           </div>
-
-          <ul class="sub-menu ">
-            <li><a href="containerP.php">Container</a></li>
-
-          </ul>
-
-        </li>
-        
-        <li>
-          
-          <a href="alunos.php">
-          <i class="fa-solid fa-users"></i>
-            <span class="link_name">Alunos</span>
-          </a>
-
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="alunos.php">Alunos</a></li>
-          </ul>
-
-        </li>
-
-          
-        <li>
-          
-          <div class="iocn-link">
-            
-            <a href="#">
-            <i class="fa-solid fa-clipboard-list fa-lg"></i>
-              <span class="link_name">Solicitações</span>
-            </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
           
           <ul class="sub-menu">
-          
-            <li><a class="link_name" href="#">Solicitações</a></li>
-            <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
-            <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
+                        
+            <li><a href="controleSolicitacoes.php">Solicitações</a></li>
           
           </ul>
-
-        </li>  
+          
+        </li>
         <li>
-          <a href="relatoriosP.php">
+          <a href="relatorios.php">
           <i class="fa-solid fa-file"></i>
             <span class="link_name">Relatório</span>
           </a>
@@ -177,9 +185,11 @@ if(!isset($_SESSION['email'])) {
           <ul class="sub-menu blank">
             <li><a class="link_name" href="relatorios.php">Relatório</a></li>
           </ul>
-        </li> 
+        </li>
+              
       </ul><!--Fecha ul-->
-    </div>    
+    </div>        
+    <center>
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
             <h1>Minhas Danfes</h1>
@@ -200,7 +210,7 @@ if(!isset($_SESSION['email'])) {
                         while ($row = $resultado->fetch_assoc()) {
                             echo '<div class="linhaMinhaDanfe">';
                             echo '<input type="text" value="' . $row['id'] . '" readonly>';
-                            echo '<a href="verDanfe.php?id=' . $row['id'] . '"><button>Abrir</button></a>';
+                            echo '<a href="verNota.php?id=' . $row['id'] . '"><button>Abrir</button></a>';
                             echo '</div>';
                         }
                     } else {
@@ -216,6 +226,7 @@ if(!isset($_SESSION['email'])) {
             </div>
         </div>
     </div>
+    </center>
 <?php
 include_once('footer.php');
 ?>

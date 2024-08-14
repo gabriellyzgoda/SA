@@ -188,7 +188,7 @@ $resultado = $conexao->query($sql);
   </div>
   <div class="conteudo">
     <div class="titulo-conteudo">
-      <h1>Criação de Nota Fiscal</h1>
+      <h1>Criação de Nota Fiscal de Entrada</h1>
     </div>
     <div class="quadro-conteudo">
       <div class="bloco-conteudo">
@@ -225,7 +225,7 @@ $resultado = $conexao->query($sql);
               <input type="hidden" name="pedido" value="<?php echo $row['pedido'] ?>">
               <p>Chave de Acesso:</p>
               <input class="" type="text" name="id" id="id" size="20" required>
-              <p id="idErro" class="error" style="display: none;">O número do ID já está em uso.</p>
+              <p id="idErro" class="error" style="display: none;">O número da Nota Fiscal já está em uso.</p>
             </div>
           </div>
           <div class="informacoes">

@@ -4,7 +4,7 @@ include_once('config.php');
 // Verifica se o formulário foi enviado
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Recupera os dados do formulário
-    $produto_ids = $_POST['produto_id'];
+    $produto_ids = $_POST['pedido_id'];
     $faltando = isset($_POST['faltando']) ? $_POST['faltando'] : [];
     $avaria = isset($_POST['avaria']) ? $_POST['avaria'] : [];
 
@@ -15,8 +15,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $avariaStatus = in_array($produto_id, $avaria) ? 1 : 0;
 
         // Atualiza ou insere na tabela de pedidos
-        $sql = "UPDATE `pedidos` SET `faltando` = $faltandoStatus, `avaria` = $avariaStatus
+        $sql = "UPDATE `pedidos` 
+                SET `faltando` = $faltandoStatus, `avaria` = $avariaStatus
                 WHERE id = '$produto_id'";
+
+        $produto_ids = $_POST['doca'];
+
+          // Atualizar a doca na tabela pedidos
+          $sql_update = "UPDATE pedidos 
+                          SET doca='$doca' 
+                          WHERE pedido='$pedido' 
+                          AND id_danfe='$notafiscal';";
+                          
+          $conexao->query($sql_update);
 
         if (!$conexao->query($sql)) {
             echo "Erro: " . $conexao->error;

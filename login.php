@@ -43,13 +43,21 @@
                         <?php if (isset($_GET['erro'])){ ?>
                             <div class="linha-erro">
                                 <div class="mensagem-erro">
-                                <p>
-                                    <?php echo "Você não tem permissão para acessar";?>
+                                    <p>
+                                        <?php
+                                        // Exibe mensagem de erro com base no parâmetro 'erro'
+                                        if ($_GET['erro'] == 1) {
+                                            echo "Email ou senha incorretos";
+                                        } elseif ($_GET['erro'] == 2) {
+                                            echo "";
+                                        } else {
+                                            echo "Você não tem permissão para acessar";
+                                        }
+                                        ?>
                                     </p>
                                 </div>
                             </div>    
                         <?php } ?>
-                        
                         <div>
                             <?php echo $erro ?? ''?>
                         </div>

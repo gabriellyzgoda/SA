@@ -11,32 +11,52 @@ if(!isset($_SESSION['email'])) {
 }
 // Inicializa variáveis
 $mostrarProdutos = false;
-$notafiscal = $doca = $pedido = '';
+$notafiscal = $pedido = '';
+$doca = ''; // Inicializa a variável doca
+$produtos = []; // Inicializa a variável para produtos
 
 // Processa o formulário quando o botão OK é clicado
 if (isset($_POST['verificar'])) {
-  $notafiscal = $conexao->real_escape_string($_POST['notafiscal']);
-  $doca = $conexao->real_escape_string($_POST['doca']);
-  $pedido = $conexao->real_escape_string($_POST['pedido']);
+    $pedido = $conexao->real_escape_string($_POST['pedido']);
 
-  // Verificar se a nota fiscal e o pedido existem
-  $sql = "SELECT * FROM pedidos 
-          WHERE pedido='$pedido' 
-          AND id_danfe='$notafiscal';";
-  $resultado = $conexao->query($sql);
+    // Verificar se o pedido existe e obter a nota fiscal
+    $sql = "SELECT * FROM pedidos 
+            WHERE pedido='$pedido';";
 
-  if ($resultado->num_rows > 0) {
-      // Atualizar a doca na tabela pedidos
-      $sql_update = "UPDATE pedidos 
-                      SET doca='$doca' 
-                      WHERE pedido='$pedido' 
-                      AND id_danfe='$notafiscal';";
-      $conexao->query($sql_update);
+    $resultado = $conexao->query($sql);
 
-      if ($resultado->num_rows > 0) {
-          $mostrarProdutos = true;
-      }
-  }
+    if ($resultado->num_rows > 0) {
+        $row = $resultado->fetch_assoc(); // Obtém os dados do pedido
+        $notafiscal = $row['id_danfe']; // Obtém o número da nota fiscal
+        $doca = $row['doca']; // Obtém a doca, que pode ser vazia se não foi definida
+        $mostrarProdutos = true; // Indica que o pedido foi encontrado
+
+        // Buscar produtos associados ao pedido
+        $sql_produtos = "SELECT * FROM pedidos 
+                          WHERE pedido='$pedido';";
+        $resultado_produtos = $conexao->query($sql_produtos);
+
+        if ($resultado_produtos->num_rows > 0) {
+            while ($produto = $resultado_produtos->fetch_assoc()) {
+                $produtos[] = $produto; // Adiciona cada produto ao array
+            }
+        }
+    }
+}
+
+// Atualiza a doca se o formulário de produtos for enviado
+if (isset($_POST['enviar'])) {
+    $pedido = $conexao->real_escape_string($_POST['pedido']);
+    $doca = $conexao->real_escape_string($_POST['doca']); // Obtém a doca do formulário
+
+    // Atualiza a doca na tabela pedidos
+    $sql_update = "UPDATE pedidos 
+                   SET doca='$doca' 
+                   WHERE pedido='$pedido' 
+                   AND id_danfe='$notafiscal';";
+    $conexao->query($sql_update);
+
+    // Aqui você pode processar outros dados do formulário de produtos se necessário
 }
 
 $conexao->close();
@@ -180,9 +200,10 @@ $conexao->close();
         </div>
         
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Expedição</a></li>
-          <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
-          <li><a href="expedicao.php">Expedição</a></li>
+        <li><a href="expedicao.php">Expedição</a></li>
+        <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
+        <li><a href="criarNota.php">Criação de Nota Fiscal</a></li>
+        <li><a href="minhanota.php">Minhas Danfe's</a></li>
         </ul>
 
       </li>
@@ -201,9 +222,7 @@ $conexao->close();
           </div>
           
           <ul class="sub-menu">
-            
-            <li><a class="link_name" href="#">Controle</a></li>
-            
+                        
             <li><a href="controleSolicitacoes.php">Solicitações</a></li>
           
           </ul>
@@ -235,21 +254,20 @@ $conexao->close();
                         <input type="text" name="pedido" placeholder="">
                     </div>
                     <div class="linha01-02">
-                      <button type="submit" name="verificar">OK</button>
+                        <button type="submit" name="verificar">OK</button>
                     </div>
                 </div>
-                
             </form>
 
             <?php if ($mostrarProdutos): ?>
-              <div class="linha01-03">
-                        <label>Nota Fiscal:</label>
-                        <input type="text" name="notafiscal" value="">
-                    </div>
-                    <div class="linha01-04">
-                        <label>Doca:</label>
-                        <input type="text" name="doca" value="">
-                    </div>
+                <div class="linha01-03">
+                    <label>Nota Fiscal:</label>
+                    <input type="text" name="notafiscal" value="<?php echo htmlspecialchars($notafiscal); ?>" readonly>
+                </div>
+                <div class="linha01-04">
+                    <label>Doca:</label>
+                    <input type="text" name="doca" value="<?php echo htmlspecialchars($doca); ?>">
+                </div>
                 <div class="linha03">
                     <div class="quadroProdutos">
                         <div class="tituloQuadroProdutos">
@@ -259,33 +277,33 @@ $conexao->close();
                             <div class="produtos">
                                 <?php
                                 $contador = 1;
-                                while ($row = $resultado->fetch_assoc()) { ?>
+                                foreach ($produtos as $produto) { ?>
                                     <div class="produto">
-                                        <input type="hidden" name="produto_id[]" value="<?php echo $row['id']; ?>" />
+                                        <input type="hidden" name="pedido_id[]" value="<?php echo htmlspecialchars($produto['pedido']); ?>" />
                                         <div class="produtoLinha1">
                                             <div class="numeroProduto"><p><?php echo $contador; ?></p></div>
-                                            <input type="text" id="nome" name="nome[]" value="<?php echo $row['produto']; ?>" disabled>
+                                            <input type="text" id="nome" name="nome[]" value="<?php echo htmlspecialchars($produto['produto']); ?>" disabled>
                                             <label>Faltando?</label>
-                                            <input type="checkbox" name="faltando[]" value="<?php echo $row['id']; ?>" />
+                                            <input type="checkbox" name="faltando[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
                                             <label>Avaria?</label>
-                                            <input type="checkbox" name="avaria[]" value="<?php echo $row['id']; ?>" />
+                                            <input type="checkbox" name="avaria[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
                                         </div>
                                         <div class="produtoLinha2">
                                             <div class="produtoLinha2-Bloco1">
                                                 <label>UN</label>
-                                                <input type="text" name="unidade[]" value="<?php echo $row['unidades']; ?>" disabled>
+                                                <input type="text" name="unidade[]" value="<?php echo htmlspecialchars($produto['unidades']); ?>" disabled>
                                             </div>
                                             <div class="produtoLinha2-Bloco2">
                                                 <label>QTD</label>
-                                                <input type="text" name="quantidade[]" value="<?php echo $row['quantidades']; ?>" disabled>
+                                                <input type="text" name="quantidade[]" value="<?php echo htmlspecialchars($produto['quantidades']); ?>" disabled>
                                             </div>
                                             <div class="produtoLinha2-Bloco3">
                                                 <label>R$/Un</label>
-                                                <input type="text" name="valor[]" value="<?php echo $row['valor']; ?>" disabled>
+                                                <input type="text" name="valor[]" value="<?php echo htmlspecialchars($produto['valor']); ?>" disabled>
                                             </div>
                                             <div class="produtoLinha2-Bloco4">
                                                 <label>R$ Total</label>
-                                                <input type="text" name="total[]" value="<?php echo $row['total']; ?>" disabled>
+                                                <input type="text" name="total[]" value="<?php echo htmlspecialchars($produto['total']); ?>" disabled>
                                             </div>
                                         </div>
                                     </div>

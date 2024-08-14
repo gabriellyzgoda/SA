@@ -12,11 +12,11 @@ if(!isset($_SESSION['email'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vistoria e Conferência</title>
+    <title>Home Aluno</title>
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="estiloPedidoDoca.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="estiloCriarDanfe.css" media="screen" />
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -186,54 +186,127 @@ if(!isset($_SESSION['email'])) {
             <li><a class="link_name" href="relatorios.php">Relatório</a></li>
           </ul>
         </li>
-
               
       </ul><!--Fecha ul-->
-    </div>      
-    <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1>Vistoria e Conferência</h1>
-        </div>
-        <div class="linhaDocas">
-        <div class="quadroDocas">
-            <div class="tituloDocas">
-            <p class="p1">Nº DA SOLICITAÇÃO</p>
-            <P class="p2">DOCA</P>
-            </div>
-            <div class="quadroConteudoDocas">
+    </div>        
+    <center>
+    <div class="conteudo">
+    <div class="titulo-conteudo">
+      <h1>Criação de Nota Fiscal da Expedição</h1>
+    </div>
+    <div class="quadro-conteudo">
+      <div class="bloco-conteudo">
+          <div class="chave">
+            <form class="form" method="POST" action="criarNota.php">
+                <p>Digite o Nº da Solicitação</p>
+                <input class="" type="text" name="solicitacao" id="solicitacao" size="20">
+                <button type="submit">OK</button>
+            </form>
             <?php
-                $sql = "SELECT 
-                        solicitacao, doca,
-                        MAX(id) as id,
-                        MAX(produto) as produto
-                    FROM 
-                        solicitacoes
-                    GROUP BY 
-                        solicitacao;";
+            if(isset($_POST['solicitacao'])) {
+              if ($conexao -> connect_errno) {
+                echo "Failed to connect to MySQL: " . $conexao -> connect_error;
+                exit();
+              } else {
+                // Evita caracteres epsciais (SQL Inject)
+                $solicitacao = $conexao -> real_escape_string($_POST['solicitacao']);
+              
+                $sql = "SELECT SUM(s.valor * s.quantidades) AS total_compra
+                      FROM solicitacoes s
+                      WHERE s.solicitacao = '$solicitacao';";
                 $resultado = $conexao->query($sql);
-
-                if ($resultado->num_rows > 0) {
-                  while ($row = mysqli_fetch_assoc($resultado)) {
-                    echo'
-                    <div class="conteudoDocas">
-                        <div class="bloco01">
-                            <div class="linha01">
-                                <input type="text" name="pedido" value="' . $row['solicitacao'] . '" readonly>
-                            </div>
-                        </div>
-                        <div class="bloco02">
-                            <div class="linha02">
-                                <input type="text" name="doca" value="' . $row['doca'] . '" readonly>
-                                <a href="verVistoria.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
-                            </div>
-                        </div>
-                    </div>';
-                }}
-        ?>
-        </div>
+                
+                if($resultado->num_rows != 0)
+                {
+                  $row = $resultado -> fetch_array();
+                  $totalCompra = $row['total_compra'];
+                  ?>
+            <form class="form" method="POST" action="cadastroNota.php">
+            <?php if (isset($_SESSION['erro'])): ?>
+            <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
+            <?php endif; ?>
+                <div>
+                <input type="hidden" name="solicitacao" value="<?php echo htmlspecialchars($solicitacao); ?>">
+              <p>Chave de Acesso:</p>
+              <input class="" type="text" name="id" id="id" size="20" required>
+              <p id="idErro" class="error" style="display: none;">O número da Nota Fiscal já está em uso.</p>
+            </div>
+          </div>
+          <div class="informacoes">
+            <div class="informacoesBloco1">
+              <img src="imagens/codigo-barras.png" alt="Minha Figura" width="200" height="auto">
+              <input type="number" name="codbarra" id="codbarra" value=gerarNumeroUnico()>
+            </div>
+            <div class="informacoesBloco2">
+              <p>Nome/Razão Social: SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI</p>
+              <p>CNPJ: 33564543 0001 90</p>
+              <p>CEP: Rua Henrique Vigarani, 163 - Barra do Rio, Itajaí, SC</p>
+              <p>Inscrição Estadual: 03.851.105/0001-42</p>
+              <p>Tel: (47) 98437-1137</p>
+            </div>
+          </div>
+          <div class="dados">
+            <div class="dadosBloco1">
+              <div class="Bloco1-1">
+                <div class="bloco1-linha1">
+                  <label>Nº</label>
+                  <input type="number" name="n" value="n">
+                </div>
+                <div class="bloco1-linha2">
+                  <label>Série:</label>
+                  <input type="number" name="serie">
+                </div>
+              </div>
+              <div class="Bloco1-2">
+                <div class="bloco12-linha1"><label>Operação:</label></div>
+                <div class="bloco12-linha2">
+                  <input type="checkbox" id="saida" name="saida" />
+                  <label>Saída</label>
+                </div>
+              </div>
+            </div>
+            <div class="dadosBloco2">
+              <label>Data de Emissão:</label>
+              <input type="date" id="data_emissao" name="data_emissao">
+            </div>
+            <div class="dadosBloco3">
+              <label>Hora da Emissão:</label>
+              <input type="time" id="hora_emissao" name="hora_emissao">
+            </div>
+          </div>
+          <div class="titulo-destinatario">
+            <h2>DESTINATÁRIO</h2>
+          </div>
+          <div class="nome-destinatario">
+            <label>Nome/Razão social:</label>
+            <input type="text" name="razao_nome" value="SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI" readonly>
+          </div>
+          <div class="informacoes-destinatario">
+            <div class="destinatarioBloco1">
+              <label>CNPJ:</label>
+              <input type="text" name="cnpjd" value="33564543 0001 90" readonly>
+            </div>
+            <div class="destinatarioBloco2">
+              <label>Inscrição Estadual:</label>
+              <input type="text" name="ie" value="03.851.105/0001-42" readonly>
+            </div>
+            <div class="destinatarioBloco3">
+                <label>Valor total da nota:</label>
+                <input type="text" name="total" readonly value="<?php echo isset($totalCompra) ? number_format($totalCompra, 2, ',', '.') : '0,00'; ?>">
+            </div>
+            
+      <div class="destinatarioBloco4">
+              <input type="submit" value="Criar" name="criar">
+            </div>
+      </form>
+      <?php
+                }}}
+      ?>
       </div>
     </div>
   </div>
+  </div>
+  </center>
 <?php
 include_once('footer.php');
 ?>

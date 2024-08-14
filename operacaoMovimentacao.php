@@ -177,9 +177,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
         
         <ul class="sub-menu">
-          <li><a class="link_name" href="#">Expedição</a></li>
-          <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
-          <li><a href="expedicao.php">Expedição</a></li>
+        <li><a href="expedicao.php">Expedição</a></li>
+        <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
+        <li><a href="criarNota.php">Criação de Nota Fiscal</a></li>
+        <li><a href="minhanota.php">Minhas Danfe's</a></li>
         </ul>
 
       </li>
@@ -198,9 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </div>
           
           <ul class="sub-menu">
-            
-            <li><a class="link_name" href="#">Controle</a></li>
-            
+                        
             <li><a href="controleSolicitacoes.php">Solicitações</a></li>
           
           </ul>
