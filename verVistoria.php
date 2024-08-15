@@ -217,7 +217,7 @@ $solicitacao = $conexao->real_escape_string($_GET['solicitacao']);
         </div>
         <div class="faixa">
           <div class="blocoVistoria">
-            <div class=linha01><a href="vistoriaConferencia.php"><button>Voltar</button></a></div>
+            <div class="linha03"><a href="vistoriaConferencia.php"><button>Voltar</button></a></div>
             <div class="linha01">
               <table>
                 <thead>
@@ -246,16 +246,15 @@ $solicitacao = $conexao->real_escape_string($_GET['solicitacao']);
             </table>
           </div>
           <div class="linha02">
-      <button type="submit">Pedido carregado</button>
-    </div>';
+            <button type="submit">Pedido carregado</button>
+          </div>';
     } else {
-      echo '<center>
-              <a href="vistoriaConferencia.php"><button>Voltar</button></a>
-              <p>Nenhum produto enviado para doca.</p>
-            </center>';
+      echo '<div class="senao">';
+      echo '<p>Nenhuma solicitação encontrada ou todos os produtos não têm posição.</p>';
+      echo '<a href="vistoriaConferencia.php"><button>Voltar</button></a>';
+      echo '</div>';
     }
     ?>
-    
   </div>
   </div>
   </form>

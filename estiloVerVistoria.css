@@ -82,3 +82,62 @@ table td:nth-child(6) input {
     height: 23px;
     margin-left: 10px;
 }
+
+
+
+.senao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px 0px;
+    margin-top: 70px;
+}
+
+.senao p {
+    color: #185CA9;
+    font-size: 25px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    margin-bottom: 50px;
+}
+
+.senao button {
+    border: none;
+    background-color: #85c4f9;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    font-family: "League Spartan", sans-serif;
+    padding: 8px 40px;
+    border-radius: 30px;
+}
+
+.senao button:hover {
+    background-color: #718fc3;  
+    transition: all 0.3s ease;
+}
+
+.linha03 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.linha03 button {
+    border: none;
+    background-color: #85c4f9;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "League Spartan", sans-serif;
+    padding: 5px 15px;
+    border-radius: 30px;
+}
+
+.linha03 button:hover {
+    background-color: #718fc3;  
+    transition: all 0.3s ease;
+}

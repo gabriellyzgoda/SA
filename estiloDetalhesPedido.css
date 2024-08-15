@@ -124,3 +124,9 @@
     padding: 8px 40px;
     border-radius: 30px;
 }
+
+.produtos {
+    display: block;
+    height: 350px;
+    overflow-y: scroll;
+}
