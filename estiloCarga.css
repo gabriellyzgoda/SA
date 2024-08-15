@@ -18,11 +18,11 @@
 .linha01 {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    justify-content: center;
 }
 
-.linha01-01 label, .linha01-02 label, .linha01-03 label {
+.linha01-01 label, .linha01-02 label {
     font-size: 20px;
     font-family: "League Spartan", sans-serif;
     font-weight: 600;
@@ -33,70 +33,54 @@
     margin-right: 20px;
     display: flex;
     align-items: center;
-}
-.linha01-02 {
-    margin-right: 20px;
-    display: flex;
-    align-items: center;
+    flex-direction: row;
 }
 
-.linha01-03 {
-    display: flex;
-    align-items: center;
-
-}
-
-.linha01-01 input {
+.linha01-01 button {
+    background-color: #8fc3f7;
+    color: #fff;
+    font-size: 18px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
     border: none;
-    width: 170px;
-    height: 23px;
+    border-radius: 30px;
+    padding: 5px 10px;
     margin-left: 10px;
 }
+.linha01-01 input {
+    border: none;
+    width: 120px;
+    height: 23px;
+    margin-left: 10px;
+    padding: 0px 10px;
+}
+
+.linha01-01 button:hover {
+    background-color: #718fc3;  
+    transition: all 0.3s ease;
+}
+
+.linha01-02 {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
 
 .linha01-02 input {
     border: none;
-    width: 80px;
+    width: 140px;
     height: 23px;
     margin-left: 10px;
+    padding: 0px 10px;
+    margin-right: 15px;
 }
 
-.linha01-03 input {
-    border: none;
-    width: 170px;
-    height: 23px;
-    margin-left: 10px;
+#doca {
+    width: 50px;
+    margin-right: 0px;
 }
 
-.linha01-04 {
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    margin-left: 10px;
-}
-
-.linha01-04 label {
-    font-size: 20px;
-    font-family: "League Spartan", sans-serif;
-    font-weight: 600;
-    color: #185CA9;
-    margin-right: 10px;
-}
-
-.linha01-04 button {
-    border: none;
-    padding: 7px 25px;
-    background-color: #8fc3f7;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    font-family: "League Spartan", sans-serif;
-    border-radius: 30px;
-}
-
-.linha01-04 button:hover {
-    background-color: #718fc3;
-    transition: all 0.3s ease;
-}
 
 .linha03 {
     width: 100%;
