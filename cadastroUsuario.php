@@ -16,14 +16,16 @@
 				$senha = $conexao -> real_escape_string($_POST['senha']);
 				if($_POST['professor'] != ""){
 					$professor = 1;
+					$cargo = "Professor";
 				} else {
 					$professor = 0;
+					$cargo = "";
 				}
 
 				$sql = "INSERT INTO cadastro
-							(`nome`, `email`, `senha`, `professor`)
+							(`nome`, `email`, `senha`, `professor`, `cargo`)
 						VALUES
-							('".$nome."', '".$email."', '".$senha."', '".$professor."');";
+							('".$nome."', '".$email."', '".$senha."', '".$professor."', '".$cargo."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 				
