@@ -116,7 +116,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         <li>
         <div class="iocn-link">
             
-            <a href="#">
+            <a href="containerP.php">
             <i class="fa-solid fa-warehouse"></i>
               <span class="link_name">Controle</span>
             </a>
@@ -201,6 +201,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
                             echo '<div class="linhaMinhaDanfe">';
                             echo '<input type="text" value="' . $row['id'] . '" readonly>';
                             echo '<a href="verDanfe.php?id=' . $row['id'] . '"><button>Abrir</button></a>';
+                            echo "<td><div class='botaoDeletar' onclick='confirmarExclusao(" . $row['id'] . ")'><i class='fa-solid fa-trash'></i></div></td>";
                             echo '</div>';
                         }
                     } else {
@@ -220,7 +221,12 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 include_once('footer.php');
 ?>
     <script>
-  
+  function confirmarExclusao(id) {
+  if (confirm("Tem certeza que deseja excluir esta nota fiscal?")) {
+      window.location.href = "deleteNota.php?id=" + id;
+      
+  }
+}
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

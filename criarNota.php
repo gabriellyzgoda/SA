@@ -211,15 +211,15 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                 // Evita caracteres epsciais (SQL Inject)
                 $solicitacao = $conexao -> real_escape_string($_POST['solicitacao']);
               
-                $sql = "SELECT SUM(s.valor * s.quantidades) AS total_compra
-                      FROM solicitacoes s
-                      WHERE s.solicitacao = '$solicitacao';";
+                $sql = "SELECT *
+                      FROM solicitacoes
+                      WHERE solicitacao = '$solicitacao';";
                 $resultado = $conexao->query($sql);
                 
                 if($resultado->num_rows != 0)
                 {
                   $row = $resultado -> fetch_array();
-                  $totalCompra = $row['total_compra'];
+                  $totalcompra = $row['totalcompra'];
                   ?>
             <form class="form" method="POST" action="cadastroNota.php">
             <?php if (isset($_SESSION['erro'])): ?>
@@ -292,7 +292,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
             </div>
             <div class="destinatarioBloco3">
                 <label>Valor total da nota:</label>
-                <input type="text" name="total" readonly value="<?php echo isset($totalCompra) ? number_format($totalCompra, 2, ',', '.') : '0,00'; ?>">
+                <input type="text" name="total" readonly value="<?php echo htmlspecialchars($totalcompra); ?>">
             </div>
             
       <div class="destinatarioBloco4">

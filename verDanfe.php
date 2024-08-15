@@ -118,7 +118,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       <li>
         <div class="iocn-link">
             
-            <a href="#">
+            <a href="containerP.php">
             <i class="fa-solid fa-warehouse"></i>
               <span class="link_name">Controle</span>
             </a>
@@ -186,10 +186,18 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        $sql = "SELECT danfe.*, pedidos.totalcompra
-                FROM danfe
-                LEFT JOIN pedidos ON danfe.id = pedidos.id_danfe
-                WHERE danfe.id = '$id';";
+        $sql = "SELECT 
+                    danfe.*, 
+                    pedidos.totalcompra AS totalcompra_pedidos,
+                    solicitacoes.totalcompra AS totalcompra_solicitacoes
+                FROM 
+                    danfe
+                LEFT JOIN 
+                    pedidos ON danfe.id = pedidos.id_danfe
+                LEFT JOIN 
+                    solicitacoes ON danfe.id = solicitacoes.id_danfe
+                WHERE 
+                    danfe.id = '$id';";
 
     $resultado = $conexao->query($sql);
 
@@ -200,7 +208,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         }else{
           $operacao = 'Entrada';
         }
-        
+        $totalcompra = $row['totalcompra_pedidos'] ? $row['totalcompra_pedidos'] : $row['totalcompra_solicitacoes'];
   ?>
   <div class="conteudo">
     <div class="titulo-conteudo">
@@ -211,6 +219,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       <div class="chave">
           <p>Chave de Acesso:</p>
           <input class="" type="text" name="id" id="id" size="20" value="<?php echo $row['id']; ?>" readonly>
+          <button onclick="imp()">Imprimir</button>
           <a href="minhaDanfe.php"><button type="button">Voltar</button></a>
       </div>
       <div class="informacoes">
@@ -272,7 +281,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </div>
         <div class="destinatarioBloco3">
           <label>Valor total da nota:</label>
-          <input type="text" name="total" readonly value="<?php echo $row['totalcompra'] ?>">
+          <input type="text" name="total" readonly value="<?php echo htmlspecialchars($totalcompra); ?>">
         </div>
       </div>
     </div>
@@ -286,7 +295,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 include_once('footer.php');
 ?>
   <script>
-document.getElementById('id').addEventListener('blur', function() {
+      document.getElementById('id').addEventListener('blur', function() {
       var id = this.value;
       var erroMsg = document.getElementById('idErro');
 
@@ -311,7 +320,10 @@ document.getElementById('id').addEventListener('blur', function() {
       };
       xhr.send();
     });
-        
+    
+    function imp(){
+        window.print();
+    }
 
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {

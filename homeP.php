@@ -115,7 +115,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         <li>
         <div class="iocn-link">
             
-            <a href="#">
+            <a href="containerP.php">
             <i class="fa-solid fa-warehouse"></i>
               <span class="link_name">Controle</span>
             </a>
