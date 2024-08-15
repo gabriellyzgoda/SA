@@ -24,6 +24,11 @@
             echo "<p>Acesso não autorizado.<br>Você não tem permissão para acessar esta página.</p>";
             ?>
         </div>
+
+        <div class="botoes">
+            <button id="voltar" onclick="window.history.back()">Voltar</button>
+            <a href="login.php"><button id="login">Ir para o Login</button></a>
+        </div>
     </div>
 </body>
 
