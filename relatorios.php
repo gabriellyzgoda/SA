@@ -5,18 +5,10 @@ session_start();
 include_once('config.php');
 
 // Verifica se o usuário está logado
-if(!isset($_SESSION['email'])) {
-    header("Location: login.php?erro=false");
-    exit;
+if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
+  header("Location: unauthorized.php");
+  exit;
 }
-$sql = "SELECT * FROM cadastro
-WHERE professor = 0";
-// puxa conexão
-$resultado = $conexao->query($sql);
-$row = $resultado -> fetch_array();
-$_SESSION["nome"]= $row[0];
-$_SESSION["email"]= $row[1];
-$_SESSION["cargo"]= $row[2];
 ?>
 <head>
     <meta charset="UTF-8">
@@ -49,15 +41,15 @@ $_SESSION["cargo"]= $row[2];
             <div class="dropdown-content">
               <div class="dropdown-section">
                 <h4>Nome:</h4>
-                <p><?php echo $row['nome'];?></p>
+                <p><?php echo $_SESSION['nome'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Email:</h4>
-                <p><?php echo $row['email'];?></p>
+                <p><?php echo $_SESSION['email'];?></p>
               </div>
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
-                <p><?php echo $row['cargo'];?></p>
+                <p><?php echo $_SESSION['cargo'];?></p>
               </div>
             </div>
           </div>

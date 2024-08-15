@@ -5,9 +5,9 @@ session_start();
 include_once('config.php');
 
 // Verifica se o usuário está logado
-if(!isset($_SESSION['email'])) {
-    header("Location: login.php?erro=false");
-    exit;
+if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
+  header("Location: unauthorized.php");
+  exit;
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

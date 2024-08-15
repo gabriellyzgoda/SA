@@ -5,9 +5,9 @@ session_start();
 include_once('config.php');
 
 // Verifica se o usuário está logado
-if(!isset($_SESSION['email'])) {
-    header("Location: login.php?erro=false");
-    exit;
+if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
+  header("Location: unauthorized.php");
+  exit;
 }
 ?>
 <head>
@@ -174,7 +174,6 @@ if(!isset($_SESSION['email'])) {
         
         <ul class="sub-menu">
           
-          <li><a class="link_name" href="#">Controle</a></li>
           <li><a href="controleSolicitacoes.php">Solicitações</a></li>
         
         </ul>
