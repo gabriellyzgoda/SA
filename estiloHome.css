@@ -12,7 +12,6 @@ p {
   width: 100%;
   height: auto;
   padding: 10px 0px;
-  border-bottom: 4px solid #fff;
   display: flex;
   justify-content: space-between;
 }

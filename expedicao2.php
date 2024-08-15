@@ -210,7 +210,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
       echo '<div class="conteudo">
                       <div class="linhaExpedicao">
                        <div class="quadroExpedicao">
-                        <div class=linha01><a href="expedicao.php"><button>Voltar</button></a></div>
+                        <div class="linha01"><a href="expedicao.php"><button>Voltar</button></a></div>
                        <div class="linha02">
                         <table>
                             <thead>
