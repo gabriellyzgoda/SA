@@ -4,14 +4,8 @@
 session_start();
 include_once('config.php');
 
-// Verifica se o usuário está logado
-<<<<<<< Updated upstream
 if (!isset($_SESSION['email'])) {
   header("Location: login.php?erro=false");
-=======
-if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
-  header("Location: unauthorized.php");
->>>>>>> Stashed changes
   exit;
 }
 // Inicializa variáveis
@@ -205,7 +199,7 @@ $conexao->close();
 
         <div class="iocn-link">
 
-          <a href="#">
+          <a href="controleSolicitacoes.php">
             <i class="fa-solid fa-pen-to-square"></i>
             <span class="link_name">Controle</span>
           </a>

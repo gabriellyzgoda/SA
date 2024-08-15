@@ -163,7 +163,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
 
         <div class="iocn-link">
 
-          <a href="#">
+          <a href="controleSolicitacoes.php">
             <i class="fa-solid fa-pen-to-square"></i>
             <span class="link_name">Controle</span>
           </a>
@@ -173,10 +173,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
         </div>
 
         <ul class="sub-menu">
-                        
-            <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-          
-          </ul>
+
+          <li><a href="controleSolicitacoes.php">Solicitações</a></li>
+
+        </ul>
 
       </li>
       <li>

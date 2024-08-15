@@ -198,7 +198,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <div class="iocn-link">
 
-          <a href="#">
+          <a href="controleSolicitacoes.php">
             <i class="fa-solid fa-pen-to-square"></i>
             <span class="link_name">Controle</span>
           </a>

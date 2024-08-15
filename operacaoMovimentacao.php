@@ -186,25 +186,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </li>
         
         <li>
-          
-          <div class="iocn-link">
-            
-            <a href="#">
-                <i class="fa-solid fa-pen-to-square"></i>
-              <span class="link_name">Controle</span>
-            </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
-          
-          <ul class="sub-menu">
-                        
-            <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-          
-          </ul>
-          
-        </li>
+
+        <div class="iocn-link">
+
+          <a href="controleSolicitacoes.php">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span class="link_name">Controle</span>
+          </a>
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
+        </div>
+
+        <ul class="sub-menu">
+
+          <li><a href="controleSolicitacoes.php">Solicitações</a></li>
+
+        </ul>
+
+      </li>
         <li>
         <a href="relatorios.php">
           <i class="fa-solid fa-file"></i>

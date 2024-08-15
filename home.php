@@ -160,24 +160,24 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
      
       
       <li>
-        
+
         <div class="iocn-link">
-          
-          <a href="#">
-              <i class="fa-solid fa-pen-to-square"></i>
+
+          <a href="controleSolicitacoes.php">
+            <i class="fa-solid fa-pen-to-square"></i>
             <span class="link_name">Controle</span>
           </a>
-          
-          <i class='bx bxs-chevron-down arrow' ></i>
-        
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
         </div>
-        
+
         <ul class="sub-menu">
-          
+
           <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-        
+
         </ul>
-        
+
       </li>
       <li>
           <a href="relatorios.php">
