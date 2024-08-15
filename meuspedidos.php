@@ -123,7 +123,7 @@ $resultado2 = $conexao->query($sqlClientes);
         <li>
         <div class="iocn-link">
             
-            <a href="#">
+            <a href="containerP.php">
             <i class="fa-solid fa-warehouse"></i>
               <span class="link_name">Controle</span>
             </a>

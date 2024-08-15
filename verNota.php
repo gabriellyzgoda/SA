@@ -196,10 +196,18 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
       if (isset($_GET['id'])) {
         $id = $_GET['id'];
 
-        $sql = "SELECT danfe.*, pedidos.totalcompra
-                FROM danfe
-                LEFT JOIN pedidos ON danfe.id = pedidos.id_danfe
-                WHERE danfe.id = '$id';";
+        $sql = "SELECT 
+                    danfe.*, 
+                    pedidos.totalcompra AS totalcompra_pedidos,
+                    solicitacoes.totalcompra AS totalcompra_solicitacoes
+                FROM 
+                    danfe
+                LEFT JOIN 
+                    pedidos ON danfe.id = pedidos.id_danfe
+                LEFT JOIN 
+                    solicitacoes ON danfe.id = solicitacoes.id_danfe
+                WHERE 
+                    danfe.id = '$id';";
 
     $resultado = $conexao->query($sql);
 
@@ -210,7 +218,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
         }else{
           $operacao = 'Entrada';
         }
-        
+        $totalcompra = $row['totalcompra_pedidos'] ? $row['totalcompra_pedidos'] : $row['totalcompra_solicitacoes'];
   ?>
   <div class="conteudo">
     <div class="titulo-conteudo">
@@ -282,7 +290,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
         </div>
         <div class="destinatarioBloco3">
           <label>Valor total da nota:</label>
-          <input type="text" name="total" readonly value="<?php echo $row['totalcompra'] ?>">
+          <input type="text" name="total" readonly value="<?php echo htmlspecialchars($totalcompra); ?>">
         </div>
       </div>
     </div>
