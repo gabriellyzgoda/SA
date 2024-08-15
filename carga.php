@@ -44,20 +44,6 @@ if (isset($_POST['verificar'])) {
     }
 }
 
-// Atualiza a doca se o formulário de produtos for enviado
-if (isset($_POST['enviar'])) {
-    $pedido = $conexao->real_escape_string($_POST['pedido']);
-    $doca = $conexao->real_escape_string($_POST['doca']); // Obtém a doca do formulário
-
-    // Atualiza a doca na tabela pedidos
-    $sql_update = "UPDATE pedidos 
-                   SET doca='$doca' 
-                   WHERE pedido='$pedido' 
-                   AND id_danfe='$notafiscal';";
-    $conexao->query($sql_update);
-
-    // Aqui você pode processar outros dados do formulário de produtos se necessário
-}
 
 $conexao->close();
 ?>
@@ -258,66 +244,65 @@ $conexao->close();
                     </div>
                 </div>
             </form>
-
             <?php if ($mostrarProdutos): ?>
-                <div class="linha01-03">
-                    <label>Nota Fiscal:</label>
-                    <input type="text" name="notafiscal" value="<?php echo htmlspecialchars($notafiscal); ?>" readonly>
-                </div>
-                <div class="linha01-04">
-                    <label>Doca:</label>
-                    <input type="text" name="doca" value="<?php echo htmlspecialchars($doca); ?>">
-                </div>
-                <div class="linha03">
-                    <div class="quadroProdutos">
-                        <div class="tituloQuadroProdutos">
-                            <p>Produtos</p>
+            <form id="formVistoria" class="form" method="POST" action="vistoriaCarga.php">
+              <div class="linha01-03">
+                <label>Nota Fiscal:</label>
+                <input type="text" id="notafiscal" name="notafiscal" value="<?php echo htmlspecialchars($notafiscal); ?>" readonly>
+              </div>
+              <div class="linha01-04">
+                <label>Doca:</label>
+                <input type="text" id="doca" name="doca" value="<?php echo htmlspecialchars($doca); ?>">
+              </div>
+              <div class="linha03">
+                <div class="quadroProdutos">
+                  <div class="tituloQuadroProdutos">
+                    <p>Produtos</p>
+                  </div>
+                  <div class="produtos">
+                    <?php
+                    $contador = 1;
+                    foreach ($produtos as $produto) { ?>
+                      <div class="produto">
+                        <input type="hidden" name="pedido_id[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
+                        <div class="produtoLinha1">
+                          <div class="numeroProduto"><p><?php echo $contador; ?></p></div>
+                          <input type="text" id="nome" name="nome[]" value="<?php echo htmlspecialchars($produto['produto']); ?>" disabled>
+                          <label>Faltando?</label>
+                          <input type="checkbox" name="faltando[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
+                          <label>Avaria?</label>
+                          <input type="checkbox" name="avaria[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
                         </div>
-                        <form id="formVistoria" class="form" method="POST" action="vistoriaCarga.php">
-                            <div class="produtos">
-                                <?php
-                                $contador = 1;
-                                foreach ($produtos as $produto) { ?>
-                                    <div class="produto">
-                                        <input type="hidden" name="pedido_id[]" value="<?php echo htmlspecialchars($produto['pedido']); ?>" />
-                                        <div class="produtoLinha1">
-                                            <div class="numeroProduto"><p><?php echo $contador; ?></p></div>
-                                            <input type="text" id="nome" name="nome[]" value="<?php echo htmlspecialchars($produto['produto']); ?>" disabled>
-                                            <label>Faltando?</label>
-                                            <input type="checkbox" name="faltando[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
-                                            <label>Avaria?</label>
-                                            <input type="checkbox" name="avaria[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
-                                        </div>
-                                        <div class="produtoLinha2">
-                                            <div class="produtoLinha2-Bloco1">
-                                                <label>UN</label>
-                                                <input type="text" name="unidade[]" value="<?php echo htmlspecialchars($produto['unidades']); ?>" disabled>
-                                            </div>
-                                            <div class="produtoLinha2-Bloco2">
-                                                <label>QTD</label>
-                                                <input type="text" name="quantidade[]" value="<?php echo htmlspecialchars($produto['quantidades']); ?>" disabled>
-                                            </div>
-                                            <div class="produtoLinha2-Bloco3">
-                                                <label>R$/Un</label>
-                                                <input type="text" name="valor[]" value="<?php echo htmlspecialchars($produto['valor']); ?>" disabled>
-                                            </div>
-                                            <div class="produtoLinha2-Bloco4">
-                                                <label>R$ Total</label>
-                                                <input type="text" name="total[]" value="<?php echo htmlspecialchars($produto['total']); ?>" disabled>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <?php
-                                    $contador++;
-                                } ?>
-                            </div>
-                            <div class="linha04">
-                                <input id="pegar" type="submit" value="Enviar"/>
-                            </div>
-                        </form>
-                    </div>
+                        <div class="produtoLinha2">
+                          <div class="produtoLinha2-Bloco1">
+                            <label>UN</label>
+                            <input type="text" name="unidade[]" value="<?php echo htmlspecialchars($produto['unidades']); ?>" disabled>
+                          </div>
+                          <div class="produtoLinha2-Bloco2">
+                            <label>QTD</label>
+                            <input type="text" name="quantidade[]" value="<?php echo htmlspecialchars($produto['quantidades']); ?>" disabled>
+                          </div>
+                          <div class="produtoLinha2-Bloco3">
+                            <label>R$/Un</label>
+                            <input type="text" name="valor[]" value="<?php echo htmlspecialchars($produto['valor']); ?>" disabled>
+                          </div>
+                          <div class="produtoLinha2-Bloco4">
+                            <label>R$ Total</label>
+                            <input type="text" name="total[]" value="<?php echo htmlspecialchars($produto['total']); ?>" disabled>
+                          </div>
+                        </div>
+                      </div>
+                    <?php
+                      $contador++;
+                    } ?>
+                  </div>
+                  <div class="linha04">
+                    <input id="pegar" name="enviar" type="submit" value="Enviar"/>
+                  </div>
                 </div>
-            <?php endif; ?>
+              </div>
+            </form>
+          <?php endif; ?>
         </div>
     </div>
 </div>

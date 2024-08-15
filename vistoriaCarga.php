@@ -7,6 +7,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $produto_ids = $_POST['pedido_id'];
     $faltando = isset($_POST['faltando']) ? $_POST['faltando'] : [];
     $avaria = isset($_POST['avaria']) ? $_POST['avaria'] : [];
+    $notafiscal = $conexao->real_escape_string($_POST['notafiscal']);
+    $doca = $conexao->real_escape_string($_POST['doca']); // Obtém a doca do formulário
 
     // Processa cada produto
     foreach ($produto_ids as $produto_id) {
@@ -18,20 +20,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $sql = "UPDATE `pedidos` 
                 SET `faltando` = $faltandoStatus, `avaria` = $avariaStatus
                 WHERE id = '$produto_id'";
-
-        $produto_ids = $_POST['doca'];
-
-          // Atualizar a doca na tabela pedidos
-          $sql_update = "UPDATE pedidos 
-                          SET doca='$doca' 
-                          WHERE pedido='$pedido' 
-                          AND id_danfe='$notafiscal';";
-                          
-          $conexao->query($sql_update);
-
+                
         if (!$conexao->query($sql)) {
-            echo "Erro: " . $conexao->error;
+            die("Erro na atualização do produto: " . $conexao->error);
         }
+    }
+
+    // Atualiza a doca na tabela pedidos
+    $sql_update = "UPDATE pedidos 
+                   SET doca='$doca' 
+                   WHERE id_danfe='$notafiscal'";
+                   
+    if (!$conexao->query($sql_update)) {
+        die("Erro na atualização da doca: " . $conexao->error);
     }
 
     $conexao->close();
