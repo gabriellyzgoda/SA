@@ -5,9 +5,9 @@ session_start();
 include_once('config.php');
 
 // Verifica se o usuário está logado
-if(!isset($_SESSION['email'])) {
-    header("Location: login.php?erro=false");
-    exit;
+if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
+  header("Location: unauthorized.php");
+  exit;
 }
 ?>
 <head>
@@ -162,25 +162,25 @@ if(!isset($_SESSION['email'])) {
       </li>
         
         <li>
-          
-          <div class="iocn-link">
-            
-            <a href="#">
-                <i class="fa-solid fa-pen-to-square"></i>
-              <span class="link_name">Controle</span>
-            </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
-          
-          <ul class="sub-menu">
-                        
-            <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-          
-          </ul>
-          
-        </li>
+
+        <div class="iocn-link">
+
+          <a href="controleSolicitacoes.php">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <span class="link_name">Controle</span>
+          </a>
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
+        </div>
+
+        <ul class="sub-menu">
+
+          <li><a href="controleSolicitacoes.php">Solicitações</a></li>
+
+        </ul>
+
+      </li>
         <li>
           <a href="relatorios.php">
           <i class="fa-solid fa-file"></i>

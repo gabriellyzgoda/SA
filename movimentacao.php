@@ -5,10 +5,11 @@ session_start();
 include_once('config.php');
 
 // Verifica se o usuário está logado
-if (!isset($_SESSION['email'])) {
-  header("Location: login.php?erro=false");
+if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
+  header("Location: unauthorized.php");
   exit;
-} ?>
+}
+?>
 
 <head>
   <meta charset="UTF-8">
@@ -162,7 +163,7 @@ if (!isset($_SESSION['email'])) {
 
         <div class="iocn-link">
 
-          <a href="#">
+          <a href="controleSolicitacoes.php">
             <i class="fa-solid fa-pen-to-square"></i>
             <span class="link_name">Controle</span>
           </a>
@@ -172,10 +173,10 @@ if (!isset($_SESSION['email'])) {
         </div>
 
         <ul class="sub-menu">
-                        
-            <li><a href="controleSolicitacoes.php">Solicitações</a></li>
-          
-          </ul>
+
+          <li><a href="controleSolicitacoes.php">Solicitações</a></li>
+
+        </ul>
 
       </li>
       <li>
