@@ -1,0 +1,39 @@
+body, html{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-color: #85C4F9;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.principal {
+    background-color: #fff;
+    width: 65%;
+    height: 100%;
+}
+
+
+.imagem {
+    display: flex;
+    justify-content: center;
+    margin: 180px 0px 0px 0px;
+}
+
+.texto {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+}
+
+.texto p {
+    font-size: 30px;
+    color: #005DAA;
+    font-family: "League Spartan", sans-serif;
+    font-weight: bold;
+}
+
