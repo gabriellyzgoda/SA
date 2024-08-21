@@ -220,7 +220,9 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                     <input type="text" id="" value=' . $row['solicitacao'] . '>
                     <a href="verSolicitacao.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
                     </div>';
-                }}
+                }}else{
+                  echo '<tbody><tr><td colspan="5" style="text-align: center;">Nenhuma solicitação cadastrada.</td></tr></tbody>';
+                }
         ?>
     </tbody>
     </table>
