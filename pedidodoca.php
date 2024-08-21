@@ -231,7 +231,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                     </div>';
             }
           } else {
+            echo '<div class="senao">';
             echo '<p>Nenhum pedido encontrado.</p>';
+            echo '</div>';
+            
           }
           ?>
         </div>
