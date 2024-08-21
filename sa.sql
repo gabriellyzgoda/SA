@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 30/07/2024 às 12:42
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 21-Ago-2024 às 12:48
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.1.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `cadastro`
+-- Estrutura da tabela `cadastro`
 --
 
 CREATE TABLE `cadastro` (
@@ -34,11 +34,15 @@ CREATE TABLE `cadastro` (
   `senha` varchar(200) NOT NULL,
   `professor` tinyint(1) NOT NULL,
   `cargo` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `cadastro`
+--
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `container`
+-- Estrutura da tabela `container`
 --
 
 CREATE TABLE `container` (
@@ -67,11 +71,16 @@ CREATE TABLE `container` (
   `painel_avaria` tinyint(1) NOT NULL,
   `sem_caboenergia` tinyint(1) NOT NULL,
   `sem_lona` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `container`
+--
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `dadoscliente`
+-- Estrutura da tabela `dadoscliente`
 --
 
 CREATE TABLE `dadoscliente` (
@@ -81,13 +90,16 @@ CREATE TABLE `dadoscliente` (
   `telefone` varchar(10) NOT NULL,
   `email` varchar(200) NOT NULL,
   `data` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Extraindo dados da tabela `dadoscliente`
+--
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `danfe`
+-- Estrutura da tabela `danfe`
 --
 
 CREATE TABLE `danfe` (
@@ -98,12 +110,16 @@ CREATE TABLE `danfe` (
   `operacao` tinyint(1) NOT NULL,
   `data_emissao` date NOT NULL,
   `hora_emissao` time NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `danfe`
+--
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `pedidos`
+-- Estrutura da tabela `pedidos`
 --
 
 CREATE TABLE `pedidos` (
@@ -124,12 +140,16 @@ CREATE TABLE `pedidos` (
   `posicao` varchar(2) NOT NULL,
   `cnpj` varchar(15) NOT NULL,
   `id_danfe` varchar(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `pedidos`
+--
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `solicitacoes`
+-- Estrutura da tabela `solicitacoes`
 --
 
 CREATE TABLE `solicitacoes` (
@@ -139,66 +159,74 @@ CREATE TABLE `solicitacoes` (
   `unidades` varchar(255) NOT NULL,
   `quantidades` int(11) NOT NULL,
   `valor` float NOT NULL,
+  `totalcompra` float NOT NULL,
   `observacoes` varchar(255) NOT NULL,
   `posicao` varchar(2) NOT NULL,
-  `doca` varchar(10) NOT NULL
+  `doca` varchar(10) NOT NULL,
+  `vistoria` varchar(255) NOT NULL,
+  `carregado` tinyint(4) NOT NULL,
+  `id_danfe` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `solicitacoes`
+--
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices de tabela `cadastro`
+-- Índices para tabela `cadastro`
 --
 ALTER TABLE `cadastro`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `container`
+-- Índices para tabela `container`
 --
 ALTER TABLE `container`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `dadoscliente`
+-- Índices para tabela `dadoscliente`
 --
 ALTER TABLE `dadoscliente`
   ADD PRIMARY KEY (`cnpj`);
 
 --
--- Índices de tabela `danfe`
+-- Índices para tabela `danfe`
 --
 ALTER TABLE `danfe`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `pedidos`
+-- Índices para tabela `pedidos`
 --
 ALTER TABLE `pedidos`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `solicitacoes`
+-- Índices para tabela `solicitacoes`
 --
 ALTER TABLE `solicitacoes`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
 -- AUTO_INCREMENT de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `container`
 --
 ALTER TABLE `container`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `danfe`
@@ -210,13 +238,13 @@ ALTER TABLE `danfe`
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=73;
 
 --
 -- AUTO_INCREMENT de tabela `solicitacoes`
 --
 ALTER TABLE `solicitacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
