@@ -257,7 +257,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
           </tbody>
           <?php
           } else {
-            echo '<tbody><tr><td colspan="5" style="text-align: center;">Nenhuma operação em aberto</td></tr></tbody>';
+            echo '<tbody><tr><td colspan="5" style="text-align: center;"><p id="operacao">Nenhuma operação em aberto</p></td></tr></tbody>';
           }
           ?>
         </table>

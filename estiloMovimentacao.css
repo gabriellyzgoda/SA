@@ -119,3 +119,11 @@ tbody td #pegar:hover {
     margin: 0px 25px 0px 15px;
 }
 
+
+#operacao{
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    color: #2563ae;
+    font-weight: 600;
+    margin-top: 20px;
+}
