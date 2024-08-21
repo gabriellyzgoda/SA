@@ -228,7 +228,9 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                             </div>
                         </div>
                     </div>';
-                }}
+                }}else{
+                  echo '<tbody><tr><td colspan="5" style="text-align: center;">Nenhuma solicitação e doca cadastradas.</td></tr></tbody>';
+                }
         ?>
         </div>
       </div>
