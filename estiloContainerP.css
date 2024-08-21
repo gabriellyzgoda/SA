@@ -59,3 +59,17 @@
     transition: all 0.3s ease;
 }
 
+.bloco2 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 0px 0px 10px 0px;
+}
+
+
+.bloco2 p {
+    font-size: 18px;
+    font-family: "League Spartan", sans-serif;
+    color: #2a60a9;
+    font-weight: 600;
+}
