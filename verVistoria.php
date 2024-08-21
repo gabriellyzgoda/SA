@@ -200,6 +200,7 @@ $solicitacao = $conexao->real_escape_string($_GET['solicitacao']);
     </ul><!--Fecha ul-->
   </div>
   <div class="conteudo">
+  <form action="processarVistoria.php" method="post">
     <?php
     $sql = "SELECT * FROM solicitacoes 
                         WHERE solicitacao = '$solicitacao' 

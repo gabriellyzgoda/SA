@@ -188,13 +188,18 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </div>
         <div class="linhaContainer">
           <div class="quadroContainer">
-            <form class="form" method="post" action="cadastroContainerP.php" id="cadastroPedidio" name="cadastroPedidio" >
-              <div class="quadroForm">
-                  <div class="bloco01">
-                    <div class="linhasBloco01">
-                      <label>Placa do caminhão:</label>
-                      <input type="text" name="placa_caminhao" placeholder="" required>
-                    </div>
+          <form class="form" method="post" action="cadastroContainerP.php" id="cadastroPedidio" name="cadastroPedidio">
+                    <?php if (isset($_SESSION['erro'])): ?>
+                    <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
+                    <?php endif; ?>
+                    <div class="quadroForm">
+                        <div class="bloco01">
+                            <div class="linhasBloco01">
+                            <input type="hidden" name="placa_caminhao" value="<?php echo $row['placa_caminhao'] ?>">
+                                <label>Placa do caminhão:</label>
+                                <input type="text" name="placa_caminhao" id="placa_caminhao" placeholder="" required>
+                                <p id="placaErro" class="error" style="display: none;">A placa do caminhão já foi cadastrada.</p>
+                            </div>
                     <div class="linhasBloco01">
                       <label>Nome do motorista:</label>
                       <input type="text" name="nome_motorista" placeholder="" required>
@@ -245,7 +250,32 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 include_once('footer.php');
 ?>
     <script>
-  
+     document.getElementById('placa_caminhao').addEventListener('blur', function() {
+        var placa = this.value;
+        var erroMsg = document.getElementById('placaErro');
+
+        // Verificar se a placa não está vazia
+        if (placa.trim() === '') {
+            erroMsg.style.display = 'none';
+            return;
+        }
+
+        // Fazer a solicitação AJAX para verificar a placa
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'verificarContainer.php?placa_caminhao=' + encodeURIComponent(placa), true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.exists) {
+                    erroMsg.style.display = 'block';
+                } else {
+                    erroMsg.style.display = 'none';
+                }
+            }
+        };
+        xhr.send();
+    });
+    
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

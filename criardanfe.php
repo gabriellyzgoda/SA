@@ -302,7 +302,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 include_once('footer.php');
 ?>
   <script>
-document.getElementById('id').addEventListener('blur', function() {
+    document.getElementById('id').addEventListener('blur', function() {
       var id = this.value;
       var erroMsg = document.getElementById('idErro');
 

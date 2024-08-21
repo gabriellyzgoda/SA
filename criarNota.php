@@ -219,14 +219,13 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                 if($resultado->num_rows != 0)
                 {
                   $row = $resultado -> fetch_array();
-                  $totalcompra = $row['totalcompra'];
                   ?>
             <form class="form" method="POST" action="cadastroNota.php">
             <?php if (isset($_SESSION['erro'])): ?>
             <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
             <?php endif; ?>
-                <div>
-                <input type="hidden" name="solicitacao" value="<?php echo htmlspecialchars($solicitacao); ?>">
+            <div>
+              <input type="hidden" name="solicitacao" value="<?php echo $row['solicitacao'] ?>">
               <p>Chave de Acesso:</p>
               <input class="" type="text" name="id" id="id" size="20" required>
               <p id="idErro" class="error" style="display: none;">O número da Nota Fiscal já está em uso.</p>
@@ -235,7 +234,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
           <div class="informacoes">
             <div class="informacoesBloco1">
               <img src="imagens/codigo-barras.png" alt="Minha Figura" width="200" height="auto">
-              <input type="number" name="codbarra" id="codbarra" value=gerarNumeroUnico()>
+              <input type="number" name="codbarra" id="codbarra" >
             </div>
             <div class="informacoesBloco2">
               <p>Nome/Razão Social: SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI</p>
@@ -292,7 +291,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
             </div>
             <div class="destinatarioBloco3">
                 <label>Valor total da nota:</label>
-                <input type="text" name="total" readonly value="<?php echo htmlspecialchars($totalcompra); ?>">
+                <input type="text" name="total" readonly value="<?php echo $row['totalcompra']; ?>">
             </div>
             
       <div class="destinatarioBloco4">
@@ -311,7 +310,31 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
 include_once('footer.php');
 ?>
     <script>
-  
+    document.getElementById('id').addEventListener('blur', function() {
+      var id = this.value;
+      var erroMsg = document.getElementById('idErro');
+
+      // Verificar se o ID não está vazio
+      if (id.trim() === '') {
+        erroMsg.style.display = 'none';
+        return;
+      }
+       // Fazer a solicitação AJAX para verificar o ID
+       var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'verificarNota.php?id=' + encodeURIComponent(id), true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          if (response.exists) {
+            erroMsg.style.display = 'block';
+          } else {
+            erroMsg.style.display = 'none';
+          }
+        }
+      };
+      xhr.send();
+    });
+
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

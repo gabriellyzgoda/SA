@@ -187,9 +187,14 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         <div class="criacao-solicitacao">
           <div class="bloco-criacao-solicitacao">
               <form class="form" method="post" action="cadastroSolicitacao.php" id="formPedido">
+              <?php if (isset($_SESSION['erro'])): ?>
+              <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
+              <?php endif; ?>
                     <div class="form-numero">
+                    <input type="hidden" name="solicitacao" value="<?php echo $row['solicitacao'] ?>">
                       <label>Solicitação nº:</label>
                       <input type="number" name="solicitacao" id="solicitacao">
+                      <p id="idErro" class="error" style="display: none;">O número da Solicitação já está em uso.</p>
                     </div>
                 <table>
                   <thead>
@@ -249,6 +254,33 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 include_once('footer.php');
 ?>
     <script>
+      document.getElementById('solicitacao').addEventListener('blur', function() {
+        var id = this.value;
+        var erroMsg = document.getElementById('idErro');
+
+        // Verificar se o ID não está vazio
+        if (id.trim() === '') {
+          erroMsg.style.display = 'none';
+          return;
+        }
+
+        // Fazer a solicitação AJAX para verificar o ID
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'verificarSolicitacao.php?solicitacao=' + encodeURIComponent(id), true);
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.exists) {
+              erroMsg.style.display = 'block';
+            } else {
+              erroMsg.style.display = 'none';
+            }
+          }
+        };
+        xhr.send();
+      });
+
+
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{
