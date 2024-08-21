@@ -198,7 +198,9 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
                             <input type="hidden" name="placa_caminhao" value="<?php echo $row['placa_caminhao'] ?>">
                                 <label>Placa do caminhão:</label>
                                 <input type="text" name="placa_caminhao" id="placa_caminhao" placeholder="" required>
-                                <p id="placaErro" class="error" style="display: none;">A placa do caminhão já foi cadastrada.</p>
+                            </div>
+                            <div class="bloco2">
+                                  <p id="placaErro" class="error" style="display: none;">A placa do caminhão já foi cadastrada.</p>
                             </div>
                     <div class="linhasBloco01">
                       <label>Nome do motorista:</label>
