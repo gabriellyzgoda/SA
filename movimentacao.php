@@ -214,6 +214,8 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
             WHERE 1";
           // puxa conexão
           $resultado = $conexao->query($sql);
+          // Verifica se há pedidos
+          if ($resultado->num_rows > 0) {
           ?>
           <tbody>
             <form class="form" method="post" action="operacaoMovimentacao.php" id="formlogin" name="formlogin">
@@ -253,11 +255,18 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
               }
               ?>
           </tbody>
+          <?php
+          } else {
+            echo '<tbody><tr><td colspan="5" style="text-align: center;">Nenhuma operação em aberto</td></tr></tbody>';
+          }
+          ?>
         </table>
       </div>
+      <?php if ($resultado->num_rows > 0) { ?>
       <div class="linhaBM">
         <input class="" type="submit" value="Operação de Movimentação >>>" />
       </div>
+      <?php } ?>
       </form>
     </div>
   </div>
