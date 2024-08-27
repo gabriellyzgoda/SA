@@ -211,6 +211,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
                       <input type="text" name="container" placeholder="" required>
                     </div>
                     <div class="linhasBloco01">
+                      <label>Navio:</label>
+                      <input type="text" name="navio" placeholder="" required>
+                    </div>
+                    <div class="linhasBloco01">
                       <label>Cliente:</label>
                       <input type="text" name="cliente" placeholder="" required>
                     </div>

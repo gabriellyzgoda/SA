@@ -21,10 +21,10 @@
 
 				$pedido = $conexao->real_escape_string($_POST['pedido']);
 
-				if($_POST['saida'] != ""){
-					$operacao = 0;
-				} else{
+				if($_POST['entrada'] != ""){
 					$operacao = 1;
+				} else{
+					$operacao = 0;
 				}
 				$sql = "INSERT INTO `danfe`
                             (`id`,`codbarra`, `n`, `serie`, `operacao`, `data_emissao`, `hora_emissao`) 

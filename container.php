@@ -241,6 +241,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                               echo "<input type='text' name='container' placeholder='' disabled value=" . $row['container'].">";
                             echo "</div>";
                             echo "<div class='linhasBloco01'>";
+                              echo "<label>Navio:</label>";
+                              echo "<input type='text' name='navio' placeholder='' disabled value=" . $row['navio'].">";
+                            echo "</div>";
+                            echo "<div class='linhasBloco01'>";
                               echo "<label>Cliente:</label>";
                               echo "<input type='text' name='cliente' placeholder='' disabled value=" . $row['cliente'].">";
                             echo "</div>";

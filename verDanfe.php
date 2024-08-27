@@ -219,7 +219,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       <div class="chave">
           <p>Chave de Acesso:</p>
           <input class="" type="text" name="id" id="id" size="20" value="<?php echo $row['id']; ?>" readonly>
-          <button onclick="imp()">Imprimir</button>
           <a href="minhaDanfe.php"><button type="button">Voltar</button></a>
       </div>
       <div class="informacoes">
@@ -320,10 +319,6 @@ include_once('footer.php');
       };
       xhr.send();
     });
-    
-    function imp(){
-        window.print();
-    }
 
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {

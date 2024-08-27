@@ -241,7 +241,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
             <div class="dadosBloco1">
               <div class="Bloco1-1">
                 <div class="bloco1-linha1">
-                  <label>Nº</label>
+                  <label>Nº:</label>
                   <input type="number" name="n" value="n">
                 </div>
                 <div class="bloco1-linha2">

@@ -30,12 +30,18 @@
                             <i class="fa-solid fa-user"></i>
                             <input  class="inputs" type="text" name="nome" id="nome" size="20" required>
                         </div>
+                        <?php if (isset($_SESSION['erro'])): ?>
+                            <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
+                        <?php endif; ?>
+                        <input type="hidden" name="email" value="<?php echo $row['email'] ?>">
                         <label><h2>Email: </h2></label>
                             <div class="div-input">
                             <i class="fa-solid fa-envelope"></i>
                             <input  class="inputs" type="email" name="email" id="email" size="20" required>
                         </div>  
-                        
+                        <div class="bloco2">
+                                  <p id="cadastroErro" class="error" style="display: none;">Este email já está sendo utilizado.</p>
+                            </div>
                         <label><h2>Senha: </h2></label>
                         <div class="div-input">
                             <i class="fa-solid fa-lock"></i>

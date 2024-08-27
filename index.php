@@ -19,7 +19,7 @@
                     <a class="icons" href="https://www.youtube.com/channel/UCQFD9JHT1tgBT9NhNIPrJ1A"><i class="fa-brands fa-youtube fa-xl"></i></i></a>  
             </div>
             <div class="logo">
-                <img src="imagens/logsenai.png" alt="Minha Figura" width="400" height="auto">
+                <img src="imagens/modelosa.jpg" alt="Minha Figura" width="400" height="auto">
             </div>
             <div class="iniciar">  
                 <a href="login.php"><button>Iniciar</button></a>

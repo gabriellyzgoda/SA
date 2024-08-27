@@ -14,6 +14,7 @@
 				$placa = $conexao -> real_escape_string($_POST['placa_caminhao']);
 				$nome = $conexao -> real_escape_string($_POST['nome_motorista']);
 				$container = $conexao -> real_escape_string($_POST['container']);
+				$navio = $conexao -> real_escape_string($_POST['navio']);
 				$cliente = $conexao -> real_escape_string($_POST['cliente']);
 				$tipo = $conexao -> real_escape_string($_POST['tipo']);
 				$lacre = $conexao -> real_escape_string($_POST['lacre']);
@@ -23,9 +24,9 @@
 				$n_onu = $conexao -> real_escape_string($_POST['n_onu']);
 
 				$sql = "INSERT INTO `container`
-                            (`placa_caminhao`, `nome_motorista`, `container`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`) 
+                            (`placa_caminhao`, `nome_motorista`, `container`,`navio`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`) 
                         VALUES 
-				             ('".$placa."','".$nome."','".$container."','".$cliente."','".$tipo."','".$lacre."','".$lacre_sif."','".$temperatura."','".$IMO."','".$n_onu."');";
+				             ('".$placa."','".$nome."','".$container."', '".$navio."','".$cliente."','".$tipo."','".$lacre."','".$lacre_sif."','".$temperatura."','".$IMO."','".$n_onu."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 				
