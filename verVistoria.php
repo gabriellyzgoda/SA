@@ -206,7 +206,7 @@ $solicitacao = $conexao->real_escape_string($_GET['solicitacao']);
                         WHERE solicitacao = '$solicitacao' 
                         AND doca IS NOT NULL 
                         AND doca != ''
-                        AND (vistoria IS NULL OR vistoria = '')
+                        AND (carregado IS NULL OR carregado = '')
                         ORDER BY doca;";
     $resultado = $conexao->query($sql);
 
