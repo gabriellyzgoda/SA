@@ -45,6 +45,14 @@
   padding-left: 7px;
 }
 
+.form .form-numero p {
+  font-size: 20px;
+  font-family: "League Spartan", sans-serif;
+  color: #2a60a9;
+  font-weight: 600;
+  margin-left: 20px;
+}
+
 
 
 .form table th {

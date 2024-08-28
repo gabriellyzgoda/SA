@@ -169,13 +169,13 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           
         </li>
         <li>
-          <a href="relatorios.php">
+          <a href="relatoriosP.php">
           <i class="fa-solid fa-file"></i>
             <span class="link_name">Relatório</span>
           </a>
           
           <ul class="sub-menu blank">
-            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
+            <li><a class="link_name" href="relatoriosP.php">Relatório</a></li>
           </ul>
         </li>   
       </ul><!--Fecha ul-->
