@@ -229,7 +229,7 @@ $resultado = $conexao->query($sqlProfessor);
                   <label for="nome">Nome:</label>
                   <input type="text" id="nome" name="novonome" required>
                   <label for="senha">Senha:</label>
-                  <input type="password" id="senha" name="novosenha" required>
+                  <input type="text" id="senha" name="novosenha" required>
                   <label for="cargo">Cargo:</label>
                   <input type="text" id="cargo" name="novocargo" required>
                   <input type="hidden" id="userId" name="userId">
@@ -246,14 +246,7 @@ $resultado = $conexao->query($sqlProfessor);
 include_once('footer.php');
 ?>
     <script>
-
-        function confirmarExclusao(id) {
-            if (confirm("Tem certeza que deseja excluir este aluno?")) {
-                window.location.href = "delete.php?id=" + id;
-            }
-        }
-      
-    function editarAluno(id, nome, senha, cargo) {
+        function editarAluno(id, nome, senha, cargo) {
         document.getElementById("userId").value = id;
         document.getElementById("nome").value = nome;
         document.getElementById("senha").value = senha;
