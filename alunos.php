@@ -246,6 +246,11 @@ $resultado = $conexao->query($sqlProfessor);
 include_once('footer.php');
 ?>
     <script>
+      function confirmarExclusao(id) {
+            if (confirm("Tem certeza que deseja excluir este aluno?")) {
+                window.location.href = "delete.php?id=" + id;
+            }
+        }
         function editarAluno(id, nome, senha, cargo) {
         document.getElementById("userId").value = id;
         document.getElementById("nome").value = nome;
