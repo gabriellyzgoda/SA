@@ -203,6 +203,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
               <div class="linhaSolicitacoes">
                 <input type="text" id="solicitacoes" value="' . htmlspecialchars($row['solicitacao']) . '" readonly>
                 <a href="abrirSolicitacao.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
+                <td><div class="botaoDeletar" onclick="confirmarExclusao(' . $row['solicitacao'] . ')"><i class="fa-solid fa-trash"></i></div></td>
               </div>
             ';
             }}?>
@@ -213,6 +214,11 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 include_once('footer.php');
 ?>
     <script>
+      function confirmarExclusao(solicitacao) {
+        if (confirm("Tem certeza que deseja excluir esta solicitação?")) {
+          window.location.href = "deleteSolicitacao.php?solicitacao=" + encodeURIComponent(solicitacao);
+        }
+      }
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{
