@@ -31,7 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Redirecionar para a página expedicao.php
         if (!$erro_ocorrido) {
-            header('Location: expedicao.php');
+            header('Location: vistoriaConferencia.php');
             exit; // Certifique-se de chamar exit após o redirecionamento
         }
     } else {
