@@ -106,7 +106,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 
         <ul class="sub-menu">
 
-          <li><a class="link_name" href="#">Nota fiscal</a></li>
           <li><a href="criardanfe.php">Criar Danfe</a></li>
           <li><a href="minhadanfe.php">Minhas Danfe's</a></li>
 
