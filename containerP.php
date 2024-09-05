@@ -82,7 +82,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           
           <ul class="sub-menu">
             
-            <li><a class="link_name" href="#">Pedidos</a></li>
             <li><a href="criarpedido.php">Criar pedido</a></li>
             <li><a href="meuspedidos.php">Meus pedidos</a></li>
           
@@ -161,7 +160,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           
           <ul class="sub-menu">
           
-            <li><a class="link_name" href="#">Solicitações</a></li>
             <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
             <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
           
@@ -190,7 +188,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           <div class="quadroContainer">
           <form class="form" method="post" action="cadastroContainerP.php" id="cadastroPedidio" name="cadastroPedidio">
                     <?php if (isset($_SESSION['erro'])): ?>
-                    <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
+                      <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
                     <?php endif; ?>
                     <div class="quadroForm">
                         <div class="bloco01">

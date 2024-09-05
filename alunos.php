@@ -82,7 +82,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           
           <ul class="sub-menu">
             
-            <li><a class="link_name" href="#">Pedidos</a></li>
             <li><a href="criarpedido.php">Criar pedido</a></li>
             <li><a href="meuspedidos.php">Meus pedidos</a></li>
           
@@ -161,7 +160,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           
           <ul class="sub-menu">
           
-            <li><a class="link_name" href="#">Solicitações</a></li>
             <li><a href="criarSolicitacao.php">Criar Solicitação</a></li>
             <li><a href="solicitacoes.php">Minhas Solicitações</a></li>
           
@@ -224,28 +222,53 @@ $resultado = $conexao->query($sqlProfessor);
         </table>
         </div>
         <div id="formPopup" class="form-popup">
-            <form id="editForm" class="form-container" method="POST" action="salvar.php">
-                <div class="config-form">
-                  <label for="nome">Nome:</label>
-                  <input type="text" id="nome" name="novonome" required>
-                  <label for="senha">Senha:</label>
-                  <input type="text" id="senha" name="novosenha" required>
-                  <label for="cargo">Cargo:</label>
-                  <input type="text" id="cargo" name="novocargo" required>
-                  <input type="hidden" id="userId" name="userId">
-                  <div class="botoes-form">
+        <form id="editForm" class="form-container" method="POST" action="salvar.php">
+            <div class="config-form">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="novonome" required>
+                <label for="senha">Senha:</label>
+                <input type="text" id="senha" name="novosenha" required>
+                <button type="button" id="generatePassword" class="btn">Gerar Senha</button>
+                <div id="passwordPopup" class="popup-content"></div>
+                <label for="cargo">Cargo:</label>
+                <input type="text" id="cargo" name="novocargo" required>
+                <input type="hidden" id="userId" name="userId">
+                <div class="botoes-form">
                     <button type="submit" class="btn" value="Salvar">Salvar</button>
-                    </form>  
                     <button type="button" class="btn cancel" onclick="closeForm()">Fechar</button>
-                    </div>
-                    </div>
-        </div>
+                </div>
+            </div>
+        </form>  
+      </div>
         <div class="overlay" id="overlay" style="display: none;"></div>
     </div>
 <?php
 include_once('footer.php');
 ?>
     <script>
+      document.getElementById('generatePassword').addEventListener('click', function() {
+            const password = generateRandomPassword();
+            const passwordInput = document.getElementById('senha');
+            const passwordPopup = document.getElementById('passwordPopup');
+            
+            passwordInput.value = password;
+            passwordPopup.style.display = 'block';
+            
+            setTimeout(() => {
+                passwordPopup.style.display = 'none';
+            }, 3000);
+        });
+
+        function generateRandomPassword(length = 4) {
+            const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            let password = "";
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * charset.length);
+                password += charset[randomIndex];
+            }
+            return password;
+        }
+
       function confirmarExclusao(id) {
             if (confirm("Tem certeza que deseja excluir este aluno?")) {
                 window.location.href = "delete.php?id=" + id;

@@ -69,6 +69,33 @@
         
     </div>  
 </body>
+<script>
+    document.getElementById('email').addEventListener('blur', function() {
+        var email = this.value;
+        var erroMsg = document.getElementById('cadastroErro');
+
+        // Verificar se a placa não está vazia
+        if (email.trim() === '') {
+            erroMsg.style.display = 'none';
+            return;
+        }
+
+        // Fazer a solicitação AJAX para verificar a placa
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'verificarEmail.php?email=' + encodeURIComponent(email), true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+                if (response.exists) {
+                    erroMsg.style.display = 'block';
+                } else {
+                    erroMsg.style.display = 'none';
+                }
+            }
+        };
+        xhr.send();
+    });
+</script>
 </html>
 
 
