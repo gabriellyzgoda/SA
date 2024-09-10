@@ -204,12 +204,34 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
         <div class="quadroForm">
             <div class="bloco01">
             <form id="formPlaca" class="form" method="POST" action="container.php">
-            <div id="linhaPlaca" class="linhasBloco01">
-                <label>Placa do caminhão:</label>
-                <input type="text" name="placa_caminhao" placeholder="">
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-              </div>
+              <div id="linhaPlaca" class="linhasBloco01">
+                  <label>Digite uma data:</label>
+                  <input type="date" id="data" name="data">
+                  <button type="button" id="buscarPlacas"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  <br>
+                  <br>
+                  <label>Selecione a placa do caminhão:</label>
+                      <select id="placa_caminhao" name="placa_caminhao">
+                          <option value="">Selecione...</option>
+                      </select>
+                      <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  </div
               </form>
+                  <?php
+                    if (isset($_GET['data'])) {
+                        $data = $conexao->real_escape_string($_GET['data']);
+                    
+                        $sql = "SELECT DISTINCT placa_caminhao FROM container WHERE data = '$data'";
+                        $resultado = $conexao->query($sql);
+                    
+                        $placas = [];
+                        while ($row = $resultado->fetch_assoc()) {
+                            $placas[] = $row['placa_caminhao'];
+                        }
+                    
+                        echo json_encode($placas);
+                    }
+                    ?>
               <?php
               if(isset($_POST['placa_caminhao'])) {
               if ($conexao -> connect_errno) {
@@ -361,8 +383,30 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
 <?php
 include_once('footer.php');
 ?>
-
     <script>
+
+      document.getElementById('buscarPlacas').addEventListener('click', function() {
+    const data = document.getElementById('data').value;
+    if (!data) {
+        alert('Por favor, selecione uma data.');
+        return;
+    }
+
+    fetch('buscar_placas.php?data=' + encodeURIComponent(data))
+        .then(response => response.json())
+        .then(data => {
+            const placaSelect = document.getElementById('placa_caminhao');
+            placaSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
+            data.forEach(placa => {
+                const option = document.createElement('option');
+                option.value = placa;
+                option.textContent = placa;
+                placaSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Erro ao buscar placas:', error));
+  });
+
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{

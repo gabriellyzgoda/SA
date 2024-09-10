@@ -24,9 +24,9 @@
 				$n_onu = $conexao -> real_escape_string($_POST['n_onu']);
 
 				$sql = "INSERT INTO `container`
-                            (`placa_caminhao`, `nome_motorista`, `container`,`navio`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`) 
+                            (`placa_caminhao`, `nome_motorista`, `container`,`navio`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`,`data`) 
                         VALUES 
-				             ('".$placa."','".$nome."','".$container."', '".$navio."','".$cliente."','".$tipo."','".$lacre."','".$lacre_sif."','".$temperatura."','".$IMO."','".$n_onu."');";
+				             ('".$placa."','".$nome."','".$container."', '".$navio."','".$cliente."','".$tipo."','".$lacre."','".$lacre_sif."','".$temperatura."','".$IMO."','".$n_onu."','".date("Y-m-d")."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 				
