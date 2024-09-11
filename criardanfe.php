@@ -187,10 +187,31 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       <div class="bloco-conteudo">
           <div class="chave">
             <form class="form" method="POST" action="criardanfe.php">
-                <p>Digite o Nº do Pedido</p>
-                <input class="" type="text" name="pedido" id="pedido" size="20">
+                <p>Digite uma data:</p>
+                  <input type="date" id="data" name="data">
+                  <button type="button" id="buscarPlacas"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  <br>
+                <p>Selecione um pedido</p>
+                <select id="pedido" name="pedido">
+                          <option value="">Selecione...</option>
+                      </select>
                 <button type="submit">OK</button>
             </form>
+            <?php
+                    if (isset($_GET['data'])) {
+                        $data = $conexao->real_escape_string($_GET['data']);
+                    
+                        $sql = "SELECT DISTINCT pedido FROM pedidos WHERE data = '$data'";
+                        $resultado = $conexao->query($sql);
+                    
+                        $placas = [];
+                        while ($row = $resultado->fetch_assoc()) {
+                            $placas[] = $row['placa_caminhao'];
+                        }
+                    
+                        echo json_encode($placas);
+                    }
+                    ?>
             <?php
             if(isset($_POST['pedido'])) {
               if ($conexao -> connect_errno) {
