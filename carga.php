@@ -257,8 +257,14 @@ $conexao->close();
         <div class="linha01">
           <form id="formPlaca" class="form" method="POST" action="carga.php">
             <div class="linha01-01">
+            <p>Digite uma data:</p>
+                  <input type="date" id="data" name="data">
+                  <button type="button" id="buscarPedido"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  <br>
               <label>Pedido de compra:</label>
-              <input type="text" name="pedido" placeholder="">
+              <select id="pedido" name="pedido">
+                          <option value="">Selecione...</option>
+                      </select>
               <button type="submit" name="verificar">OK</button>
             </div>
           </form>
@@ -327,6 +333,27 @@ $conexao->close();
   </div>
   <?php include_once('footer.php'); ?>
   <script>
+    document.getElementById('buscarPedido').addEventListener('click', function() {
+    const data = document.getElementById('data').value;
+    if (!data) {
+        alert('Por favor, selecione uma data.');
+        return;
+    }
+
+    fetch('buscar_carga.php?data=' + encodeURIComponent(data))
+        .then(response => response.json())
+        .then(data => {
+            const pedidoSelect = document.getElementById('pedido');
+            pedidoSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
+            data.forEach(pedido => {
+                const option = document.createElement('option');
+                option.value = pedido;
+                option.textContent = pedido;
+                pedidoSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Erro ao buscar os pedidos:', error));
+  });
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e) => {

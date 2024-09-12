@@ -219,6 +219,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
           <div class="bloco-picking">
             <div class="linha1">
             <form class="form" method="POST" action="picking.php">
+            <p>Digite uma data:</p>
+                  <input type="date" id="data" name="data">
+                  <button type="button" id="buscarSolicitacao"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  <br>
               <label>Solicitação nº:</label>
               <input class="" type="text" name="solicitacao" id="solicitacao" size="20">
                 <button type="submit">OK</button>
