@@ -1,164 +1,204 @@
- /*conteudo*/ 
+ /*conteudo*/
 
-  .quadro-alunos {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  .quadro-alunos table th {
-    color: #fff;
-    background-color: #5f88c1;
-    font-size: 30px;
-    font-family: "League Spartan", sans-serif;
-    padding: 20px 70px; 
-    border-right: 3px solid #fff;
-  }
-  .quadro-alunos table thead {
-    display: block;
-  }
+ .quadro-alunos {
+   width: 100%;
+   display: flex;
+   justify-content: center;
+ }
 
-  .quadro-alunos table tbody {
-    background-color: #ddf3ff;
-    display: block;
-    overflow-y: scroll;
-    height: 300px;
-  }
+ .quadro-alunos table th {
+   color: #fff;
+   background-color: #5f88c1;
+   font-size: 30px;
+   font-family: "League Spartan", sans-serif;
+   padding: 20px 70px;
+   border-right: 3px solid #fff;
+ }
 
-  .quadro-alunos table tbody td {
-    border-right: 3px solid #fff;
-    padding: 8px 0px 5px 30px;
-    font-family: "League Spartan", sans-serif;
-    font-size: 22px;
-    color: #5673a7;
-  }
+ .quadro-alunos table thead {
+   display: block;
+ }
 
-  .quadro-alunos table tbody tr:hover {
-    background-color: #b2d7ed;
-    
-  }
+ .quadro-alunos table tbody {
+   background-color: #ddf3ff;
+   display: block;
+   overflow-y: scroll;
+   height: 300px;
+ }
 
-  td:nth-child(1) {
-    width: 199px;
-  }
+ .quadro-alunos table tbody td {
+   border-right: 3px solid #fff;
+   padding: 8px 0px 5px 30px;
+   font-family: "League Spartan", sans-serif;
+   font-size: 22px;
+   color: #5673a7;
+ }
 
-  td:nth-child(2) {
-    width: 192px;
-  }
-  td:nth-child(3) {
-    width: 190px;
-  }
-  td:nth-child(4) {
-    width: 85px;
-    display: flex;
-    justify-content: space-evenly;
-    padding: 8px 0px 5px 0px !important;
-    border-right: 0px !important;
-  }
+ .quadro-alunos table tbody tr:hover {
+   background-color: #b2d7ed;
 
-  th:nth-child(4) {
-    width: 101px;
-    border: 0px !important;
-    padding: 0px !important;
-  }
+ }
 
-  table {
-    border-spacing: 0px;  }
+ td:nth-child(1) {
+   width: 199px;
+ }
 
-  .botaoEditar i, .botaoDeletar i {
+ td:nth-child(2) {
+   width: 192px;
+ }
 
-    color: #5673a7;
-  }
+ td:nth-child(3) {
+   width: 190px;
+ }
 
-  .botaoEditar i:hover, .botaoDeletar i:hover {
-    color: #0d055f;
-    transition: all 0.2s ease;
-  }
-  
-  
-  /*POP Up */
+ td:nth-child(4) {
+   width: 85px;
+   display: flex;
+   justify-content: space-evenly;
+   padding: 8px 0px 5px 0px !important;
+   border-right: 0px !important;
+ }
 
-  .form-popup ,.form-container {
-    display: none;
-  }
+ th:nth-child(4) {
+   width: 101px;
+   border: 0px !important;
+   padding: 0px !important;
+ }
 
-  .form-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9;
-    background-color: #8bcded;
-    padding: 20px;
-    width: auto;
-  }
+ table {
+   border-spacing: 0px;
+ }
 
-  .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.5); /* Cor de fundo com 50% de opacidade */
-    z-index: 8;
-}
+ .botaoEditar i,
+ .botaoDeletar i {
 
-.config-form {
-  display: flex;
-  flex-direction: column;
-  font-size: 25px;
-  color: #fff;
-  font-weight: 500;
-  font-family: "League Spartan", sans-serif;
-}
+   color: #5673a7;
+ }
 
-.config-form label {
-  margin: 5px 0px;
-}
-
-.config-form input {
-  margin: 5px 0px;
-  width: 90%;
-  height: auto;
-  border-color: #acacac;
-  border-radius: 11px;
-  background-color: #ffffff;
-  font-family: "League Spartan", sans-serif;
-  color: #8bcded;
-  font-weight: 500;
-  font-size: 23px;
-  padding: 7px 5px;
-
-}
-
-.botoes-form {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  margin: 25px 5px 5px 5px;
-
-}
-
-.botoes-form button {
-  font-size: 24px;
-  color: #fff;
-  background-color: #8bcded;
-  border: 2px solid #fff;
-  font-family: "League Spartan", sans-serif;
-  font-weight: 600;
-  padding: 8px 14px;
-  border-radius: 5px;
-}
-
-.botoes-form button:hover {
-  
-  transition: all 0.2s ease;
-  background-color: #379bcb;
-}
+ .botaoEditar i:hover,
+ .botaoDeletar i:hover {
+   color: #0d055f;
+   transition: all 0.2s ease;
+ }
 
 
+ /*POP Up */
 
+ .form-popup,
+ .form-container {
+   display: none;
+ }
 
+ .form-popup {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 9;
+   background-color: #8bcded;
+   padding: 20px;
+   width: auto;
+ }
 
+ .overlay {
+   position: fixed;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   background-color: rgba(0, 0, 0, 0.5);
+   /* Cor de fundo com 50% de opacidade */
+   z-index: 8;
+ }
 
+ .config-form {
+   display: flex;
+   flex-direction: column;
+   font-size: 25px;
+   color: #fff;
+   font-weight: 500;
+   font-family: "League Spartan", sans-serif;
+ }
 
-  
+ .config-form label {
+   margin: 5px 0px;
+ }
+
+ .config-form input {
+   margin: 5px 0px;
+   width: 90%;
+   height: auto;
+   border-color: #acacac;
+   border-radius: 11px;
+   background-color: #ffffff;
+   font-family: "League Spartan", sans-serif;
+   color: #8bcded;
+   font-weight: 500;
+   font-size: 23px;
+   padding: 7px 5px;
+
+ }
+
+ .botoes-form {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   margin: 25px 5px 5px 5px;
+
+ }
+
+ .botoes-form button {
+   font-size: 24px;
+   color: #fff;
+   background-color: #8bcded;
+   border: 2px solid #fff;
+   font-family: "League Spartan", sans-serif;
+   font-weight: 600;
+   padding: 8px 14px;
+   border-radius: 5px;
+ }
+
+ .botoes-form button:hover {
+
+   transition: all 0.2s ease;
+   background-color: #379bcb;
+ }
+
+ .newPassword {
+   display: flex;
+   align-items: center;
+   max-width: 255px;
+ }
+
+ .newPassword input {
+   margin: 5px 0px;
+   flex: 5;
+   height: auto;
+   border-color: #acacac;
+   border-radius: 0px;
+   border-top-left-radius: 11px;
+   border-bottom-left-radius: 11px;
+   background-color: #ffffff;
+   font-family: "League Spartan", sans-serif;
+   color: #8bcded;
+   font-weight: 500;
+   font-size: 23px;
+   border-right: none;
+   padding: 7px 5px;
+ }
+
+ .newPassword button {
+   flex: 1;
+   padding: 0px;
+   margin: 0px;
+   width: 10px;
+   height: 39px;
+   border-top-right-radius: 11px;
+   border-bottom-right-radius: 11px;
+   border-color: #acacac;
+   border-left :none;
+ }
+
+ .newPassword button i {
+    font-size: 18px;
+ }
