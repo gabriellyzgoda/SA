@@ -282,3 +282,27 @@
     border-radius: 30px;
     border: none;
 }
+
+.filtros {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.linhasFiltro {
+    display: flex;
+    flex-direction: column;
+}
+
+.linhasfiltro p {
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    color: #185CA9;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.row2Filter {
+    display: flex;
+    flex-direction: row;
+}

@@ -27,9 +27,9 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 
 <body>
   <header class="header-topo">
-  <div class="logSenai">
-          <a href="homeP.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
-        </div>
+    <div class="logSenai">
+      <a href="homeP.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
+    </div>
     <div class="logo">
       <a href="homeP.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
     </div>
@@ -83,11 +83,11 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </div>
 
         <ul class="sub-menu">
-            
-            <li><a href="criarpedido.php">Criar pedido</a></li>
-            <li><a href="meuspedidos.php">Meus pedidos</a></li>
-          
-          </ul>
+
+          <li><a href="criarpedido.php">Criar pedido</a></li>
+          <li><a href="meuspedidos.php">Meus pedidos</a></li>
+
+        </ul>
 
       </li>
 
@@ -115,22 +115,22 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 
       <li>
         <div class="iocn-link">
-            
-            <a href="containerP.php">
+
+          <a href="containerP.php">
             <i class="fa-solid fa-warehouse"></i>
-              <span class="link_name">Controle</span>
-            </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
+            <span class="link_name">Controle</span>
+          </a>
 
-          <ul class="sub-menu ">
-            <li><a href="containerP.php">Container</a></li>
+          <i class='bx bxs-chevron-down arrow'></i>
 
-          </ul>
+        </div>
 
-        </li>
+        <ul class="sub-menu ">
+          <li><a href="containerP.php">Container</a></li>
+
+        </ul>
+
+      </li>
 
       <li>
 
@@ -145,13 +145,13 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 
       </li>
 
-     
+
       <li>
 
         <div class="iocn-link">
 
           <a href="#">
-          <i class="fa-solid fa-clipboard-list fa-lg"></i>
+            <i class="fa-solid fa-clipboard-list fa-lg"></i>
             <span class="link_name">Solicitações</span>
           </a>
 
@@ -168,15 +168,15 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 
       </li>
       <li>
-          <a href="relatoriosP.php">
+        <a href="relatoriosP.php">
           <i class="fa-solid fa-file"></i>
-            <span class="link_name">Relatório</span>
-          </a>
-          
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
-          </ul>
-        </li>
+          <span class="link_name">Relatório</span>
+        </a>
+
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="relatorios.php">Relatório</a></li>
+        </ul>
+      </li>
     </ul><!--Fecha ul-->
   </div>
   <div class="conteudo">
@@ -185,162 +185,173 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
     </div>
     <div class="quadro-conteudo">
       <div class="bloco-conteudo">
-          <div class="chave">
-            <form class="form" method="POST" action="criardanfe.php">
-                <p>Digite uma data:</p>
+        <div class="chave">
+          <form class="form" method="POST" action="criardanfe.php">
+            <div class="filtros">
+              <div class="linhasfiltro">
+                <div class="row1Filter">
+                  <p>Digite uma data:</p>
+                </div>
+                <div class="row2Filter">
                   <input type="date" id="data" name="data">
                   <button type="button" id="buscarPedidos"><i class="fa-solid fa-magnifying-glass"></i></button>
-                  <br>
+                </div>
+              </div>
+              <div class="linhasfiltro">
                 <p>Selecione um pedido</p>
                 <select id="pedido" name="pedido">
-                          <option value="">Selecione...</option>
-                      </select>
-                <button type="submit">OK</button>
-            </form>
-            <?php
-                    if (isset($_GET['data'])) {
-                        $data = $conexao->real_escape_string($_GET['data']);
-                    
-                        $sql = "SELECT DISTINCT pedido FROM pedidos WHERE data = '$data'";
-                        $resultado = $conexao->query($sql);
-                    
-                        $placas = [];
-                        while ($row = $resultado->fetch_assoc()) {
-                            $placas[] = $row['placa_caminhao'];
-                        }
-                    
-                        echo json_encode($placas);
-                    }
-                    ?>
-            <?php
-            if(isset($_POST['pedido'])) {
-              if ($conexao -> connect_errno) {
-                echo "Failed to connect to MySQL: " . $conexao -> connect_error;
-                exit();
-              } else {
-                // Evita caracteres epsciais (SQL Inject)
-                $pedido = $conexao -> real_escape_string($_POST['pedido']);
-              
-                $sql="SELECT *
+                  <option value="">Selecione...</option>
+                </select>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </div>
+          </form>
+          <?php
+          if (isset($_GET['data'])) {
+            $data = $conexao->real_escape_string($_GET['data']);
+
+            $sql = "SELECT DISTINCT pedido FROM pedidos WHERE data = '$data'";
+            $resultado = $conexao->query($sql);
+
+            $placas = [];
+            while ($row = $resultado->fetch_assoc()) {
+              $placas[] = $row['placa_caminhao'];
+            }
+
+            echo json_encode($placas);
+          }
+          ?>
+          <?php
+          if (isset($_POST['pedido'])) {
+            if ($conexao->connect_errno) {
+              echo "Failed to connect to MySQL: " . $conexao->connect_error;
+              exit();
+            } else {
+              // Evita caracteres epsciais (SQL Inject)
+              $pedido = $conexao->real_escape_string($_POST['pedido']);
+
+              $sql = "SELECT *
                         FROM `pedidos`
-                        WHERE `pedido`='".$pedido."';";
-              
-                $resultado = $conexao->query($sql);
-                
-                if($resultado->num_rows != 0)
-                {
-                  $row = $resultado -> fetch_array();
-                  ?>
-            <form class="form" method="POST" action="cadastroDanfe.php">
-            <?php if (isset($_SESSION['erro'])): ?>
-              <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
-            <?php endif; ?>
-            <div>
-              <input type="hidden" name="pedido" value="<?php echo $row['pedido'] ?>">
-              <p>Chave de Acesso:</p>
-              <input class="" type="text" name="id" id="id" size="20" required>
-              <p id="idErro" class="error" style="display: none;">O número da Nota Fiscal já está em uso.</p>
-            </div>
+                        WHERE `pedido`='" . $pedido . "';";
+
+              $resultado = $conexao->query($sql);
+
+              if ($resultado->num_rows != 0) {
+                $row = $resultado->fetch_array();
+          ?>
+                <form class="form" method="POST" action="cadastroDanfe.php">
+                  <?php if (isset($_SESSION['erro'])): ?>
+                    <p class="error"><?php echo $_SESSION['erro'];
+                                      unset($_SESSION['erro']); ?></p>
+                  <?php endif; ?>
+                  <div>
+                    <input type="hidden" name="pedido" value="<?php echo $row['pedido'] ?>">
+                    <p>Chave de Acesso:</p>
+                    <input class="" type="text" name="id" id="id" size="20" required>
+                    <p id="idErro" class="error" style="display: none;">O número da Nota Fiscal já está em uso.</p>
+                  </div>
+        </div>
+        <div class="informacoes">
+          <div class="informacoesBloco1">
+            <img src="imagens/codigo-barras.png" alt="Minha Figura" width="200" height="auto">
+            <input type="number" name="codbarra" id="codbarra" value=gerarNumeroUnico()>
           </div>
-          <div class="informacoes">
-            <div class="informacoesBloco1">
-              <img src="imagens/codigo-barras.png" alt="Minha Figura" width="200" height="auto">
-              <input type="number" name="codbarra" id="codbarra" value=gerarNumeroUnico()>
-            </div>
-            <div class="informacoesBloco2">
-              <p>Nome/Razão Social: SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI</p>
-              <p>CNPJ: 33564543 0001 90</p>
-              <p>CEP: Rua Henrique Vigarani, 163 - Barra do Rio, Itajaí, SC</p>
-              <p>Inscrição Estadual: 03.851.105/0001-42</p>
-              <p>Tel: (47) 98437-1137</p>
-            </div>
+          <div class="informacoesBloco2">
+            <p>Nome/Razão Social: SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI</p>
+            <p>CNPJ: 33564543 0001 90</p>
+            <p>CEP: Rua Henrique Vigarani, 163 - Barra do Rio, Itajaí, SC</p>
+            <p>Inscrição Estadual: 03.851.105/0001-42</p>
+            <p>Tel: (47) 98437-1137</p>
           </div>
-          <div class="dados">
-            <div class="dadosBloco1">
-              <div class="Bloco1-1">
-                <div class="bloco1-linha1">
-                  <label>Nº:</label>
-                  <input type="number" name="n" value="n">
-                </div>
-                <div class="bloco1-linha2">
-                  <label>Série:</label>
-                  <input type="number" name="serie">
-                </div>
+        </div>
+        <div class="dados">
+          <div class="dadosBloco1">
+            <div class="Bloco1-1">
+              <div class="bloco1-linha1">
+                <label>Nº:</label>
+                <input type="number" name="n" value="n">
               </div>
-              <div class="Bloco1-2">
-                <div class="bloco12-linha1"><label>Operação:</label></div>
-                <div class="bloco12-linha2">
-                  <input type="checkbox" id="entrada" name="entrada" />
-                  <label>Entrada</label>
-                </div>
+              <div class="bloco1-linha2">
+                <label>Série:</label>
+                <input type="number" name="serie">
               </div>
             </div>
-            <div class="dadosBloco2">
-              <label>Data de Emissão:</label>
-              <input type="date" id="data_emissao" name="data_emissao">
-            </div>
-            <div class="dadosBloco3">
-              <label>Hora da Emissão:</label>
-              <input type="time" id="hora_emissao" name="hora_emissao">
+            <div class="Bloco1-2">
+              <div class="bloco12-linha1"><label>Operação:</label></div>
+              <div class="bloco12-linha2">
+                <input type="checkbox" id="entrada" name="entrada" />
+                <label>Entrada</label>
+              </div>
             </div>
           </div>
-          <div class="titulo-destinatario">
-            <h2>REMETENTE</h2>
+          <div class="dadosBloco2">
+            <label>Data de Emissão:</label>
+            <input type="date" id="data_emissao" name="data_emissao">
           </div>
-          <div class="nome-destinatario">
-            <label>Nome/Razão social:</label>
-            <input type="text" name="razao_nome" value="SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI" readonly>
+          <div class="dadosBloco3">
+            <label>Hora da Emissão:</label>
+            <input type="time" id="hora_emissao" name="hora_emissao">
           </div>
-          <div class="informacoes-destinatario">
-            <div class="destinatarioBloco1">
-              <label>CNPJ:</label>
-              <input type="text" name="cnpjd" value="33564543 0001 90" readonly>
-            </div>
-            <div class="destinatarioBloco2">
-              <label>Inscrição Estadual:</label>
-              <input type="text" name="ie" value="03.851.105/0001-42" readonly>
-            </div>
-            <div class="destinatarioBloco3">
-              <label>Valor total da nota:</label>
-              <input type="text" name="total" readonly value="<?php echo $row['totalcompra'] ?>">
-            </div>
-            
-      <div class="destinatarioBloco4">
-              <input type="submit" value="Criar" name="criar">
-            </div>
-      </form>
-      <?php
-                }}}
-      ?>
+        </div>
+        <div class="titulo-destinatario">
+          <h2>REMETENTE</h2>
+        </div>
+        <div class="nome-destinatario">
+          <label>Nome/Razão social:</label>
+          <input type="text" name="razao_nome" value="SERVICO NACIONAL DE APRENDIZAGEM INDUSTRIAL SENAI" readonly>
+        </div>
+        <div class="informacoes-destinatario">
+          <div class="destinatarioBloco1">
+            <label>CNPJ:</label>
+            <input type="text" name="cnpjd" value="33564543 0001 90" readonly>
+          </div>
+          <div class="destinatarioBloco2">
+            <label>Inscrição Estadual:</label>
+            <input type="text" name="ie" value="03.851.105/0001-42" readonly>
+          </div>
+          <div class="destinatarioBloco3">
+            <label>Valor total da nota:</label>
+            <input type="text" name="total" readonly value="<?php echo $row['totalcompra'] ?>">
+          </div>
+
+          <div class="destinatarioBloco4">
+            <input type="submit" value="Criar" name="criar">
+          </div>
+          </form>
+    <?php
+              }
+            }
+          }
+    ?>
+        </div>
       </div>
     </div>
   </div>
-  </div>
-<?php
-include_once('footer.php');
-?>
+  <?php
+  include_once('footer.php');
+  ?>
   <script>
     document.getElementById('buscarPedidos').addEventListener('click', function() {
-    const data = document.getElementById('data').value;
-    if (!data) {
+      const data = document.getElementById('data').value;
+      if (!data) {
         alert('Por favor, selecione uma data.');
         return;
-    }
+      }
 
-    fetch('buscar_pedidos.php?data=' + encodeURIComponent(data))
+      fetch('buscar_pedidos.php?data=' + encodeURIComponent(data))
         .then(response => response.json())
         .then(data => {
-            const placaSelect = document.getElementById('pedido');
-            placaSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
-            data.forEach(placa => {
-                const option = document.createElement('option');
-                option.value = placa;
-                option.textContent = placa;
-                placaSelect.appendChild(option);
-            });
+          const placaSelect = document.getElementById('pedido');
+          placaSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
+          data.forEach(placa => {
+            const option = document.createElement('option');
+            option.value = placa;
+            option.textContent = placa;
+            placaSelect.appendChild(option);
+          });
         })
         .catch(error => console.error('Erro ao buscar pedidos:', error));
-  });
+    });
     document.getElementById('id').addEventListener('blur', function() {
       var id = this.value;
       var erroMsg = document.getElementById('idErro');
@@ -366,7 +377,7 @@ include_once('footer.php');
       };
       xhr.send();
     });
-        
+
 
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
