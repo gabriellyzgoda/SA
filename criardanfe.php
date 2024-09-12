@@ -188,7 +188,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         <div class="chave">
           <form class="form" method="POST" action="criardanfe.php">
             <div class="filtros">
-              <div class="linhasfiltro">
+              <div class="linhasFiltro">
                 <div class="row1Filter">
                   <p>Digite uma data:</p>
                 </div>
@@ -197,12 +197,16 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
                   <button type="button" id="buscarPedidos"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
               </div>
-              <div class="linhasfiltro">
-                <p>Selecione um pedido</p>
-                <select id="pedido" name="pedido">
-                  <option value="">Selecione...</option>
-                </select>
-                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+              <div class="linhasFiltro">
+                <div class="row1Filter">
+                  <p>Selecione um pedido:</p>
+                </div>
+                <div class="row2Filter">
+                  <select id="pedido" name="pedido">
+                    <option value="">Selecione...</option>
+                  </select>
+                  <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
               </div>
             </div>
           </form>

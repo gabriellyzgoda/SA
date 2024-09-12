@@ -19,6 +19,7 @@
     border-top-right-radius: 30px;
     padding: 15px 50px 15px 60px;
     align-items: center;
+    justify-content: start;
 }
 
 .chave p {
@@ -27,6 +28,7 @@
     color: #185CA9;
     font-weight: 600;
     margin-right: 10px;
+    margin-bottom: 5px;
 }
 
 .chave input {
@@ -292,17 +294,49 @@
 .linhasFiltro {
     display: flex;
     flex-direction: column;
+    margin-right: 20px;
 }
 
-.linhasfiltro p {
+.linhasFiltro p {
     font-family: "League Spartan", sans-serif;
     font-size: 20px;
     color: #185CA9;
     font-weight: 600;
     margin-right: 10px;
+    margin-bottom: 0px;
+}
+
+.row1Filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    margin-bottom: 5px;
+}
+
+.row2Filter input {
+    padding: 0px 0px 0px 8px;
 }
 
 .row2Filter {
     display: flex;
     flex-direction: row;
+}
+
+.row2Filter button {
+    border: none;
+    background-color: #85C4F9;
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    border-radius: 0px;
+    padding: 0px;
+    margin: 0px;
+    width: 28px;
+    height: 28px;
+}
+
+.row2Filter select {
+    border: none;
+    width: 150px;
 }
