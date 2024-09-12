@@ -159,11 +159,32 @@ $solicitacao = $conexao->real_escape_string($_GET['solicitacao']);
         <ul class="sub-menu">
         <li><a href="expedicao.php">Expedição</a></li>
         <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
-        <li><a href="criarNota.php">Criação de Nota Fiscal</a></li>
-        <li><a href="minhanota.php">Minhas Danfe's</a></li>
         </ul>
 
       </li>
+
+      <li>
+          
+          <div class="iocn-link">
+            
+            <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+              <span class="link_name">Nota fiscal</span>
+            </a>
+            
+            <i class='bx bxs-chevron-down arrow' ></i>
+          
+          </div>
+          
+          <ul class="sub-menu">
+          
+            <li><a href="criarNota.php">Criar Danfe</a></li>
+            <li><a href="minhanota.php">Minhas Danfe's</a></li>
+          
+          </ul>
+
+        </li>
+     
 
       <li>
 

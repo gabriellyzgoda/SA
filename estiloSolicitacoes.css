@@ -68,3 +68,15 @@
     background-color: #718fc3;
     transition: all 0.3s ease;
 }
+
+.botaoDeletar {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.botaoDeletar i {
+    color: #185CA9;
+    font-size: 25px;
+}

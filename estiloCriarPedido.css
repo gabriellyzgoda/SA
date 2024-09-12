@@ -52,6 +52,14 @@
   font-size: 16px;
 }
 
+.form .form-numero .error {
+  font-size: 20px;
+  font-family: "League Spartan", sans-serif;
+  color: #2a60a9;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
 
 
 .form table th {
