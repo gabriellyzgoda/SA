@@ -14,7 +14,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Criação de Nota Fiscalr</title>
+  <title>Criação de Nota Fiscal</title>
   <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
   <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen" />
@@ -189,7 +189,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
             <form class="form" method="POST" action="criardanfe.php">
                 <p>Digite uma data:</p>
                   <input type="date" id="data" name="data">
-                  <button type="button" id="buscarPlacas"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  <button type="button" id="buscarPedidos"><i class="fa-solid fa-magnifying-glass"></i></button>
                   <br>
                 <p>Selecione um pedido</p>
                 <select id="pedido" name="pedido">
@@ -320,6 +320,27 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 include_once('footer.php');
 ?>
   <script>
+    document.getElementById('buscarPedidos').addEventListener('click', function() {
+    const data = document.getElementById('data').value;
+    if (!data) {
+        alert('Por favor, selecione uma data.');
+        return;
+    }
+
+    fetch('buscar_pedidos.php?data=' + encodeURIComponent(data))
+        .then(response => response.json())
+        .then(data => {
+            const placaSelect = document.getElementById('pedido');
+            placaSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
+            data.forEach(placa => {
+                const option = document.createElement('option');
+                option.value = placa;
+                option.textContent = placa;
+                placaSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Erro ao buscar pedidos:', error));
+  });
     document.getElementById('id').addEventListener('blur', function() {
       var id = this.value;
       var erroMsg = document.getElementById('idErro');

@@ -303,30 +303,30 @@ include_once('footer.php');
 ?>
     <script>
     function calcularTotal() {
-  const valorUnitario1 = parseFloat(document.getElementById('valor1').value) || 0;
-  const quantidade1 = parseInt(document.getElementById('quantidade1').value) || 0;
-  const valorUnitario2 = parseFloat(document.getElementById('valor2').value) || 0;
-  const quantidade2 = parseInt(document.getElementById('quantidade2').value) || 0;
-  const valorUnitario3 = parseFloat(document.getElementById('valor3').value) || 0;
-  const quantidade3 = parseInt(document.getElementById('quantidade3').value) || 0;
-  const valorUnitario4 = parseFloat(document.getElementById('valor4').value) || 0;
-  const quantidade4 = parseInt(document.getElementById('quantidade4').value) || 0;
+        const valorUnitario1 = parseFloat(document.getElementById('valor1').value) || 0;
+        const quantidade1 = parseInt(document.getElementById('quantidade1').value) || 0;
+        const valorUnitario2 = parseFloat(document.getElementById('valor2').value) || 0;
+        const quantidade2 = parseInt(document.getElementById('quantidade2').value) || 0;
+        const valorUnitario3 = parseFloat(document.getElementById('valor3').value) || 0;
+        const quantidade3 = parseInt(document.getElementById('quantidade3').value) || 0;
+        const valorUnitario4 = parseFloat(document.getElementById('valor4').value) || 0;
+        const quantidade4 = parseInt(document.getElementById('quantidade4').value) || 0;
 
-  const totalProduto1 = valorUnitario1 * quantidade1;
-  const totalProduto2 = valorUnitario2 * quantidade2;
-  const totalProduto3 = valorUnitario3 * quantidade3;
-  const totalProduto4 = valorUnitario4 * quantidade4;
+        const totalProduto1 = valorUnitario1 * quantidade1;
+        const totalProduto2 = valorUnitario2 * quantidade2;
+        const totalProduto3 = valorUnitario3 * quantidade3;
+        const totalProduto4 = valorUnitario4 * quantidade4;
 
-  document.getElementById('total1').value = totalProduto1.toFixed(2);
-  document.getElementById('total2').value = totalProduto2.toFixed(2);
-  document.getElementById('total3').value = totalProduto3.toFixed(2);
-  document.getElementById('total4').value = totalProduto4.toFixed(2);
+        document.getElementById('total1').value = totalProduto1.toFixed(2);
+        document.getElementById('total2').value = totalProduto2.toFixed(2);
+        document.getElementById('total3').value = totalProduto3.toFixed(2);
+        document.getElementById('total4').value = totalProduto4.toFixed(2);
 
-  const totalGeral = totalProduto1 + totalProduto2 + totalProduto3 + totalProduto4;
+        const totalGeral = totalProduto1 + totalProduto2 + totalProduto3 + totalProduto4;
 
-  document.getElementById('totalcompra').value = totalGeral.toFixed(2); // Corrigido aqui
-}
-document.getElementById('pedido').addEventListener('blur', function() {
+        document.getElementById('totalcompra').value = totalGeral.toFixed(2); // Corrigido aqui
+        }
+        document.getElementById('pedido').addEventListener('blur', function() {
             var pedido = this.value;
             var erroMsg = document.getElementById('pedidoErro');
 
@@ -366,72 +366,6 @@ document.getElementById('pedido').addEventListener('blur', function() {
     sidebarBtn.addEventListener("click", ()=>{
       sidebar.classList.toggle("close");
     });
-
-
-     /* document.addEventListener("DOMContentLoaded", function() {
-        // Função para preencher automaticamente os números nas divs quadrado-numero-produto
-        function preencherNumeros() {
-            let linhas = document.querySelectorAll("tbody tr");
-            linhas.forEach(function(linha, index) {
-                let quadradoNumeroProduto = linha.querySelector(".quadrado-numero-produto");
-                quadradoNumeroProduto.textContent = index + 1;
-            });
-        }
-      }
-
-        // Chamando a função para preencher os números assim que a página carregar
-        //preencherNumeros();
-
-        // Excluir Produto
-       /* document.querySelectorAll(".excluirProduto").forEach(function(button) {
-            button.addEventListener("click", function() {
-                excluirProduto(this);
-                // Atualizar os números após excluir um produto
-                preencherNumeros();
-            });
-        });
-
-        // Adicionar Produto
-        document.getElementById("adicionarProduto").addEventListener("click", function(e) {
-            e.preventDefault();
-            adicionarProduto();
-            // Atualizar os números após adicionar um produto
-            preencherNumeros();
-        });
-
-        function adicionarProduto() {
-            let tabela = document.querySelector("table tbody");
-            let novaLinha = document.createElement("tr");
-            novaLinha.innerHTML = `
-                <td><div class="quadrado-numero-produto"></div></td>
-                <td><input type="text" name="produto"></td>
-                <td><input type="number" name="unidades"></td>
-                <td><input type="number" name="quantidades"></td>
-                <td><input type="text" name="valor"></td>
-                <td><input type="text" name="ncm"></td>
-                <td><input type="text" name="cst"></td>
-                <td><input type="text" name="cfop"></td>
-                <td><input type="text" name="total"></td>
-                <td><button class="excluirProduto"><i class="fa-solid fa-trash"></i></button></td>
-            `;
-            tabela.appendChild(novaLinha);
-
-            // Adicionar evento de exclusão ao novo botão de excluir produto
-            novaLinha.querySelector(".excluirProduto").addEventListener("click", function() {
-                excluirProduto(this);
-                // Atualizar os números após excluir um produto
-                preencherNumeros();
-            });
-        }
-
-        function excluirProduto(button) {
-            let row = button.parentNode.parentNode;
-            row.parentNode.removeChild(row);
-        }
-
-    });*/
-  
-    
 
 </script>
 </body>

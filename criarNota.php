@@ -213,14 +213,20 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
     <center>
     <div class="conteudo">
     <div class="titulo-conteudo">
-      <h1>Criação de Nota Fiscal da Expedição</h1>
+      <h1>Criação de Nota Fiscal de Saída</h1>
     </div>
     <div class="quadro-conteudo">
       <div class="bloco-conteudo">
           <div class="chave">
             <form class="form" method="POST" action="criarNota.php">
+            <p>Digite uma data:</p>
+                  <input type="date" id="data" name="data">
+                  <button type="button" id="buscarSolicitacao"><i class="fa-solid fa-magnifying-glass"></i></button>
+                  <br>
                 <p>Digite o Nº da Solicitação</p>
-                <input class="" type="text" name="solicitacao" id="solicitacao" size="20">
+                <select id="solicitacao" name="solicitacao">
+                          <option value="">Selecione...</option>
+                      </select>
                 <button type="submit">OK</button>
             </form>
             <?php
@@ -331,6 +337,37 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
 include_once('footer.php');
 ?>
     <script>
+    document.getElementById('buscarSolicitacao').addEventListener('click', function() {
+    const data = document.getElementById('data').value;
+    if (!data) {
+        alert('Por favor, selecione uma data.');
+        return;
+    }
+
+    fetch('buscar_solicitacao.php?data=' + encodeURIComponent(data))
+        .then(response => response.json())
+        .then(data => {
+            const solicitacaoSelect = document.getElementById('solicitacao');
+            solicitacaoSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
+            data.forEach(solicitacao => {
+                const option = document.createElement('option');
+                option.value = solicitacao;
+                option.textContent = solicitacao;
+                solicitacaoSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Erro ao buscar solicitações:', error));
+  });
+    document.getElementById('id').addEventListener('blur', function() {
+      var id = this.value;
+      var erroMsg = document.getElementById('idErro');
+
+      // Verificar se o ID não está vazio
+      if (id.trim() === '') {
+        erroMsg.style.display = 'none';
+        return;
+      }});
+
     document.getElementById('id').addEventListener('blur', function() {
       var id = this.value;
       var erroMsg = document.getElementById('idErro');
