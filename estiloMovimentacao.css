@@ -97,7 +97,7 @@ thead th {
 tbody td select {
     border: none;
     height: 25px;
-    background-color: #d2e5f7;
+    background-color: #fff;
 }
 
 tbody td #pegar:hover {
