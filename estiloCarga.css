@@ -17,7 +17,7 @@
 
 .linha01 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 20px;
     justify-content: center;
 }
@@ -30,27 +30,50 @@
 }
 
 .linha01-01 {
-    margin-right: 20px;
+    justify-content: center;
     display: flex;
     align-items: center;
     flex-direction: row;
+    margin-bottom: 20px;
+}
+
+.linha01-01 p {
+    font-size: 20px;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    color: #185CA9;
 }
 
 .linha01-01 button {
     background-color: #8fc3f7;
     color: #fff;
-    font-size: 18px;
-    font-family: "League Spartan", sans-serif;
-    font-weight: 600;
+    font-size: 16px;
     border: none;
-    border-radius: 30px;
-    padding: 5px 10px;
-    margin-left: 10px;
+    width: 28px;
+    height: 25px;
 }
+
+.filtro1, .filtro2 {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.filtro1 {
+    margin-right: 20px;
+}
+
 .linha01-01 input {
     border: none;
-    width: 120px;
-    height: 23px;
+    height: 24px;
+    margin-left: 10px;
+    padding: 0px 10px;
+}
+
+.filtro2 select {
+    border: none;
+    height: 24px;
     margin-left: 10px;
     padding: 0px 10px;
 }
@@ -64,6 +87,7 @@
     display: flex;
     align-items: center;
     flex-direction: row;
+    justify-content: center;
 }
 
 

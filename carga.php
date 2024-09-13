@@ -194,26 +194,26 @@ $conexao->close();
       </li>
 
       <li>
-          
-          <div class="iocn-link">
-            
-            <a href="#">
-            <i class="fa-solid fa-receipt"></i>
-              <span class="link_name">Nota fiscal</span>
-            </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
-          
-          <ul class="sub-menu">
-          
-            <li><a href="criarNota.php">Criar Danfe</a></li>
-            <li><a href="minhanota.php">Minhas Danfe's</a></li>
-          
-          </ul>
 
-        </li>
+        <div class="iocn-link">
+
+          <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+            <span class="link_name">Nota fiscal</span>
+          </a>
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
+        </div>
+
+        <ul class="sub-menu">
+
+          <li><a href="criarNota.php">Criar Danfe</a></li>
+          <li><a href="minhanota.php">Minhas Danfe's</a></li>
+
+        </ul>
+
+      </li>
 
       <li>
 
@@ -257,75 +257,84 @@ $conexao->close();
         <div class="linha01">
           <form id="formPlaca" class="form" method="POST" action="carga.php">
             <div class="linha01-01">
-            <p>Digite uma data:</p>
-                  <input type="date" id="data" name="data">
-                  <button type="button" id="buscarPedido"><i class="fa-solid fa-magnifying-glass"></i></button>
-                  <br>
-              <label>Pedido de compra:</label>
-              <select id="pedido" name="pedido">
-                          <option value="">Selecione...</option>
-                      </select>
-              <button type="submit" name="verificar">OK</button>
+              <div class="filtro1">
+                <p>Digite uma data:</p>
+                <input type="date" id="data" name="data">
+                <button type="button" id="buscarPedido"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+              <div class="filtro2">
+                <label>Pedido de compra:</label>
+                <select id="pedido" name="pedido">
+                  <option value="">Selecione...</option>
+                </select>
+                <button type="submit" name="verificar"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
             </div>
           </form>
           <?php if ($mostrarProdutos): ?>
-          <form id="formVistoria" class="form" method="POST" action="vistoriaCarga.php">
-            <div class="linha01-02">
-              <label>Nota Fiscal:</label>
-              <input type="text" id="notafiscal" name="notafiscal" value="<?php echo htmlspecialchars($notafiscal); ?>" readonly>
-              <label>Doca:</label>
-              <input type="text" id="doca" name="doca" value="<?php echo htmlspecialchars($doca); ?>">
-            </div>
-        </div>
-            <div class="linha03">
-              <div class="quadroProdutos">
-                <div class="tituloQuadroProdutos">
-                  <p>Produtos</p>
-                </div>
-                <div class="produtos">
-                  <?php
-                  $contador = 1;
-                  foreach ($produtos as $produto) { ?>
-                    <div class="produto">
-                      <input type="hidden" name="pedido_id[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
-                      <div class="produtoLinha1">
-                        <div class="numeroProduto">
-                          <p><?php echo $contador; ?></p>
-                        </div>
-                        <input type="text" id="nome" name="nome[]" value="<?php echo htmlspecialchars($produto['produto']); ?>" disabled>
-                        <label>Faltando?</label>
-                        <input type="checkbox" name="faltando[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
-                        <label>Avaria?</label>
-                        <input type="checkbox" name="avaria[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
+            <form id="formVistoria" class="form" method="POST" action="vistoriaCarga.php">
+              <div class="linha01-02">
+                <label>Nota Fiscal:</label>
+                <input type="text" id="notafiscal" name="notafiscal" value="<?php echo htmlspecialchars($notafiscal); ?>"
+                  readonly>
+                <label>Doca:</label>
+                <input type="text" id="doca" name="doca" value="<?php echo htmlspecialchars($doca); ?>">
+              </div>
+          </div>
+          <div class="linha03">
+            <div class="quadroProdutos">
+              <div class="tituloQuadroProdutos">
+                <p>Produtos</p>
+              </div>
+              <div class="produtos">
+                <?php
+                $contador = 1;
+                foreach ($produtos as $produto) { ?>
+                  <div class="produto">
+                    <input type="hidden" name="pedido_id[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
+                    <div class="produtoLinha1">
+                      <div class="numeroProduto">
+                        <p><?php echo $contador; ?></p>
                       </div>
-                      <div class="produtoLinha2">
-                        <div class="produtoLinha2-Bloco1">
-                          <label>UN</label>
-                          <input type="text" name="unidade[]" value="<?php echo htmlspecialchars($produto['unidades']); ?>" disabled>
-                        </div>
-                        <div class="produtoLinha2-Bloco2">
-                          <label>QTD</label>
-                          <input type="text" name="quantidade[]" value="<?php echo htmlspecialchars($produto['quantidades']); ?>" disabled>
-                        </div>
-                        <div class="produtoLinha2-Bloco3">
-                          <label>R$/Un</label>
-                          <input type="text" name="valor[]" value="<?php echo htmlspecialchars($produto['valor']); ?>" disabled>
-                        </div>
-                        <div class="produtoLinha2-Bloco4">
-                          <label>R$ Total</label>
-                          <input type="text" name="total[]" value="<?php echo htmlspecialchars($produto['total']); ?>" disabled>
-                        </div>
+                      <input type="text" id="nome" name="nome[]"
+                        value="<?php echo htmlspecialchars($produto['produto']); ?>" disabled>
+                      <label>Faltando?</label>
+                      <input type="checkbox" name="faltando[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
+                      <label>Avaria?</label>
+                      <input type="checkbox" name="avaria[]" value="<?php echo htmlspecialchars($produto['id']); ?>" />
+                    </div>
+                    <div class="produtoLinha2">
+                      <div class="produtoLinha2-Bloco1">
+                        <label>UN</label>
+                        <input type="text" name="unidade[]" value="<?php echo htmlspecialchars($produto['unidades']); ?>"
+                          disabled>
+                      </div>
+                      <div class="produtoLinha2-Bloco2">
+                        <label>QTD</label>
+                        <input type="text" name="quantidade[]"
+                          value="<?php echo htmlspecialchars($produto['quantidades']); ?>" disabled>
+                      </div>
+                      <div class="produtoLinha2-Bloco3">
+                        <label>R$/Un</label>
+                        <input type="text" name="valor[]" value="<?php echo htmlspecialchars($produto['valor']); ?>"
+                          disabled>
+                      </div>
+                      <div class="produtoLinha2-Bloco4">
+                        <label>R$ Total</label>
+                        <input type="text" name="total[]" value="<?php echo htmlspecialchars($produto['total']); ?>"
+                          disabled>
                       </div>
                     </div>
+                  </div>
                   <?php
-                    $contador++;
-                  } ?>
-                </div>
-                <div class="linha04">
-                  <input id="pegar" name="enviar" type="submit" value="Enviar" />
-                </div>
+                  $contador++;
+                } ?>
+              </div>
+              <div class="linha04">
+                <input id="pegar" name="enviar" type="submit" value="Enviar" />
               </div>
             </div>
+          </div>
           </form>
         <?php endif; ?>
       </div>
@@ -333,27 +342,27 @@ $conexao->close();
   </div>
   <?php include_once('footer.php'); ?>
   <script>
-    document.getElementById('buscarPedido').addEventListener('click', function() {
-    const data = document.getElementById('data').value;
-    if (!data) {
+    document.getElementById('buscarPedido').addEventListener('click', function () {
+      const data = document.getElementById('data').value;
+      if (!data) {
         alert('Por favor, selecione uma data.');
         return;
-    }
+      }
 
-    fetch('buscar_carga.php?data=' + encodeURIComponent(data))
+      fetch('buscar_carga.php?data=' + encodeURIComponent(data))
         .then(response => response.json())
         .then(data => {
-            const pedidoSelect = document.getElementById('pedido');
-            pedidoSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
-            data.forEach(pedido => {
-                const option = document.createElement('option');
-                option.value = pedido;
-                option.textContent = pedido;
-                pedidoSelect.appendChild(option);
-            });
+          const pedidoSelect = document.getElementById('pedido');
+          pedidoSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
+          data.forEach(pedido => {
+            const option = document.createElement('option');
+            option.value = pedido;
+            option.textContent = pedido;
+            pedidoSelect.appendChild(option);
+          });
         })
         .catch(error => console.error('Erro ao buscar os pedidos:', error));
-  });
+    });
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e) => {
