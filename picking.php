@@ -224,8 +224,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                   <button type="button" id="buscarSolicitacao"><i class="fa-solid fa-magnifying-glass"></i></button>
                   <br>
               <label>Solicitação nº:</label>
-              <input class="" type="text" name="solicitacao" id="solicitacao" size="20">
-                <button type="submit">OK</button>
+              <select id="solicitacao" name="solicitacao">
+                          <option value="">Selecione...</option>
+              </select>
+              <button type="submit">OK</button>
             </div>
             </form>
             <div class="linha2">
@@ -309,6 +311,37 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
 include_once('footer.php');
 ?>
     <script>
+    document.getElementById('buscarSolicitacao').addEventListener('click', function() {
+    const data = document.getElementById('data').value;
+    if (!data) {
+        alert('Por favor, selecione uma data.');
+        return;
+    }
+
+    fetch('buscar_picking.php?data=' + encodeURIComponent(data))
+        .then(response => response.json())
+        .then(data => {
+            const solicitacaoSelect = document.getElementById('solicitacao');
+            solicitacaoSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
+            data.forEach(solicitacao => {
+                const option = document.createElement('option');
+                option.value = solicitacao;
+                option.textContent = solicitacao;
+                solicitacaoSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Erro ao buscar solicitações:', error));
+  });
+    document.getElementById('id').addEventListener('blur', function() {
+      var id = this.value;
+      var erroMsg = document.getElementById('idErro');
+
+      // Verificar se o ID não está vazio
+      if (id.trim() === '') {
+        erroMsg.style.display = 'none';
+        return;
+      }});
+
   document.addEventListener('DOMContentLoaded', function() {
     const pegarBtns = document.querySelectorAll('.pegar-btn');
 
