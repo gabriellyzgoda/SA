@@ -10,175 +10,177 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
   exit;
 }
 ?>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Picking</title>
-    <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
-    <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen"/>
-    <link rel="stylesheet" type="text/css" href="estiloPicking.css" media="screen"/>
-    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Picking</title>
+  <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
+  <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="estiloPicking.css" media="screen" />
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
+  </style>
 </head>
+
 <body>
-<header class="header-topo">
-        <div class="logSenai">
+  <header class="header-topo">
+    <div class="logSenai">
       <a href="home.php"><img src="imagens/logo-logsenai.png" alt="Minha Figura" width="75" height="auto"></a>
     </div>
     <div class="logo">
       <a href="home.php"><img src="imagens/senai-branco.png" alt="Minha Figura" width="250" height="auto"></a>
     </div>
-        <div class="menu-header">
-          <div class="dropdown-perfil">
-            <a href="#" >
-                <div class="circulo">
-                        <i class="fa-solid fa-user"></i>
-                </div>
-            </a>
-            <div class="dropdown-content">
-              <div class="dropdown-section">
-                <h4>Nome:</h4>
-                <p><?php echo $_SESSION['nome'];?></p>
-              </div>
-              <div class="dropdown-section">
-                <h4>Email:</h4>
-                <p><?php echo $_SESSION['email'];?></p>
-              </div>
-              <div class="dropdown-section">
-                <h4>Cargo:</h4>
-                <p><?php echo $_SESSION['cargo'];?></p>
-              </div>
-            </div>
+    <div class="menu-header">
+      <div class="dropdown-perfil">
+        <a href="#">
+          <div class="circulo">
+            <i class="fa-solid fa-user"></i>
           </div>
-          <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
+        </a>
+        <div class="dropdown-content">
+          <div class="dropdown-section">
+            <h4>Nome:</h4>
+            <p><?php echo $_SESSION['nome']; ?></p>
+          </div>
+          <div class="dropdown-section">
+            <h4>Email:</h4>
+            <p><?php echo $_SESSION['email']; ?></p>
+          </div>
+          <div class="dropdown-section">
+            <h4>Cargo:</h4>
+            <p><?php echo $_SESSION['cargo']; ?></p>
+          </div>
         </div>
-    </header>
-    <div class="sidebar close">
-      
-      <div class="logo-details">
-        
-        <i class="bx bx-menu"></i>
-        <span class="logo_name">Menu</span>
-     
       </div>
-      
-      <ul class="nav-links">
-        
-        <li>
-          
-          <div class="iocn-link">
-            
-            <a href="#">
-                <i class="fa-solid  fa-truck-front"></i>
-              <span class="link_name">Recebimento</span>
-            </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
-          
-          <ul class="sub-menu">
-            
-            <li><a class="link_name" href="#">Recebimento</a></li>
-            <li><a href="container.php">Container</a></li>
-            <li><a href="carga.php">Carga</a></li>
-          <li><a href="pedidodoca.php">Docas</a></li>
-          
-          </ul>
-          
-        </li>
-        
-        <li>
-          
-          <div class="iocn-link">
-            
-            <a href="movimentacao.php">
-            <i class="fa-solid fa-truck-ramp-box"></i>
-              <span class="link_name">Movimentação</span>
-            </a>
-          
-          </div>
-          
-          <ul class="sub-menu">
-          
-            <li><a class="link_name" href="movimentacao.php">Movimentação</a></li>
-          
-          </ul>
+      <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>
+    </div>
+  </header>
+  <div class="sidebar close">
 
-        </li>
+    <div class="logo-details">
 
-        <li>
-          
-          <a href="estoque.php">
-            <i class="fa-solid fa-warehouse"></i>
-            <span class="link_name">Estoque</span>
-          </a>
+      <i class="bx bx-menu"></i>
+      <span class="logo_name">Menu</span>
 
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="estoque.php">Estoque</a></li>
-          </ul>
+    </div>
 
-        </li>
-        
-        <li>
-          
-          <a href="picking.php">
-          <i class="fa-solid fa-box"></i>
-            <span class="link_name">Picking</span>
-          </a>
+    <ul class="nav-links">
 
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="picking.php">Picking</a></li>
-          </ul>
+      <li>
 
-        </li>
-
-         <li>
-        
         <div class="iocn-link">
-        
+
           <a href="#">
-          <i class="fa-solid fa-truck-fast"></i>
-            <span class="link_name">Expedição</span>
+            <i class="fa-solid  fa-truck-front"></i>
+            <span class="link_name">Recebimento</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
-          
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
         </div>
-        
+
         <ul class="sub-menu">
-        <li><a href="expedicao.php">Expedição</a></li>
-        <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
+
+          <li><a class="link_name" href="#">Recebimento</a></li>
+          <li><a href="container.php">Container</a></li>
+          <li><a href="carga.php">Carga</a></li>
+          <li><a href="pedidodoca.php">Docas</a></li>
+
         </ul>
 
       </li>
 
       <li>
-          
-          <div class="iocn-link">
-            
-            <a href="#">
-            <i class="fa-solid fa-receipt"></i>
-              <span class="link_name">Nota fiscal</span>
-            </a>
-            
-            <i class='bx bxs-chevron-down arrow' ></i>
-          
-          </div>
-          
-          <ul class="sub-menu">
-          
-            <li><a href="criarNota.php">Criar Danfe</a></li>
-            <li><a href="minhanota.php">Minhas Danfe's</a></li>
-          
-          </ul>
 
-        </li>
-     
-        
-        <li>
+        <div class="iocn-link">
+
+          <a href="movimentacao.php">
+            <i class="fa-solid fa-truck-ramp-box"></i>
+            <span class="link_name">Movimentação</span>
+          </a>
+
+        </div>
+
+        <ul class="sub-menu">
+
+          <li><a class="link_name" href="movimentacao.php">Movimentação</a></li>
+
+        </ul>
+
+      </li>
+
+      <li>
+
+        <a href="estoque.php">
+          <i class="fa-solid fa-warehouse"></i>
+          <span class="link_name">Estoque</span>
+        </a>
+
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="estoque.php">Estoque</a></li>
+        </ul>
+
+      </li>
+
+      <li>
+
+        <a href="picking.php">
+          <i class="fa-solid fa-box"></i>
+          <span class="link_name">Picking</span>
+        </a>
+
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="picking.php">Picking</a></li>
+        </ul>
+
+      </li>
+
+      <li>
+
+        <div class="iocn-link">
+
+          <a href="#">
+            <i class="fa-solid fa-truck-fast"></i>
+            <span class="link_name">Expedição</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow'></i>
+
+        </div>
+
+        <ul class="sub-menu">
+          <li><a href="expedicao.php">Expedição</a></li>
+          <li><a href="vistoriaConferencia.php">Vistoria e Conferência</a></li>
+        </ul>
+
+      </li>
+
+      <li>
+
+        <div class="iocn-link">
+
+          <a href="#">
+            <i class="fa-solid fa-receipt"></i>
+            <span class="link_name">Nota fiscal</span>
+          </a>
+
+          <i class='bx bxs-chevron-down arrow'></i>
+
+        </div>
+
+        <ul class="sub-menu">
+
+          <li><a href="criarNota.php">Criar Danfe</a></li>
+          <li><a href="minhanota.php">Minhas Danfe's</a></li>
+
+        </ul>
+
+      </li>
+
+
+      <li>
 
         <div class="iocn-link">
 
@@ -198,53 +200,56 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
         </ul>
 
       </li>
-        <li>
-          <a href="relatorios.php">
+      <li>
+        <a href="relatorios.php">
           <i class="fa-solid fa-file"></i>
-            <span class="link_name">Relatório</span>
-          </a>
-          
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="relatorios.php">Relatório</a></li>
-          </ul>
-        </li>
-              
-      </ul><!--Fecha ul-->
-    </div>     
-    <div class="conteudo"> 
-        <div class="titulo-conteudo">    
-         <h1>Picking</h1>
-        </div>
-        <div class="faixa">
-          <div class="bloco-picking">
-            <div class="linha1">
-            <form class="form" method="POST" action="picking.php">
-            <p>Digite uma data:</p>
-                  <input type="date" id="data" name="data">
-                  <button type="button" id="buscarSolicitacao"><i class="fa-solid fa-magnifying-glass"></i></button>
-                  <br>
+          <span class="link_name">Relatório</span>
+        </a>
+
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="relatorios.php">Relatório</a></li>
+        </ul>
+      </li>
+
+    </ul><!--Fecha ul-->
+  </div>
+  <div class="conteudo">
+    <div class="titulo-conteudo">
+      <h1>Picking</h1>
+    </div>
+    <div class="faixa">
+      <div class="bloco-picking">
+        <div class="linha1">
+          <form class="form" method="POST" action="picking.php">
+            <div class="filter1">
+              <p>Digite uma data:</p>
+              <input type="date" id="data" name="data">
+              <button type="button" id="buscarSolicitacao"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="filter2">
               <label>Solicitação nº:</label>
               <select id="solicitacao" name="solicitacao">
-                          <option value="">Selecione...</option>
+                <option value="">Selecione...</option>
               </select>
-              <button type="submit">OK</button>
+              <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
-            </form>
-            <div class="linha2">
-                <table>
-                <?php
-                if(isset($_POST['solicitacao'])) {
-                    if ($conexao->connect_errno) {
-                        echo "Failed to connect to MySQL: " . $conexao->connect_error;
-                        exit();
-                    } else {
-                        // Evita caracteres especiais (SQL Inject)
-                        $solicitacao = $conexao->real_escape_string($_POST['solicitacao']);
-                        $sql = "SELECT * FROM `solicitacoes` WHERE `solicitacao`='" . $solicitacao . "';";
-                        $resultado = $conexao->query($sql);
-                        
-                        if ($resultado && $resultado->num_rows > 0) {
-                            echo '<thead>
+        </div>
+        </form>
+        <div class="linha2">
+          <table>
+            <?php
+            if (isset($_POST['solicitacao'])) {
+              if ($conexao->connect_errno) {
+                echo "Failed to connect to MySQL: " . $conexao->connect_error;
+                exit();
+              } else {
+                // Evita caracteres especiais (SQL Inject)
+                $solicitacao = $conexao->real_escape_string($_POST['solicitacao']);
+                $sql = "SELECT * FROM `solicitacoes` WHERE `solicitacao`='" . $solicitacao . "';";
+                $resultado = $conexao->query($sql);
+
+                if ($resultado && $resultado->num_rows > 0) {
+                  echo '<thead>
                                 <tr>
                                     <th>Produtos do Picking</th>
                                     <th>UN</th>
@@ -254,9 +259,9 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                                 </tr>
                             </thead>
                             <tbody>';
-                            $index = 0;
-                            while ($row = $resultado->fetch_array()) {
-                                echo '
+                  $index = 0;
+                  while ($row = $resultado->fetch_array()) {
+                    echo '
                                  <form class="form" method="POST" action="atualizarSolicitacao.php">
                                 <tr>
                                     <td><input type="text" name="produto_' . $index . '" value="' . $row['produto'] . '" readonly></td>
@@ -285,107 +290,108 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                                     </td>
                                     <td><input id="selecionar" type="checkbox" name="select_' . $index . '" value="' . $row['id'] . '"></td>
                                 </tr>';
-                                $index++;
-                            }
-                            echo '</tbody>
+                    $index++;
+                  }
+                  echo '</tbody>
                             </table>
                             <div class="linha3">
                                 <button type="submit">Finalizar Picking</button>
                             </div>';
-                        } else {
-                            echo '<tbody>
+                } else {
+                  echo '<tbody>
                                 <tr>
                                     <td colspan="5"><p>Nenhuma solicitação encontrada.</p></td>
                                 </tr>
                             </tbody>';
-                        }
-                    }
                 }
-                ?>
-            </table>
-            </form>
+              }
+            }
+            ?>
+          </table>
+          </form>
         </div>
+      </div>
     </div>
-</div>
-<?php
-include_once('footer.php');
-?>
+    <?php
+    include_once('footer.php');
+    ?>
     <script>
-    document.getElementById('buscarSolicitacao').addEventListener('click', function() {
-    const data = document.getElementById('data').value;
-    if (!data) {
-        alert('Por favor, selecione uma data.');
-        return;
-    }
+      document.getElementById('buscarSolicitacao').addEventListener('click', function() {
+        const data = document.getElementById('data').value;
+        if (!data) {
+          alert('Por favor, selecione uma data.');
+          return;
+        }
 
-    fetch('buscar_picking.php?data=' + encodeURIComponent(data))
-        .then(response => response.json())
-        .then(data => {
+        fetch('buscar_picking.php?data=' + encodeURIComponent(data))
+          .then(response => response.json())
+          .then(data => {
             const solicitacaoSelect = document.getElementById('solicitacao');
             solicitacaoSelect.innerHTML = '<option value="">Selecione...</option>'; // Limpar opções existentes
             data.forEach(solicitacao => {
-                const option = document.createElement('option');
-                option.value = solicitacao;
-                option.textContent = solicitacao;
-                solicitacaoSelect.appendChild(option);
+              const option = document.createElement('option');
+              option.value = solicitacao;
+              option.textContent = solicitacao;
+              solicitacaoSelect.appendChild(option);
             });
-        })
-        .catch(error => console.error('Erro ao buscar solicitações:', error));
-  });
-    document.getElementById('id').addEventListener('blur', function() {
-      var id = this.value;
-      var erroMsg = document.getElementById('idErro');
+          })
+          .catch(error => console.error('Erro ao buscar solicitações:', error));
+      });
+      document.getElementById('id').addEventListener('blur', function() {
+        var id = this.value;
+        var erroMsg = document.getElementById('idErro');
 
-      // Verificar se o ID não está vazio
-      if (id.trim() === '') {
-        erroMsg.style.display = 'none';
-        return;
-      }});
+        // Verificar se o ID não está vazio
+        if (id.trim() === '') {
+          erroMsg.style.display = 'none';
+          return;
+        }
+      });
 
-  document.addEventListener('DOMContentLoaded', function() {
-    const pegarBtns = document.querySelectorAll('.pegar-btn');
+      document.addEventListener('DOMContentLoaded', function() {
+        const pegarBtns = document.querySelectorAll('.pegar-btn');
 
-    pegarBtns.forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        pegarBtns.forEach(btn => {
+          btn.addEventListener('click', function(e) {
             e.preventDefault(); // Impede o envio do formulário padrão
-            
+
             const form = this.closest('form');
             const formData = new FormData(form);
 
             fetch('atualizarSolicitacao.php', {
                 method: 'POST',
                 body: formData
-            })
-            .then(response => response.text())
-            .then(data => {
+              })
+              .then(response => response.text())
+              .then(data => {
                 alert(data);
                 location.reload(); // Atualiza a página após o sucesso
-            })
-            .catch(error => {
+              })
+              .catch(error => {
                 console.error('Erro:', error);
-            });
+              });
+          });
         });
-    });
 
-    document.querySelector('.linha3 button').addEventListener('click', function() {
-        window.location.href = 'expedicao.php';
-    });
-});
-    let arrow = document.querySelectorAll(".arrow");
-    for (var i = 0; i < arrow.length; i++) {
-      arrow[i].addEventListener("click", (e)=>{
-     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
-     arrowParent.classList.toggle("showMenu");
+        document.querySelector('.linha3 button').addEventListener('click', function() {
+          window.location.href = 'expedicao.php';
+        });
       });
-    }
-    
-    let sidebar = document.querySelector(".sidebar");
-    let sidebarBtn = document.querySelector(".bx-menu");
-    console.log(sidebarBtn);
-    sidebarBtn.addEventListener("click", ()=>{
-      sidebar.classList.toggle("close");
-    });
+      let arrow = document.querySelectorAll(".arrow");
+      for (var i = 0; i < arrow.length; i++) {
+        arrow[i].addEventListener("click", (e) => {
+          let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+          arrowParent.classList.toggle("showMenu");
+        });
+      }
 
-</script>
+      let sidebar = document.querySelector(".sidebar");
+      let sidebarBtn = document.querySelector(".bx-menu");
+      console.log(sidebarBtn);
+      sidebarBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("close");
+      });
+    </script>
 </body>
+
 </html>
