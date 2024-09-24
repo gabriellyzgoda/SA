@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Set-2024 às 15:54
+-- Tempo de geração: 24-Set-2024 às 17:38
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -33,25 +33,64 @@ CREATE TABLE `cadastro` (
   `email` varchar(200) NOT NULL,
   `senha` varchar(200) NOT NULL,
   `professor` tinyint(1) NOT NULL,
-  `cargo` varchar(255) NOT NULL
+  `cargo` varchar(255) NOT NULL,
+  `id_turma` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `cadastro`
 --
 
-INSERT INTO `cadastro` (`id`, `nome`, `email`, `senha`, `professor`, `cargo`) VALUES
-(13, 'gaby', 'gaby@sesi', 'a', 1, 'Professor'),
-(14, 'aluno', 'a@1', 'aluno', 0, 'Admin'),
-(15, 'chris', 'chris@sesi', 'a', 1, 'Professor'),
-(16, 'thamiris', 'chris@aluno', 'thamiris', 0, 'supervisora'),
-(18, 'prof lindo', 'pro@g.com', 'pro123', 1, 'Professor'),
-(19, 'gabyy', 'gaby@sesis', 'chris', 1, 'Professor'),
-(20, 'Amanda', 'amanda@sesi', 'prof', 1, 'Professor'),
-(21, 'paula', 'paula@sesi', 'paula', 1, 'Professor'),
-(22, 'Senai', 'senai@sesi', 'senai', 1, 'Professor'),
-(23, 'Senai', 'senai@sesi', '123a', 1, 'Professor'),
-(24, 'thaís', 'thais@senai', 'senai123', 1, 'Professor');
+INSERT INTO `cadastro` (`id`, `nome`, `email`, `senha`, `professor`, `cargo`, `id_turma`) VALUES
+(13, 'gaby', 'gaby@sesi', 'a', 1, 'Professor', 0),
+(15, 'chris', 'chris@sesi', 'a', 1, 'Professor', 0),
+(18, 'prof lindo', 'pro@g.com', 'pro123', 1, 'Professor', 0),
+(19, 'gabyy', 'gaby@sesis', 'chris', 1, 'Professor', 0),
+(20, 'Amanda', 'amanda@sesi', 'prof', 1, 'Professor', 0),
+(21, 'paula', 'paula@sesi', 'paula', 1, 'Professor', 0),
+(22, 'Senai', 'senai@sesi', 'senai', 1, 'Professor', 0),
+(23, 'Senai', 'senai@sesi', '123a', 1, 'Professor', 0),
+(24, 'thaís', 'thais@senai', 'senai123', 1, 'Professor', 0),
+(46, 'aluno1', 'aluno1@senai', '4711', 0, 'Aluno', 5),
+(47, 'aluno2', 'aluno2@senai', '8781', 0, 'Aluno', 5),
+(48, 'aluno3', 'aluno3@senai', '6772', 0, 'Aluno', 5),
+(49, 'aluno4', 'aluno4@senai', '1007', 0, 'Aluno', 5),
+(50, 'aluno5', 'aluno5@senai', '1936', 0, 'Aluno', 5),
+(51, 'aluno6', 'aluno6@senai', '5003', 0, 'Aluno', 5),
+(52, 'aluno7', 'aluno7@senai', '8928', 0, 'Aluno', 5),
+(53, 'aluno8', 'aluno8@senai', '1361', 0, 'Aluno', 5),
+(54, 'aluno9', 'aluno9@senai', '6070', 0, 'Aluno', 5),
+(55, 'aluno10', 'aluno10@senai', '2113', 0, 'Aluno', 5),
+(56, 'aluno11', 'aluno11@senai', '7207', 0, 'Aluno', 5),
+(57, 'aluno12', 'aluno12@senai', '1391', 0, 'Aluno', 5),
+(58, 'aluno13', 'aluno13@senai', '2186', 0, 'Aluno', 5),
+(59, 'aluno14', 'aluno14@senai', '7870', 0, 'Aluno', 5),
+(60, 'aluno15', 'aluno15@senai', '6634', 0, 'Aluno', 5),
+(61, 'aluno16', 'aluno16@senai', '3883', 0, 'Aluno', 5),
+(62, 'aluno17', 'aluno17@senai', '2237', 0, 'Aluno', 5),
+(63, 'aluno18', 'aluno18@senai', '7244', 0, 'Aluno', 5),
+(64, 'aluno19', 'aluno19@senai', '3175', 0, 'Aluno', 5),
+(65, 'aluno20', 'aluno20@senai', '3461', 0, 'Aluno', 5),
+(66, 'aluno1', 'aluno1@senai', '1863', 0, 'Aluno', 6),
+(67, 'aluno2', 'aluno2@senai', '7319', 0, 'Aluno', 6),
+(68, 'aluno3', 'aluno3@senai', '7705', 0, 'Aluno', 6),
+(69, 'aluno4', 'aluno4@senai', '3062', 0, 'Aluno', 6),
+(70, 'aluno5', 'aluno5@senai', '2461', 0, 'Aluno', 6),
+(71, 'aluno6', 'aluno6@senai', '6174', 0, 'Aluno', 6),
+(72, 'aluno7', 'aluno7@senai', '2046', 0, 'Aluno', 6),
+(73, 'aluno8', 'aluno8@senai', '7630', 0, 'Aluno', 6),
+(74, 'aluno9', 'aluno9@senai', '5095', 0, 'Aluno', 6),
+(75, 'aluno10', 'aluno10@senai', '4223', 0, 'Aluno', 6),
+(76, 'aluno11', 'aluno11@senai', '6614', 0, 'Aluno', 6),
+(77, 'aluno12', 'aluno12@senai', '4635', 0, 'Aluno', 6),
+(78, 'aluno13', 'aluno13@senai', '4632', 0, 'Aluno', 6),
+(79, 'aluno14', 'aluno14@senai', '2007', 0, 'Aluno', 6),
+(80, 'aluno15', 'aluno15@senai', '9949', 0, 'Aluno', 6),
+(81, 'aluno16', 'aluno16@senai', '5917', 0, 'Aluno', 6),
+(82, 'aluno17', 'aluno17@senai', '4889', 0, 'Aluno', 6),
+(83, 'aluno18', 'aluno18@senai', '6834', 0, 'Aluno', 6),
+(84, 'aluno19', 'aluno19@senai', '3328', 0, 'Aluno', 6),
+(85, 'aluno20', 'aluno20@senai', '1909', 0, 'Aluno', 6);
 
 -- --------------------------------------------------------
 
@@ -252,6 +291,26 @@ INSERT INTO `solicitacoes` (`id`, `solicitacao`, `produto`, `unidades`, `quantid
 (55, 6, '6', '6', 6, 66, 468, '6', '', '', '2024-09-12', '', 0, 0),
 (56, 6, '6', '6', 6, 0, 468, '6', '', '', '2024-09-12', '', 0, 0);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `turma`
+--
+
+CREATE TABLE `turma` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `id_professor` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `turma`
+--
+
+INSERT INTO `turma` (`id`, `nome`, `id_professor`) VALUES
+(5, 'aaaaaaa1', 13),
+(6, 'hsdhsd5', 20);
+
 --
 -- Índices para tabelas despejadas
 --
@@ -293,6 +352,12 @@ ALTER TABLE `solicitacoes`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `turma`
+--
+ALTER TABLE `turma`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -300,7 +365,7 @@ ALTER TABLE `solicitacoes`
 -- AUTO_INCREMENT de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT de tabela `container`
@@ -325,6 +390,12 @@ ALTER TABLE `pedidos`
 --
 ALTER TABLE `solicitacoes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+
+--
+-- AUTO_INCREMENT de tabela `turma`
+--
+ALTER TABLE `turma`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

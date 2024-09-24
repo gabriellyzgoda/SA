@@ -14,7 +14,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Alunos</title>
+  <title>Criação de Turmas</title>
   <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
   <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" type="text/css" href="estiloAlunos.css" media="screen" />
@@ -180,122 +180,67 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       </li>
     </ul><!--Fecha ul-->
   </div>
+  <center>
   <div class="conteudo">
     <div class="titulo-conteudo">
-      <h1>Sua lista de alunos :)</h1>
+      <h1>Crie Turmas</h1>
     </div>
-    <div class="quadro-alunos">
+    <form class="form" method="post" action="cadastroTurmas.php" name="cadastroTurmas">
+      <label>Digite o nome da turma que você quer criar:</label>
+      <input type="text" name="nome" required>
+      <div class="quadroBotao">
+        <input class="" type="submit" value="Criar"/>
+      </div>
+    </form>
+
+    <div class="turmas">
+      <h2>Lista de Turmas</h2>
       <table>
         <thead>
           <tr>
-            <th>Alunos</th>
-            <th>Senha</th>
-            <th>Cargo</th>
+            <th>Número da Turma</th>
+            <th>Nome da Turma</th>
+            <th>Professor da Turma</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <?php
-
-          $sqlProfessor = "SELECT * FROM cadastro
-          WHERE professor = 0";
-          $resultado = $conexao->query($sqlProfessor);
-
-          while ($user_data = mysqli_fetch_assoc($resultado)) {
-            echo "<tr>";
-            echo "<td>" . $user_data['nome'] . "</td>";
-            echo "<td>" . $user_data['senha'] . "</td>";
-            echo "<td >" . $user_data['cargo'] . "</td>";
-
-          ?>
-            <td>
-              <div class="botaoEditar" onclick="editarAluno(<?php echo $user_data['id']; ?>, '<?php echo $user_data['nome']; ?>', '<?php echo $user_data['senha']; ?>', '<?php echo $user_data['cargo']; ?>')">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </div>
-              <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
-                <i class="fa-solid fa-trash"></i>
-              </div>
-            </td>
-          <?php
+        $sql = "SELECT * FROM turma";
+        $resultado = $conexao->query($sql);
+          if ($resultado->num_rows > 0) {
+              while ($turma = $resultado->fetch_assoc()) {
+                  echo "<tr>
+                          <td>{$turma['id']}</td>
+                          <td>{$turma['nome']}</td>
+                          <td>{$turma['id_professor']}</td>
+                        ";
+              ?>
+              <td>
+                <div class='botaoDeletar' onclick='confirmarExclusao(<?php echo $turma["id"]; ?>)'>
+              <i class='fa-solid fa-trash'></i>
+                </div></td>
+            <?php
+            }
+            } else {
+              echo "<tr><td colspan='3'>Nenhuma turma cadastrada.</td></tr>";
           }
+          $conexao->close();
           ?>
         </tbody>
       </table>
     </div>
-    <div id="formPopup" class="form-popup">
-      <form id="editForm" class="form-container" method="POST" action="salvar.php">
-        <div class="config-form">
-          <label for="nome">Nome:</label>
-          <input type="text" id="nome" name="novonome" required>
-          <label for="senha">Senha:</label>
-          <div class="newPassword">
-            <input type="text" id="senha" name="novosenha" required>
-            <button type="button" id="generatePassword" class="btn"><i class="fa-solid fa-arrows-rotate"></i></button>
-          </div>
-          <div id="passwordPopup" class="popup-content"></div>
-          <label for="cargo">Cargo:</label>
-          <input type="text" id="cargo" name="novocargo" required>
-          <input type="hidden" id="userId" name="userId">
-          <div class="botoes-form">
-            <button type="submit" class="btn" value="Salvar">Salvar</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Fechar</button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="overlay" id="overlay" style="display: none;"></div>
   </div>
+  </center>
   <?php
   include_once('footer.php');
   ?>
   <script>
-    document.getElementById('generatePassword').addEventListener('click', function() {
-      const password = generateRandomPassword();
-      const passwordInput = document.getElementById('senha');
-      const passwordPopup = document.getElementById('passwordPopup');
-
-      passwordInput.value = password;
-      passwordPopup.style.display = 'block';
-
-      setTimeout(() => {
-        passwordPopup.style.display = 'none';
-      }, 3000);
-    });
-
-    function generateRandomPassword(length = 4) {
-      const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      let password = "";
-      for (let i = 0; i < length; i++) {
-        const randomIndex = Math.floor(Math.random() * charset.length);
-        password += charset[randomIndex];
-      }
-      return password;
-    }
-
     function confirmarExclusao(id) {
-      if (confirm("Tem certeza que deseja excluir este aluno?")) {
-        window.location.href = "delete.php?id=" + id;
+      if (confirm("Tem certeza que deseja excluir esta turma?")) {
+        window.location.href = "deleteTurma.php?id=" + id;
       }
     }
-
-    function editarAluno(id, nome, senha, cargo) {
-      document.getElementById("userId").value = id;
-      document.getElementById("nome").value = nome;
-      document.getElementById("senha").value = senha;
-      document.getElementById("cargo").value = cargo;
-      document.getElementById("formPopup").style.display = "block";
-      document.getElementById("editForm").style.display = "block";
-      document.getElementById("overlay").style.display = "block";
-    }
-
-    function closeForm() {
-      document.getElementById("formPopup").style.display = "none";
-      document.getElementById("editForm").style.display = "none";
-      document.getElementById("overlay").style.display = "none";
-    }
-
-
-
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e) => {
