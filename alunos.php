@@ -196,28 +196,38 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </thead>
         <tbody>
           <?php
+            $id_professor = $_SESSION['id']; // Captura o id do professor da sessão
 
-          $sqlProfessor = "SELECT * FROM cadastro
-          WHERE professor = 0";
-          $resultado = $conexao->query($sqlProfessor);
+            // Consulta para buscar os alunos da mesma turma onde o professor está
+            $sqlProfessor = "SELECT cadastro.id AS id, cadastro.nome AS nome_aluno, turma.nome AS nome_turma, cadastro.senha AS senha, cadastro.cargo AS cargo
+                              FROM cadastro 
+                              JOIN turma ON cadastro.id_turma = turma.id 
+                              WHERE turma.id_professor = $id_professor AND cadastro.professor = 0;
+                              ";
 
-          while ($user_data = mysqli_fetch_assoc($resultado)) {
-            echo "<tr>";
-            echo "<td>" . $user_data['nome'] . "</td>";
-            echo "<td>" . $user_data['senha'] . "</td>";
-            echo "<td >" . $user_data['cargo'] . "</td>";
+            $resultado = $conexao->query($sqlProfessor);
+            if (!$resultado) {
+                die("Erro na consulta: " . $conexao->error);
+            }
 
-          ?>
-            <td>
-              <div class="botaoEditar" onclick="editarAluno(<?php echo $user_data['id']; ?>, '<?php echo $user_data['nome']; ?>', '<?php echo $user_data['senha']; ?>', '<?php echo $user_data['cargo']; ?>')">
-                <i class="fa-solid fa-pen-to-square"></i>
-              </div>
-              <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
-                <i class="fa-solid fa-trash"></i>
-              </div>
-            </td>
-          <?php
+            while ($user_data = $resultado->fetch_assoc()) {
+              echo "<tr>";
+              echo "<td>" . $user_data['nome_aluno'] . "</td>"; // linha 219
+              echo "<td>" . $user_data['senha'] . "</td>";
+              echo "<td>" . $user_data['cargo'] . "</td>";
+              ?>
+              <td>
+                  <div class="botaoEditar" onclick="editarAluno(<?php echo $user_data['id']; ?>, '<?php echo $user_data['nome_aluno']; ?>', '<?php echo $user_data['senha']; ?>', '<?php echo $user_data['cargo']; ?>')">
+                      <i class="fa-solid fa-pen-to-square"></i>
+                  </div>
+                  <div class="botaoDeletar" onclick="confirmarExclusao(<?php echo $user_data['id']; ?>)">
+                      <i class="fa-solid fa-trash"></i>
+                  </div>
+              </td>
+              <?php
+              echo "</tr>";
           }
+          
           ?>
         </tbody>
       </table>

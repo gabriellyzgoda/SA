@@ -206,14 +206,16 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </thead>
         <tbody>
           <?php
-        $sql = "SELECT * FROM turma";
-        $resultado = $conexao->query($sql);
+            $sql = "SELECT turma.id, turma.nome, cadastro.nome AS nome_professor 
+            FROM turma 
+            JOIN cadastro ON turma.id_professor = cadastro.id";
+            $resultado = $conexao->query($sql);
           if ($resultado->num_rows > 0) {
               while ($turma = $resultado->fetch_assoc()) {
                   echo "<tr>
                           <td>{$turma['id']}</td>
                           <td>{$turma['nome']}</td>
-                          <td>{$turma['id_professor']}</td>
+                          <td>{$turma['nome_professor']}</td>
                         ";
               ?>
               <td>
