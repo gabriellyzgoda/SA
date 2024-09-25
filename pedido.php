@@ -149,7 +149,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
             <li><a class="link_name" href="relatorios.php">Relatório</a></li>
           </ul>
         </li>   
-    </ul><!--Fecha ul-->
+    </ul>
 </div>   
 <div class="conteudo"> 
     <div class="titulo-conteudo">    

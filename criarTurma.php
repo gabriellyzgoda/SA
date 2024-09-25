@@ -178,7 +178,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           <li><a class="link_name" href="relatorios.php">Relatório</a></li>
         </ul>
       </li>
-    </ul><!--Fecha ul-->
+    </ul>
   </div>
   <center>
   <div class="conteudo">
@@ -246,7 +246,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e) => {
-        let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+        let arrowParent = e.target.parentElement.parentElement;
         arrowParent.classList.toggle("showMenu");
       });
     }

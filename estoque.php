@@ -246,7 +246,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <li><a class="link_name" href="relatorios.php">Relatório</a></li>
         </ul>
       </li>
-    </ul><!--Fecha ul-->
+    </ul>
   </div>
   <div class="conteudo">
     <div class="titulo-conteudo">

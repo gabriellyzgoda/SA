@@ -42,13 +42,11 @@
                             <select class="inputs" name="id_turma">
                                 <option value="">Selecione uma turma</option>
                                 <?php
-                                include_once('config.php'); // Inclui a conexão com o banco de dados
+                                include_once('config.php'); 
 
-                                // Consulta para buscar as turmas
                                 $sqlTurmas = "SELECT id, nome FROM turma";
                                 $resultadoTurmas = $conexao->query($sqlTurmas);
 
-                                // Verifica se há turmas e as lista no select
                                 if ($resultadoTurmas->num_rows > 0) {
                                     while ($turma = $resultadoTurmas->fetch_assoc()) {
                                         echo "<option value='" . $turma['id'] . "'>" . $turma['nome'] . "</option>";
@@ -67,7 +65,6 @@
                                 <div class="mensagem-erro">
                                     <p>
                                         <?php
-                                        // Exibe mensagem de erro com base no parâmetro 'erro'
                                         if ($_GET['erro'] == 1) {
                                             echo "Email ou senha incorretos";
                                         } elseif ($_GET['erro'] == 2) {

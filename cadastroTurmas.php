@@ -15,15 +15,12 @@ if ($conexao->connect_errno) {
     $nome = $conexao->real_escape_string($_POST['nome']);
     $id_professor = $_SESSION['id'];
 
-    // Inserir a turma
     $sql = "INSERT INTO `turma` (`nome`, `id_professor`) 
             VALUES ('".$nome."', '".$id_professor."');";
     
     if ($conexao->query($sql) === TRUE) {
-        // Obter o ID da turma inserida
         $id_turma = $conexao->insert_id;
 
-        // Inserir 20 alunos
         for ($i = 1; $i <= 20; $i++) {
             $aluno_nome = "aluno" . $i;
             $aluno_email = "aluno" . $i . "@senai";
@@ -41,7 +38,6 @@ if ($conexao->connect_errno) {
             $conexao->query($sql_aluno);
         }
 
-        // Redireciona após a inserção
         header('Location: criarTurma.php', true, 301);
     } else {
         echo "Error: " . $conexao->error;

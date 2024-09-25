@@ -209,7 +209,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
         </li>
 
               
-      </ul><!--Fecha ul-->
+      </ul>
     </div>      
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
@@ -265,7 +265,7 @@ include_once('footer.php');
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e)=>{
-     let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+     let arrowParent = e.target.parentElement.parentElement;
      arrowParent.classList.toggle("showMenu");
       });
     }

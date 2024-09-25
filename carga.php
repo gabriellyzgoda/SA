@@ -246,7 +246,7 @@ $conexao->close();
         </ul>
       </li>
 
-    </ul><!--Fecha ul-->
+    </ul>
   </div>
   <div class="conteudo">
     <div class="titulo-conteudo">

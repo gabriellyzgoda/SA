@@ -178,7 +178,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           <li><a class="link_name" href="relatorios.php">Relatório</a></li>
         </ul>
       </li>
-    </ul><!--Fecha ul-->
+    </ul>
   </div>
   <div class="conteudo">
     <div class="titulo-conteudo">
@@ -196,9 +196,8 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </thead>
         <tbody>
           <?php
-            $id_professor = $_SESSION['id']; // Captura o id do professor da sessão
+            $id_professor = $_SESSION['id']; 
 
-            // Consulta para buscar os alunos da mesma turma onde o professor está
             $sqlProfessor = "SELECT cadastro.id AS id, cadastro.nome AS nome_aluno, turma.nome AS nome_turma, cadastro.senha AS senha, cadastro.cargo AS cargo
                               FROM cadastro 
                               JOIN turma ON cadastro.id_turma = turma.id 
@@ -212,7 +211,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 
             while ($user_data = $resultado->fetch_assoc()) {
               echo "<tr>";
-              echo "<td>" . $user_data['nome_aluno'] . "</td>"; // linha 219
+              echo "<td>" . $user_data['nome_aluno'] . "</td>";
               echo "<td>" . $user_data['senha'] . "</td>";
               echo "<td>" . $user_data['cargo'] . "</td>";
               ?>
@@ -309,7 +308,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e) => {
-        let arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
+        let arrowParent = e.target.parentElement.parentElement; 
         arrowParent.classList.toggle("showMenu");
       });
     }
