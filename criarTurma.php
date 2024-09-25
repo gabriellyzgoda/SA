@@ -198,7 +198,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       <table>
         <thead>
           <tr>
-            <th>Número da Turma</th>
             <th>Nome da Turma</th>
             <th>Professor da Turma</th>
             <th></th>
@@ -213,7 +212,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           if ($resultado->num_rows > 0) {
               while ($turma = $resultado->fetch_assoc()) {
                   echo "<tr>
-                          <td>{$turma['id']}</td>
                           <td>{$turma['nome']}</td>
                           <td>{$turma['nome_professor']}</td>
                         ";
