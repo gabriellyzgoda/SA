@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,7 @@
             <div class="logo">
                 <img src="imagens/modelosa.jpg" alt="Minha Figura" width="400" height="auto">
             </div>
-            <div class="iniciar">  
+            <div class="iniciar">
                 <a href="login.php"><button>Iniciar</button></a>
             </div>
         </div>
