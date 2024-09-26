@@ -138,17 +138,23 @@ $resultado2 = $conexao->query($sqlClientes);
         </li>
         
         <li>
-          
-          <a href="alunos.php">
+      <div class="iocn-link">
+
+        <a href="#">
           <i class="fa-solid fa-users"></i>
-            <span class="link_name">Alunos</span>
-          </a>
+          <span class="link_name">Alunos</span>
+        </a>
 
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="alunos.php">Alunos</a></li>
-          </ul>
+        <i class='bx bxs-chevron-down arrow'></i>
 
-        </li>
+        </div>
+
+        <ul class="sub-menu">
+          <li><a  href="alunos.php">Alunos</a></li>
+          <li><a  href="criarTurma.php">Turmas</a></li>
+        </ul>
+
+      </li>
 
           
         <li>

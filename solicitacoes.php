@@ -33,7 +33,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </div>
         <div class="menu-header">
           <div class="dropdown-perfil">
-            <a href="#" >
+            <a href="#">
                 <div class="circulo">
                         <i class="fa-solid fa-user"></i>
                 </div>
@@ -131,17 +131,23 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </li>
         
         <li>
-          
-          <a href="alunos.php">
+      <div class="iocn-link">
+
+        <a href="#">
           <i class="fa-solid fa-users"></i>
-            <span class="link_name">Alunos</span>
-          </a>
+          <span class="link_name">Alunos</span>
+        </a>
 
-          <ul class="sub-menu blank">
-            <li><a class="link_name" href="alunos.php">Alunos</a></li>
-          </ul>
+        <i class='bx bxs-chevron-down arrow'></i>
 
-        </li>
+        </div>
+
+        <ul class="sub-menu">
+          <li><a  href="alunos.php">Alunos</a></li>
+          <li><a  href="criarTurma.php">Turmas</a></li>
+        </ul>
+
+      </li>
 
           
         <li>
@@ -197,13 +203,19 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
                     if ($resultado->num_rows > 0) {
                         while ($row = $resultado->fetch_assoc()) {
                           echo'
-              <div class="linhaSolicitacoes">
-                <input type="text" id="solicitacoes" value="' . htmlspecialchars($row['solicitacao']) . '" readonly>
-                <a href="abrirSolicitacao.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
-                <td><div class="botaoDeletar" onclick="confirmarExclusao(' . $row['solicitacao'] . ')"><i class="fa-solid fa-trash"></i></div></td>
-              </div>
-            ';
-            }}?>
+                          <div class="linhaSolicitacoes">
+                            <input type="text" id="solicitacoes" value="' . htmlspecialchars($row['solicitacao']) . '" readonly>
+                            <a href="abrirSolicitacao.php?solicitacao=' . urlencode($row['solicitacao']) . '"><button>Abrir</button></a>
+                            <td><div class="botaoDeletar" onclick="confirmarExclusao(' . $row['solicitacao'] . ')"><i class="fa-solid fa-trash"></i></div></td>
+                          </div>
+                        ';
+                        }
+                      } else {
+                          echo '<div class="linhaMinhaDanfe">';
+                          echo '<p> Nenhuma solicitação encontrada.</p>';
+                          echo '</div>';
+                        }
+                        ?>
         </div>
       </div>
     </div>

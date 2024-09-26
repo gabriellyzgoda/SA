@@ -108,13 +108,22 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
 
         </li>
         <li>
-            <a href="alunos.php">
-                <i class="fa-solid fa-users"></i>
-                <span class="link_name">Alunos</span>
+        <div class="iocn-link">
+
+            <a href="#">
+            <i class="fa-solid fa-users"></i>
+            <span class="link_name">Alunos</span>
             </a>
-            <ul class="sub-menu blank">
-                <li><a class="link_name" href="alunos.php">Alunos</a></li>
+
+            <i class='bx bxs-chevron-down arrow'></i>
+
+            </div>
+
+            <ul class="sub-menu">
+            <li><a  href="alunos.php">Alunos</a></li>
+            <li><a  href="criarTurma.php">Turmas</a></li>
             </ul>
+
         </li>
           
         <li>
