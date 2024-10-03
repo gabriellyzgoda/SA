@@ -247,7 +247,39 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                 <button type="submit">OK</button>
               </form>
             </div>
-            
+          <?php
+              // Exibir os dados da tabela selecionada
+              if (isset($_POST['tabela'])) {
+                  $tabela = $_POST['tabela'];
+                  $tabelas_permitidas = ['container', 'pedidos', 'solicitacoes', 'danfe', 'dadoscliente'];
+
+                  // Verifique se a tabela selecionada está na lista de tabelas permitidas
+                  if (in_array($tabela, $tabelas_permitidas)) {
+                      $sql = "SELECT * FROM $tabela";
+                      $resultado = $conexao->query($sql);
+
+                  if ($resultado->num_rows > 0) {
+                      echo "<div class='linha02'><div class='quadroTabela'><table border='1'>";
+                      echo "<tr>";
+                      $fields = $resultado->fetch_fields();
+                      foreach ($fields as $field) {
+                          echo "<th>" . $field->name . "</th>";
+                      }
+                      echo "</tr>";
+
+                      while ($row = $resultado->fetch_assoc()) {
+                          echo "<tr>";
+                          foreach ($row as $value) {
+                              echo "<td>" . $value . "</td>";
+                          }
+                          echo "</tr>";
+                      }
+                      echo "</table></div></div>";
+                  } else {
+                      echo "<div class='semDados'><p>Nenhum dado encontrado na tabela $tabela.</p></div>";
+                  }
+              }}
+              ?>
           </div>
         </div>
     </div>
