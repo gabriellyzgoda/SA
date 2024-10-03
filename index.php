@@ -16,7 +16,7 @@
             <div class="social">
                     <a class="icons" href="https://www.facebook.com/senaisc/events/?locale=es_LA&_rdr"><i class="fa-brands fa-square-facebook fa-xl"></i></a>
                     <a class="icons" href="https://www.instagram.com/senai.sc/"><i class="fa-brands fa-instagram fa-xl"></i></a>
-                    <a class="icons" href="https://www.youtube.com/channel/UCQFD9JHT1tgBT9NhNIPrJ1A"><i class="fa-brands fa-youtube fa-xl"></i></i></a>  
+                    <a class="icons" href="https://www.youtube.com/channel/UCQFD9JHT1tgBT9NhNIPrJ1A"><i class="fa-brands fa-youtube fa-xl"></i></i></a>
             </div>
             <div class="logo">
                 <img src="imagens/modelosa.jpg" alt="Minha Figura" width="400" height="auto">
