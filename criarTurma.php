@@ -191,8 +191,15 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       <h1>Crie Turmas</h1>
     </div>
     <form class="form" method="post" action="cadastroTurmas.php" name="cadastroTurmas">
+    <?php if (isset($_SESSION['erro'])): ?>
+      <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
+    <?php endif; ?>
+    <input type="hidden" name="nome" value="<?php echo $row['nome'] ?>">
       <label>Digite o nome da turma que você quer criar:</label>
-      <input type="text" name="nome" required>
+      <input type="text" id="nome" name="nome" required>
+      <div class="bloco2">
+          <p id="nomeErro" class="error" style="display: none;">O nome da turma já está sendo usado.</p>
+      </div>
       <div class="quadroBotao">
         <input class="" type="submit" value="Criar"/>
       </div>
@@ -241,11 +248,36 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
   include_once('footer.php');
   ?>
   <script>
+    document.getElementById('nome').addEventListener('blur', function() {
+      var nome = this.value;
+      var erroMsg = document.getElementById('nomeErro');
+
+      if (nome.trim() === '') {
+          erroMsg.style.display = 'none';
+          return;
+      }
+
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'verificarTurma.php?nome=' + encodeURIComponent(nome), true);
+      xhr.onload = function() {
+          if (xhr.status === 200) {
+              var response = JSON.parse(xhr.responseText);
+              if (response.exists) {
+                  erroMsg.style.display = 'block'; // Exibe a mensagem de erro
+              } else {
+                  erroMsg.style.display = 'none'; // Esconde a mensagem de erro
+              }
+          }
+      };
+      xhr.send();
+  });
+
     function confirmarExclusao(id) {
       if (confirm("Tem certeza que deseja excluir esta turma?")) {
         window.location.href = "deleteTurma.php?id=" + id;
       }
     }
+
     let arrow = document.querySelectorAll(".arrow");
     for (var i = 0; i < arrow.length; i++) {
       arrow[i].addEventListener("click", (e) => {

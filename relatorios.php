@@ -222,17 +222,13 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                 <label for="tabela">Selecione uma tabela:</label>
                 <select name="tabela" id="tabela">
                 <?php
-                  // Tabelas específicas que você deseja exibir
                   $tabelas_desejadas = ['container', 'pedidos', 'solicitacoes', 'danfe', 'dadoscliente'];
 
-                  // Consulta SQL para listar todas as tabelas no banco de dados
                   $sql = "SHOW TABLES";
                   $resultado = $conexao->query($sql);
 
-                  // Verifica se há resultados
                   if ($resultado->num_rows > 0) {
                       while ($row = $resultado->fetch_array()) {
-                          // Verifica se a tabela está na lista de tabelas desejadas
                           if (in_array($row[0], $tabelas_desejadas)) {
                               $tabela_selecionada = isset($_POST['tabela']) ? $_POST['tabela'] : '';
                               $selected = ($row[0] == $tabela_selecionada) ? 'selected' : '';
@@ -248,12 +244,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
               </form>
             </div>
           <?php
-              // Exibir os dados da tabela selecionada
               if (isset($_POST['tabela'])) {
                   $tabela = $_POST['tabela'];
                   $tabelas_permitidas = ['container', 'pedidos', 'solicitacoes', 'danfe', 'dadoscliente'];
 
-                  // Verifique se a tabela selecionada está na lista de tabelas permitidas
                   if (in_array($tabela, $tabelas_permitidas)) {
                       $sql = "SELECT * FROM $tabela";
                       $resultado = $conexao->query($sql);

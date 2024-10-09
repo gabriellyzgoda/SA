@@ -10,7 +10,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
   exit;
 }
 ?>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +23,6 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
     @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
   </style>
 </head>
-
 <body>
   <header class="header-topo">
   <div class="logSenai">
@@ -222,8 +220,17 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
       <div class="chave">
           <p>Chave de Acesso:</p>
           <input class="" type="text" name="id" id="id" size="20" value="<?php echo $row['id']; ?>" readonly>
+          <form action="imprimirDanfe.php" method="get" target="_blank">
+            <input type="hidden" name="id" value="<?php echo $npedido ?>">
+               <?php
+                  echo '
+                    <center>
+                      <button class="baixar-pdf" type="submit">Imprimir</button>
+                    </center>'
+                ?>
+      </form> 
           <a href="minhaDanfe.php"><button type="button">Voltar</button></a>
-      </div>
+      </div>                         
       <div class="informacoes">
         <div class="informacoesBloco1">
           <img src="imagens/codigo-barras.png" alt="Minha Figura" width="200" height="auto">

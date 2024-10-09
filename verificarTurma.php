@@ -2,10 +2,10 @@
 include_once('config.php');
 header('Content-Type: application/json');
 
-$placa_caminhao = isset($_GET['placa_caminhao']) ? $conexao->real_escape_string ($_GET['placa_caminhao']) : '';
+$nome = isset($_GET['nome']) ? $conexao->real_escape_string ($_GET['nome']) : '';
 
-if ($placa_caminhao !== '') {
-    $sql = "SELECT * FROM container WHERE placa_caminhao = '$placa_caminhao'";
+if ($nome !== '') {
+    $sql = "SELECT * FROM turma WHERE nome = '$nome'";
     $resultado = $conexao->query($sql);
 
     $exists = $resultado->num_rows > 0;
