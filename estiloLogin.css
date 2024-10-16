@@ -131,6 +131,14 @@ body, html{
     margin-left: 0px;
 }
 
+.form select {
+    width: 62%;
+    padding: 13px;
+    border: 2px solid #fff;
+    background-color: #e9f0fe;
+    margin-left: 0px;
+}
+
 .form i {
     
     background-color: #fff;

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="estiloLogin.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="estiloLogin.css" media="screen" />
     <title>Login</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap');
@@ -11,6 +12,7 @@
     <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
     <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
     <div class="container">
         <div class="esquerda">
@@ -27,22 +29,29 @@
                 <div class="login">
                     <h1>Login</h1>
                     <form class="form" method="post" action="verificaLogin.php" id="formlogin" name="formlogin">
-                        <label><h2>Email: </h2></label>
+                        <label>
+                            <h2>Email: </h2>
+                        </label>
                         <div class="div-input">
                             <i class="fa-solid fa-envelope"></i>
                             <input class="inputs" type="text" name="email" id="email" size="20" required>
                         </div>
-                        <label><h2>Senha: </h2></label>
+                        <label>
+                            <h2>Senha: </h2>
+                        </label>
                         <div class="div-input">
                             <i class="fa-solid fa-lock"></i>
                             <input class="inputs" type="password" name="senha" id="senha" size="20" required>
                         </div>
-                        <label><h2>Selecione sua Turma: </h2></label>
+                        <label>
+                            <h2>Selecione sua Turma: </h2>
+                        </label>
                         <div class="div-input">
+                            <i class="fa-solid fa-users-between-lines"></i>
                             <select class="inputs" name="id_turma">
                                 <option value="">Selecione uma turma</option>
                                 <?php
-                                include_once('config.php'); 
+                                include_once('config.php');
 
                                 $sqlTurmas = "SELECT id, nome FROM turma";
                                 $resultadoTurmas = $conexao->query($sqlTurmas);
@@ -58,7 +67,7 @@
                             </select>
                         </div>
                         <div class="linhaBotao">
-                            <input class="botao-login" id="entrar" type="submit" value="Entrar"/>
+                            <input class="botao-login" id="entrar" type="submit" value="Entrar" />
                         </div>
                         <?php if (isset($_GET['erro'])) { ?>
                             <div class="linha-erro">
@@ -70,7 +79,7 @@
                                         } elseif ($_GET['erro'] == 2) {
                                             echo "Você não tem permissão para acessar";
                                         } elseif ($_GET['erro'] == 3) {
-                                        echo "Por favor selecione sua turma";
+                                            echo "Por favor selecione sua turma";
                                         } else {
                                             echo "Erro desconhecido";
                                         }
@@ -86,6 +95,7 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 </body>
+
 </html>
