@@ -64,6 +64,10 @@ if (isset($_SESSION['id_turma'])) {
                 <h4>Cargo:</h4>
                 <p><?php echo $_SESSION['cargo'];?></p>
               </div>
+              <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
+              </div>
             </div>
           </div>
           <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
@@ -198,7 +202,7 @@ if (isset($_SESSION['id_turma'])) {
     </div>     
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Minhas Solicitações</h1>
+         <h1>Solicitações da turma: <?php echo $nome_turma?></h1>
         </div>
         <div class="linha">
           <div class="quadroSolicitacoes">
@@ -207,9 +211,9 @@ if (isset($_SESSION['id_turma'])) {
             </div>
             <div class="Solicitacoes">
             <?php
-                    // Consulta para obter todos os números de solicitação e produtos relacionados
                     $sql = "SELECT solicitacao, GROUP_CONCAT(produto ORDER BY produto SEPARATOR ', ') AS produtos
                             FROM solicitacoes
+                            WHERE id_turma = $id_turma
                             GROUP BY solicitacao";
                     $resultado = $conexao->query($sql);
 

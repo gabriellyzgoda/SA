@@ -63,6 +63,10 @@ if (isset($_SESSION['id_turma'])) {
                     <h4>Cargo:</h4>
                     <p><?php echo $_SESSION['cargo'];?></p>
                 </div>
+                <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
+              </div>
             </div>
         </div>
         <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      

@@ -223,7 +223,7 @@ if (isset($_SESSION['id_turma'])) {
             $sqlProfessor = "SELECT cadastro.id AS id, cadastro.nome AS nome_aluno, turma.nome AS nome_turma, cadastro.senha AS senha, cadastro.cargo AS cargo
                               FROM cadastro 
                               JOIN turma ON cadastro.id_turma = turma.id 
-                              WHERE turma.id_professor = $id_professor AND cadastro.professor = 0;
+                              WHERE turma.id_professor = $id_professor AND cadastro.professor = 0 AND cadastro.id_turma = $id_turma;
                               ";
 
             $resultado = $conexao->query($sqlProfessor);

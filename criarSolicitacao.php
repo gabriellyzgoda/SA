@@ -214,7 +214,6 @@ if (isset($_SESSION['id_turma'])) {
             unset($_SESSION['erro']); ?></p>
           <?php endif; ?>
           <div class="form-numero">
-            <input type="hidden" name="solicitacao" value="<?php echo $row['solicitacao'] ?>">
             <label>Solicitação nº:</label>
             <input type="number" name="solicitacao" id="solicitacao">
             <p id="idErro" class="error" style="display: none;">Este número já está em uso.</p>
