@@ -64,6 +64,10 @@ if (isset($_SESSION['id_turma'])) {
                 <h4>Cargo:</h4>
                 <p><?php echo $_SESSION['cargo'];?></p>
               </div>
+              <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
+              </div>
             </div>
           </div>
           <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
@@ -198,7 +202,7 @@ if (isset($_SESSION['id_turma'])) {
     </div>         
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Relatórios</h1>
+         <h1>Relatório da turma: <?php echo $nome_turma?></h1>
         </div>
         <div class="linhaR">
           <div class="quadroR">
@@ -207,11 +211,9 @@ if (isset($_SESSION['id_turma'])) {
                 <label for="tabela">Selecione uma tabela:</label>
                 <select name="tabela" id="tabela">
                     <?php
-                    // Consulta SQL para listar todas as tabelas do banco de dados
                     $sql = "SHOW TABLES";
                     $resultado = $conexao->query($sql);
 
-                    // Verifica se há resultados
                     if ($resultado->num_rows > 0) {
                         while ($row = $resultado->fetch_array()) {
                             $tabela_selecionada = isset($_POST['tabela']) ? $_POST['tabela'] : '';
@@ -226,40 +228,52 @@ if (isset($_SESSION['id_turma'])) {
                 <button type="submit">OK</button>
               </form>
             </div>
-            
+            <?php
+        if (isset($_POST['tabela'])) {
+            $tabela = $_POST['tabela'];
+            $tabelas_permitidas = ['container', 'pedidos', 'danfe', 'dadoscliente', 'solicitacoes', 'turma'];
 
-          <?php
-              // Exibir os dados da tabela selecionada
-              if (isset($_POST['tabela'])) {
-                  $tabela = $_POST['tabela'];
-                  $sql = "SELECT * FROM $tabela";
-                  $resultado = $conexao->query($sql);
+            if (in_array($tabela, $tabelas_permitidas)) {
+                if ($tabela == 'turma') {
+                    $sql = "SELECT * FROM turma"; // Consulta todos os registros da tabela turma
+                } else {
+                    $sql = "SELECT * FROM $tabela WHERE id_turma = ?";
+                    $stmt = $conexao->prepare($sql);
+                    $stmt->bind_param("i", $id_turma);
+                    $stmt->execute();
+                    $resultado = $stmt->get_result();
+                }
+                
+                if ($tabela == 'turma') {
+                    $resultado = $conexao->query($sql);
+                }
 
-                  if ($resultado->num_rows > 0) {
-                      echo "<div class='linha02'><div class='quadroTabela'><table border='1'>";
-                      echo "<tr>";
-                      $fields = $resultado->fetch_fields();
-                      foreach ($fields as $field) {
-                          echo "<th>" . $field->name . "</th>";
-                      }
-                      echo "</tr>";
+                if ($resultado->num_rows > 0) {
+                    echo "<div class='linha02'><div class='quadroTabela'><table border='1'>";
+                    echo "<tr>";
+                    $fields = $resultado->fetch_fields();
+                    foreach ($fields as $field) {
+                        echo "<th>" . $field->name . "</th>";
+                    }
+                    echo "</tr>";
 
-                      while ($row = $resultado->fetch_assoc()) {
-                          echo "<tr>";
-                          foreach ($row as $value) {
-                              echo "<td>" . $value . "</td>";
-                          }
-                          echo "</tr>";
-                      }
-                      echo "</table></div></div>";
-                  } else {
-                      echo "<div class='semDados'><p>Nenhum dado encontrado na tabela $tabela.</p></div>";
-                  }
-              }
-              ?>
-          </div>
-        </div>
+                    while ($row = $resultado->fetch_assoc()) {
+                        echo "<tr>";
+                        foreach ($row as $value) {
+                            echo "<td>" . $value . "</td>";
+                        }
+                        echo "</tr>";
+                    }
+                    echo "</table></div></div>";
+                } else {
+                    echo "<div class='semDados'><p>Nenhum dado encontrado na tabela $tabela.</p></div>";
+                }
+            }
+        }
+        ?>
+      </div>
     </div>
+</div>
 <?php
 include_once('footer.php');
 ?>

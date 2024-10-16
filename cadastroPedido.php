@@ -79,8 +79,8 @@ echo $sql4;
 				$email = $conexao -> real_escape_string($_POST['email']);
 				$data = $conexao -> real_escape_string($_POST['data']);
 
-                $sqlClientes = "INSERT INTO dadoscliente (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`)
-                VALUES ('".$cnpj."', '".$nome."', '".$endereco."', '".$telefone."', '".$email."', '".$data."');";
+                $sqlClientes = "INSERT INTO dadoscliente (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`, `id_turma`)
+                VALUES ('".$cnpj."', '".$nome."', '".$endereco."', '".$telefone."', '".$email."', '".$data."', '".$id_turma."');";
 echo $sqlClientes;
 				$resultado = $conexao->query($sqlClientes);
 				if (!$resultado) {
