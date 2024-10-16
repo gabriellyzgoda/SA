@@ -9,6 +9,19 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
   header("Location: unauthorized.php");
   exit;
 }
+if (isset($_SESSION['id_turma'])) {
+  $id_turma = $_SESSION['id_turma'];
+
+  $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $row = $resultado->fetch_assoc();
+      $nome_turma = $row['nome'];
+  } else {
+      $nome_turma = "Turma não encontrada";
+  }
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -50,6 +63,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
                 <p><?php echo $_SESSION['cargo'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
               </div>
             </div>
           </div>
@@ -185,7 +202,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
     </div>     
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Minhas Solicitações</h1>
+         <h1>Solicitações da turma: <?php echo $nome_turma?></h1>
         </div>
         <div class="linha">
           <div class="quadroSolicitacoes">
@@ -194,9 +211,9 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
             </div>
             <div class="Solicitacoes">
             <?php
-                    // Consulta para obter todos os números de solicitação e produtos relacionados
                     $sql = "SELECT solicitacao, GROUP_CONCAT(produto ORDER BY produto SEPARATOR ', ') AS produtos
                             FROM solicitacoes
+                            WHERE id_turma = $id_turma
                             GROUP BY solicitacao";
                     $resultado = $conexao->query($sql);
 

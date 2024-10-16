@@ -9,6 +9,19 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
   header("Location: unauthorized.php");
   exit;
 }
+if (isset($_SESSION['id_turma'])) {
+  $id_turma = $_SESSION['id_turma'];
+
+  $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $row = $resultado->fetch_assoc();
+      $nome_turma = $row['nome'];
+  } else {
+      $nome_turma = "Turma não encontrada";
+  }
+}
 ?>
 <head>
     <meta charset="UTF-8">
@@ -50,6 +63,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
               <div class="dropdown-section">
                 <h4>Cargo:</h4>
                 <p><?php echo $_SESSION['cargo'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
               </div>
             </div>
           </div>
@@ -213,7 +230,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
     </div>        
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Relatório</h1>
+         <h1>Relatório da turma: <?php echo $nome_turma?></h1>
         </div>
         <div class="linhaR">
           <div class="quadroR">
@@ -222,7 +239,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
                 <label for="tabela">Selecione uma tabela:</label>
                 <select name="tabela" id="tabela">
                 <?php
-                  $tabelas_desejadas = ['container', 'pedidos', 'solicitacoes', 'danfe', 'dadoscliente'];
+                  $tabelas_desejadas = ['container', 'pedidos', 'solicitacoes', 'danfe', 'dadoscliente', 'turma'];
 
                   $sql = "SHOW TABLES";
                   $resultado = $conexao->query($sql);

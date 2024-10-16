@@ -4,11 +4,24 @@
 session_start();
 include_once('config.php');
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
   header("Location: unauthorized.php");
   exit;
 }
+if (isset($_SESSION['id_turma'])) {
+  $id_turma = $_SESSION['id_turma'];
+
+  $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $row = $resultado->fetch_assoc();
+      $nome_turma = $row['nome'];
+  } else {
+      $nome_turma = "Turma não encontrada";
+  }
+}
+$conexao->close();
 ?>
 <head>
     <meta charset="UTF-8">
@@ -51,6 +64,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
             <h4>Cargo:</h4>
             <p><?php echo $_SESSION['cargo'];?></p>
           </div>
+          <div class="dropdown-section">
+            <h4>Turma:</h4>
+            <p><?php echo $nome_turma; ?></p>
+        </div>
         </div>
       </div>
       <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      

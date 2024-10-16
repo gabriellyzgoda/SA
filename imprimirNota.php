@@ -66,7 +66,7 @@ include_once('config.php');
                 echo '<td>' . "Entrada" . '</td>';
                 } elseif ($row["operacao"] == 0) {
                 echo '<td>' . "Saída" . '</td>';
-                }
+                }                
                 echo '<td>' . $row["data_emissao"] . '</td>';
                 echo '<td>' . $row["hora_emissao"] . '</td>';
 

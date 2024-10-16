@@ -9,8 +9,20 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
   header("Location: unauthorized.php");
   exit;
 }
-?>
+if (isset($_SESSION['id_turma'])) {
+  $id_turma = $_SESSION['id_turma'];
 
+  $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $row = $resultado->fetch_assoc();
+      $nome_turma = $row['nome'];
+  } else {
+      $nome_turma = "Turma não encontrada";
+  }
+}
+?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,6 +64,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           <div class="dropdown-section">
             <h4>Cargo:</h4>
             <p><?php echo $_SESSION["cargo"]; ?></p>
+          </div>
+          <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
           </div>
         </div>
       </div>
@@ -220,7 +236,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           if (isset($_GET['data'])) {
             $data = $conexao->real_escape_string($_GET['data']);
 
-            $sql = "SELECT DISTINCT pedido FROM pedidos WHERE data = '$data'";
+            $sql = "SELECT DISTINCT pedido FROM pedidos WHERE data = '$data' AND id_turma = '$id_turma'";
             $resultado = $conexao->query($sql);
 
             $placas = [];

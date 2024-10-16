@@ -43,19 +43,23 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
           </div>
         </a>
         <div class="dropdown-content">
-          <div class="dropdown-section">
-            <h4>Nome:</h4>
-            <p><?php echo $_SESSION['nome']; ?></p>
-          </div>
-          <div class="dropdown-section">
-            <h4>Email:</h4>
-            <p><?php echo $_SESSION['email']; ?></p>
-          </div>
-          <div class="dropdown-section">
-            <h4>Cargo:</h4>
-            <p><?php echo $_SESSION['cargo']; ?></p>
-          </div>
-        </div>
+              <div class="dropdown-section">
+                <h4>Nome:</h4>
+                <p><?php echo $_SESSION['nome'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Email:</h4>
+                <p><?php echo $_SESSION['email'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Cargo:</h4>
+                <p><?php echo $_SESSION['cargo'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
+              </div>
+            </div>
       </div>
       <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>

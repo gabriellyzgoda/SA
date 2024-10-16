@@ -250,6 +250,12 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
       <div class="chave">
           <p>Chave de Acesso:</p>
           <input class="" type="text" name="id" id="id" size="20" value="<?php echo $row['id']; ?>" readonly>
+          <form action="imprimirNota.php" method="get" target="_blank">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+            <center>
+                <button class="baixar-pdf" type="submit">Imprimir</button>
+            </center>
+        </form>
           <a href="minhanota.php"><button type="button">Voltar</button></a>
       </div>
       <div class="informacoes">

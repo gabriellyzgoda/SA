@@ -9,8 +9,20 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
   header("Location: unauthorized.php");
   exit;
 }
-?>
+if (isset($_SESSION['id_turma'])) {
+  $id_turma = $_SESSION['id_turma'];
 
+  $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $row = $resultado->fetch_assoc();
+      $nome_turma = $row['nome'];
+  } else {
+      $nome_turma = "Turma não encontrada";
+  }
+}
+?>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,6 +64,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           <div class="dropdown-section">
             <h4>Cargo:</h4>
             <p><?php echo $_SESSION['cargo']; ?></p>
+          </div>
+          <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
           </div>
         </div>
       </div>
@@ -187,7 +203,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
   </div>
   <div class="conteudo">
     <div class="titulo-conteudo">
-      <h1>Minhas Danfes</h1>
+      <h1>Danfes da turma: <?php echo $nome_turma?></h1>
     </div>
     <div class="linha">
       <div class="quadroMinhaDanfe">
@@ -196,12 +212,10 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
         </div>
         <div class="MinhaDanfe">
           <?php
-          // Consulta para obter todas as DANFEs
-          $sql = "SELECT * FROM danfe";
+          $sql = "SELECT * FROM danfe WHERE id_turma= $id_turma";
           $resultado = $conexao->query($sql);
 
           if ($resultado->num_rows > 0) {
-            // Itera sobre os resultados e exibe cada DANFE
             while ($row = $resultado->fetch_assoc()) {
               echo '<div class="linhaMinhaDanfe">';
               echo '<input type="text" value="' . $row['id'] . '" readonly>';
