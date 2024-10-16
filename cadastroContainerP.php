@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 			$hostname = "127.0.0.1";
 			$user = "root";
 			$password = "";
@@ -10,7 +12,7 @@
 				echo "Failed to connect to MySQL: " . $conexao -> connect_error;
 				exit();
 			} else {
-				// Evita caracteres epsciais (SQL Inject)
+				$id_turma = $_SESSION['id_turma'];
 				$placa = $conexao -> real_escape_string($_POST['placa_caminhao']);
 				$nome = $conexao -> real_escape_string($_POST['nome_motorista']);
 				$container = $conexao -> real_escape_string($_POST['container']);
@@ -24,9 +26,9 @@
 				$n_onu = $conexao -> real_escape_string($_POST['n_onu']);
 
 				$sql = "INSERT INTO `container`
-                            (`placa_caminhao`, `nome_motorista`, `container`,`navio`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`,`data`) 
+                            (`placa_caminhao`, `nome_motorista`, `container`,`navio`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`,`data`,`id_turma`) 
                         VALUES 
-				             ('".$placa."','".$nome."','".$container."', '".$navio."','".$cliente."','".$tipo."','".$lacre."','".$lacre_sif."','".$temperatura."','".$IMO."','".$n_onu."','".date("Y-m-d")."');";
+				             ('".$placa."','".$nome."','".$container."', '".$navio."','".$cliente."','".$tipo."','".$lacre."','".$lacre_sif."','".$temperatura."','".$IMO."','".$n_onu."','".date("Y-m-d")."','".$id_turma."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 				

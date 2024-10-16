@@ -1,4 +1,5 @@
 <?php
+session_start();
 			$hostname = "127.0.0.1";
 			$user = "root";
 			$password = "";
@@ -10,8 +11,8 @@
 				echo "Failed to connect to MySQL: " . $conexao -> connect_error;
 				exit();
 			} else {
-				// Evita caracteres epsciais (SQL Inject)
-				$pedido = $conexao -> real_escape_string($_POST['pedido']);
+				$id_turma = $_SESSION['id_turma'];
+ 				$pedido = $conexao -> real_escape_string($_POST['pedido']);
 
 				$produto = $conexao -> real_escape_string($_POST['produto']);
 				$unidades = $conexao -> real_escape_string($_POST['unidades']);
@@ -52,23 +53,23 @@
                 $cnpj = $conexao -> real_escape_string($_POST['cnpj']);
 				$totalcompra = $conexao -> real_escape_string($_POST['totalcompra']);
                 
-                $sql = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`) 
-                VALUES ('".$pedido."', '".$produto."', '".$unidades."', '".$quantidades."', '".$valor."', '".$total."', '".$ncm."', '".$cst."', '".$cfop."' ,'".$totalcompra."', '".$cnpj."');";
+                $sql = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`, `id_turma`) 
+                VALUES ('".$pedido."', '".$produto."', '".$unidades."', '".$quantidades."', '".$valor."', '".$total."', '".$ncm."', '".$cst."', '".$cfop."' ,'".$totalcompra."', '".$cnpj."', '".$id_turma."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 
-				$sql2 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`) 
-                VALUES ('".$pedido."', '".$produto2."', '".$unidades2."', '".$quantidades2."', '".$valor2."', '".$total2."', '".$ncm2."', '".$cst2."', '".$cfop2."','".$totalcompra."', '".$cnpj."');";
+				$sql2 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`, `id_turma`) 
+                VALUES ('".$pedido."', '".$produto2."', '".$unidades2."', '".$quantidades2."', '".$valor2."', '".$total2."', '".$ncm2."', '".$cst2."', '".$cfop2."','".$totalcompra."', '".$cnpj."', '".$id_turma."');";
 echo $sql2;
 				$resultado = $conexao->query($sql2);
                 
-                $sql3 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`) 
-                VALUES ('".$pedido."', '".$produto3."', '".$unidades3."', '".$quantidades3."', '".$valor3."', '".$total3."', '".$ncm3."', '".$cst3."', '".$cfop3."','".$totalcompra."', '".$cnpj."');";
+                $sql3 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`, `id_turma`) 
+                VALUES ('".$pedido."', '".$produto3."', '".$unidades3."', '".$quantidades3."', '".$valor3."', '".$total3."', '".$ncm3."', '".$cst3."', '".$cfop3."','".$totalcompra."', '".$cnpj."', '".$id_turma."');";
 echo $sql3;
 				$resultado = $conexao->query($sql3);
 
-                $sql4 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`) 
-                VALUES ('".$pedido."', '".$produto4."', '".$unidades4."', '".$quantidades4."', '".$valor4."', '".$total4."', '".$ncm4."', '".$cst4."', '".$cfop4."','".$totalcompra."', '".$cnpj."');";
+                $sql4 = "INSERT INTO pedidos (`pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `totalcompra`, `cnpj`, `id_turma`) 
+                VALUES ('".$pedido."', '".$produto4."', '".$unidades4."', '".$quantidades4."', '".$valor4."', '".$total4."', '".$ncm4."', '".$cst4."', '".$cfop4."','".$totalcompra."', '".$cnpj."', '".$id_turma."');";
 echo $sql4;
 				$resultado = $conexao->query($sql4);
 			

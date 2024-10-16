@@ -9,7 +9,21 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
   header("Location: unauthorized.php");
   exit;
 }
-$sqlPedidos = "SELECT `pedido`, `totalcompra` FROM pedidos";
+if (isset($_SESSION['id_turma'])) {
+  $id_turma = $_SESSION['id_turma'];
+
+  $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $row = $resultado->fetch_assoc();
+      $nome_turma = $row['nome'];
+  } else {
+      $nome_turma = "Turma não encontrada";
+  }
+}
+
+$sqlPedidos = "SELECT `pedido`, `totalcompra` FROM pedidos WHERE `id_danfe` = '$id_turma'";
 
 $resultado = $conexao->query($sqlPedidos);
 
@@ -58,6 +72,10 @@ $resultado2 = $conexao->query($sqlClientes);
                 <h4>Cargo:</h4>
                 <p><?php echo $_SESSION['cargo'];?></p>
               </div>
+              <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
+            </div>
             </div>
           </div>
           <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>      
@@ -192,7 +210,7 @@ $resultado2 = $conexao->query($sqlClientes);
     </div>   
     <div class="conteudo"> 
         <div class="titulo-conteudo">    
-         <h1>Meus pedidos!</h1>
+         <h1>Pedidos da turma: <?php echo $nome_turma?></h1>
         </div>
     </div>
     <div class="quadro-pedidos">
@@ -208,11 +226,13 @@ $resultado2 = $conexao->query($sqlClientes);
         </thead>
         <tbody>
             <?php
-            // Consulta SQL para agrupar os pedidos e exibir apenas um por número de pedido
+            $id_turma = $_SESSION['id_turma'];
+            
             $sql = "SELECT p.id, p.pedido, MAX(dc.data) AS data_emissao, MAX(p.totalcompra) AS totalcompra
                     FROM pedidos p
                     INNER JOIN dadoscliente dc ON p.cnpj = dc.cnpj
-                    GROUP BY p.pedido";
+                    WHERE p.id_turma = '$id_turma'
+                    GROUP BY p.pedido";            
             
             $resultado = $conexao->query($sql);
 
@@ -221,15 +241,10 @@ $resultado2 = $conexao->query($sqlClientes);
                  // Formata a data no formato day/month/year
                   $dataEmissao = date("d/m/Y", strtotime($pedido['data_emissao']));
                   echo "<tr>";
-                  // Exibe a data do pedido (vinda da tabela dadoscliente)
                   echo "<td>" . $dataEmissao . "</td>";
-                  // Exibe o número do pedido
                   echo "<td>" . $pedido['pedido'] . "</td>";
-                  // Exibe o total da compra
                   echo "<td>R$ " . $pedido['totalcompra'] . "</td>";
-                  // Coloque aqui o link para visualizar detalhes do pedido específico
                   echo "<td><a href='pedido.php?pedido=" . $pedido['pedido'] . "'><button type='button' class='btn'>Abrir</button></a></td>";
-                  // Botão de exclusão
                   echo "<td><div class='botaoDeletar' onclick='confirmarExclusao(" . $pedido['pedido'] . ")'><i class='fa-solid fa-trash'></i></div></td>";
                   echo "</tr>";
               }

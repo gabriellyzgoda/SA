@@ -9,6 +9,19 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
   header("Location: unauthorized.php");
   exit;
 }
+if (isset($_SESSION['id_turma'])) {
+  $id_turma = $_SESSION['id_turma'];
+
+  $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $row = $resultado->fetch_assoc();
+      $nome_turma = $row['nome'];
+  } else {
+      $nome_turma = "Turma não encontrada";
+  }
+}
 ?>
 
 <head>
@@ -41,19 +54,23 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 1) {
           </div>
         </a>
         <div class="dropdown-content">
-          <div class="dropdown-section">
-            <h4>Nome:</h4>
-            <p><?php echo $_SESSION['nome']; ?></p>
-          </div>
-          <div class="dropdown-section">
-            <h4>Email:</h4>
-            <p><?php echo $_SESSION['email']; ?></p>
-          </div>
-          <div class="dropdown-section">
-            <h4>Cargo:</h4>
-            <p><?php echo $_SESSION['cargo']; ?></p>
-          </div>
-        </div>
+              <div class="dropdown-section">
+                <h4>Nome:</h4>
+                <p><?php echo $_SESSION['nome'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Email:</h4>
+                <p><?php echo $_SESSION['email'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Cargo:</h4>
+                <p><?php echo $_SESSION['cargo'];?></p>
+              </div>
+              <div class="dropdown-section">
+                <h4>Turma:</h4>
+                <p><?php echo $nome_turma; ?></p>
+              </div>
+            </div>
       </div>
       <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
