@@ -16,10 +16,10 @@ if (isset($_SESSION['id_turma'])) {
   $resultado = $conexao->query($sql);
 
   if ($resultado->num_rows > 0) {
-      $row = $resultado->fetch_assoc();
-      $nome_turma = $row['nome'];
+    $row = $resultado->fetch_assoc();
+    $nome_turma = $row['nome'];
   } else {
-      $nome_turma = "Turma não encontrada";
+    $nome_turma = "Turma não encontrada";
   }
 }
 ?>
@@ -30,7 +30,7 @@ if (isset($_SESSION['id_turma'])) {
   <title>Criação de Turmas</title>
   <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
   <script src="https://kit.fontawesome.com/1317d874ee.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" type="text/css" href="estiloAlunos.css" media="screen" />
+  <link rel="stylesheet" type="text/css" href="estiloCriarTurma.css" media="screen" />
   <link rel="stylesheet" type="text/css" href="estiloHome.css" media="screen" />
   <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
   <style>
@@ -54,23 +54,23 @@ if (isset($_SESSION['id_turma'])) {
           </div>
         </a>
         <div class="dropdown-content">
-              <div class="dropdown-section">
-                <h4>Nome:</h4>
-                <p><?php echo $_SESSION['nome'];?></p>
-              </div>
-              <div class="dropdown-section">
-                <h4>Email:</h4>
-                <p><?php echo $_SESSION['email'];?></p>
-              </div>
-              <div class="dropdown-section">
-                <h4>Cargo:</h4>
-                <p><?php echo $_SESSION['cargo'];?></p>
-              </div>
-              <div class="dropdown-section">
-                <h4>Turma:</h4>
-                <p><?php echo $nome_turma; ?></p>
-              </div>
-            </div>
+          <div class="dropdown-section">
+            <h4>Nome:</h4>
+            <p><?php echo $_SESSION['nome']; ?></p>
+          </div>
+          <div class="dropdown-section">
+            <h4>Email:</h4>
+            <p><?php echo $_SESSION['email']; ?></p>
+          </div>
+          <div class="dropdown-section">
+            <h4>Cargo:</h4>
+            <p><?php echo $_SESSION['cargo']; ?></p>
+          </div>
+          <div class="dropdown-section">
+            <h4>Turma:</h4>
+            <p><?php echo $nome_turma; ?></p>
+          </div>
+        </div>
       </div>
       <a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i></a>
     </div>
@@ -150,20 +150,20 @@ if (isset($_SESSION['id_turma'])) {
       </li>
 
       <li>
-      <div class="iocn-link">
+        <div class="iocn-link">
 
-        <a href="#">
-          <i class="fa-solid fa-users"></i>
-          <span class="link_name">Alunos</span>
-        </a>
+          <a href="#">
+            <i class="fa-solid fa-users"></i>
+            <span class="link_name">Alunos</span>
+          </a>
 
-        <i class='bx bxs-chevron-down arrow'></i>
+          <i class='bx bxs-chevron-down arrow'></i>
 
         </div>
 
         <ul class="sub-menu">
-          <li><a  href="alunos.php">Alunos</a></li>
-          <li><a  href="criarTurma.php">Turmas</a></li>
+          <li><a href="alunos.php">Alunos</a></li>
+          <li><a href="criarTurma.php">Turmas</a></li>
         </ul>
 
       </li>
@@ -197,70 +197,78 @@ if (isset($_SESSION['id_turma'])) {
         </a>
 
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="relatorios.php">Relatório</a></li>
+          <li><a class="link_name" href="relatoriosP.php">Relatório</a></li>
         </ul>
       </li>
     </ul>
   </div>
-  <center>
+
   <div class="conteudo">
     <div class="titulo-conteudo">
-      <h1>Crie Turmas</h1>
+      <h1>Criação de Turmas</h1>
     </div>
-    <form class="form" method="post" action="cadastroTurmas.php" name="cadastroTurmas">
-    <?php if (isset($_SESSION['erro'])): ?>
-      <p class="error"><?php echo $_SESSION['erro']; unset($_SESSION['erro']); ?></p>
-    <?php endif; ?>
-    <input type="hidden" name="nome" value="<?php echo $row['nome'] ?>">
-      <label>Digite o nome da turma que você quer criar:</label>
-      <input type="text" id="nome" name="nome" required>
-      <div class="bloco2">
-          <p id="nomeErro" class="error" style="display: none;">O nome da turma já está sendo usado.</p>
-      </div>
-      <div class="quadroBotao">
-        <input class="" type="submit" value="Criar"/>
-      </div>
-    </form>
+    <div class="linhaCriarTurma">
+      <div class="quadroCriarTurma">
+        <div class="criarTurma">
+          <form class="form" method="post" action="cadastroTurmas.php" name="cadastroTurmas">
+            <?php if (isset($_SESSION['erro'])): ?>
+              <p class="error"><?php echo $_SESSION['erro'];
+                                unset($_SESSION['erro']); ?></p>
+            <?php endif; ?>
+            <input type="hidden" name="nome" value="<?php echo $row['nome'] ?>">
+            <label>Digite o nome da turma:</label>
+            <input type="text" id="nome" name="nome" required>
+            <div class="bloco2">
+              <p id="nomeErro" class="error" style="display: none;">O nome da turma já está sendo usado.</p>
+            </div>
+            <div class="botaoCriar">
+              <input class="" type="submit" value="Criar" />
+            </div>
+          </form>
+        </div>
 
-    <div class="turmas">
-      <h2>Lista de Turmas</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nome da Turma</th>
-            <th>Professor da Turma</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-            $sql = "SELECT turma.id, turma.nome, cadastro.nome AS nome_professor 
+        <div class="turmas">
+          <h2>Lista de Turmas</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Nome da Turma</th>
+                <th>Professor da Turma</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+              $sql = "SELECT turma.id, turma.nome, cadastro.nome AS nome_professor 
             FROM turma 
             JOIN cadastro ON turma.id_professor = cadastro.id";
-            $resultado = $conexao->query($sql);
-          if ($resultado->num_rows > 0) {
-              while ($turma = $resultado->fetch_assoc()) {
+              $resultado = $conexao->query($sql);
+              if ($resultado->num_rows > 0) {
+                while ($turma = $resultado->fetch_assoc()) {
                   echo "<tr>
-                          <td>{$turma['nome']}</td>
-                          <td>{$turma['nome_professor']}</td>
+                          <td ><p>{$turma['nome']}</p></td>
+                          <td><p>{$turma['nome_professor']}</p></td>
                         ";
               ?>
-              <td>
-                <div class='botaoDeletar' onclick='confirmarExclusao(<?php echo $turma["id"]; ?>)'>
-              <i class='fa-solid fa-trash'></i>
-                </div></td>
-            <?php
-            }
-            } else {
-              echo "<tr><td colspan='3'>Nenhuma turma cadastrada.</td></tr>";
-          }
-          $conexao->close();
-          ?>
-        </tbody>
-      </table>
+                  <td>
+                    <div class='botaoDeletar' onclick='confirmarExclusao(<?php echo $turma["id"]; ?>)'>
+                      <i class='fa-solid fa-trash'></i>
+                    </div>
+                  </td>
+              <?php
+                }
+              } else {
+                echo "<tr><td colspan='3'>Nenhuma turma cadastrada.</td></tr>";
+              }
+              $conexao->close();
+              ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
-  </center>
+
   <?php
   include_once('footer.php');
   ?>
@@ -270,24 +278,24 @@ if (isset($_SESSION['id_turma'])) {
       var erroMsg = document.getElementById('nomeErro');
 
       if (nome.trim() === '') {
-          erroMsg.style.display = 'none';
-          return;
+        erroMsg.style.display = 'none';
+        return;
       }
 
       var xhr = new XMLHttpRequest();
       xhr.open('GET', 'verificarTurma.php?nome=' + encodeURIComponent(nome), true);
       xhr.onload = function() {
-          if (xhr.status === 200) {
-              var response = JSON.parse(xhr.responseText);
-              if (response.exists) {
-                  erroMsg.style.display = 'block'; // Exibe a mensagem de erro
-              } else {
-                  erroMsg.style.display = 'none'; // Esconde a mensagem de erro
-              }
+        if (xhr.status === 200) {
+          var response = JSON.parse(xhr.responseText);
+          if (response.exists) {
+            erroMsg.style.display = 'block'; // Exibe a mensagem de erro
+          } else {
+            erroMsg.style.display = 'none'; // Esconde a mensagem de erro
           }
+        }
       };
       xhr.send();
-  });
+    });
 
     function confirmarExclusao(id) {
       if (confirm("Tem certeza que deseja excluir esta turma?")) {
