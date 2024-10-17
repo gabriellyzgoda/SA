@@ -45,7 +45,7 @@ body, html{
     justify-content: flex-end;
     align-items: center;
     margin-top: 30px;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 
 .container-cadastre-se button {
@@ -112,6 +112,8 @@ body, html{
     color: #fff;
     font-family: "League Spartan", sans-serif;
     margin-left: 25px;
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .login h2 {
@@ -132,7 +134,7 @@ body, html{
 }
 
 .form select {
-    width: 62%;
+    width: 63% !important;
     padding: 13px;
     border: 2px solid #fff;
     background-color: #e9f0fe;
@@ -206,5 +208,5 @@ body, html{
     width: 100%;
     display: flex;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 40px;
 }

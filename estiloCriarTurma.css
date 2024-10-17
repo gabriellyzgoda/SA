@@ -1,0 +1,107 @@
+.linhaCriarTurma {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadroCriarTurma {
+    background-color: #c1e1fc;
+    border: 20px solid #dbedfe;
+    border-radius: 30px;
+    height: auto;
+    width: auto;
+    padding: 30px 40px;
+}
+
+.criarTurma form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.criarTurma label {
+    margin-right: 25px;
+    font-size: 24px;
+    font-family: "League Spartan", sans-serif;
+    color: #2a60a9;
+    font-weight: 600;
+}
+
+.criarTurma input {
+    width: 200px;
+    font-family: "League Spartan", sans-serif;
+    font-size: 16px;
+    padding: 5px 10px;
+    border: none;
+}
+
+.criarTurma .botaoCriar input {
+    border: none;
+    width: auto;
+    padding:  6px 18px;
+    background-color: #77c5ff;
+    color: #fff;
+    border-radius: 30px;
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 35px;
+}
+
+.criarTurma .botaoCriar input:hover {
+    background-color: #718fc3;
+    transition: all 0.3s ease;
+}
+
+.turmas h2 {
+    text-align: center;
+    font-family: "League Spartan", sans-serif;
+    font-size: 25px;
+    color: #2a60a9;
+    font-weight: 700;
+}
+
+.turmas table {
+    background-color: #daecfd;
+    width: 100%;
+    border-spacing: 0px;
+}
+
+.turmas table th {
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #4e80c0;
+    padding: 10px 0px; 
+}
+
+.turmas table td {
+    border-right: 4px solid #77c5ff;
+
+
+}
+
+.turmas table td:nth-child(1) {
+    border-left: 4px solid #77c5ff;
+}
+
+.turmas table td p {
+    text-align: center;
+    width: 100px;
+    background-color: #fff;
+}
+
+.turmas table td:nth-child(1) {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    width: auto;
+}
+
+
+
+
+
