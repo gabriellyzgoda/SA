@@ -16,12 +16,18 @@ if ($conexao->connect_errno) {
     $senha = $conexao->real_escape_string($_POST['senha']);
     $id_turma = $conexao->real_escape_string($_POST['id_turma']); 
 
-    $sql = "SELECT `id`, `email`, `professor`, `nome`, `cargo`, `id_turma` FROM `cadastro`
-            WHERE `email` = '$email' AND `senha` = '$senha'";
+    $sql = "SELECT c.`id`, c.`email`, c.`professor`, c.`nome`, c.`cargo`, t.`id` AS turma_id
+    FROM `cadastro` c
+    LEFT JOIN `turma` t ON t.`id_professor` = c.`id`
+    WHERE c.`email` = '$email' AND c.`senha` = '$senha'";
 
     $resultado = $conexao->query($sql);
 
-    if ($resultado->num_rows != 0) {
+    if ($resultado->num_rows == 0) {
+        $conexao->close();
+        header('Location: login.php?erro=1', true, 301);
+        exit();
+    }
         $row = $resultado->fetch_array();
         $_SESSION['id'] = $row[0];
         $_SESSION['email'] = $row[1];
@@ -35,18 +41,35 @@ if ($conexao->connect_errno) {
                 header('Location: login.php?erro=3', true, 301);
                 exit();
             } else {
+                // Verificação da turma para o professor
+                $sql_turma = "SELECT `id` FROM `turma` WHERE `id` = '$id_turma' AND `id_professor` = '{$row[0]}'";
+                $resultado_turma = $conexao->query($sql_turma);
+                
+                if ($resultado_turma->num_rows == 0) { 
+                    header('Location: login.php?erro=4', true, 301);
+                    exit();
+                }
+                
                 $_SESSION['id_turma'] = $id_turma; 
                 header('Location: homeP.php', true, 301);
                 exit();
             }
+        } 
+        // Verificação para o aluno
+        elseif ($row[2] == "0") {
+            if (empty($id_turma)) {
+                header('Location: login.php?erro=3', true, 301);
+                exit();
+            } else {
+                
+                $_SESSION['id_turma'] = $id_turma; 
+                header('Location: home.php', true, 301);
+                exit();
+            }
         } else {
-            header('Location: login.php?erro=2', true, 301);
+            $conexao->close();
+            header('Location: login.php?erro=1', true, 301);
             exit();
         }
-    } else {
-        $conexao->close();
-        header('Location: login.php?erro=1', true, 301);
-        exit();
     }
-}
-?>
+    ?>

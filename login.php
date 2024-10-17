@@ -80,6 +80,8 @@
                                             echo "Você não tem permissão para acessar";
                                         } elseif ($_GET['erro'] == 3) {
                                             echo "Por favor selecione sua turma";
+                                        } elseif ($_GET['erro'] == 4) {
+                                            echo "Selecione uma turma que seja sua";
                                         } else {
                                             echo "Erro desconhecido";
                                         }
