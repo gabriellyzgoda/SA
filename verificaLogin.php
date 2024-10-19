@@ -60,13 +60,21 @@ if ($conexao->connect_errno) {
             if (empty($id_turma)) {
                 header('Location: login.php?erro=3', true, 301);
                 exit();
-            } else {
-                
-                $_SESSION['id_turma'] = $id_turma; 
+            } 
+            $sql = "SELECT id_turma FROM cadastro WHERE id = 'id' AND professor = 0";
+            $resultado = $conexao->query($sql);
+            
+            if ($resultado->num_rows == 0) {
+                    // Se as turmas não batem, retorna ao login com erro=4
+                    header('Location: login.php?erro=4', true, 301);
+                    exit();
+                }
+            
+                // Se as turmas forem iguais, redireciona para home.php
+                $_SESSION['id_turma'] = $id_turma;
                 header('Location: home.php', true, 301);
                 exit();
-            }
-        } else {
+            }  else {
             $conexao->close();
             header('Location: login.php?erro=1', true, 301);
             exit();
