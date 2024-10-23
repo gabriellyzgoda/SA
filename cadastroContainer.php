@@ -88,6 +88,7 @@ if ($conexao->connect_errno) {
 	$sql = "UPDATE `container` SET `desgastado` = '$desgastado', `avaria_esquerda`= '$avaria_esq', `avaria_direita` = '$avaria_dir', `avaria_teto` ='$avaria_teto', `avaria_frente` = '$avaria_fre', `sem_lacre` = '$sem_lacre', `adesivo_avaria` = '$avaria_fre', `execesso_altura` = '$execesso_alt', `execesso_direita` = '$execesso_dir', `execesso_esquerda` = '$execesso_esq', `execesso_frontal` = '$execesso_fro', `painel_avaria` = '$painel_ava', `sem_caboenergia` = '$sem_cabo', `sem_lona` = '$sem_lona'
 				WHERE id = '$id';";
 	echo $sql;
+	
 	$resultado = $conexao->query($sql);
 
 	$conexao->close();
