@@ -41,7 +41,6 @@ if ($conexao->connect_errno) {
                 header('Location: login.php?erro=3', true, 301);
                 exit();
             } else {
-                // Verificação da turma para o professor
                 $sql_turma = "SELECT `id` FROM `turma` WHERE `id` = '$id_turma' AND `id_professor` = '{$row[0]}'";
                 $resultado_turma = $conexao->query($sql_turma);
                 
@@ -55,26 +54,25 @@ if ($conexao->connect_errno) {
                 exit();
             }
         } 
-        // Verificação para o aluno
         elseif ($row[2] == "0") {
             if (empty($id_turma)) {
                 header('Location: login.php?erro=3', true, 301);
                 exit();
-            } 
-            $sql = "SELECT id_turma FROM cadastro WHERE id = 'id' AND professor = 0";
-            $resultado = $conexao->query($sql);
-            
-            if ($resultado->num_rows == 0) {
-                    // Se as turmas não batem, retorna ao login com erro=4
+            } else {
+                // Verifique se o aluno pertence à turma através do campo 'professor'
+                 $sql = "SELECT id FROM cadastro WHERE id = '{$row[0]}' AND id_turma = '$id_turma';";
+                $resultado = $conexao->query($sql);
+                
+                // Verifique se a consulta retornou resultados
+                if ($resultado->num_rows == 0) {
                     header('Location: login.php?erro=4', true, 301);
                     exit();
-                }
-            
-                // Se as turmas forem iguais, redireciona para home.php
-                $_SESSION['id_turma'] = $id_turma;
-                header('Location: home.php', true, 301);
+                } else {
+                $_SESSION['id_turma'] == $id_turma;
+                header ('Location: home.php', true, 301);
                 exit();
-            }  else {
+            } }
+        } else {
             $conexao->close();
             header('Location: login.php?erro=1', true, 301);
             exit();
