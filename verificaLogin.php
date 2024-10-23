@@ -67,11 +67,11 @@ if ($conexao->connect_errno) {
                 if ($resultado->num_rows == 0) {
                     header('Location: login.php?erro=4', true, 301);
                     exit();
-                } else {
-                $_SESSION['id_turma'] == $id_turma;
+                } 
+                $_SESSION['id_turma'] = $id_turma;
                 header ('Location: home.php', true, 301);
                 exit();
-            } }
+             }
         } else {
             $conexao->close();
             header('Location: login.php?erro=1', true, 301);
