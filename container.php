@@ -4,10 +4,25 @@
 session_start();
 include_once('config.php');
 
-// Verifica se o usuário está logado
 if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
   header("Location: unauthorized.php");
   exit;
+}
+
+if (isset($_SESSION['id_turma'])) {
+  $id_turma = $_SESSION['id_turma']; 
+
+  $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
+  $resultado = $conexao->query($sql);
+
+  if ($resultado->num_rows > 0) {
+      $row = $resultado->fetch_assoc();
+      $nome_turma = $row['nome'];
+  } else {
+      $nome_turma = "Turma não encontrada";
+  }
+} else {
+  $nome_turma = "Nenhuma turma selecionada"; 
 }
 ?>
 <head>
@@ -247,7 +262,8 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
             if (isset($_GET['data'])) {
               $data = $conexao->real_escape_string($_GET['data']);
 
-              $sql = "SELECT DISTINCT placa_caminhao FROM container WHERE data = '$data'";
+              $sql = "SELECT DISTINCT placa_caminhao FROM container 
+                      WHERE data = '$data' AND id_turma = '$id_turma'";
               $resultado = $conexao->query($sql);
 
               $placas = [];

@@ -10,7 +10,7 @@ if (!isset($_SESSION['email']) || $_SESSION['professor'] != 0) {
 }
 
 if (isset($_SESSION['id_turma'])) {
-  $id_turma = $_SESSION['id_turma']; // Corrigido para atribuição
+  $id_turma = $_SESSION['id_turma']; 
 
   $sql = "SELECT nome FROM turma WHERE id = '$id_turma'";
   $resultado = $conexao->query($sql);
@@ -22,7 +22,7 @@ if (isset($_SESSION['id_turma'])) {
       $nome_turma = "Turma não encontrada";
   }
 } else {
-  $nome_turma = "Nenhuma turma selecionada"; // Para o caso de id_turma não estar definido
+  $nome_turma = "Nenhuma turma selecionada"; 
 }
 ?>
 <head>
