@@ -237,32 +237,36 @@ if (isset($_SESSION['id_turma'])) {
                 <th></th>
               </tr>
             </thead>
+
             <tbody>
-              <?php
-              $sql = "SELECT turma.id, turma.nome, cadastro.nome AS nome_professor 
+              <div class="bodyTabela">
+                <?php
+                $sql = "SELECT turma.id, turma.nome, cadastro.nome AS nome_professor 
             FROM turma 
             JOIN cadastro ON turma.id_professor = cadastro.id";
-              $resultado = $conexao->query($sql);
-              if ($resultado->num_rows > 0) {
-                while ($turma = $resultado->fetch_assoc()) {
-                  echo "<tr>
-                          <td ><p>{$turma['nome']}</p></td>
-                          <td><p>{$turma['nome_professor']}</p></td>
+                $resultado = $conexao->query($sql);
+                if ($resultado->num_rows > 0) {
+                  while ($turma = $resultado->fetch_assoc()) {
+                    echo "<tr>
+                          <td><div><p>{$turma['nome']}</p></div></td>
+                          <td><div><p>{$turma['nome_professor']}</p></div></td>
                         ";
-              ?>
-                  <td>
-                    <div class='botaoDeletar' onclick='confirmarExclusao(<?php echo $turma["id"]; ?>)'>
-                      <i class='fa-solid fa-trash'></i>
-                    </div>
-                  </td>
-              <?php
+                ?>
+                    <td>
+                      <div class='botaoDeletar' onclick='confirmarExclusao(<?php echo $turma["id"]; ?>)'>
+                        <i class='fa-solid fa-trash'></i>
+                      </div>
+                    </td>
+                <?php
+                  }
+                } else {
+                  echo "<tr><td colspan='3'>Nenhuma turma cadastrada.</td></tr>";
                 }
-              } else {
-                echo "<tr><td colspan='3'>Nenhuma turma cadastrada.</td></tr>";
-              }
-              $conexao->close();
-              ?>
+                $conexao->close();
+                ?>
+              </div>
             </tbody>
+
           </table>
         </div>
       </div>

@@ -80,26 +80,53 @@
 
 .turmas table td {
     border-right: 4px solid #77c5ff;
-
-
 }
+
+.turmas table tbody tr div{
+    width: -webkit-fill-available;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0px;
+ }
+
+
+ .turmas table tbody .bodyTabela {
+    display: block;
+    overflow-y: scroll;
+    height: 300px;
+ }
 
 .turmas table td:nth-child(1) {
     border-left: 4px solid #77c5ff;
+    width: 240px;
+}
+
+.turmas table td:nth-child(2) {
+    width: 300px;
+}
+
+.turmas table td:nth-child(3) {
+    width: 60px;
 }
 
 .turmas table td p {
     text-align: center;
-    width: 100px;
+    width: 150px;
     background-color: #fff;
+    padding: 4px 5px;
+    font-family: "League Spartan", sans-serif;
+    font-size: 18px;
 }
 
-.turmas table td:nth-child(1) {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    width: auto;
+.turmas table td:nth-child(2) p {
+    width: 200px;
 }
+
+.turmas table tr:last-child {
+    padding-bottom: 20px;
+}
+
+
 
 
 
