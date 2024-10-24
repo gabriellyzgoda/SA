@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Set-2024 às 17:38
+-- Tempo de geração: 24-Out-2024 às 12:53
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -90,7 +90,27 @@ INSERT INTO `cadastro` (`id`, `nome`, `email`, `senha`, `professor`, `cargo`, `i
 (82, 'aluno17', 'aluno17@senai', '4889', 0, 'Aluno', 6),
 (83, 'aluno18', 'aluno18@senai', '6834', 0, 'Aluno', 6),
 (84, 'aluno19', 'aluno19@senai', '3328', 0, 'Aluno', 6),
-(85, 'aluno20', 'aluno20@senai', '1909', 0, 'Aluno', 6);
+(85, 'aluno20', 'aluno20@senai', '1909', 0, 'Aluno', 6),
+(86, 'aluno1', 'aluno1@senai', '4726', 0, 'Aluno', 7),
+(87, 'aluno2', 'aluno2@senai', '1851', 0, 'Aluno', 7),
+(88, 'aluno3', 'aluno3@senai', '6495', 0, 'Aluno', 7),
+(89, 'aluno4', 'aluno4@senai', '3842', 0, 'Aluno', 7),
+(90, 'aluno5', 'aluno5@senai', '9170', 0, 'Aluno', 7),
+(91, 'aluno6', 'aluno6@senai', '7750', 0, 'Aluno', 7),
+(92, 'aluno7', 'aluno7@senai', '4454', 0, 'Aluno', 7),
+(93, 'aluno8', 'aluno8@senai', '5489', 0, 'Aluno', 7),
+(94, 'aluno9', 'aluno9@senai', '7441', 0, 'Aluno', 7),
+(95, 'aluno10', 'aluno10@senai', '3624', 0, 'Aluno', 7),
+(96, 'aluno11', 'aluno11@senai', '6757', 0, 'Aluno', 7),
+(97, 'aluno12', 'aluno12@senai', '7943', 0, 'Aluno', 7),
+(98, 'aluno13', 'aluno13@senai', '8030', 0, 'Aluno', 7),
+(99, 'aluno14', 'aluno14@senai', '5003', 0, 'Aluno', 7),
+(100, 'aluno15', 'aluno15@senai', '2373', 0, 'Aluno', 7),
+(101, 'aluno16', 'aluno16@senai', '4342', 0, 'Aluno', 7),
+(102, 'aluno17', 'aluno17@senai', '8598', 0, 'Aluno', 7),
+(103, 'aluno18', 'aluno18@senai', '6240', 0, 'Aluno', 7),
+(104, 'aluno19', 'aluno19@senai', '8741', 0, 'Aluno', 7),
+(105, 'aluno20', 'aluno20@senai', '8548', 0, 'Aluno', 7);
 
 -- --------------------------------------------------------
 
@@ -125,22 +145,24 @@ CREATE TABLE `container` (
   `painel_avaria` tinyint(1) NOT NULL,
   `sem_caboenergia` tinyint(1) NOT NULL,
   `sem_lona` tinyint(1) NOT NULL,
-  `data` date DEFAULT NULL
+  `data` date DEFAULT NULL,
+  `id_turma` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `container`
 --
 
-INSERT INTO `container` (`id`, `placa_caminhao`, `nome_motorista`, `container`, `navio`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`, `desgastado`, `avaria_esquerda`, `avaria_direita`, `avaria_teto`, `avaria_frente`, `sem_lacre`, `adesivo_avaria`, `execesso_altura`, `execesso_direita`, `execesso_esquerda`, `execesso_frontal`, `painel_avaria`, `sem_caboenergia`, `sem_lona`, `data`) VALUES
-(4, '6D', 'gael', 'g', '', 'g', 'g', 'g', 6, 7, 0, 'g', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
-(5, '56HD', 'HD', 'HVH', '', 'V', 'JHGH', 'V', 6, 0, 67, 'UG6', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-01'),
-(6, '5AS7CGA', '76s7g6', '6DT76A', '', 'G76R', '76R7', 'F7F', 76, 0, 0, 'F7FF', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-09'),
-(8, '76SDG', 'Gabriel', 'Senai', 'Senai', 'Senai', 'Senai', 'Senai', 63367, 30, 0, 'Senai', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL),
-(9, '76DG', 'Gabriel', 'Senai', 'Senai', 'Senai', 'Senai', 'Senai', 43674367, 30, 0, 'Senai', 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, NULL),
-(10, '5DG', 'HGH', 'GHGH', 'GHGH', 'GHGH', 'HGGH', 'GHHG', 676767, 0, 0, 'GUGU', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-10'),
-(11, '5DSG', '666GG', 'GGG', 'GGG', 'G', 'GG', 'G', 66, 0, 0, 'G', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-10'),
-(12, '567SD', 'G', 'G', 'G', 'G', 'G', 'G', 7, 0, 0, 'G', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-12');
+INSERT INTO `container` (`id`, `placa_caminhao`, `nome_motorista`, `container`, `navio`, `cliente`, `tipo`, `lacre`, `lacre_sif`, `temperatura`, `IMO`, `n_onu`, `desgastado`, `avaria_esquerda`, `avaria_direita`, `avaria_teto`, `avaria_frente`, `sem_lacre`, `adesivo_avaria`, `execesso_altura`, `execesso_direita`, `execesso_esquerda`, `execesso_frontal`, `painel_avaria`, `sem_caboenergia`, `sem_lona`, `data`, `id_turma`) VALUES
+(4, '6D', 'gael', 'g', '', 'g', 'g', 'g', 6, 7, 0, 'g', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0),
+(5, '56HD', 'HD', 'HVH', '', 'V', 'JHGH', 'V', 6, 0, 67, 'UG6', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-01', 0),
+(6, '5AS7CGA', '76s7g6', '6DT76A', '', 'G76R', '76R7', 'F7F', 76, 0, 0, 'F7FF', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-09', 0),
+(8, '76SDG', 'Gabriel', 'Senai', 'Senai', 'Senai', 'Senai', 'Senai', 63367, 30, 0, 'Senai', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NULL, 0),
+(9, '76DG', 'Gabriel', 'Senai', 'Senai', 'Senai', 'Senai', 'Senai', 43674367, 30, 0, 'Senai', 1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, NULL, 0),
+(10, '5DG', 'HGH', 'GHGH', 'GHGH', 'GHGH', 'HGGH', 'GHHG', 676767, 0, 0, 'GUGU', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-10', 0),
+(11, '5DSG', '666GG', 'GGG', 'GGG', 'G', 'GG', 'G', 66, 0, 0, 'G', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-10', 0),
+(12, '567SD', 'G', 'G', 'G', 'G', 'G', 'G', 7, 0, 0, 'G', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-09-12', 0),
+(13, '7DH', 'G', 'G', 'G', 'G', 'G', 'G', 6, 6, 6, '6', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, '2024-10-16', 5);
 
 -- --------------------------------------------------------
 
@@ -154,16 +176,20 @@ CREATE TABLE `dadoscliente` (
   `endereco` varchar(200) NOT NULL,
   `telefone` varchar(10) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  `id_turma` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `dadoscliente`
 --
 
-INSERT INTO `dadoscliente` (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`) VALUES
-('5', 'G', 'G', '5', '5', '2024-09-12'),
-('9', '9', '9', '9', '9', '2024-09-12');
+INSERT INTO `dadoscliente` (`cnpj`, `nome`, `endereco`, `telefone`, `email`, `data`, `id_turma`) VALUES
+('56', '56567', '567', '56755756', '5656', '2024-10-16', 0),
+('64', '5', '5', '4646464546', '54665566', '2024-10-16', 0),
+('674336743', 'nome', 'rua', '4798851512', 'email@email', '2024-10-09', 0),
+('676767', '9', '9', '67676767', '67676767', '2024-10-16', 0),
+('7843784343', 'gguggu', 'guuug', '572372367', '823678232378', '2024-10-16', 0);
 
 -- --------------------------------------------------------
 
@@ -178,25 +204,18 @@ CREATE TABLE `danfe` (
   `serie` varchar(255) NOT NULL,
   `operacao` tinyint(1) NOT NULL,
   `data_emissao` date NOT NULL,
-  `hora_emissao` time NOT NULL
+  `hora_emissao` time NOT NULL,
+  `id_turma` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `danfe`
 --
 
-INSERT INTO `danfe` (`id`, `codbarra`, `n`, `serie`, `operacao`, `data_emissao`, `hora_emissao`) VALUES
-(5, 63464356, '6565', '5656', 0, '2024-08-08', '08:08:00'),
-(354, 2147483647, '55656', '5656', 1, '2024-08-08', '08:08:00'),
-(1234, 2147483647, '567890', '5678', 1, '2024-08-21', '03:59:00'),
-(4554, 0, '', '', 1, '0000-00-00', '00:00:00'),
-(7823, 2147483647, '3232', '65656', 1, '0008-08-08', '08:08:00'),
-(56756, 2147483647, '5656', '5656', 1, '2024-08-29', '07:07:00'),
-(123467, 0, '', '', 1, '0000-00-00', '00:00:00'),
-(363673, 6, '6', '6', 1, '0006-06-06', '06:06:00'),
-(6345454, 6, '6', '6', 0, '0006-06-06', '06:06:00'),
-(24523253, 56, '56', '56', 0, '0005-05-05', '05:05:00'),
-(32655623, 2356232, '6356723', '562356723', 1, '0003-03-03', '03:03:00');
+INSERT INTO `danfe` (`id`, `codbarra`, `n`, `serie`, `operacao`, `data_emissao`, `hora_emissao`, `id_turma`) VALUES
+(565656, 565656, '565656', '565656', 1, '2024-10-09', '07:58:00', 0),
+(6367843, 678437843, '67844673', '6746743', 1, '2024-10-16', '11:49:00', 5),
+(7843783, 2147483647, '567567567', '566567', 0, '2024-10-16', '10:28:00', 0);
 
 -- --------------------------------------------------------
 
@@ -221,22 +240,35 @@ CREATE TABLE `pedidos` (
   `totalcompra` float NOT NULL,
   `posicao` varchar(2) NOT NULL,
   `cnpj` varchar(15) NOT NULL,
-  `id_danfe` varchar(11) NOT NULL
+  `id_danfe` varchar(11) NOT NULL,
+  `id_turma` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Extraindo dados da tabela `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `doca`, `faltando`, `avaria`, `totalcompra`, `posicao`, `cnpj`, `id_danfe`) VALUES
-(89, 5656, 'G', '5', 5, 5, 25, 5, 55, 5, '', 0, 0, 100, '', '5', ''),
-(90, 5656, 'G', '5', 5, 5, 25, 5, 5, 5, '', 0, 0, 100, '', '5', ''),
-(91, 5656, 'G', '5', 5, 5, 25, 5, 5, 5, '', 0, 0, 100, '', '5', ''),
-(92, 5656, 'G', '5', 5, 5, 25, 5, 5, 5, '', 0, 0, 100, '', '5', ''),
-(93, 6767, '6', '6', 6, 6, 36, 6, 6, 6, '', 0, 0, 230, '', '9', ''),
-(94, 6767, '7', '7', 7, 7, 49, 77, 7, 7, '', 0, 0, 230, '', '9', ''),
-(95, 6767, '8', '8', 8, 8, 64, 88, 8, 8, '', 0, 0, 230, '', '9', ''),
-(96, 6767, '9', '9', 9, 9, 81, 9, 9, 9, '', 0, 0, 230, '', '9', '');
+INSERT INTO `pedidos` (`id`, `pedido`, `produto`, `unidades`, `quantidades`, `valor`, `total`, `ncm`, `cst`, `cfop`, `doca`, `faltando`, `avaria`, `totalcompra`, `posicao`, `cnpj`, `id_danfe`, `id_turma`) VALUES
+(97, 5, 'garraf', '5', 5, 5, 25, 55, 5, 5, '', 0, 0, 644, '', '674336743', '565656', 0),
+(98, 5, 'notebook', '7', 7, 77, 539, 7, 7, 7, '', 0, 0, 644, '', '674336743', '565656', 0),
+(99, 5, 'anel', '8', 8, 8, 64, 8, 88, 8, '', 0, 0, 644, '', '674336743', '565656', 0),
+(100, 5, 'mouse', '4', 4, 4, 16, 4, 4, 4, '', 0, 0, 644, '', '674336743', '565656', 0),
+(101, 56356, 'g', '5', 5, 5, 25, 5, 5, 5, '', 0, 0, 191, '', '7843784343', '', 0),
+(102, 56356, 'f', '6', 6, 6, 36, 6, 6, 6, '', 0, 0, 191, '', '7843784343', '', 0),
+(103, 56356, 'h', '7', 7, 7, 49, 7, 7, 7, '', 0, 0, 191, '', '7843784343', '', 0),
+(104, 56356, 'l', '9', 9, 9, 81, 9, 9, 9, '', 0, 0, 191, '', '7843784343', '', 0),
+(105, 343, 'g', '6', 6, 6, 36, 6, 6, 6, '', 0, 0, 217, '', '676767', '', 0),
+(106, 343, 'h', '6', 6, 6, 36, 6, 6, 6, '', 0, 0, 217, '', '676767', '', 0),
+(107, 343, 'j', '8', 8, 8, 64, 8, 8, 8, '', 0, 0, 217, '', '676767', '', 0),
+(108, 343, 'l', '9', 9, 9, 81, 9, 9, 9, '', 0, 0, 217, '', '676767', '', 0),
+(109, 8988, '8', '8', 88, 8, 704, 8, 8, 8, '', 0, 0, 1085, '', '64', '', 0),
+(110, 8988, '99', '9', 9, 9, 81, 99, 9, 9, '', 0, 0, 1085, '', '64', '', 0),
+(111, 8988, '5', '55', 5, 5, 25, 5, 5, 55, '', 0, 0, 1085, '', '64', '', 0),
+(112, 8988, '55', '5', 55, 5, 275, 5, 5, 5, '', 0, 0, 1085, '', '64', '', 0),
+(113, 545454, '54', '54', 5, 46, 230, 54, 54, 54, '', 0, 0, 886, '', '56', '6367843', 5),
+(114, 545454, '6', '6', 6, 6, 36, 66, 6, 6, '', 0, 0, 886, '', '56', '6367843', 5),
+(115, 545454, '7', '7', 7, 77, 539, 7, 7, 7, '', 0, 0, 886, '', '56', '6367843', 5),
+(116, 545454, '99', '9', 9, 9, 81, 99, 9, 9, '', 0, 0, 886, '', '56', '6367843', 5);
 
 -- --------------------------------------------------------
 
@@ -258,38 +290,23 @@ CREATE TABLE `solicitacoes` (
   `data` date DEFAULT NULL,
   `vistoria` varchar(255) NOT NULL,
   `carregado` tinyint(4) NOT NULL,
-  `id_danfe` int(11) NOT NULL
+  `id_danfe` int(11) NOT NULL,
+  `id_turma` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Extraindo dados da tabela `solicitacoes`
 --
 
-INSERT INTO `solicitacoes` (`id`, `solicitacao`, `produto`, `unidades`, `quantidades`, `valor`, `totalcompra`, `observacoes`, `posicao`, `doca`, `data`, `vistoria`, `carregado`, `id_danfe`) VALUES
-(17, 7, 'garrafa', '6', 6, 6, 213, 'está errado', 'A4', '8', NULL, 'fdfdgrgr', 1, 4),
-(18, 7, 'pet', '7', 7, 7, 213, 'certo', 'B2', '8', NULL, 'wrgrherherherhee', 1, 4),
-(19, 7, 'travesseiro', '8', 8, 8, 213, 'furado', 'B3', '8', NULL, '', 1, 4),
-(20, 7, 'café', '8', 8, 8, 213, 'bom', 'B2', '8', NULL, '', 1, 4),
-(37, 8, 'garfo', 'UN', 8, 8, 219, 'senai senai senai\r\n', 'A3', '4', NULL, '', 0, 5),
-(38, 8, 'dinheiro', 'UN', 9, 9, 219, 'senai senai senai\r\n', 'B2', '4', NULL, '', 0, 5),
-(39, 8, 'carregador', 'UN', 7, 7, 219, 'senai senai senai\r\n', '', '', NULL, '', 0, 5),
-(40, 8, 'tecla', 'UN', 5, 5, 219, 'senai senai senai\r\n', '', '', NULL, '', 0, 5),
-(41, 5, 'garrafa', '7', 7, 7, 139, 'senai senai senai', '', '', NULL, '', 0, 0),
-(42, 5, 'garfo', '7', 7, 7, 139, 'senai senai senai', '', '', NULL, '', 0, 0),
-(43, 5, 'tecnologia', '5', 5, 5, 139, 'senai senai senai', '', '', NULL, '', 0, 0),
-(44, 5, 'mouse', '4', 4, 4, 139, 'senai senai senai', '', '', NULL, '', 0, 0),
-(45, 4, 'gar', '8', 8, 8, 186, '554', 'B3', '6', NULL, '', 1, 0),
-(46, 4, 'navio', '9', 9, 9, 186, 'oi oi oi', '', '', NULL, '', 0, 0),
-(47, 4, 'celular', '4', 4, 4, 186, '5454', 'C1', '6', NULL, '', 1, 0),
-(48, 4, 'fone', '5', 5, 5, 186, 'oi oi oi', '', '', NULL, '', 0, 0),
-(49, 3, 'não', '5', 5, 5, 126, 'aaa', 'A3', '5', NULL, '', 1, 0),
-(50, 3, 'sei', '4', 4, 4, 126, 'e ai', 'B1', '5', NULL, '', 1, 0),
-(51, 3, 'lá', '7', 7, 7, 126, 'oi oi oi ', '', '', NULL, '', 0, 0),
-(52, 3, 'onde', '6', 6, 6, 126, 'oi oi oi ', '', '', NULL, '', 0, 0),
-(53, 6, '6', '6', 6, 6, 468, '6', '', '', '2024-09-12', '', 0, 0),
-(54, 6, '6', '6', 6, 6, 468, '6', '', '', '2024-09-12', '', 0, 0),
-(55, 6, '6', '6', 6, 66, 468, '6', '', '', '2024-09-12', '', 0, 0),
-(56, 6, '6', '6', 6, 0, 468, '6', '', '', '2024-09-12', '', 0, 0);
+INSERT INTO `solicitacoes` (`id`, `solicitacao`, `produto`, `unidades`, `quantidades`, `valor`, `totalcompra`, `observacoes`, `posicao`, `doca`, `data`, `vistoria`, `carregado`, `id_danfe`, `id_turma`) VALUES
+(57, 7, 'g', '7', 7, 7, 179, 'dhdfh\r\n', '', '', '2024-10-16', '', 0, 7843783, 0),
+(58, 7, 'h', '7', 7, 7, 179, 'dhdfh\r\n', '', '', '2024-10-16', '', 0, 7843783, 0),
+(59, 7, 'k', '9', 9, 9, 179, 'dhdfh\r\n', '', '', '2024-10-16', '', 0, 7843783, 0),
+(60, 7, 'l', '0', 0, 0, 179, 'dhdfh\r\n', '', '', '2024-10-16', '', 0, 7843783, 0),
+(61, 8, '8', '8', 8, 8, 896, '8', '', '', '2024-10-16', '', 0, 0, 5),
+(62, 8, '8', '88', 8, 8, 896, '8', '', '', '2024-10-16', '', 0, 0, 5),
+(63, 8, '8', '8', 88, 8, 896, '8', '', '', '2024-10-16', '', 0, 0, 5),
+(64, 8, '8', '8', 8, 8, 896, '8', '', '', '2024-10-16', '', 0, 0, 5);
 
 -- --------------------------------------------------------
 
@@ -309,7 +326,8 @@ CREATE TABLE `turma` (
 
 INSERT INTO `turma` (`id`, `nome`, `id_professor`) VALUES
 (5, 'aaaaaaa1', 13),
-(6, 'hsdhsd5', 20);
+(6, 'hsdhsd5', 20),
+(7, 'turma 2', 13);
 
 --
 -- Índices para tabelas despejadas
@@ -365,13 +383,13 @@ ALTER TABLE `turma`
 -- AUTO_INCREMENT de tabela `cadastro`
 --
 ALTER TABLE `cadastro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=106;
 
 --
 -- AUTO_INCREMENT de tabela `container`
 --
 ALTER TABLE `container`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de tabela `danfe`
@@ -383,19 +401,19 @@ ALTER TABLE `danfe`
 -- AUTO_INCREMENT de tabela `pedidos`
 --
 ALTER TABLE `pedidos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
 
 --
 -- AUTO_INCREMENT de tabela `solicitacoes`
 --
 ALTER TABLE `solicitacoes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de tabela `turma`
 --
 ALTER TABLE `turma`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
