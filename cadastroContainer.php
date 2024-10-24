@@ -8,6 +8,7 @@ $database = "sa";
 $conexao = new mysqli($hostname, $user, $password, $database);
 
 $placa = ($_POST['placa_caminhao']);
+$id_turma = $_SESSION['id_turma'];
 
 if ($conexao->connect_errno) {
 	echo "Failed to connect to MySQL: " . $conexao->connect_error;
@@ -84,13 +85,18 @@ if ($conexao->connect_errno) {
 		$sem_lona = 0;
 	}
 	$id = $_GET['idPlaca'];
-
+	
 	$sql = "UPDATE `container` SET `desgastado` = '$desgastado', `avaria_esquerda`= '$avaria_esq', `avaria_direita` = '$avaria_dir', `avaria_teto` ='$avaria_teto', `avaria_frente` = '$avaria_fre', `sem_lacre` = '$sem_lacre', `adesivo_avaria` = '$avaria_fre', `execesso_altura` = '$execesso_alt', `execesso_direita` = '$execesso_dir', `execesso_esquerda` = '$execesso_esq', `execesso_frontal` = '$execesso_fro', `painel_avaria` = '$painel_ava', `sem_caboenergia` = '$sem_cabo', `sem_lona` = '$sem_lona'
-				WHERE id = '$id';";
+			WHERE id = '$id' AND id_turma = '$id_turma';";
 
 	echo $sql;
-	
-	$resultado = $conexao->query($sql);
 
-	//header('Location: container.php', true, 301);
+		$resultado = $conexao->query($sql);
+
+	if (!$resultado) {
+		echo "Erro: " . $conexao->error;
+	} else {
+		header("Location: container.php");
+		exit();
+	}
 }

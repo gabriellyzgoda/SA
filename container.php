@@ -403,15 +403,13 @@ if (isset($_SESSION['id_turma'])) {
                         </div>
                       </div>
                   </div>
-        </div>
-        <div class="quadroBotao">
-          <input class="" id="pegar" type="submit" value="Enviar" />
+                </div>
+             <div class="quadroBotao">
+              <input class="" id="pegar" type="submit" value="Enviar" />
+            </div>
           </form>
-        </div>
   <?php
                 } else {
-
-                  $conexao->close();
                   echo "<div class='linhaErro'><p>Nenhum registro encontrado.</p></div> ";
                 }
               }
@@ -419,7 +417,6 @@ if (isset($_SESSION['id_turma'])) {
 
       </div>
     </div>
-
     <?php
     include_once('footer.php');
     ?>
