@@ -258,39 +258,36 @@ if (isset($_SESSION['id_turma'])) {
               <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div
               </form>
-            <?php
-            if (isset($_GET['data'])) {
-              $data = $conexao->real_escape_string($_GET['data']);
+              <?php
+              if (isset($_GET['data'])) {
+                  $data = $conexao->real_escape_string($_POST['data']);
 
-              $sql = "SELECT DISTINCT placa_caminhao FROM container 
-                      WHERE data = '$data' AND id_turma = '$id_turma'";
-              $resultado = $conexao->query($sql);
+                  $sql = "SELECT DISTINCT placa_caminhao FROM container WHERE data = '$data' AND id_turma = '$id_turma'";
+                  $resultado = $conexao->query($sql);
 
-              $placas = [];
-              while ($row = $resultado->fetch_assoc()) {
-                $placas[] = $row['placa_caminhao'];
+                  $placas = [];
+                  while ($row = $resultado->fetch_assoc()) {
+                      $placas[] = $row['placa_caminhao'];
+                  }
+
+                  echo json_encode($placas);
               }
-
-              echo json_encode($placas);
-            }
-            ?>
+              ?>
             <?php
-            if (isset($_POST['placa_caminhao'])) {
-              if ($conexao->connect_errno) {
-                echo "Failed to connect to MySQL: " . $conexao->connect_error;
-                exit();
-              } else {
-                // Evita caracteres epsciais (SQL Inject)
-                $placa = $conexao->real_escape_string($_POST['placa_caminhao']);
+              if (isset($_POST['placa_caminhao'])) {
+                  if ($conexao->connect_errno) {
+                      echo "Failed to connect to MySQL: " . $conexao->connect_error;
+                      exit();
+                  } else {
+                      $placa = $conexao->real_escape_string($_POST['placa_caminhao']);
+                      $data = $conexao->real_escape_string($_POST['data']);
 
-                $sql = "SELECT *
-                        FROM `container`
-                        WHERE `placa_caminhao`='" . $placa . "';";
+                      $sql = "SELECT * FROM `container` WHERE `placa_caminhao` = '$placa' AND `data` = '$data';";
+                      $resultado = $conexao->query($sql);
 
-                $resultado = $conexao->query($sql);
+                      if ($resultado->num_rows != 0) {
+                          $row = $resultado->fetch_array();
 
-                if ($resultado->num_rows != 0) {
-                  $row = $resultado->fetch_array();
                   echo '<div class="linhasBloco01">
                             <label>Placa do caminhão:</label>
                             <input type="text" name="placa_caminhao" placeholder="" disabled value=' . $row["placa_caminhao"] . '>
