@@ -1,7 +1,6 @@
 <?php
-if(!empty($_GET['id']))
-{
-    include_once('config.php');
+include_once('config.php');
+if(!empty($_GET['id'])){
     $id = $_GET['id'];
 
     $sqlSelect = "SELECT * FROM cadastro WHERE id=$id";

@@ -1,11 +1,6 @@
 <?php
-			$hostname = "127.0.0.1";
-			$user = "root";
-			$password = "";
-			$database = "sa";
-		
-			$conexao = new mysqli($hostname,$user,$password,$database);
-
+			include_once('config.php');
+			
 			if ($conexao -> connect_errno) {
 				echo "Failed to connect to MySQL: " . $conexao -> connect_error;
 				exit();

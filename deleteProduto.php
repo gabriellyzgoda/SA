@@ -1,6 +1,7 @@
 <?php
+include_once('config.php');
 if (!empty($_GET['pedido'])) {
-    include_once('config.php');
+
     
     $pedido = mysqli_real_escape_string($conexao, $_GET['pedido']);
 

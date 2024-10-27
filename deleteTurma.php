@@ -1,6 +1,6 @@
 <?php
+include_once('config.php');
 if (!empty($_GET['id'])) {
-    include_once('config.php');
     $id = $_GET['id'];
 
     $sqlDeleteAlunos = "DELETE FROM cadastro WHERE id_turma=$id";
