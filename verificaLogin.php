@@ -32,7 +32,8 @@ if ($conexao->connect_errno) {
 
         if ($row[2] == "1") { 
             if (empty($id_turma)) {
-                header('Location: login.php?erro=3', true, 301);
+                $_SESSION['id_turma'] = $id_turma; 
+                header('Location: homeP.php', true, 301);
                 exit();
             } else {
                 $sql_turma = "SELECT `id` FROM `turma` WHERE `id` = '$id_turma' AND `id_professor` = '{$row[0]}'";
@@ -53,11 +54,9 @@ if ($conexao->connect_errno) {
                 header('Location: login.php?erro=3', true, 301);
                 exit();
             } else {
-                // Verifique se o aluno pertence à turma através do campo 'professor'
                  $sql = "SELECT id FROM cadastro WHERE id = '{$row[0]}' AND id_turma = '$id_turma';";
                 $resultado = $conexao->query($sql);
                 
-                // Verifique se a consulta retornou resultados
                 if ($resultado->num_rows == 0) {
                     header('Location: login.php?erro=4', true, 301);
                     exit();

@@ -1,97 +1,110 @@
 <?php
 session_start();
+<<<<<<< Updated upstream
 include_once('config.php');
+=======
+$hostname = "127.0.0.1";
+$user = "root";
+$password = "";
+$database = "sa";
+
+$conexao = new mysqli($hostname, $user, $password, $database);
+
+$placa = ($_POST['placa_caminhao']);
+$id = $_POST['id'];
+$id_turma = $_SESSION['id_turma'];
+>>>>>>> Stashed changes
 
 if ($conexao->connect_errno) {
 	echo "Failed to connect to MySQL: " . $conexao->connect_error;
 	exit();
 } else {
+<<<<<<< Updated upstream
 	$placa = ($_POST['placa_caminhao']);
 	$id_turma = $_SESSION['id_turma'];
 
 	if ($_POST['desgastado'] != "") {
+=======
+	if (isset($_POST['desgastado']) && $_POST['desgastado'] != "") {
+>>>>>>> Stashed changes
 		$desgastado = 1;
-	} else {
+	  } else {
 		$desgastado = 0;
-	}
-	if ($_POST['avaria_esquerda'] != "") {
+	  }
+	  if (isset($_POST['avaria_esquerda']) && $_POST['avaria_esquerda'] != "") {
 		$avaria_esq = 1;
-	} else {
+	  } else {
 		$avaria_esq = 0;
-	}
-	if ($_POST['avaria_direita'] != "") {
+	  }
+	  if (isset($_POST['avaria_direita']) && $_POST['avaria_direita'] != "") {
 		$avaria_dir = 1;
-	} else {
+	  } else {
 		$avaria_dir = 0;
-	}
-	if ($_POST['avaria_teto'] != "") {
+	  }
+	  if (isset($_POST['avaria_teto']) && $_POST['avaria_teto'] != "") {
 		$avaria_teto = 1;
-	} else {
+	  } else {
 		$avaria_teto = 0;
-	}
-	if ($_POST['avaria_frente'] != "") {
+	  }
+	  if (isset($_POST['avaria_frente']) && $_POST['avaria_frente'] != "") {
 		$avaria_fre = 1;
-	} else {
+	  } else {
 		$avaria_fre = 0;
-	}
-	if ($_POST['sem_lacre'] != "") {
+	  }
+	  if (isset($_POST['sem_lacre']) && $_POST['sem_lacre'] != "") {
 		$sem_lacre = 1;
-	} else {
+	  } else {
 		$sem_lacre = 0;
-	}
-	if ($_POST['adesivo_avaria'] != "") {
+	  }
+	  if (isset($_POST['adesivo_avaria']) && $_POST['adesivo_avaria'] != "") {
 		$adesivo_ava = 1;
-	} else {
+	  } else {
 		$adesivo_ava = 0;
-	}
-	if ($_POST['execesso_altura'] != "") {
+	  }
+	  if (isset($_POST['execesso_altura']) && $_POST['execesso_altura'] != "") {
 		$execesso_alt = 1;
-	} else {
+	  } else {
 		$execesso_alt = 0;
-	}
-	if ($_POST['execesso_direita'] != "") {
+	  }
+	  if (isset($_POST['execesso_direita']) && $_POST['execesso_direita'] != "") {
 		$execesso_dir = 1;
-	} else {
+	  } else {
 		$execesso_dir = 0;
-	}
-	if ($_POST['execesso_esquerda'] != "") {
+	  }
+	  if (isset($_POST['execesso_esquerda']) && $_POST['execesso_esquerda'] != "") {
 		$execesso_esq = 1;
-	} else {
+	  } else {
 		$execesso_esq = 0;
-	}
-	if ($_POST['execesso_frontal'] != "") {
+	  }
+	  if (isset($_POST['execesso_frontal']) && $_POST['execesso_frontal'] != "") {
 		$execesso_fro = 1;
-	} else {
+	  } else {
 		$execesso_fro = 0;
-	}
-	if ($_POST['painel_avaria'] != "") {
+	  }
+	  if (isset($_POST['painel_avaria']) && $_POST['painel_avaria'] != "") {
 		$painel_ava = 1;
-	} else {
+	  } else {
 		$painel_ava = 0;
-	}
-	if ($_POST['sem_caboenergia'] != "") {
+	  }
+	  if (isset($_POST['sem_caboenergia']) && $_POST['sem_caboenergia'] != "") {
 		$sem_cabo = 1;
-	} else {
+	  } else {
 		$sem_cabo = 0;
-	}
-	if ($_POST['sem_lona'] != "") {
+	  }
+	  if (isset($_POST['sem_lona']) && $_POST['sem_lona'] != "") {
 		$sem_lona = 1;
-	} else {
+	  } else {
 		$sem_lona = 0;
-	}
-	$id = $_GET['idPlaca'];
+	  }	  
 	
 	$sql = "UPDATE `container` SET `desgastado` = '$desgastado', `avaria_esquerda`= '$avaria_esq', `avaria_direita` = '$avaria_dir', `avaria_teto` ='$avaria_teto', `avaria_frente` = '$avaria_fre', `sem_lacre` = '$sem_lacre', `adesivo_avaria` = '$avaria_fre', `execesso_altura` = '$execesso_alt', `execesso_direita` = '$execesso_dir', `execesso_esquerda` = '$execesso_esq', `execesso_frontal` = '$execesso_fro', `painel_avaria` = '$painel_ava', `sem_caboenergia` = '$sem_cabo', `sem_lona` = '$sem_lona'
 			WHERE id = '$id' AND id_turma = '$id_turma';";
-
-	echo $sql;
 
 		$resultado = $conexao->query($sql);
 
 	if (!$resultado) {
 		echo "Erro: " . $conexao->error;
 	} else {
-		header("Location: container.php");
-		exit();
+		header('Location: container.php?sucesso=1');
 	}
 }

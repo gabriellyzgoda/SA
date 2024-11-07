@@ -218,6 +218,9 @@ if (isset($_SESSION['id_turma'])) {
         </thead>
         <tbody>
           <?php
+            if(empty($id_turma)){
+              echo "Nenhuma turma selecionada";
+            }
             $id_professor = $_SESSION['id']; 
 
             $sqlProfessor = "SELECT cadastro.id AS id, cadastro.nome AS nome_aluno, turma.nome AS nome_turma, cadastro.senha AS senha, cadastro.cargo AS cargo
@@ -227,9 +230,6 @@ if (isset($_SESSION['id_turma'])) {
                               ";
 
             $resultado = $conexao->query($sqlProfessor);
-            if (!$resultado) {
-                die("Erro na consulta: " . $conexao->error);
-            }
 
             while ($user_data = $resultado->fetch_assoc()) {
               echo "<tr>";
@@ -248,7 +248,6 @@ if (isset($_SESSION['id_turma'])) {
               <?php
               echo "</tr>";
           }
-          
           ?>
         </tbody>
       </table>
