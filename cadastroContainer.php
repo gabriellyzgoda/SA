@@ -1,32 +1,15 @@
 <?php
 session_start();
-<<<<<<< Updated upstream
 include_once('config.php');
-=======
-$hostname = "127.0.0.1";
-$user = "root";
-$password = "";
-$database = "sa";
-
-$conexao = new mysqli($hostname, $user, $password, $database);
-
-$placa = ($_POST['placa_caminhao']);
-$id = $_POST['id'];
-$id_turma = $_SESSION['id_turma'];
->>>>>>> Stashed changes
 
 if ($conexao->connect_errno) {
 	echo "Failed to connect to MySQL: " . $conexao->connect_error;
 	exit();
 } else {
-<<<<<<< Updated upstream
 	$placa = ($_POST['placa_caminhao']);
 	$id_turma = $_SESSION['id_turma'];
 
 	if ($_POST['desgastado'] != "") {
-=======
-	if (isset($_POST['desgastado']) && $_POST['desgastado'] != "") {
->>>>>>> Stashed changes
 		$desgastado = 1;
 	  } else {
 		$desgastado = 0;
