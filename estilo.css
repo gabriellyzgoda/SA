@@ -1,11 +1,8 @@
-body, html{
+body, html {
     height: 100%;
     width: 100%;
-    margin: 0px;
+    margin: 0;
     background-color: #85C4F9;
-}
-
-body {
     display: flex;
     justify-content: center;
 }
@@ -16,6 +13,7 @@ body {
     height: 100%;
 }
 
+/* Estilo das redes sociais */
 .social {
     margin: 55px 150px;
     display: flex;
@@ -34,6 +32,7 @@ body {
     margin: 140px 0px 70px 0px;
 }
 
+/* Estilo do botão iniciar */
 .iniciar {
     display: flex;
     justify-content: center;
@@ -55,8 +54,147 @@ body {
     transition: all 0.4s ease;
 }
 
-.icons i:hover {
-    color: #063f6f;
-    transition: all 0.3s ease;
+/* Estilo do pop-up modal */
+.form-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #8bcded;
+    padding: 20px;
+    width: auto;
+    z-index: 1001;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
 
+/* Estilo do overlay (fundo escuro) */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Estilo do formulário */
+.config-form {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    color: #fff;
+    font-weight: 500;
+    font-family: "League Spartan", sans-serif;
+}
+
+.config-form label {
+    margin: 5px 0px;
+}
+
+.config-form input {
+    margin: 5px 0px;
+    width: 90%;
+    height: auto;
+    border-color: #acacac;
+    border-radius: 11px;
+    background-color: #ffffff;
+    font-family: "League Spartan", sans-serif;
+    color: #8bcded;
+    font-weight: 500;
+    font-size: 23px;
+    padding: 7px 5px;
+}
+
+/* Estilo dos botões */
+.botoes-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 25px 5px 5px 5px;
+}
+
+.botoes-form button {
+    font-size: 24px;
+    color: #fff;
+    background-color: #8bcded;
+    border: 2px solid #fff;
+    font-family: "League Spartan", sans-serif;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 5px;
+}
+
+.botoes-form button:hover {
+    transition: all 0.2s ease;
+    background-color: #379bcb;
+} 
+.newPassword {
+    display: flex;
+    align-items: center;
+    max-width: 255px;
+  }
+ 
+  .newPassword input {
+    margin: 5px 0px;
+    flex: 5;
+    height: auto;
+    border-color: #acacac;
+    border-radius: 0px;
+    border-top-left-radius: 11px;
+    border-bottom-left-radius: 11px;
+    background-color: #ffffff;
+    font-family: "League Spartan", sans-serif;
+    color: #8bcded;
+    font-weight: 500;
+    font-size: 23px;
+    border-right: none;
+    padding: 7px 5px;
+  }
+ 
+  .newPassword button {
+    flex: 1;
+    padding: 0px;
+    margin: 0px;
+    width: 10px;
+    height: 39px;
+    border-top-right-radius: 11px;
+    border-bottom-right-radius: 11px;
+    border-color: #acacac;
+    border-left :none;
+  }
+ 
+  .newPassword button i {
+     font-size: 18px;
+  }
+  .mensagem-erro p {
+    color: #fff;
+    font-family: "League Spartan", sans-serif;
+    font-size: 20px;
+}
+
+.mensagem-erro {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #fff;
+    width: 350px;
+    height: auto;
+    box-shadow: 1px 9px 21px #0a09094f;
+}
+
+.linha-erro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.linhaBotao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
