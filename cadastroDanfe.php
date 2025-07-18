@@ -14,6 +14,7 @@ include_once('config.php');
 				$hora = $conexao -> real_escape_string($_POST['hora_emissao']);
 
 				$pedido = $conexao->real_escape_string($_POST['pedido']);
+				$id_turma = $_SESSION['id_turma'];
 
 				if($_POST['entrada'] != ""){
 					$operacao = 1;
@@ -21,9 +22,9 @@ include_once('config.php');
 					$operacao = 0;
 				}
 				$sql = "INSERT INTO `danfe`
-                            (`id`,`codbarra`, `n`, `serie`, `operacao`, `data_emissao`, `hora_emissao`) 
+                            (`id`,`codbarra`, `n`, `serie`, `operacao`, `data_emissao`, `hora_emissao`, `id_turma`) 
                         VALUES 
-							('".$chave."','".$cod."', '".$numero."', '".$serie."', '".$operacao."','".$data."', '".$hora."');";
+							('".$chave."','".$cod."', '".$numero."', '".$serie."', '".$operacao."','".$data."', '".$hora."', '".$id_turma."');";
 echo $sql;
 				$resultado = $conexao->query($sql);
 
